@@ -71,23 +71,6 @@
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "FrontPage.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "ProblemDescription.lyx"
 
 \end_inset
