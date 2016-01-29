@@ -24,6 +24,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -115,12 +116,26 @@ etric (GQM) approach is focused on defining useful questions with measurable
  metrics.
  To achieve this GQM works in a top-down fashion resulting in a measurement
  model with three levels.
- This model, shown in figure X, is defined with a goal as the conceptual
- level, the question being the operational level, and metric on the quantitative
- level.
+ This model, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Goal-Question-Metric."
+
+\end_inset
+
+, is defined with a goal as the conceptual level, the question being the
+ operational level, and metric on the quantitative level.
 \end_layout
 
 \begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Graphics
@@ -130,10 +145,30 @@ etric (GQM) approach is focused on defining useful questions with measurable
 \end_inset
 
 
-\begin_inset Newline newline
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Goal Question Metric.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Goal-Question-Metric."
+
 \end_inset
 
-Figure X - Goal Question Metric
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -144,10 +179,25 @@ This hierarchical structure starting with the goal specifying the purpose/issue
  Each question is then further refined into metrics, which are either objective
  or somewhat subjective in nature, ie.
  customer satisfaction is hard to measure completely objectively.
- Table X shows an example of the GQM in practice.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Goal-Question-Metric"
+
+\end_inset
+
+ shows an example of the GQM in practice.
 \end_layout
 
 \begin_layout Standard
+\noindent
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Tabular
@@ -416,10 +466,30 @@ Subjective rating of managers satisfaction
 \end_inset
 
 
-\begin_inset Newline newline
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Goal Question Metric
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Goal-Question-Metric"
+
 \end_inset
 
-Table X - Goal Question Metric
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -434,11 +504,33 @@ Research Goals
 \end_layout
 
 \begin_layout Standard
-Table X through X shows our overarching goals as well as the research questions
- they have been broken down into, as well as the metrics for the questions.
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Research-Goal-1"
+
+\end_inset
+
+ through 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Research-Goal-3"
+
+\end_inset
+
+ shows our overarching goals as well as the research questions they have
+ been broken down into, as well as the metrics for the questions.
  The main purpose of this report is to provide satisfactory answers for
  these questions.
 \end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -762,14 +854,39 @@ Literature study
 
 \end_inset
 
+ 
+\begin_inset Caption Standard
 
-\begin_inset Newline newline
+\begin_layout Plain Layout
+Research Goal 1
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Research-Goal-1"
+
 \end_inset
 
-Table X - Research Goal 1
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\noindent
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Tabular
@@ -1079,10 +1196,39 @@ Questionnaire
 \begin_inset Newline newline
 \end_inset
 
-Table X - Research Goal 2
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Research Goal 2
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Research-Goal-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\noindent
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Tabular
@@ -1288,7 +1434,28 @@ Literature study
 \begin_inset Newline newline
 \end_inset
 
-Table X - Research Goal 3
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Research Goal 3
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Research-Goal-3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
