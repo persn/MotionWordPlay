@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace NTNU.MotionWordPlay
+﻿namespace NTNU.MotionWordPlay
 {
+    using System;
+
 #if WINDOWS || LINUX
     /// <summary>
     /// The main class.
@@ -14,7 +14,7 @@ namespace NTNU.MotionWordPlay
         [STAThread]
         private static void Main()
         {
-            using (Game1 game = new Game1())
+            using (Game game = new Game())
             {
                 game.Run();
             }

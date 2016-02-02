@@ -57,8 +57,17 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Code\Game1.cs">
-      <Link>Game1.cs</Link>
+    <Compile Include="..\..\Code\FrameState.cs">
+      <Link>FrameState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Code\Game.cs">
+      <Link>Game.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Code\IGameLoop.cs">
+      <Link>IGameLoop.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Code\MotionController.cs">
+      <Link>MotionController.cs</Link>
     </Compile>
     <Compile Include="..\..\Code\Program.cs">
       <Link>Program.cs</Link>
@@ -71,6 +80,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
