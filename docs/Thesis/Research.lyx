@@ -24,7 +24,9 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -53,8 +55,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -70,6 +72,317 @@
 
 \begin_layout Section
 Research
+\end_layout
+
+\begin_layout Subsection
+Designing an Engaging Game
+\end_layout
+
+\begin_layout Standard
+In terms of technology game development have changed drastically over the
+ years, and will continue to do so.
+ However, when it comes to the core aspects of game development, there hasn’t
+ been any real change.
+ The reason people still play games is because they still find them fun,
+ and the reason for this haven’t changed on a fundamental level.
+ This means that the article by Malone
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Malone"
+
+\end_inset
+
+ about what makes games intrinsically motivating, as well as the study by
+ Sweetser and Wyeth
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GameFlow"
+
+\end_inset
+
+ on flow elements in games, based upon Mihaly Csikszentmihalyis studies
+ on flow, are still relevant for this project.
+ All of these studies have researched the psychology behind things we find
+ interesting, and isolated it to apply to game elements such as the user
+ interface and sounds.
+ Although Malone lists five things that are important for a game to be engaging,
+ and Sweetser and Wyeth identifies eight different flow elements, they can
+ be broken down to three main categories.
+ These categories are challenge, fantasy, and curiosity.
+\end_layout
+
+\begin_layout Subsubsection
+Intrinsic and Extrinsic Motivation
+\end_layout
+
+\begin_layout Standard
+Intrinsic motivation comes from a sense of accomplishment and enjoyment,
+ something you do just because you enjoy doing it.
+ Whereas extrinsic motivation involves some external factor motivating you
+ to do something, either to gain a reward or avoid some negative consequence.
+ Hobbies are mostly intrinsically motivated as this is something people
+ do for their own enjoyment, while work and most day to day tasks such as
+ cleaning are extrinsically motivated.
+\end_layout
+
+\begin_layout Standard
+There is also a special phenomenon related to this called the overjustification
+ effect.
+ This occurs when you provide someone that is already intrinsically motivated
+ for a task with an additional extrinsic motivation.
+ The result of this is that the degree of intrinsic motivation diminishes
+ because the activity now feels less fulfilling when the external reward
+ is missing.
+ Games are for most people mostly intrinsically motivated, the enjoyment
+ comes from the feelings of accomplishment that often accompanies the effect
+ of flow, or being in the zone.
+ Achieving this is reliant on several factors within the three categories
+ mentioned above.
+\end_layout
+
+\begin_layout Subsubsection
+Challenge
+\end_layout
+
+\begin_layout Standard
+Creating a suitable level of difficulty is possibly the hardest part about
+ designing a game, and often also the most important part.
+ Suitable in this context does not entail a single level of difficulty,
+ but scaling it in a way that keeps it on a level that changes according
+ to the player's own skill development.
+ If a game is too easy the player will get bored and lose interest, while
+ if it’s too difficulty frustration will occur and the player might give
+ up.
+ Most games today become more challenging as you progress, unlocking more
+ complex mechanics or harder enemies, in addition to often giving a choice
+ to select a preferred difficulty level before starting the game.
+ Competitive multiplayer games handle this by matching players of similar
+ experience and skill together to even the playing field, often by also
+ giving players a transparent ranking system to track their own and other
+ people's progress.
+\end_layout
+
+\begin_layout Standard
+First of all, to achieve a challenge you must present a goal that needs
+ to be reached.
+ This goal then needs to be clearly defined, so that the player knows what
+ to do, and there needs to be clear feedback on the progress towards said
+ goal.
+ A fact that is especially important in serious/educational games is that
+ the goal itself is not to learn, but learning is a way to achieve the goal.
+ The purpose of the game, and the goals in the game itself, are usually
+ not the same.
+ For instance in a driving simulator a good goal would be getting safely
+ to a destination, not “learning to drive safely” which is the skill required
+ to reach the goal.
+\end_layout
+
+\begin_layout Standard
+To avoid players dismissing the game too soon, it should require little
+ to no knowledge before starting the game, it should be possible to jump
+ straight into the game and get started without reading the manual.
+ In most games this is achieved by having one or more tutorial levels in
+ the start of the game to familiarize the player with the basic mechanics,
+ controls, and graphics interface.
+ This makes the initial learning necessities an integrated part of the game,
+ which avoids the need to look for external sources of information.
+ Introduction of new game mechanics and other rule changes should be introduced
+ gradually so the player is not overwhelmed at the beginning, while also
+ making the game more challenging as it progresses.
+ Doing this ensures that the challenge ramps up as the player’s skill increases.
+\end_layout
+
+\begin_layout Standard
+Lastly, the game controls are a very important aspect.
+ The player needs to feel that he is in control of his character and/or
+ units, and be able to issue commands effectively.
+ To attain a large enough level of control for the player it is important
+ to consider all aspects of the game interface.
+ Input devices need to be responsive and precise.
+ The graphics interface, including sound, need to show feedback immediately
+ when required as a response to commands from the player.
+ If the interfaces are too clunky to use it won’t matter how intriguing
+ the story is, or how good the mechanics are, the player will stop playing
+ the game because of undue frustration.
+ It is also important that the player feels that he is discovering and planning
+ strategies on his own, not just uncovering what the designers put in place.
+ If this is done poorly it will feel more like pressing buttons to play
+ a movie instead of a game.
+\end_layout
+
+\begin_layout Standard
+All in all the challenge aspect has a huge impact in how a game is perceived
+ by the player, and is a very important part of the design process.
+ Most aspects of a game relates to challenge in one way or another, even
+ if it is just displaying the current objective or playing a sound when
+ a point is scored.
+\end_layout
+
+\begin_layout Subsubsection
+Fantasy
+\end_layout
+
+\begin_layout Standard
+Computer games in general involve a fantasy aspect.
+ The different implementations however vary widely, including both extrinsic
+ and intrinsic fantasies.
+ Common for all is that the fantasies are used to invoke curiosity and interest
+ in playing the game.
+ Fantasies that are very emotionally involving including topics like war,
+ competition and destruction are more popular than the ones that invoke
+ very little emotional involvement.
+\end_layout
+
+\begin_layout Standard
+Fantasies are categorized as either extrinsic or intrinsic, shown in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Extrinsic-and-Intrinsic"
+
+\end_inset
+
+.
+ Extrinsic fantasies depend on the correct usage of a skill, such as right
+ or wrong answers, or the time it takes to answer.
+ In these types of games the fantasy itself has no impact on the skill usage,
+ the actual problem could easily be presented in a myriad of other ways,
+ one example of a game with an extrinsic fantasy is hangman.
+ For intrinsic fantasies the usage of the skill also depends on what happens
+ in the fantasy, the required responses change as input is given to the
+ game.
+ In a racing game for instance, the current speed would impact the amount
+ of time needed to take a turn.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/ExtrinsicIntrinsicFantasy.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Extrinsic and Intrinsic Fantasy
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Extrinsic-and-Intrinsic"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These fantasies have a wide range of realism, often varied to suit the skills
+ needed to complete the given goals.
+ For instance an arcade focused racing game could quickly become boring
+ if the player had to constantly keep track of fuel, oil pressure, and other
+ small tasks, however these things could be very helpful if the game was
+ intended to train professional drivers instead.
+ Depending on whether the fantasy is extrinsic or intrinsic, and the amount
+ of realism involved, the skills acquired from playing the game could in
+ some cases be applicable to a real world counterpart of the fantasy, like
+ in a driving simulator.
+\end_layout
+
+\begin_layout Subsubsection
+\noindent
+Curiosity
+\end_layout
+
+\begin_layout Standard
+Invoking the player's curiosity is a crucial part in maintaining their interest
+ in the game.
+ This is also highly dependant on the challenge level.
+ The complexity of the required by the game has to be balanced towards the
+ player's current level of knowledge.
+ Optimally, the player should have enough knowledge about the environment
+ that he can predict what might happen, but also still be surprised by being
+ wrong.
+ Although challenge and curiosity are closely related, it is more beneficial
+ from an analytical standpoint to look at them individually.
+ Curiosity is also divided into two categories, sensory and cognitive.
+\end_layout
+
+\begin_layout Quote
+“Challenge could be explained as curiosity about one’s own ability.
+ Curiosity could be explained as a challenge to one’s understanding” - Thomas
+ W.
+ Malone
+\end_layout
+
+\begin_layout Standard
+Sensory curiosity is the response to changes in the environment, such as
+ light, sound, or movement.
+ In his book “Four Arguments for the Elimination of Television”, Jerry Mander
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ElimTellie"
+
+\end_inset
+
+ makes an interesting observation regarding how this is manipulated in different
+ types of television programs.
+ He notes the number of “technical events” such as camera angle changes,
+ zoom, and similar changes to the picture per minute.
+ The average number of events for commercials were 20 to 30, while regular
+ programs has about 8 to 10, with public television on 2 to 3.
+ This shows that adding more events can be a simple way to boost interest
+ by engaging the sensory curiosity.
+\end_layout
+
+\begin_layout Standard
+Cognitive curiosity is based upon wanting to expand on currently existing
+ knowledge.
+ The degree of curiosity is largely related to the knowledge one already
+ has about a subject.
+ With no knowledge at all, the curiosity level is normally low to nonexistent,
+ while having a good grasp on a subject more often will lead to wanting
+ to learn even more.
+ You are much more likely to want to finish a story that is ninety percent
+ complete compared to ten percent complete.
+ Cognitive curiosity is also triggered by getting information that at first
+ conflicts with what is currently known.
+ For instance knowing that plants survive by photosynthesis, then hearing
+ about plants that survive in complete darkness.
+\end_layout
+
+\begin_layout Standard
+Utilizing this information in games can be done by graphical or sound effect
+ to arouse sensory curiosity, and by handling the information flow carefully
+ to match the players current knowledge.
+ The feedback and responses to actions should be clear and concise, with
+ the accompanying information being constructive to aid in the educational
+ aspect where applicable.
 \end_layout
 
 \end_body
