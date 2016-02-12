@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -53,8 +54,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -70,6 +71,117 @@
 
 \begin_layout Section
 Design and Development
+\end_layout
+
+\begin_layout Subsection
+Game Concept
+\end_layout
+
+\begin_layout Standard
+Grammar focused multiplayer educational game based on sorting words.
+ While the gameplay and functionality could easily be used for other educational
+ topics, we believe that language, especially grammar, is the subject where
+ the need for a motivational boost is most urgent.
+\end_layout
+
+\begin_layout Subsubsection
+Target Audience
+\end_layout
+
+\begin_layout Standard
+The game is primarily targeted towards elementary school children that needs
+ a motivation boost to take an interest in the written language and the
+ rules behind it.
+ Grammar, wordplay, etc.
+ is something we find that most people are bored with easily.
+ This leads to a lack of practice which in turn leads to a lack of knowledge.
+ We believe that introducing an element of social interaction, both in terms
+ of competitiveness and discussion, will increase the motivation to learn
+ about these topics.
+\end_layout
+
+\begin_layout Subsubsection
+Gameplay
+\end_layout
+
+\begin_layout Paragraph
+Main game flow:
+\end_layout
+
+\begin_layout Enumerate
+The game presents the problem along with a short countdown.
+\end_layout
+
+\begin_layout Enumerate
+The game then reveals the initial ordering of the words, and starts deducting
+ points for time spent.
+\end_layout
+
+\begin_layout Enumerate
+Players arrange the words into what they believe is the correct order.
+\end_layout
+
+\begin_layout Enumerate
+Players lock in their answer.
+\end_layout
+
+\begin_layout Enumerate
+The game shows feedback on whether the answer was correct or not.
+ If the answer is incorrect: moves back to 3.
+ and deducts points for every word in the wrong position.
+ Additional reductions if there are several misses in a row to discourage
+ a try/fail approach.
+\end_layout
+
+\begin_layout Enumerate
+Correct answer adds points based on time spent, and a bonus if correct on
+ first try.
+\end_layout
+
+\begin_layout Enumerate
+If the time or number of problem limit is reached the game proceeds to the
+ score screen, else it goes back to 1.
+\end_layout
+
+\begin_layout Paragraph
+Problem types:
+\end_layout
+
+\begin_layout Itemize
+Arranging sentences: Scrambled sentences that needs rearranging to become
+ grammatically correct.
+\end_layout
+
+\begin_layout Itemize
+Word classes: Identifying and placing words in the right categories such
+ as Nouns, Verbs or Adjectives.
+\end_layout
+
+\begin_layout Itemize
+Verb tenses: Ordering a verbs tenses in the correct order.
+\end_layout
+
+\begin_layout Subsubsection
+Interface/Controls
+\end_layout
+
+\begin_layout Paragraph
+Moving words:
+\end_layout
+
+\begin_layout Standard
+Each player will have a word tied to their position relative to the other
+ players.
+ When the players change position between themselves the words will also
+ move accordingly.
+\end_layout
+
+\begin_layout Paragraph
+Locking answers:
+\end_layout
+
+\begin_layout Standard
+All players must make a gesture, like raising their hands, at the same time.
 \end_layout
 
 \end_body
