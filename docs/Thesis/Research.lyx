@@ -75,6 +75,496 @@ Research
 \end_layout
 
 \begin_layout Subsection
+Serious Games
+\end_layout
+
+\begin_layout Standard
+There is no formal definition for serious games, but most attempts converge
+ towards “A game that has a purpose other than entertainment”.
+ The term serious game predates computer games, but the principles remain
+ the same, and computer technology have greatly increased the possibilities.
+ 
+\end_layout
+
+\begin_layout Quote
+“Reduced to its formal essence, a game is an activity among two or more
+ independent decision-makers seeking to achieve their objectives in some
+ limiting context.
+ A more conventional definition would say that a game is a context with
+ rules among adversaries trying to win objectives.
+ We are concerned with serious games in the sense that these games have
+ an explicit and carefully thought-out educational purpose and are not intended
+ to be played primarily for amusement.” Serious Games, Clark Abt, 1970
+\end_layout
+
+\begin_layout Standard
+Most serious games are meant to be entertaining as this is the main motivation
+ behind calling them games in the first place.
+ These games are supposed to assist in education, training, or other purposes
+ such as marketing.
+ In the marketing case the games are in a large degree just normal games
+ with an elevated degree of product placement, while games that focus on
+ education and training often see substantial differences when compared
+ to regular games only meant for the purpose of entertaining.
+ While a lot of the serious games developed over the years have been focused
+ on regular education such as language and math, these have not proven very
+ successful.
+ The most successful versions of serious games are those focused around
+ situations and skills that are difficult to exercise due to being either
+ too dangerous, time consuming, or expensive.
+\end_layout
+
+\begin_layout Subsubsection
+Common Types of Serious Games
+\end_layout
+
+\begin_layout Paragraph
+Edutainment:
+\end_layout
+
+\begin_layout Standard
+As the name suggests, edutainment is a term used for entertainment that
+ is designed to also educate.
+ Most of these focus primarily on the entertainment part, with the educative
+ components are a small part of the whole.
+ But there are cases which are almost purely educational with little to
+ no focus on the entertainment value.
+ Video games intended for edutainment started out in the 1980’s when computers
+ began being available for classroom use, and games including Oregon Trail
+ and the Munchers series gained popularity.
+ With computers becoming more common over the 1990’s, the number of edutainment
+ games exploded.
+ However, the interest for these games did not last, as most of them were
+ generally bad.
+ 
+\end_layout
+
+\begin_layout Quote
+“Most existing edutainment products combine the entertainment value of a
+ bad lecture with the educational value of a bad game” Squire & Jenkins,
+ 2003, p.8
+\end_layout
+
+\begin_layout Standard
+Much of the reason for the failing of these games was that they usually
+ were just a variation on drilling exercises, repeating the same task over
+ and over.
+ Games that went in a different direction, by promoting creative thinking
+ and unusual problems became popular, one such game was The Incredible Machine
+ or TIM.
+ This type of game have not found their way into classrooms in the same
+ degree as the ones from the early 80’, much due to the fact that they do
+ not fit any particular curriculum.
+ Judging by the trends over the years, it is most likely that in the future
+ we will not have games dedicated to teaching specifics subjects in the
+ degree that we have seen.
+ Instead we will probably have more game technology included in the traditional
+ teaching, such as the general-purpose quiz game Kahoot! as shown in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Kahoot!"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/Kahoot.png
+	scale 33
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Kahoot!
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Kahoot!"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Games for Health:
+\end_layout
+
+\begin_layout Standard
+Health focused serious game is one of the fastest growing sub genres, with
+ a wide range of applications.
+ Many of these games utilize the motivational factor of games to lessen
+ the burden of more monotonous tasks for instance in physical therapy.
+ In some cases the act of gaming itself has proven beneficial in terms of
+ health, many stroke patients have shown increased recovery rate from the
+ fine hand-eye coordination required in many games.
+ There have also been shown a correlation between gaming experience and
+ performance in laparoscopic surgery.
+ We also have games like wii fit, that physically tracks the player and
+ help guide workouts, and similar games for rehabilitation.
+ Games have even been used to treat post traumatic stress disorder for war
+ veterans
+\begin_inset CommandInset citation
+LatexCommand cite
+key "VirtualIraq"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Simulation:
+\end_layout
+
+\begin_layout Standard
+Simulation games is a genre by itself, but combined with the serious games
+ term we have a smaller subset consisting of more realistic simulators.
+ This is a broad category including management, life, sports, medical, military,
+ vehicular, social, and more.
+ While most of these are very much games, such as SimCity, there are cases
+ that are more or less equal to their real life counterpart, like very advanced
+ driving simulators with specialized input devices.
+ Simulators have gotten a lot of attention over the years and inspired many
+ impressive setups, not only by professional companies, but also enthusiasts
+ building entire plane cockpits in their garage.
+ One of the largest actors, not only in the simulation business, but also
+ in the serious games business as a whole, is the US military.
+ They have been responsible for creating many different simulations of all
+ kinds of situations, meeting different cultures, war scenarios, vehicular
+ training, environment adaption, and more.
+ In addition to this they have also commissioned two games, America’s Army
+ (2002) and Full Spectrum Warrior (2004) intended for the general public
+ to aid with recruitment and spreading knowledge about the military.
+\end_layout
+
+\begin_layout Subsubsection
+Examples
+\end_layout
+
+\begin_layout Paragraph
+The Oregon Trail:
+\end_layout
+
+\begin_layout Standard
+The Oregon Trail is an “edutainment” title made in the 70’s for the purpose
+ of teaching students about american history, more specifically the 19th
+ century life of the pioneers travelling from Independence to Oregon.
+ Originally the game started out in the classroom as a concept of combining
+ learning with an extra element of fun to grab the attention of the students.
+ The players found it entertaining and it became popular and successful,
+ to the level where people worldwide still talk about it 30-40 years later.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/OregonTrail.jpg
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The Oregon Trail
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-Oregon-Trail"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+The Incredible Machine(TIM):
+\end_layout
+
+\begin_layout Standard
+The Incredible Machine(TIM) is an “edutainment” puzzle game that puts the
+ player in the position of having to solve contraptions similar to a Rube
+ Goldberg machine.
+ TIM challenged players to think outside the box to solve abstract problems
+ and became quite popular, however it was critiqued by teachers for having
+ a game format that was difficult to adapt to a curriculum.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/TIM.jpg
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The Incredible Machine
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-Incredible-Machine"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+America’s Army:
+\end_layout
+
+\begin_layout Standard
+America’s Army is a first person tactical shooter created to provide a virtual
+ experience of being a soldier.
+ The game was published by the US Army in 2002, as a free download.
+ The game has since seen numerous updates and several re-releases on new
+ engines with the latest in 2013.
+ Despite being what could be called a PR stunt, the game was well received
+ with great review scores and several awards.
+ Much of this reception is credited to the realistic portrayal of soldiering,
+ including basic training and not just the gamified fighting that most similar
+ games portray.
+ It also includes an optional medical training, which has been credited
+ to saving lives in at least two situations, where players used the knowledge
+ from the game in actual emergencies.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/AA.jpg
+	scale 49
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+America's Army
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:America's-Army"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+X-Plane:
+\end_layout
+
+\begin_layout Standard
+X-Plane is a “Simulation” title, more specifically a flight simulator that
+ aims to deliver a realistic flying experience.
+ It is FAA approved and is used for pilot training[ref], advertising such
+ features as Artificially Controlled Air Traffic Controller, an extensive
+ amount of airports from real life, a wide range of aircrafts available,
+ training on autopilot and other things.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/XPlane.jpg
+	lyxscale 25
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+X-Plane
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:X-Plane"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Wii Fit:
+\end_layout
+
+\begin_layout Standard
+Wii Fit is a “Games for Health” title for the Nintendo Wii that by an extra
+ peripheral allowed the players to do exercises and measure BMI amongst
+ other things in their living room.
+ The effectiveness of the Wii Fit has been debated, as the intensity in
+ the exercises is lackluster and will most likely not yield much benefits
+ unless the player was in poor shape to begin with.
+ It has however been reported with successful use in the field of physiotherapy
+ rehabilitation.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/WiiFit.jpg
+	scale 54
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wii Fit
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Wii-Fit"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Designing an Engaging Game
 \end_layout
 
