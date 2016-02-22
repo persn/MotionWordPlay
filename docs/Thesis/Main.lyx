@@ -230,23 +230,6 @@ filename "Introduction.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "Methodology.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "Research.lyx"
 
 \end_inset
@@ -264,7 +247,7 @@ filename "Research.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "DesignDevelopment.lyx"
+filename "OwnContribution.lyx"
 
 \end_inset
 
@@ -279,36 +262,6 @@ filename "DesignDevelopment.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "EmpiricalStudy.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "Discussion.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
 
 \end_layout
 

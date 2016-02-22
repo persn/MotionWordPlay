@@ -68,8 +68,27 @@
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Part
 Conclusion
+\end_layout
+
+\begin_layout Standard
+Placeholder Intro
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Summary
+\end_layout
+
+\begin_layout Section
+Future Work
 \end_layout
 
 \end_body

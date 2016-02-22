@@ -70,11 +70,22 @@
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Part
 Research
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
+Placeholder Intro
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Motion Capture Technology
 \end_layout
 
@@ -101,7 +112,7 @@ Motion capture, or motion tracking, is defined as the process of recording
  at a fraction of the cost.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Microsoft Kinect
 \end_layout
 
@@ -126,7 +137,7 @@ The Kinect is Microsoft’s version of motion tracking for the home consoles,
  capture.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Hardware Comparison
 \end_layout
 
@@ -568,7 +579,7 @@ name "tab:Kinect-Hardware-Specification"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Software
 \end_layout
 
@@ -993,7 +1004,7 @@ Kinect SDK Comparison
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Serious Games
 \end_layout
 
@@ -1033,12 +1044,12 @@ Most serious games are meant to be entertaining as this is the main motivation
  too dangerous, time consuming, or expensive.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Common Types of Serious Games
 \end_layout
 
-\begin_layout Paragraph
-Edutainment:
+\begin_layout Subsubsection
+Edutainment
 \end_layout
 
 \begin_layout Standard
@@ -1093,7 +1104,7 @@ reference "fig:Kahoot!"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1133,8 +1144,8 @@ name "fig:Kahoot!"
 
 \end_layout
 
-\begin_layout Paragraph
-Games for Health:
+\begin_layout Subsubsection
+Games for Health
 \end_layout
 
 \begin_layout Standard
@@ -1160,8 +1171,8 @@ key "VirtualIraq"
 .
 \end_layout
 
-\begin_layout Paragraph
-Simulation:
+\begin_layout Subsubsection
+Simulation
 \end_layout
 
 \begin_layout Standard
@@ -1185,12 +1196,12 @@ Simulation games is a genre by itself, but combined with the serious games
  to aid with recruitment and spreading knowledge about the military.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Examples
 \end_layout
 
-\begin_layout Paragraph
-The Oregon Trail:
+\begin_layout Subsubsection
+The Oregon Trail
 \end_layout
 
 \begin_layout Standard
@@ -1245,8 +1256,8 @@ name "fig:The-Oregon-Trail"
 
 \end_layout
 
-\begin_layout Paragraph
-The Incredible Machine(TIM):
+\begin_layout Subsubsection
+The Incredible Machine(TIM)
 \end_layout
 
 \begin_layout Standard
@@ -1304,8 +1315,8 @@ name "fig:The-Incredible-Machine"
 
 \end_layout
 
-\begin_layout Paragraph
-America’s Army:
+\begin_layout Subsubsection
+America’s Army
 \end_layout
 
 \begin_layout Standard
@@ -1366,8 +1377,8 @@ name "fig:America's-Army"
 
 \end_layout
 
-\begin_layout Paragraph
-X-Plane:
+\begin_layout Subsubsection
+X-Plane
 \end_layout
 
 \begin_layout Standard
@@ -1426,8 +1437,8 @@ name "fig:X-Plane"
 
 \end_layout
 
-\begin_layout Paragraph
-Wii Fit:
+\begin_layout Subsubsection
+Wii Fit
 \end_layout
 
 \begin_layout Standard
@@ -1483,7 +1494,7 @@ name "fig:Wii-Fit"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Designing an Engaging Game
 \end_layout
 
@@ -1520,7 +1531,7 @@ key "GameFlow"
  These categories are challenge, fantasy, and curiosity.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Intrinsic and Extrinsic Motivation
 \end_layout
 
@@ -1549,7 +1560,7 @@ There is also a special phenomenon related to this called the overjustification
  mentioned above.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Challenge
 \end_layout
 
@@ -1627,7 +1638,7 @@ All in all the challenge aspect has a huge impact in how a game is perceived
  a point is scored.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Fantasy
 \end_layout
 
@@ -1723,7 +1734,7 @@ These fantasies have a wide range of realism, often varied to suit the skills
  in a driving simulator.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 \noindent
 Curiosity
 \end_layout

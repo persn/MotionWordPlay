@@ -25,7 +25,6 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -54,8 +53,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip smallskip
+\paragraph_separation indent
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -68,6 +67,21 @@
 \end_header
 
 \begin_body
+
+\begin_layout Part
+Own Contribution
+\end_layout
+
+\begin_layout Standard
+Placeholder Intro
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
 
 \begin_layout Section
 Design and Development
@@ -182,6 +196,14 @@ Locking answers:
 
 \begin_layout Standard
 All players must make a gesture, like raising their hands, at the same time.
+\end_layout
+
+\begin_layout Section
+Empirical Study
+\end_layout
+
+\begin_layout Section
+Discussion
 \end_layout
 
 \end_body
