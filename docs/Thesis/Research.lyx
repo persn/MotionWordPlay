@@ -137,6 +137,55 @@ The Kinect is Microsoft’s version of motion tracking for the home consoles,
  capture.
 \end_layout
 
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Kinect.jpg
+	lyxscale 10
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Microsoft Kinect v2 Sensor
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Microsoft-Kinect-v2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Hardware Comparison
 \end_layout
