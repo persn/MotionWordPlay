@@ -6,12 +6,12 @@ namespace NTNU.MotionWordPlay
     using Microsoft.Xna.Framework.Graphics;
     using MotionControlWrapper;
 
-    public class MotionController : IGameLoop
+    public class MotionController : IGameLoop, IDisposable
     {
         private readonly IMotionController _motionController;
-        private readonly Texture2D _currentColorFrame;
-        private readonly Texture2D _currentDepthFrame;
-        private readonly Texture2D _currentInfraredFrame;
+        private Texture2D _currentColorFrame;
+        private Texture2D _currentDepthFrame;
+        private Texture2D _currentInfraredFrame;
 
         public MotionController(GraphicsDevice graphicsDevice)
         {
@@ -21,6 +21,11 @@ namespace NTNU.MotionWordPlay
             _currentColorFrame = LoadTexture(graphicsDevice, _motionController.ColorFrameSize);
             _currentDepthFrame = LoadTexture(graphicsDevice, _motionController.DepthFrameSize);
             _currentInfraredFrame = LoadTexture(graphicsDevice, _motionController.InfraredFrameSize);
+        }
+
+        ~MotionController()
+        {
+            Dispose();
         }
 
         public FrameState CurrentFrameState { get; set; }
@@ -68,6 +73,18 @@ namespace NTNU.MotionWordPlay
                 default:
                     throw new NotSupportedException("Switch case reached somewhere it shouldn't.");
             }
+        }
+
+        public void Dispose()
+        {
+            _currentColorFrame?.Dispose();
+            _currentColorFrame = null;
+
+            _currentDepthFrame?.Dispose();
+            _currentDepthFrame = null;
+
+            _currentInfraredFrame?.Dispose();
+            _currentInfraredFrame = null;
         }
 
         private static Texture2D LoadTexture(GraphicsDevice graphicsDevice, Size size)
