@@ -1,6 +1,10 @@
-public enum FrameState
+namespace NTNU.MotionWordPlay
 {
-    Color,
-    Depth,
-    Infrared
+    public enum FrameState
+    {
+        Color,
+        Depth,
+        Infrared
+    }
 }
+
