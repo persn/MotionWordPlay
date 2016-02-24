@@ -4,7 +4,8 @@ namespace NTNU.MotionWordPlay
     {
         Color,
         Depth,
-        Infrared
+        Infrared,
+        Silhouette
     }
 }
 

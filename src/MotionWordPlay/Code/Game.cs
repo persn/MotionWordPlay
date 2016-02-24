@@ -86,7 +86,8 @@
 
             if (KeyboardCurrentState.IsKeyDown(Keys.D1) ||
                 KeyboardCurrentState.IsKeyDown(Keys.D2) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D3))
+                KeyboardCurrentState.IsKeyDown(Keys.D3) ||
+                KeyboardCurrentState.IsKeyDown(Keys.D4))
             {
                 if (KeyboardCurrentState.IsKeyDown(Keys.D1) &&
                 !KeyboardPreviousState.IsKeyDown(Keys.D1))
@@ -104,6 +105,12 @@
                     !KeyboardPreviousState.IsKeyDown(Keys.D3))
                 {
                     _motionController.CurrentFrameState = FrameState.Infrared;
+                }
+
+                if (KeyboardCurrentState.IsKeyDown(Keys.D4) &&
+                    !KeyboardPreviousState.IsKeyDown(Keys.D4))
+                {
+                    _motionController.CurrentFrameState = FrameState.Silhouette;
                 }
 
                 ChangeDrawScale(_motionController.CurrentFrameState);
@@ -149,6 +156,10 @@
                 case FrameState.Infrared:
                     width = _motionController.InfraredFrameSize.Width;
                     height = _motionController.InfraredFrameSize.Height;
+                    break;
+                case FrameState.Silhouette:
+                    width = _motionController.SilhouetteFrameSize.Width;
+                    height = _motionController.SilhouetteFrameSize.Height;
                     break;
                 default:
                     throw new NotSupportedException("Switch case reached somewhere it shouldn't.");

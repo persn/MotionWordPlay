@@ -12,15 +12,25 @@ namespace NTNU.MotionWordPlay
         private Texture2D _currentColorFrame;
         private Texture2D _currentDepthFrame;
         private Texture2D _currentInfraredFrame;
+        private Texture2D _currentSilhouetteFrame;
 
         public MotionController(GraphicsDevice graphicsDevice)
         {
             _motionController = MotionControllerFactory.CreateMotionController(
                 MotionControllerAPI.Kinectv2);
 
-            _currentColorFrame = LoadTexture(graphicsDevice, _motionController.ColorFrameSize);
-            _currentDepthFrame = LoadTexture(graphicsDevice, _motionController.DepthFrameSize);
-            _currentInfraredFrame = LoadTexture(graphicsDevice, _motionController.InfraredFrameSize);
+            _currentColorFrame = LoadTexture(
+                graphicsDevice,
+                _motionController.ColorFrameSize);
+            _currentDepthFrame = LoadTexture(
+                graphicsDevice,
+                _motionController.DepthFrameSize);
+            _currentInfraredFrame = LoadTexture(
+                graphicsDevice,
+                _motionController.InfraredFrameSize);
+            _currentSilhouetteFrame = LoadTexture(
+                graphicsDevice,
+                _motionController.SilhouetteFrameSize);
         }
 
         ~MotionController()
@@ -32,6 +42,7 @@ namespace NTNU.MotionWordPlay
         public Size ColorFrameSize => _motionController.ColorFrameSize;
         public Size DepthFrameSize => _motionController.DepthFrameSize;
         public Size InfraredFrameSize => _motionController.InfraredFrameSize;
+        public Size SilhouetteFrameSize => _motionController.SilhouetteFrameSize;
 
         public void Update(GameTime gameTime)
         {
@@ -52,6 +63,10 @@ namespace NTNU.MotionWordPlay
                         _currentInfraredFrame,
                         () => _motionController.AcquireLatestInfraredFrame());
                     break;
+                case FrameState.Silhouette:
+                    UpdateFrame(_currentSilhouetteFrame,
+                        () => _motionController.AcquireLatestSilhouetteFrame());
+                    break;
                 default:
                     throw new NotSupportedException("Switch case reached somewhere it shouldn't.");
             }
@@ -70,6 +85,9 @@ namespace NTNU.MotionWordPlay
                 case FrameState.Infrared:
                     DrawFrame(_currentInfraredFrame, spriteBatch);
                     break;
+                case FrameState.Silhouette:
+                    DrawFrame(_currentSilhouetteFrame, spriteBatch);
+                    break;
                 default:
                     throw new NotSupportedException("Switch case reached somewhere it shouldn't.");
             }
@@ -85,6 +103,9 @@ namespace NTNU.MotionWordPlay
 
             _currentInfraredFrame?.Dispose();
             _currentInfraredFrame = null;
+
+            _currentSilhouetteFrame?.Dispose();
+            _currentSilhouetteFrame = null;
         }
 
         private static Texture2D LoadTexture(GraphicsDevice graphicsDevice, Size size)

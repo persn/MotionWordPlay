@@ -20,6 +20,11 @@ namespace NTNU.MotionControlWrapper
         Size InfraredFrameSize { get; }
 
         /// <summary>
+        /// HURR DURR
+        /// </summary>
+        Size SilhouetteFrameSize { get; }
+
+        /// <summary>
         /// Acquire the most recent color frame produced by the MotionController
         /// </summary>
         /// <returns></returns>
@@ -36,5 +41,11 @@ namespace NTNU.MotionControlWrapper
         /// </summary>
         /// <returns></returns>
         byte[] AcquireLatestInfraredFrame();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        byte[] AcquireLatestSilhouetteFrame();
     }
 }
