@@ -2,13 +2,16 @@
 {
     using System;
     using System.Drawing;
-    using System.Linq;
     using Microsoft.Kinect;
 
     public class Kinectv2 : IMotionController
     {
         private const int BytesPerPixelRGBA = 4;
         private const int MapDepthToByte = 8000 / 256;
+        private const float InfraredSourceValueMaximum = ushort.MaxValue;
+        private const float InfraredSourceScale = 0.75f;
+        private const float InfraredOutputValueMinimum = 0.01f;
+        private const float InfraredOutputValueMaximum = 1.0f;
 
         private static readonly uint[] BodyColor =
         {
@@ -118,8 +121,6 @@
 
         public void PollMostRecentInfraredFrame()
         {
-            ushort[] infraredData = new ushort[InfraredFrameDescription.Width * InfraredFrameDescription.Height];
-
             using (InfraredFrame frame = MultiFrame?.InfraredFrameReference.AcquireFrame())
             {
                 if (frame == null)
@@ -127,15 +128,12 @@
                     return; // Could not find multi-frame or infrared-frame
                 }
 
-                frame.CopyFrameDataToArray(infraredData);
-
-                int colorIndex = 0;
-                foreach (byte intensity in infraredData.Select(ir => (byte)(ir >> 8)))
+                using (KinectBuffer buffer = frame.LockImageBuffer())
                 {
-                    MostRecentInfraredFrame[colorIndex++] = intensity;
-                    MostRecentInfraredFrame[colorIndex++] = intensity;
-                    MostRecentInfraredFrame[colorIndex++] = intensity;
-                    MostRecentInfraredFrame[colorIndex++] = 0x00;
+                    if (InfraredFrameDescription.Width * InfraredFrameDescription.Height == buffer.Size / InfraredFrameDescription.BytesPerPixel)
+                    {
+                        ProcessInfraredFrameData(buffer.UnderlyingBuffer, buffer.Size);
+                    }
                 }
             }
         }
@@ -172,13 +170,28 @@
             int pixelIndex = 0;
             for (int i = 0; i < (int)size / DepthFrameDescription.BytesPerPixel; i++)
             {
-                ushort depth = frameData[i];
-                byte pixelIntensity = (byte)(depth >= minDepth && depth <= maxDepth ? (depth / MapDepthToByte) : 0);
+                byte pixelIntensity = (byte)(frameData[i] >= minDepth && frameData[i] <= maxDepth ? (frameData[i] / MapDepthToByte) : 0);
 
                 MostRecentDepthFrame[pixelIndex++] = pixelIntensity;
                 MostRecentDepthFrame[pixelIndex++] = pixelIntensity;
                 MostRecentDepthFrame[pixelIndex++] = pixelIntensity;
                 MostRecentDepthFrame[pixelIndex++] = 0x00;
+            }
+        }
+
+        private unsafe void ProcessInfraredFrameData(IntPtr data, uint size)
+        {
+            ushort* frameData = (ushort*)data;
+
+            int pixelIndex = 0;
+            for (int i = 0; i < size / InfraredFrameDescription.BytesPerPixel; i++)
+            {
+                float pixelIntensity = Math.Min(InfraredOutputValueMaximum, ((frameData[i] / InfraredSourceValueMaximum * InfraredSourceScale) * (1.0f - InfraredOutputValueMinimum)) + InfraredOutputValueMinimum);
+
+                MostRecentInfraredFrame[pixelIndex++] = (byte)(pixelIntensity * 0xFF);
+                MostRecentInfraredFrame[pixelIndex++] = (byte)(pixelIntensity * 0xFF);
+                MostRecentInfraredFrame[pixelIndex++] = (byte)(pixelIntensity * 0xFF);
+                MostRecentInfraredFrame[pixelIndex++] = 0x00;
             }
         }
 
