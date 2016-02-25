@@ -8,6 +8,7 @@
     public class Kinectv2 : IMotionController
     {
         private const int BytesPerPixelRGBA = 4;
+        private const int MapDepthToByte = 8000 / 256;
 
         private static readonly uint[] BodyColor =
         {
@@ -94,8 +95,6 @@
 
         public void PollMostRecentDepthFrame()
         {
-            ushort[] depthData = new ushort[DepthFrameDescription.Width * DepthFrameDescription.Height];
-
             using (DepthFrame frame = MultiFrame?.DepthFrameReference.AcquireFrame())
             {
                 if (frame == null)
@@ -103,19 +102,16 @@
                     return; // Could not find multi-frame or depth-frame
                 }
 
-                ushort minDepth = frame.DepthMinReliableDistance;
-                ushort maxDepth = frame.DepthMaxReliableDistance;
-
-                frame.CopyFrameDataToArray(depthData);
-
-                int colorIndex = 0;
-                foreach (byte intensity in depthData.Select(
-                    depth => (byte)(depth >= minDepth && depth <= maxDepth ? depth : 0)))
+                using (KinectBuffer buffer = frame.LockImageBuffer())
                 {
-                    MostRecentDepthFrame[colorIndex++] = intensity;
-                    MostRecentDepthFrame[colorIndex++] = intensity;
-                    MostRecentDepthFrame[colorIndex++] = intensity;
-                    MostRecentDepthFrame[colorIndex++] = 0x00;
+                    if (DepthFrameDescription.Width * DepthFrameDescription.Height == buffer.Size / DepthFrameDescription.BytesPerPixel)
+                    {
+                        ProcessDepthFrameData(
+                            buffer.UnderlyingBuffer,
+                            buffer.Size,
+                            frame.DepthMinReliableDistance,
+                            ushort.MaxValue);
+                    }
                 }
             }
         }
@@ -162,6 +158,27 @@
                         ProcessSilhouetteData(buffer.UnderlyingBuffer, buffer.Size);
                     }
                 }
+            }
+        }
+
+        private unsafe void ProcessDepthFrameData(
+            IntPtr data,
+            uint size,
+            ushort minDepth,
+            ushort maxDepth)
+        {
+            ushort* frameData = (ushort*)data;
+
+            int pixelIndex = 0;
+            for (int i = 0; i < (int)size / DepthFrameDescription.BytesPerPixel; i++)
+            {
+                ushort depth = frameData[i];
+                byte pixelIntensity = (byte)(depth >= minDepth && depth <= maxDepth ? (depth / MapDepthToByte) : 0);
+
+                MostRecentDepthFrame[pixelIndex++] = pixelIntensity;
+                MostRecentDepthFrame[pixelIndex++] = pixelIntensity;
+                MostRecentDepthFrame[pixelIndex++] = pixelIntensity;
+                MostRecentDepthFrame[pixelIndex++] = 0x00;
             }
         }
 
