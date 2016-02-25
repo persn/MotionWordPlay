@@ -13,3 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin MotionGestures/GesturesDB.gbd
+/copy:MotionGestures/GesturesDB.gbd
+

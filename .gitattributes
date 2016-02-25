@@ -61,6 +61,10 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+###############################################################################
+# Git Large File Storage Properties
+###############################################################################
 .jpg filter=lfs diff=lfs merge=lfs -text
 .png filter=lfs diff=lfs merge=lfs -text
 .bmp filter=lfs diff=lfs merge=lfs -text
@@ -68,3 +72,4 @@
 .psd filter=lfs diff=lfs merge=lfs -text
 .jpeg filter=lfs diff=lfs merge=lfs -text
 .gif filter=lfs diff=lfs merge=lfs -text
+.gdb filter=lfs diff=lfs merge=lfs -text
