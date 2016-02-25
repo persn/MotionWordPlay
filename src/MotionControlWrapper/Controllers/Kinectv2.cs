@@ -38,75 +38,69 @@
                 return;
             }
 
-            ColorFrameSize = new Size()
-            {
-                Width = _sensor.ColorFrameSource.FrameDescription.Width,
-                Height = _sensor.ColorFrameSource.FrameDescription.Height
-            };
+            MostRecentColorFrame = new byte[CalculateImageByteCount(ColorFrameDescription)];
+            MostRecentDepthFrame = new byte[CalculateImageByteCount(DepthFrameDescription)];
+            MostRecentInfraredFrame = new byte[CalculateImageByteCount(InfraredFrameDescription)];
+            MostRecentSilhouetteFrame = new byte[CalculateImageByteCount(SilhouetteFrameDescription)];
 
-            DepthFrameSize = new Size()
-            {
-                Width = _sensor.DepthFrameSource.FrameDescription.Width,
-                Height = _sensor.DepthFrameSource.FrameDescription.Height
-            };
-
-            InfraredFrameSize = new Size()
-            {
-                Width = _sensor.InfraredFrameSource.FrameDescription.Width,
-                Height = _sensor.InfraredFrameSource.FrameDescription.Height
-            };
-
-            SilhouetteFrameSize = new Size()
-            {
-                Width = _sensor.BodyIndexFrameSource.FrameDescription.Width,
-                Height = _sensor.BodyIndexFrameSource.FrameDescription.Height
-            };
+            ColorFrameSize = CalculateImageSize(ColorFrameDescription);
+            DepthFrameSize = CalculateImageSize(DepthFrameDescription);
+            InfraredFrameSize = CalculateImageSize(InfraredFrameDescription);
+            SilhouetteFrameSize = CalculateImageSize(SilhouetteFrameDescription);
         }
 
         public Size ColorFrameSize { get; }
+
         public Size DepthFrameSize { get; }
+
         public Size InfraredFrameSize { get; }
+
         public Size SilhouetteFrameSize { get; }
+
+        public byte[] MostRecentColorFrame { get; }
+
+        public byte[] MostRecentDepthFrame { get; }
+
+        public byte[] MostRecentInfraredFrame { get; }
+
+        public byte[] MostRecentSilhouetteFrame { get; }
 
         private MultiSourceFrame MultiFrame => _reader.AcquireLatestFrame();
 
-        public byte[] AcquireLatestColorFrame()
+        private FrameDescription ColorFrameDescription =>
+            _sensor.ColorFrameSource.FrameDescription;
+
+        private FrameDescription DepthFrameDescription =>
+            _sensor.DepthFrameSource.FrameDescription;
+
+        private FrameDescription InfraredFrameDescription =>
+            _sensor.InfraredFrameSource.FrameDescription;
+
+        private FrameDescription SilhouetteFrameDescription =>
+            _sensor.BodyIndexFrameSource.FrameDescription;
+
+        public void PollMostRecentColorFrame()
         {
-            FrameDescription frameDescription = _sensor.ColorFrameSource.CreateFrameDescription(
-                ColorImageFormat.Rgba);
-
-            byte[] pixels = new byte[
-                frameDescription.Width *
-                frameDescription.Height *
-                frameDescription.BytesPerPixel];
-
             using (ColorFrame frame = MultiFrame?.ColorFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
-                    return null; // Could not find multi-frame or color-frame
+                    return; // Could not find multi-frame or color-frame
                 }
 
-                frame.CopyConvertedFrameDataToArray(pixels, ColorImageFormat.Rgba);
-                return pixels;
+                frame.CopyConvertedFrameDataToArray(MostRecentColorFrame, ColorImageFormat.Rgba);
             }
         }
 
-        public byte[] AcquireLatestDepthFrame()
+        public void PollMostRecentDepthFrame()
         {
-            FrameDescription frameDescription = _sensor.DepthFrameSource.FrameDescription;
-
-            byte[] pixels = new byte[
-                frameDescription.Width *
-                frameDescription.Height *
-                BytesPerPixelRGBA];
-            ushort[] depthData = new ushort[frameDescription.Width * frameDescription.Height];
+            ushort[] depthData = new ushort[DepthFrameDescription.Width * DepthFrameDescription.Height];
 
             using (DepthFrame frame = MultiFrame?.DepthFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
-                    return null; // Could not find multi-frame or depth-frame
+                    return; // Could not find multi-frame or depth-frame
                 }
 
                 ushort minDepth = frame.DepthMinReliableDistance;
@@ -118,32 +112,23 @@
                 foreach (byte intensity in depthData.Select(
                     depth => (byte)(depth >= minDepth && depth <= maxDepth ? depth : 0)))
                 {
-                    pixels[colorIndex++] = intensity; // Blue
-                    pixels[colorIndex++] = intensity; // Green
-                    pixels[colorIndex++] = intensity; // Red
-
-                    colorIndex++;
+                    MostRecentDepthFrame[colorIndex++] = intensity;
+                    MostRecentDepthFrame[colorIndex++] = intensity;
+                    MostRecentDepthFrame[colorIndex++] = intensity;
+                    MostRecentDepthFrame[colorIndex++] = 0x00;
                 }
-
-                return pixels;
             }
         }
 
-        public byte[] AcquireLatestInfraredFrame()
+        public void PollMostRecentInfraredFrame()
         {
-            FrameDescription frameDescription = _sensor.InfraredFrameSource.FrameDescription;
-
-            byte[] pixels = new byte[
-                frameDescription.Width *
-                frameDescription.Height *
-                BytesPerPixelRGBA];
-            ushort[] infraredData = new ushort[frameDescription.Width * frameDescription.Height];
+            ushort[] infraredData = new ushort[InfraredFrameDescription.Width * InfraredFrameDescription.Height];
 
             using (InfraredFrame frame = MultiFrame?.InfraredFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
-                    return null; // Could not find multi-frame or infrared-frame
+                    return; // Could not find multi-frame or infrared-frame
                 }
 
                 frame.CopyFrameDataToArray(infraredData);
@@ -151,49 +136,37 @@
                 int colorIndex = 0;
                 foreach (byte intensity in infraredData.Select(ir => (byte)(ir >> 8)))
                 {
-                    pixels[colorIndex++] = intensity; // Blue
-                    pixels[colorIndex++] = intensity; // Green
-                    pixels[colorIndex++] = intensity; // Red
-
-                    colorIndex++;
+                    MostRecentInfraredFrame[colorIndex++] = intensity;
+                    MostRecentInfraredFrame[colorIndex++] = intensity;
+                    MostRecentInfraredFrame[colorIndex++] = intensity;
+                    MostRecentInfraredFrame[colorIndex++] = 0x00;
                 }
-
-                return pixels;
             }
         }
 
-        public byte[] AcquireLatestSilhouetteFrame()
+        public void PollMostRecentSilhouetteFrame()
         {
-            FrameDescription frameDescription = _sensor.BodyIndexFrameSource.FrameDescription;
-
-            //byte[] pixels = new byte[
-            //    frameDescription.Width *
-            //    frameDescription.Height *
-            //    BytesPerPixelRGBA];
-
             using (BodyIndexFrame frame = MultiFrame?.BodyIndexFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
-                    return null; // Could not find multi-frame or body index frame
+                    return; // Could not find multi-frame or body index frame
                 }
 
                 using (KinectBuffer buffer = frame.LockImageBuffer())
                 {
-                    if (frameDescription.Width * frameDescription.Height == buffer.Size)
+                    if (
+                        SilhouetteFrameDescription.Width *
+                        SilhouetteFrameDescription.Height == buffer.Size)
                     {
-                        return ProcessSilhouetteData(buffer.UnderlyingBuffer, buffer.Size);
+                        ProcessSilhouetteData(buffer.UnderlyingBuffer, buffer.Size);
                     }
                 }
             }
-
-            return null;
         }
 
-        private static unsafe byte[] ProcessSilhouetteData(IntPtr data, uint size)
+        private unsafe void ProcessSilhouetteData(IntPtr data, uint size)
         {
-            byte[] pixels = new byte[size * BytesPerPixelRGBA];
-
             byte* frameData = (byte*)data;
 
             int pixelIndex = 0;
@@ -201,21 +174,33 @@
             {
                 if (frameData[i] < BodyColor.Length)
                 {
-                    pixels[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 24); // Red
-                    pixels[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 16); // Green
-                    pixels[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 8);  // Blue
-                    pixels[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 0);  // Alpha
+                    MostRecentSilhouetteFrame[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 24);
+                    MostRecentSilhouetteFrame[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 16);
+                    MostRecentSilhouetteFrame[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 8);
+                    MostRecentSilhouetteFrame[pixelIndex++] = (byte)(BodyColor[frameData[i]] >> 0);
                 }
                 else
                 {
-                    pixels[pixelIndex++] = 0x00; // Red
-                    pixels[pixelIndex++] = 0x00; // Green
-                    pixels[pixelIndex++] = 0x00; // Blue
-                    pixels[pixelIndex++] = 0xFF; // Alpha
+                    MostRecentSilhouetteFrame[pixelIndex++] = 0x00;
+                    MostRecentSilhouetteFrame[pixelIndex++] = 0x00;
+                    MostRecentSilhouetteFrame[pixelIndex++] = 0x00;
+                    MostRecentSilhouetteFrame[pixelIndex++] = 0xFF;
                 }
             }
+        }
 
-            return pixels;
+        private static int CalculateImageByteCount(FrameDescription frameDescription)
+        {
+            return frameDescription.Width * frameDescription.Height * BytesPerPixelRGBA;
+        }
+
+        private static Size CalculateImageSize(FrameDescription frameDescription)
+        {
+            return new Size()
+            {
+                Width = frameDescription.Width,
+                Height = frameDescription.Height
+            };
         }
     }
 }

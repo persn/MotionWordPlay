@@ -51,21 +51,26 @@ namespace NTNU.MotionWordPlay
                 case FrameState.Color:
                     UpdateFrame(
                         _currentColorFrame,
-                        () => _motionController.AcquireLatestColorFrame());
+                        _motionController.MostRecentColorFrame,
+                        () => _motionController.PollMostRecentColorFrame());
                     break;
                 case FrameState.Depth:
                     UpdateFrame(
                         _currentDepthFrame,
-                        () => _motionController.AcquireLatestDepthFrame());
+                        _motionController.MostRecentDepthFrame,
+                        () => _motionController.PollMostRecentDepthFrame());
                     break;
                 case FrameState.Infrared:
                     UpdateFrame(
                         _currentInfraredFrame,
-                        () => _motionController.AcquireLatestInfraredFrame());
+                        _motionController.MostRecentInfraredFrame,
+                        () => _motionController.PollMostRecentInfraredFrame());
                     break;
                 case FrameState.Silhouette:
-                    UpdateFrame(_currentSilhouetteFrame,
-                        () => _motionController.AcquireLatestSilhouetteFrame());
+                    UpdateFrame(
+                        _currentSilhouetteFrame,
+                        _motionController.MostRecentSilhouetteFrame,
+                        () => _motionController.PollMostRecentSilhouetteFrame());
                     break;
                 default:
                     throw new NotSupportedException("Switch case reached somewhere it shouldn't.");
@@ -113,13 +118,13 @@ namespace NTNU.MotionWordPlay
             return new Texture2D(graphicsDevice, size.Width, size.Height);
         }
 
-        private static void UpdateFrame(Texture2D frame, Func<byte[]> acquireNewFrame)
+        private void UpdateFrame(Texture2D frame, byte[] data, Action pollNewFrame)
         {
-            byte[] newFrame = acquireNewFrame();
+            pollNewFrame();
 
-            if (newFrame != null)
+            if (_motionController.MostRecentSilhouetteFrame != null)
             {
-                frame.SetData(newFrame);
+                frame.SetData(data);
             }
         }
 

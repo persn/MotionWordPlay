@@ -20,32 +20,52 @@ namespace NTNU.MotionControlWrapper
         Size InfraredFrameSize { get; }
 
         /// <summary>
-        /// HURR DURR
+        /// Getter for the size properties of the silhouette frames
         /// </summary>
         Size SilhouetteFrameSize { get; }
-
-        /// <summary>
-        /// Acquire the most recent color frame produced by the MotionController
-        /// </summary>
-        /// <returns></returns>
-        byte[] AcquireLatestColorFrame();
-
-        /// <summary>
-        /// Acquire the most recent depth frame produced by the MotionController
-        /// </summary>
-        /// <returns></returns>
-        byte[] AcquireLatestDepthFrame();
-
-        /// <summary>
-        /// Acquire the most recent infrared frame produced by the MotionController
-        /// </summary>
-        /// <returns></returns>
-        byte[] AcquireLatestInfraredFrame();
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        byte[] AcquireLatestSilhouetteFrame();
+        byte[] MostRecentColorFrame { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        byte[] MostRecentDepthFrame { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        byte[] MostRecentInfraredFrame { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        byte[] MostRecentSilhouetteFrame { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void PollMostRecentColorFrame();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void PollMostRecentDepthFrame();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void PollMostRecentInfraredFrame();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void PollMostRecentSilhouetteFrame();
     }
 }
