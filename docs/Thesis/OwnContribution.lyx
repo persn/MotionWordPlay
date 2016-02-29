@@ -24,7 +24,9 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -53,8 +55,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -87,15 +89,46 @@ Placeholder Intro
 Design and Development
 \end_layout
 
+\begin_layout Standard
+For us to sufficiently answer our research questions it was necessary for
+ us to develop a prototype game.
+ This chapter will present our process and work with designing and developing
+ this game.
+ First we present the game concept and our reasoning behind this, then we
+ describe the technology used to develop the prototype, and finally, showing
+ the details of how we implemented the prototype.
+\end_layout
+
 \begin_layout Subsection
 Game Concept
 \end_layout
 
 \begin_layout Standard
-Grammar focused multiplayer educational game based on sorting words.
+Our prototype will be a grammar focused multiplayer educational game based
+ on sorting words.
  While the gameplay and functionality could easily be used for other educational
  topics, we believe that language, especially grammar, is the subject where
  the need for a motivational boost is most urgent.
+\end_layout
+
+\begin_layout Subsubsection
+Genre
+\end_layout
+
+\begin_layout Standard
+Multiplayer sorting game with focus on language training.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Platform
+\end_layout
+
+\begin_layout Standard
+The concept is intended for use on a Windows PC with a Kinect sensor, but
+ could be adapted to any platform with the ability to do full body tracking
+ of multiple people.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -112,10 +145,58 @@ The game is primarily targeted towards elementary school children that needs
  We believe that introducing an element of social interaction, both in terms
  of competitiveness and discussion, will increase the motivation to learn
  about these topics.
+ 
 \end_layout
 
 \begin_layout Subsubsection
 Gameplay
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Henrik/Desktop/GameConcept.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Game concept scetch
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Game-concept-scetch"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -157,6 +238,96 @@ If the time or number of problem limit is reached the game proceeds to the
  score screen, else it goes back to 1.
 \end_layout
 
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Henrik/Desktop/GameConceptIncorrect.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example situation - Incorrect attempt
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-situation--"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Henrik/Desktop/GameConceptCorrect.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example situation - Correct attempt
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-situation---1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Problem types:
 \end_layout
@@ -175,27 +346,20 @@ Word classes: Identifying and placing words in the right categories such
 Verb tenses: Ordering a verbs tenses in the correct order.
 \end_layout
 
-\begin_layout Subsubsection
-Interface/Controls
-\end_layout
-
-\begin_layout Paragraph
-Moving words:
+\begin_layout Subsection
+Technology
 \end_layout
 
 \begin_layout Standard
-Each player will have a word tied to their position relative to the other
- players.
- When the players change position between themselves the words will also
- move accordingly.
+Intentionally left blank for now
 \end_layout
 
-\begin_layout Paragraph
-Locking answers:
+\begin_layout Subsection
+Prototype
 \end_layout
 
 \begin_layout Standard
-All players must make a gesture, like raising their hands, at the same time.
+Intentionally left blank until prototype is working 
 \end_layout
 
 \begin_layout Section
