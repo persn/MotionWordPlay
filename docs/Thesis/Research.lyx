@@ -90,7 +90,11 @@ Motion Capture Technology
 \end_layout
 
 \begin_layout Standard
-Motion capture, or motion tracking, is defined as the process of recording
+Since our project entails using motion capture as the primary input method,
+ this section will give a general background about the subject, as well
+ as more in depth information about the Microsoft Kinect sensor that we
+ use in our prototype.
+ Motion capture, or motion tracking, is defined as the process of recording
  the movement of people or objects.
  The most known usage of this is the entertainment industry, where an actor's
  movements are transferred to a digitally animated avatar.
@@ -1058,7 +1062,10 @@ Serious Games
 \end_layout
 
 \begin_layout Standard
-There is no formal definition for serious games, but most attempts converge
+As we are developing an educational game, which is a subcategory of Serious
+ Games, this section will give a definition for this term, and present some
+ general history and examples.
+ There is no formal definition for serious games, but most attempts converge
  towards “A game that has a purpose other than entertainment”.
  The term serious game predates computer games, but the principles remain
  the same, and computer technology have greatly increased the possibilities.
