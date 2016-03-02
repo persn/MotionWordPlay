@@ -115,6 +115,12 @@
 
                 ChangeDrawScale(_motionController.CurrentFrameState);
             }
+            else if (KeyboardCurrentState.IsKeyDown(Keys.F4) &&
+                !KeyboardPreviousState.IsKeyDown(Keys.F4))
+            {
+                _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
+                _graphicsDevice.ApplyChanges();
+            }
 
             _motionController.Update(gameTime);
 
