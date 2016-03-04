@@ -112,15 +112,6 @@ Our prototype will be a grammar focused multiplayer educational game based
 \end_layout
 
 \begin_layout Subsubsection
-Genre
-\end_layout
-
-\begin_layout Standard
-Multiplayer sorting game with focus on language training.
- 
-\end_layout
-
-\begin_layout Subsubsection
 Platform
 \end_layout
 
@@ -150,6 +141,37 @@ The game is primarily targeted towards elementary school children that needs
 
 \begin_layout Subsubsection
 Gameplay
+\end_layout
+
+\begin_layout Standard
+Gameplay is mainly built upon having the players move words between themselves
+ to arrange them in the correct order.
+ A sketch of how this might look is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Game-concept-scetch"
+
+\end_inset
+
+, with figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-situation--"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-situation---1"
+
+\end_inset
+
+ showing how it might look when an attempted answer is either correct or
+ incorrect.
+ Players will be able to swap words with the players next to them, making
+ this a shuffle puzzle that needs solving in addition to finding the correct
+ word order.
 \end_layout
 
 \begin_layout Standard

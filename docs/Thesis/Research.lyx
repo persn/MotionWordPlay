@@ -1057,6 +1057,20 @@ Kinect SDK Comparison
 
 \end_layout
 
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout Standard
+Since we have a Kinect v2 Sensor for use with our experiments, we want our
+ prototype to build upon its strong features, mainly the advanced skeleton
+ tracking that handles up to six people at once together with the large
+ tracking area.
+ This is very well suited for a multiplayer game, especially in a classroom
+ setting, considering that the only real downside to tracking this many
+ people at once is the requirement for a large room.
+\end_layout
+
 \begin_layout Section
 Serious Games
 \end_layout
@@ -1550,6 +1564,25 @@ name "fig:Wii-Fit"
 
 \end_layout
 
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout Standard
+What we can gather from this is that the most successful serious games,
+ are indeed still games.
+ All of the most memorable of these provide an experience that, in terms
+ of entertainment, rivals games that are purely aimed for this purpose.
+ Most serious games end up with so much focus being directed at the serious
+ part that there is no room left for any fun.
+ As shown by the trends in the early 90’s, the odds that anyone will prefer
+ a mainly educational game over one aimed at entertainment is fairly low.
+ Considering this, we believe that instead of trying to compete with other
+ games, we should compete with the traditional blackboard teaching methods
+ and introduce an alternative to this instead.
+ 
+\end_layout
+
 \begin_layout Section
 Designing an Engaging Game
 \end_layout
@@ -1859,6 +1892,20 @@ Utilizing this information in games can be done by graphical or sound effect
  The feedback and responses to actions should be clear and concise, with
  the accompanying information being constructive to aid in the educational
  aspect where applicable.
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout Standard
+The main points we can take with us from this is that we need a way to scale
+ the difficulty, as well as having a user interface with clear and concise
+ feedback.
+ We also need to make sure the controls feel intuitive, since this greatly
+ influences the player experience.
+ On top of this we should have a small tutorial that explains how the game
+ is played, to eliminate the need for any instructions before starting.
 \end_layout
 
 \end_body
