@@ -158,12 +158,12 @@ Gameplay
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Henrik/Desktop/GameConcept.png
+	filename figures/GameConcept.png
 	scale 50
 
 \end_inset
@@ -244,12 +244,12 @@ If the time or number of problem limit is reached the game proceeds to the
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Henrik/Desktop/GameConceptIncorrect.png
+	filename figures/GameConceptIncorrect.png
 	scale 50
 
 \end_inset
@@ -291,12 +291,12 @@ name "fig:Example-situation--"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Henrik/Desktop/GameConceptCorrect.png
+	filename figures/GameConceptCorrect.png
 	scale 50
 
 \end_inset
