@@ -1,6 +1,7 @@
-﻿namespace NTNU.MotionControlWrapper.Controllers
+﻿namespace NTNU.MotionControlWrapper.Controllers.Kinect
 {
     using System;
+    using System.Collections.Generic;
     using System.Drawing;
     using Microsoft.Kinect;
 
@@ -23,8 +24,10 @@
             0xFF808000,
         };
 
-        private readonly KinectSensor _sensor;
-        private readonly MultiSourceFrameReader _reader;
+        private KinectSensor _sensor;
+        private MultiSourceFrameReader _reader;
+        private IList<GestureTracker> _gestureTrackers;
+        private Body[] _bodies;
 
         public Kinectv2()
         {
@@ -35,6 +38,7 @@
                 FrameSourceTypes.Color |
                 FrameSourceTypes.Depth |
                 FrameSourceTypes.Infrared |
+                FrameSourceTypes.Body |
                 FrameSourceTypes.BodyIndex);
 
             if (_sensor == null)
@@ -46,11 +50,19 @@
             MostRecentDepthFrame = new byte[CalculateImageByteCount(DepthFrameDescription)];
             MostRecentInfraredFrame = new byte[CalculateImageByteCount(InfraredFrameDescription)];
             MostRecentSilhouetteFrame = new byte[CalculateImageByteCount(SilhouetteFrameDescription)];
+            MostRecentGestures = new GestureResults(_sensor.BodyFrameSource.BodyCount);
 
             ColorFrameSize = CalculateImageSize(ColorFrameDescription);
             DepthFrameSize = CalculateImageSize(DepthFrameDescription);
             InfraredFrameSize = CalculateImageSize(InfraredFrameDescription);
             SilhouetteFrameSize = CalculateImageSize(SilhouetteFrameDescription);
+
+            _gestureTrackers = new List<GestureTracker>();
+        }
+
+        ~Kinectv2()
+        {
+            Dispose();
         }
 
         public Size ColorFrameSize { get; }
@@ -69,6 +81,8 @@
 
         public byte[] MostRecentSilhouetteFrame { get; }
 
+        public GestureResults MostRecentGestures { get; }
+
         private MultiSourceFrame MultiFrame => _reader.AcquireLatestFrame();
 
         private FrameDescription ColorFrameDescription =>
@@ -82,6 +96,14 @@
 
         private FrameDescription SilhouetteFrameDescription =>
             _sensor.BodyIndexFrameSource.FrameDescription;
+
+        public void LoadGestures(string gesturesDB)
+        {
+            for (int i = 0; i < _sensor.BodyFrameSource.BodyCount; i++)
+            {
+                _gestureTrackers.Add(new GestureTracker(_sensor, gesturesDB));
+            }
+        }
 
         public void PollMostRecentColorFrame()
         {
@@ -157,6 +179,60 @@
                     }
                 }
             }
+        }
+
+        public void PollMostRecentBodyFrame()
+        {
+            using (BodyFrame frame = MultiFrame?.BodyFrameReference.AcquireFrame())
+            {
+                if (frame == null)
+                {
+                    return;
+                }
+
+                if (_bodies == null)
+                {
+                    _bodies = new Body[frame.BodyCount];
+                }
+
+                frame.GetAndRefreshBodyData(_bodies);
+            }
+
+            if (_bodies == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < _sensor.BodyFrameSource.BodyCount; i++)
+            {
+                ulong trackingId = _bodies[i].TrackingId;
+
+                _gestureTrackers[i].TrackingId = trackingId;
+                _gestureTrackers[i].IsPaused = trackingId == 0;
+            }
+        }
+
+        public void PollMostRecentGestureFrame()
+        {
+            for (int i = 0; i < _gestureTrackers.Count; i++)
+            {
+                IList<GestureResult> gestures = _gestureTrackers[i].PollMostRecentGestureFrame();
+
+                MostRecentGestures.Clear(i);
+                MostRecentGestures.AddGestures(i, gestures);
+            }
+        }
+
+        public void Dispose()
+        {
+            _gestureTrackers?.Clear();
+            _gestureTrackers = null;
+
+            _reader?.Dispose();
+            _reader = null;
+
+            _sensor?.Close();
+            _sensor = null;
         }
 
         private unsafe void ProcessDepthFrameData(

@@ -1,8 +1,9 @@
-﻿using System.Drawing;
-
-namespace NTNU.MotionControlWrapper
+﻿namespace NTNU.MotionControlWrapper
 {
-    public interface IMotionController
+    using System;
+    using System.Drawing;
+
+    public interface IMotionController : IDisposable
     {
         /// <summary>
         /// Getter for the size properties of the color frames
@@ -51,6 +52,16 @@ namespace NTNU.MotionControlWrapper
         /// <summary>
         /// 
         /// </summary>
+        GestureResults MostRecentGestures { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void LoadGestures(string gesturesDB);
+
+        /// <summary>
+        /// 
+        /// </summary>
         void PollMostRecentColorFrame();
 
         /// <summary>
@@ -67,5 +78,15 @@ namespace NTNU.MotionControlWrapper
         /// 
         /// </summary>
         void PollMostRecentSilhouetteFrame();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void PollMostRecentBodyFrame();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void PollMostRecentGestureFrame();
     }
 }

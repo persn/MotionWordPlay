@@ -55,6 +55,8 @@
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            _motionController?.Load();
         }
 
         /// <summary>
@@ -81,7 +83,7 @@
             if (KeyboardCurrentState.IsKeyDown(Keys.Escape) &&
                 !KeyboardPreviousState.IsKeyDown(Keys.Escape))
             {
-                Exit();
+                ExitGame();
             }
 
             if (KeyboardCurrentState.IsKeyDown(Keys.D1) ||
@@ -122,7 +124,7 @@
                 _graphicsDevice.ApplyChanges();
             }
 
-            _motionController.Update(gameTime);
+            _motionController?.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -137,11 +139,19 @@
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
-            _motionController.Draw(_spriteBatch);
+            _motionController?.Draw(_spriteBatch);
 
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void ExitGame()
+        {
+            _motionController?.Dispose();
+            _motionController = null;
+
+            Exit();
         }
 
         private void ChangeDrawScale(FrameState frameState)

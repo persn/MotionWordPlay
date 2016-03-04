@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,14 +37,21 @@
       <HintPath>..\packages\Microsoft.Kinect.2.0.1410.19000\lib\net45\Microsoft.Kinect.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Kinect.VisualGestureBuilder, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <HintPath>..\packages\Microsoft.Kinect.VisualGestureBuilder.2.0.1410.19000\lib\net45\Microsoft.Kinect.VisualGestureBuilder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestureResult.cs" />
+    <Compile Include="Controllers\Kinect\GestureTracker.cs" />
+    <Compile Include="GestureResults.cs" />
     <Compile Include="IMotionController.cs" />
-    <Compile Include="Controllers\Kinectv2.cs" />
+    <Compile Include="Controllers\Kinect\Kinectv2.cs" />
     <Compile Include="MotionControllerAPI.cs" />
     <Compile Include="MotionControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +60,14 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="vgbtechs\AdaBoostTech.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vgbtechs\RFRProgressTech.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 ﻿namespace NTNU.MotionControlWrapper
 {
     using System;
-    using Controllers;
+    using Controllers.Kinect;
 
     public static class MotionControllerFactory
     {
