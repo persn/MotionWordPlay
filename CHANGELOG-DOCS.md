@@ -1,6 +1,7 @@
 #Changelog Thesis Report
 
 ##14.03.2016
+* Added Part II Research Intro
 * Added Process chapter overview
 
 ##07.03.2016
