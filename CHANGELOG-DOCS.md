@@ -1,5 +1,8 @@
 #Changelog Thesis Report
 
+##14.03.2016
+* Added Process chapter overview
+
 ##07.03.2016
 * Added summaries to several sections, and some additional information in Game Concept
 * Rewrote game concept in Own Contribution -> design and development

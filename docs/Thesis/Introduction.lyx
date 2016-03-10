@@ -1497,7 +1497,7 @@ name "tab:Research-Goal-3"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Summary
 \end_layout
 
@@ -1507,6 +1507,37 @@ Many of our research questions require gathering general information about
  a literature study.
  While the more practical oriented ones, will require experimentation with
  our own prototype.
+\end_layout
+
+\begin_layout Subsection
+Process
+\end_layout
+
+\begin_layout Standard
+This section will detail the metrics used to answer our research questions,
+ as well as our reasoning behind them.
+ We will also look at some potential practical issues and how best to avoid
+ them.
+\end_layout
+
+\begin_layout Subsubsection
+Literature Study
+\end_layout
+
+\begin_layout Subsubsection
+Prototype Development
+\end_layout
+
+\begin_layout Subsubsection
+Questionnaires
+\end_layout
+
+\begin_layout Subsubsection
+Observation
+\end_layout
+
+\begin_layout Subsubsection
+Practical Issues
 \end_layout
 
 \end_body
