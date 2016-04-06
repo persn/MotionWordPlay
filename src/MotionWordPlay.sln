@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionControlWrapper", "MotionControlWrapper\MotionControlWrapper.csproj", "{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay", "MotionWordPlay\MotionWordPlay.csproj", "{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionControlWrapper", "MotionControlWrapper\MotionControlWrapper.csproj", "{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
