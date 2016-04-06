@@ -57,26 +57,24 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Code\FrameState.cs">
-      <Link>FrameState.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Code\Game.cs">
-      <Link>Game.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Code\IGameLoop.cs">
-      <Link>IGameLoop.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Code\MotionController.cs">
-      <Link>MotionController.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Code\Program.cs">
-      <Link>Program.cs</Link>
-    </Compile>
+    <Compile Include="FrameState.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="IGameLoop.cs" />
+    <Compile Include="MotionController.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.4.0.459, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MonoGame.Framework.WindowsDX.3.4.0.459\lib\net40\MonoGame.Framework.dll</HintPath>
+    <Reference Include="MonoGame.Framework, Version=3.5.1.1679, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\MonoGame.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NVorbis, Version=0.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\NVorbis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\OpenTK.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -88,10 +86,13 @@
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="..\..\..\MotionWordPlay.Content\Content.mgcb">
+    <MonoGameContentReference Include="..\MotionWordPlay.Content\Content.mgcb">
       <Link>Content\Content.mgcb</Link>
     </MonoGameContentReference>
     <None Include="app.config" />
+    <Content Include="OpenTK.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +103,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MotionControlWrapper\MotionControlWrapper.csproj">
+    <ProjectReference Include="..\MotionControlWrapper\MotionControlWrapper.csproj">
       <Project>{770e82f2-41f3-4ae9-81ae-b4315cb8cb74}</Project>
       <Name>MotionControlWrapper</Name>
     </ProjectReference>

@@ -151,7 +151,7 @@
             _motionController?.Dispose();
             _motionController = null;
 
-            Exit();
+            //Exit();
         }
 
         private void ChangeDrawScale(FrameState frameState)
