@@ -86,7 +86,7 @@
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="..\MotionWordPlay.Content\Content.mgcb">
+    <MonoGameContentReference Include="..\..\assets\Content.mgcb">
       <Link>Content\Content.mgcb</Link>
     </MonoGameContentReference>
     <None Include="app.config" />
