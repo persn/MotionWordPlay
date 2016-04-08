@@ -80,12 +80,6 @@
             KeyboardPreviousState = KeyboardCurrentState;
             KeyboardCurrentState = Keyboard.GetState();
 
-            if (KeyboardCurrentState.IsKeyDown(Keys.Escape) &&
-                !KeyboardPreviousState.IsKeyDown(Keys.Escape))
-            {
-                ExitGame();
-            }
-
             if (KeyboardCurrentState.IsKeyDown(Keys.D1) ||
                 KeyboardCurrentState.IsKeyDown(Keys.D2) ||
                 KeyboardCurrentState.IsKeyDown(Keys.D3) ||
@@ -146,12 +140,12 @@
             base.Draw(gameTime);
         }
 
-        private void ExitGame()
+        protected override void OnExiting(object sender, EventArgs args)
         {
             _motionController?.Dispose();
             _motionController = null;
 
-            //Exit();
+            base.OnExiting(sender, args);
         }
 
         private void ChangeDrawScale(FrameState frameState)
