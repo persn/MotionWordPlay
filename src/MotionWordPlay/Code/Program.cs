@@ -2,7 +2,6 @@
 {
     using System;
 
-#if WINDOWS || LINUX
     /// <summary>
     /// The main class.
     /// </summary>
@@ -20,5 +19,4 @@
             }
         }
     }
-#endif
 }
