@@ -85,47 +85,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            KeyboardPreviousState = KeyboardCurrentState;
-            KeyboardCurrentState = Keyboard.GetState();
-
-            if (KeyboardCurrentState.IsKeyDown(Keys.D1) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D2) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D3) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D4))
-            {
-                if (KeyboardCurrentState.IsKeyDown(Keys.D1) &&
-                !KeyboardPreviousState.IsKeyDown(Keys.D1))
-                {
-                    _motionController.CurrentFrameState = FrameState.Color;
-                }
-
-                if (KeyboardCurrentState.IsKeyDown(Keys.D2) &&
-                    !KeyboardPreviousState.IsKeyDown(Keys.D2))
-                {
-                    _motionController.CurrentFrameState = FrameState.Depth;
-                }
-
-                if (KeyboardCurrentState.IsKeyDown(Keys.D3) &&
-                    !KeyboardPreviousState.IsKeyDown(Keys.D3))
-                {
-                    _motionController.CurrentFrameState = FrameState.Infrared;
-                }
-
-                if (KeyboardCurrentState.IsKeyDown(Keys.D4) &&
-                    !KeyboardPreviousState.IsKeyDown(Keys.D4))
-                {
-                    _motionController.CurrentFrameState = FrameState.Silhouette;
-                }
-
-                ChangeDrawScale(_motionController.CurrentFrameState);
-            }
-            else if (KeyboardCurrentState.IsKeyDown(Keys.F4) &&
-                !KeyboardPreviousState.IsKeyDown(Keys.F4))
-            {
-                _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
-                _graphicsDevice.ApplyChanges();
-            }
-
+            HandleKeyboardInput();
             _motionController?.Update(gameTime);
             _userInterface.Update(gameTime);
 
@@ -206,6 +166,50 @@
         {
             _motionController.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
             _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+        }
+
+        private void HandleKeyboardInput()
+        {
+            KeyboardPreviousState = KeyboardCurrentState;
+            KeyboardCurrentState = Keyboard.GetState();
+
+            if (KeyboardCurrentState.IsKeyDown(Keys.D1) ||
+                KeyboardCurrentState.IsKeyDown(Keys.D2) ||
+                KeyboardCurrentState.IsKeyDown(Keys.D3) ||
+                KeyboardCurrentState.IsKeyDown(Keys.D4))
+            {
+                if (KeyboardCurrentState.IsKeyDown(Keys.D1) &&
+                !KeyboardPreviousState.IsKeyDown(Keys.D1))
+                {
+                    _motionController.CurrentFrameState = FrameState.Color;
+                }
+
+                if (KeyboardCurrentState.IsKeyDown(Keys.D2) &&
+                    !KeyboardPreviousState.IsKeyDown(Keys.D2))
+                {
+                    _motionController.CurrentFrameState = FrameState.Depth;
+                }
+
+                if (KeyboardCurrentState.IsKeyDown(Keys.D3) &&
+                    !KeyboardPreviousState.IsKeyDown(Keys.D3))
+                {
+                    _motionController.CurrentFrameState = FrameState.Infrared;
+                }
+
+                if (KeyboardCurrentState.IsKeyDown(Keys.D4) &&
+                    !KeyboardPreviousState.IsKeyDown(Keys.D4))
+                {
+                    _motionController.CurrentFrameState = FrameState.Silhouette;
+                }
+
+                ChangeDrawScale(_motionController.CurrentFrameState);
+            }
+            else if (KeyboardCurrentState.IsKeyDown(Keys.F4) &&
+                !KeyboardPreviousState.IsKeyDown(Keys.F4))
+            {
+                _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
+                _graphicsDevice.ApplyChanges();
+            }
         }
     }
 }
