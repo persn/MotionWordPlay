@@ -4,6 +4,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using UserInterface;
 
     /// <summary>
     /// This is the main type for your game.
@@ -16,6 +17,7 @@
         private Matrix _globalTransformation;
 
         private MotionController _motionController;
+        private IUserInterface _userInterface;
 
         public Game()
         {
@@ -25,8 +27,12 @@
                 PreferredBackBufferHeight = (int)BaseScreenSize.Y,
                 GraphicsProfile = GraphicsProfile.Reach
             };
+            _graphicsDevice.DeviceCreated += Graphics_DeviceCreated;
 
             Content.RootDirectory = "Content";
+
+            _motionController = new MotionController();
+            _userInterface = new EmptyKeysWrapper();
         }
 
         private KeyboardState KeyboardPreviousState { get; set; }
@@ -40,9 +46,10 @@
         /// </summary>
         protected override void Initialize()
         {
-            _motionController = new MotionController(_graphicsDevice.GraphicsDevice);
-
             ChangeDrawScale(FrameState.Color);
+
+            _motionController.Initialize();
+            _userInterface.Initialize();
 
             base.Initialize();
         }
@@ -56,7 +63,8 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _motionController?.Load();
+            _motionController?.Load(Content);
+            _userInterface?.Load(Content);
         }
 
         /// <summary>
@@ -119,6 +127,7 @@
             }
 
             _motionController?.Update(gameTime);
+            _userInterface.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -133,9 +142,12 @@
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
-            _motionController?.Draw(_spriteBatch);
+            _motionController?.Draw(gameTime, _spriteBatch);
 
             _spriteBatch.End();
+
+            // Independent draw
+            _userInterface.Draw(gameTime, _spriteBatch);
 
             base.Draw(gameTime);
         }
@@ -188,6 +200,12 @@
             }
 
             _globalTransformation = Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
+        }
+
+        private void Graphics_DeviceCreated(object sender, EventArgs e)
+        {
+            _motionController.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+            _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
         }
     }
 }

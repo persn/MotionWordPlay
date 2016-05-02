@@ -4,34 +4,24 @@ namespace NTNU.MotionWordPlay
     using System.Drawing;
     using System.Collections.Generic;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using MotionControlWrapper;
 
     public class MotionController : IGameLoop, IDisposable
     {
+        private GraphicsDevice _graphicsDevice;
+
         private IMotionController _motionController;
         private Texture2D _currentColorFrame;
         private Texture2D _currentDepthFrame;
         private Texture2D _currentInfraredFrame;
         private Texture2D _currentSilhouetteFrame;
 
-        public MotionController(GraphicsDevice graphicsDevice)
+        public MotionController()
         {
             _motionController = MotionControllerFactory.CreateMotionController(
                 MotionControllerAPI.Kinectv2);
-
-            _currentColorFrame = CreateTexture(
-                graphicsDevice,
-                _motionController.ColorFrameSize);
-            _currentDepthFrame = CreateTexture(
-                graphicsDevice,
-                _motionController.DepthFrameSize);
-            _currentInfraredFrame = CreateTexture(
-                graphicsDevice,
-                _motionController.InfraredFrameSize);
-            _currentSilhouetteFrame = CreateTexture(
-                graphicsDevice,
-                _motionController.SilhouetteFrameSize);
         }
 
         ~MotionController()
@@ -45,9 +35,35 @@ namespace NTNU.MotionWordPlay
         public Size InfraredFrameSize => _motionController.InfraredFrameSize;
         public Size SilhouetteFrameSize => _motionController.SilhouetteFrameSize;
 
-        public void Load()
+        public void Dispose()
+        {
+            _currentColorFrame?.Dispose();
+            _currentColorFrame = null;
+
+            _currentDepthFrame?.Dispose();
+            _currentDepthFrame = null;
+
+            _currentInfraredFrame?.Dispose();
+            _currentInfraredFrame = null;
+
+            _currentSilhouetteFrame?.Dispose();
+            _currentSilhouetteFrame = null;
+
+            _motionController?.Dispose();
+            _motionController = null;
+        }
+
+        public void Initialize()
         {
             _motionController.LoadGestures(@"Content\MotionGestures\GesturesDB.gbd");
+        }
+
+        public void Load(ContentManager contentManager)
+        {
+            _currentColorFrame = CreateTexture(_motionController.ColorFrameSize);
+            _currentDepthFrame = CreateTexture(_motionController.DepthFrameSize);
+            _currentInfraredFrame = CreateTexture(_motionController.InfraredFrameSize);
+            _currentSilhouetteFrame = CreateTexture(_motionController.SilhouetteFrameSize);
         }
 
         public void Update(GameTime gameTime)
@@ -98,7 +114,7 @@ namespace NTNU.MotionWordPlay
             #endregion
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             switch (CurrentFrameState)
             {
@@ -119,27 +135,14 @@ namespace NTNU.MotionWordPlay
             }
         }
 
-        public void Dispose()
+        public void GraphicsDeviceCreated(GraphicsDevice graphicsDevice, Vector2 nativeSize)
         {
-            _currentColorFrame?.Dispose();
-            _currentColorFrame = null;
-
-            _currentDepthFrame?.Dispose();
-            _currentDepthFrame = null;
-
-            _currentInfraredFrame?.Dispose();
-            _currentInfraredFrame = null;
-
-            _currentSilhouetteFrame?.Dispose();
-            _currentSilhouetteFrame = null;
-
-            _motionController?.Dispose();
-            _motionController = null;
+            _graphicsDevice = graphicsDevice;
         }
 
-        private static Texture2D CreateTexture(GraphicsDevice graphicsDevice, Size size)
+        private Texture2D CreateTexture(Size size)
         {
-            return new Texture2D(graphicsDevice, size.Width, size.Height);
+            return new Texture2D(_graphicsDevice, size.Width, size.Height);
         }
 
         private void UpdateFrame(Texture2D frame, byte[] data, Action pollNewFrame)
