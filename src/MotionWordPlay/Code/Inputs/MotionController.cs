@@ -1,4 +1,4 @@
-namespace NTNU.MotionWordPlay
+namespace NTNU.MotionWordPlay.Inputs
 {
     using System;
     using System.Drawing;

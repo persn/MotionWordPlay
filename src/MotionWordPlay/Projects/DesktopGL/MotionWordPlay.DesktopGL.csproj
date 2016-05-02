@@ -75,17 +75,17 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Code\FrameState.cs">
-      <Link>FrameState.cs</Link>
-    </Compile>
     <Compile Include="..\..\Code\Game.cs">
       <Link>Game.cs</Link>
     </Compile>
     <Compile Include="..\..\Code\IGameLoop.cs">
       <Link>IGameLoop.cs</Link>
     </Compile>
-    <Compile Include="..\..\Code\MotionController.cs">
-      <Link>MotionController.cs</Link>
+    <Compile Include="..\..\Code\Inputs\FrameState.cs">
+      <Link>Inputs\FrameState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Code\Inputs\MotionController.cs">
+      <Link>Inputs\MotionController.cs</Link>
     </Compile>
     <Compile Include="..\..\Code\Program.cs">
       <Link>Program.cs</Link>

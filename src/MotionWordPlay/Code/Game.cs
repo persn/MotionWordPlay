@@ -5,6 +5,7 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using UserInterface;
+    using Inputs;
 
     /// <summary>
     /// This is the main type for your game.
