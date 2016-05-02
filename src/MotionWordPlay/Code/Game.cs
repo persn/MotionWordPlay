@@ -17,6 +17,7 @@
         private SpriteBatch _spriteBatch;
         private Matrix _globalTransformation;
 
+        private KeyboardInput _keyboardInput;
         private MotionController _motionController;
         private IUserInterface _userInterface;
 
@@ -32,12 +33,11 @@
 
             Content.RootDirectory = "Content";
 
+            _keyboardInput = new KeyboardInput();
+            _keyboardInput.KeyPressed += KeyboardInputKeyPressed;
             _motionController = new MotionController();
             _userInterface = new EmptyKeysWrapper();
         }
-
-        private KeyboardState KeyboardPreviousState { get; set; }
-        private KeyboardState KeyboardCurrentState { get; set; }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -49,6 +49,7 @@
         {
             ChangeDrawScale(FrameState.Color);
 
+            _keyboardInput.Initialize();
             _motionController.Initialize();
             _userInterface.Initialize();
 
@@ -64,6 +65,7 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            _keyboardInput?.Load(Content);
             _motionController?.Load(Content);
             _userInterface?.Load(Content);
         }
@@ -86,7 +88,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            HandleKeyboardInput();
+            _keyboardInput?.Update(gameTime);
             _motionController?.Update(gameTime);
             _userInterface.Update(gameTime);
 
@@ -103,6 +105,7 @@
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
+            _keyboardInput?.Draw(gameTime, _spriteBatch);
             _motionController?.Draw(gameTime, _spriteBatch);
 
             _spriteBatch.End();
@@ -119,6 +122,39 @@
             _motionController = null;
 
             base.OnExiting(sender, args);
+        }
+
+        private void Graphics_DeviceCreated(object sender, EventArgs e)
+        {
+            _keyboardInput.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+            _motionController.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+            _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+        }
+
+        private void KeyboardInputKeyPressed(object sender, KeyPressedEventArgs e)
+        {
+            switch (e.PressedKey)
+            {
+                case Keys.D1:
+                    _motionController.CurrentFrameState = FrameState.Color;
+                    break;
+                case Keys.D2:
+                    _motionController.CurrentFrameState = FrameState.Depth;
+                    break;
+                case Keys.D3:
+                    _motionController.CurrentFrameState = FrameState.Infrared;
+                    break;
+                case Keys.D4:
+                    _motionController.CurrentFrameState = FrameState.Silhouette;
+                    break;
+                case Keys.F4:
+                    _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
+                    _graphicsDevice.ApplyChanges();
+                    break;
+                default:
+                    throw new NotSupportedException("Key is not supported");
+            }
+            ChangeDrawScale(_motionController.CurrentFrameState);
         }
 
         private void ChangeDrawScale(FrameState frameState)
@@ -161,56 +197,6 @@
             }
 
             _globalTransformation = Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
-        }
-
-        private void Graphics_DeviceCreated(object sender, EventArgs e)
-        {
-            _motionController.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
-            _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
-        }
-
-        private void HandleKeyboardInput()
-        {
-            KeyboardPreviousState = KeyboardCurrentState;
-            KeyboardCurrentState = Keyboard.GetState();
-
-            if (KeyboardCurrentState.IsKeyDown(Keys.D1) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D2) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D3) ||
-                KeyboardCurrentState.IsKeyDown(Keys.D4))
-            {
-                if (KeyboardCurrentState.IsKeyDown(Keys.D1) &&
-                !KeyboardPreviousState.IsKeyDown(Keys.D1))
-                {
-                    _motionController.CurrentFrameState = FrameState.Color;
-                }
-
-                if (KeyboardCurrentState.IsKeyDown(Keys.D2) &&
-                    !KeyboardPreviousState.IsKeyDown(Keys.D2))
-                {
-                    _motionController.CurrentFrameState = FrameState.Depth;
-                }
-
-                if (KeyboardCurrentState.IsKeyDown(Keys.D3) &&
-                    !KeyboardPreviousState.IsKeyDown(Keys.D3))
-                {
-                    _motionController.CurrentFrameState = FrameState.Infrared;
-                }
-
-                if (KeyboardCurrentState.IsKeyDown(Keys.D4) &&
-                    !KeyboardPreviousState.IsKeyDown(Keys.D4))
-                {
-                    _motionController.CurrentFrameState = FrameState.Silhouette;
-                }
-
-                ChangeDrawScale(_motionController.CurrentFrameState);
-            }
-            else if (KeyboardCurrentState.IsKeyDown(Keys.F4) &&
-                !KeyboardPreviousState.IsKeyDown(Keys.F4))
-            {
-                _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
-                _graphicsDevice.ApplyChanges();
-            }
         }
     }
 }

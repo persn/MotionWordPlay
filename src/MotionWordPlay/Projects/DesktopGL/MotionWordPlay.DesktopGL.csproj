@@ -84,6 +84,12 @@
     <Compile Include="..\..\Code\Inputs\FrameState.cs">
       <Link>Inputs\FrameState.cs</Link>
     </Compile>
+    <Compile Include="..\..\Code\Inputs\KeyboardInput.cs">
+      <Link>Inputs\KeyboardInput.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Code\Inputs\KeyPressedEventArgs.cs">
+      <Link>Inputs\KeyPressedEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\..\Code\Inputs\MotionController.cs">
       <Link>Inputs\MotionController.cs</Link>
     </Compile>
