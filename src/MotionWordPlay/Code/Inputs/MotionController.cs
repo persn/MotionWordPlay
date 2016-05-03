@@ -30,27 +30,70 @@ namespace NTNU.MotionWordPlay.Inputs
         }
 
         public FrameState CurrentFrameState { get; set; }
-        public Size ColorFrameSize => _motionController.ColorFrameSize;
-        public Size DepthFrameSize => _motionController.DepthFrameSize;
-        public Size InfraredFrameSize => _motionController.InfraredFrameSize;
-        public Size SilhouetteFrameSize => _motionController.SilhouetteFrameSize;
+
+        public Size ColorFrameSize
+        {
+            get
+            {
+                return _motionController.DepthFrameSize;
+            }
+        }
+
+        public Size DepthFrameSize
+        {
+            get
+            {
+                return _motionController.DepthFrameSize;
+            }
+        }
+
+        public Size InfraredFrameSize
+        {
+            get
+            {
+                return _motionController.InfraredFrameSize;
+            }
+        }
+
+        public Size SilhouetteFrameSize
+        {
+            get
+            {
+                return _motionController.SilhouetteFrameSize;
+            }
+        }
 
         public void Dispose()
         {
-            _currentColorFrame?.Dispose();
-            _currentColorFrame = null;
+            if (_currentColorFrame != null)
+            {
+                _currentColorFrame.Dispose();
+                _currentColorFrame = null;
+            }
 
-            _currentDepthFrame?.Dispose();
-            _currentDepthFrame = null;
+            if (_currentDepthFrame != null)
+            {
+                _currentDepthFrame.Dispose();
+                _currentDepthFrame = null;
+            }
 
-            _currentInfraredFrame?.Dispose();
-            _currentInfraredFrame = null;
+            if (_currentInfraredFrame != null)
+            {
+                _currentInfraredFrame.Dispose();
+                _currentInfraredFrame = null;
+            }
 
-            _currentSilhouetteFrame?.Dispose();
-            _currentSilhouetteFrame = null;
+            if (_currentSilhouetteFrame != null)
+            {
+                _currentSilhouetteFrame.Dispose();
+                _currentSilhouetteFrame = null;
+            }
 
-            _motionController?.Dispose();
-            _motionController = null;
+            if (_motionController != null)
+            {
+                _motionController.Dispose();
+                _motionController = null;
+            }
         }
 
         public void Initialize()

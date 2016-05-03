@@ -65,9 +65,9 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _keyboardInput?.Load(Content);
-            _motionController?.Load(Content);
-            _userInterface?.Load(Content);
+            _keyboardInput.Load(Content);
+            _motionController.Load(Content);
+            _userInterface.Load(Content);
         }
 
         /// <summary>
@@ -88,8 +88,8 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            _keyboardInput?.Update(gameTime);
-            _motionController?.Update(gameTime);
+            _keyboardInput.Update(gameTime);
+            _motionController.Update(gameTime);
             _userInterface.Update(gameTime);
 
             base.Update(gameTime);
@@ -105,8 +105,8 @@
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
-            _keyboardInput?.Draw(gameTime, _spriteBatch);
-            _motionController?.Draw(gameTime, _spriteBatch);
+            _keyboardInput.Draw(gameTime, _spriteBatch);
+            _motionController.Draw(gameTime, _spriteBatch);
 
             _spriteBatch.End();
 
@@ -118,8 +118,11 @@
 
         protected override void OnExiting(object sender, EventArgs args)
         {
-            _motionController?.Dispose();
-            _motionController = null;
+            if (_motionController != null)
+            {
+                _motionController.Dispose();
+                _motionController = null;
+            }
 
             base.OnExiting(sender, args);
         }
