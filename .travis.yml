@@ -1,0 +1,9 @@
+language: csharp
+solution: src/MotionWordPlay.sln
+sudo: required
+install:
+  - sudo apt-get install -y monodevelop
+  - sudo apt-get install -y libopenal-dev
+  - chmod +x build/monogame-sdk.run
+  - yes | sudo build/monogame-sdk.run
+  - nuget restore src/MotionWordPlay.sln
