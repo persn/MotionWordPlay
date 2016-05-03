@@ -43,10 +43,16 @@
 
         public void Dispose()
         {
-            _gestureReader?.Dispose();
+            if (_gestureReader != null)
+            {
+                _gestureReader.Dispose();
+            }
             _gestureReader = null;
 
-            _gestureSource?.Dispose();
+            if (_gestureSource != null)
+            {
+                _gestureSource.Dispose();
+            }
             _gestureSource = null;
         }
 
@@ -56,8 +62,13 @@
 
             using (VisualGestureBuilderFrame frame = _gestureReader.CalculateAndAcquireLatestFrame())
             {
+                if (frame == null)
+                {
+                    return result;
+                }
+
                 IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults
-                    = frame?.DiscreteGestureResults;
+                    = frame.DiscreteGestureResults;
 
                 if (discreteResults == null)
                 {

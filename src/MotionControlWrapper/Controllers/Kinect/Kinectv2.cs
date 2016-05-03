@@ -32,9 +32,15 @@
         public Kinectv2()
         {
             _sensor = KinectSensor.GetDefault();
-            _sensor?.Open();
 
-            _reader = _sensor?.OpenMultiSourceFrameReader(
+            if (_sensor == null)
+            {
+                return;
+            }
+
+            _sensor.Open();
+
+            _reader = _sensor.OpenMultiSourceFrameReader(
                 FrameSourceTypes.Color |
                 FrameSourceTypes.Depth |
                 FrameSourceTypes.Infrared |
@@ -65,37 +71,43 @@
             Dispose();
         }
 
-        public Size ColorFrameSize { get; }
+        public Size ColorFrameSize { get; private set; }
 
-        public Size DepthFrameSize { get; }
+        public Size DepthFrameSize { get; private set; }
 
-        public Size InfraredFrameSize { get; }
+        public Size InfraredFrameSize { get; private set; }
 
-        public Size SilhouetteFrameSize { get; }
+        public Size SilhouetteFrameSize { get; private set; }
 
-        public byte[] MostRecentColorFrame { get; }
+        public byte[] MostRecentColorFrame { get; private set; }
 
-        public byte[] MostRecentDepthFrame { get; }
+        public byte[] MostRecentDepthFrame { get; private set; }
 
-        public byte[] MostRecentInfraredFrame { get; }
+        public byte[] MostRecentInfraredFrame { get; private set; }
 
-        public byte[] MostRecentSilhouetteFrame { get; }
+        public byte[] MostRecentSilhouetteFrame { get; private set; }
 
-        public GestureResults MostRecentGestures { get; }
+        public GestureResults MostRecentGestures { get; private set; }
 
-        private MultiSourceFrame MultiFrame => _reader.AcquireLatestFrame();
+        private FrameDescription ColorFrameDescription
+        {
+            get { return _sensor.ColorFrameSource.FrameDescription; }
+        }
 
-        private FrameDescription ColorFrameDescription =>
-            _sensor.ColorFrameSource.FrameDescription;
+        private FrameDescription DepthFrameDescription
+        {
+            get { return _sensor.DepthFrameSource.FrameDescription; }
+        }
 
-        private FrameDescription DepthFrameDescription =>
-            _sensor.DepthFrameSource.FrameDescription;
+        private FrameDescription InfraredFrameDescription
+        {
+            get { return _sensor.InfraredFrameSource.FrameDescription; }
+        }
 
-        private FrameDescription InfraredFrameDescription =>
-            _sensor.InfraredFrameSource.FrameDescription;
-
-        private FrameDescription SilhouetteFrameDescription =>
-            _sensor.BodyIndexFrameSource.FrameDescription;
+        private FrameDescription SilhouetteFrameDescription
+        {
+            get { return _sensor.BodyIndexFrameSource.FrameDescription; }
+        }
 
         public void LoadGestures(string gesturesDB)
         {
@@ -107,7 +119,14 @@
 
         public void PollMostRecentColorFrame()
         {
-            using (ColorFrame frame = MultiFrame?.ColorFrameReference.AcquireFrame())
+            MultiSourceFrame multiFrame = _reader.AcquireLatestFrame();
+
+            if (multiFrame == null)
+            {
+                return;
+            }
+
+            using (ColorFrame frame = multiFrame.ColorFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
@@ -120,7 +139,14 @@
 
         public void PollMostRecentDepthFrame()
         {
-            using (DepthFrame frame = MultiFrame?.DepthFrameReference.AcquireFrame())
+            MultiSourceFrame multiFrame = _reader.AcquireLatestFrame();
+
+            if (multiFrame == null)
+            {
+                return;
+            }
+
+            using (DepthFrame frame = multiFrame.DepthFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
@@ -143,7 +169,14 @@
 
         public void PollMostRecentInfraredFrame()
         {
-            using (InfraredFrame frame = MultiFrame?.InfraredFrameReference.AcquireFrame())
+            MultiSourceFrame multiFrame = _reader.AcquireLatestFrame();
+
+            if (multiFrame == null)
+            {
+                return;
+            }
+
+            using (InfraredFrame frame = multiFrame.InfraredFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
@@ -162,7 +195,14 @@
 
         public void PollMostRecentSilhouetteFrame()
         {
-            using (BodyIndexFrame frame = MultiFrame?.BodyIndexFrameReference.AcquireFrame())
+            MultiSourceFrame multiFrame = _reader.AcquireLatestFrame();
+
+            if (multiFrame == null)
+            {
+                return;
+            }
+
+            using (BodyIndexFrame frame = multiFrame.BodyIndexFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
@@ -183,7 +223,14 @@
 
         public void PollMostRecentBodyFrame()
         {
-            using (BodyFrame frame = MultiFrame?.BodyFrameReference.AcquireFrame())
+            MultiSourceFrame multiFrame = _reader.AcquireLatestFrame();
+
+            if (multiFrame == null)
+            {
+                return;
+            }
+
+            using (BodyFrame frame = multiFrame.BodyFrameReference.AcquireFrame())
             {
                 if (frame == null)
                 {
@@ -225,13 +272,22 @@
 
         public void Dispose()
         {
-            _gestureTrackers?.Clear();
+            if (_gestureTrackers != null)
+            {
+                _gestureTrackers.Clear();
+            }
             _gestureTrackers = null;
 
-            _reader?.Dispose();
+            if (_reader != null)
+            {
+                _reader.Dispose();
+            }
             _reader = null;
 
-            _sensor?.Close();
+            if (_sensor != null)
+            {
+                _sensor.Close();
+            }
             _sensor = null;
         }
 

@@ -9,10 +9,10 @@
             IsDetected = isDetected;
         }
 
-        public string Name { get; }
+        public string Name { get; private set; }
 
-        public float Confidence { get; }
+        public float Confidence { get; private set; }
 
-        public bool IsDetected { get; }
+        public bool IsDetected { get; private set; }
     }
 }
