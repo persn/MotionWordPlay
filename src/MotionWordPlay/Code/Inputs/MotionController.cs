@@ -145,11 +145,11 @@ namespace NTNU.MotionWordPlay.Inputs
             return new Texture2D(_graphicsDevice, size.Width, size.Height);
         }
 
-        private void UpdateFrame(Texture2D frame, byte[] data, Action pollNewFrame)
+        private static void UpdateFrame(Texture2D frame, byte[] data, Action pollNewFrame)
         {
             pollNewFrame();
 
-            if (_motionController.MostRecentSilhouetteFrame != null)
+            if (data != null)
             {
                 frame.SetData(data);
             }
