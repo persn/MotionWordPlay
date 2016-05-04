@@ -71,7 +71,7 @@
             _keyboardInput.Load(Content);
             _motionController.Load(Content);
             _userInterface.Load(Content);
-            _demoGame = new DemoGame();
+            _demoGame = new DemoGame(6, 5);
         }
 
         /// <summary>
@@ -159,32 +159,25 @@
                     _graphicsDevice.ApplyChanges();
                     break;
                 case Keys.A:
-                    _demoGame.SwapObjects(0,1);
+                    SwapObjects(0, 1);
                     break;
                 case Keys.S:
-                    _demoGame.SwapObjects(1,2);
+                    SwapObjects(1, 2);
                     break;
                 case Keys.D:
-                    _demoGame.SwapObjects(2,3);
+                    SwapObjects(2, 3);
                     break;
                 case Keys.F:
-                    _demoGame.SwapObjects(3,4);
+                    SwapObjects(3, 4);
                     break;
                 case Keys.G:
-                    _demoGame.SwapObjects(4,5);
+                    SwapObjects(4, 5);
                     break;
                 case Keys.Q:
-                    _demoGame.CreateNewTask(6);
-                    _userInterface.AddNewPuzzleFractions(6);
-                    for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-                    {
-                        _userInterface.UpdatePuzzleFraction(
-                            i,
-                            _demoGame.CurrentTask[i].Item1,
-                            50+i*100,
-                            200 
-                            );
-                    }
+                    LoadTask(6);
+                    break;
+                case Keys.W:
+                    CheckAnswer();
                     break;
                 default:
                     throw new NotSupportedException("Key is not supported");
@@ -233,5 +226,68 @@
 
             _globalTransformation = Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
         }
+
+        #region Game Specific functions
+
+        private void SwapObjects(int index1, int index2)
+        {
+            if (_demoGame.CurrentTask == null)
+            {
+                return;
+            }
+            _demoGame.SwapObjects(index1, index2);
+            RefreshText();
+        }
+
+        private void RefreshText ()
+        {
+            if (_demoGame.CurrentTask == null)
+            {
+                return;
+            }
+            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
+            {
+                _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1);
+            }
+        }
+
+        private void LoadTask(int numPlayers)
+        {
+            _demoGame.CreateNewTask();
+            _userInterface.AddNewPuzzleFractions(numPlayers);
+            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
+            {
+                _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1, 50 + i * 100, 150);
+            }
+        }
+
+        private void CheckAnswer()
+        {
+            if (_demoGame.CurrentTask == null)
+            {
+                return;
+            }
+            bool[] result;
+            bool correct = _demoGame.IsCorrect(out result);
+            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
+            {
+                _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1 + "\n" + result[i]);
+            }
+            if (!correct)
+            {
+                return;
+            }
+            bool gameOver = _demoGame.CorrectAnswerGiven();
+            _userInterface.Score = _demoGame.Score.ToString();
+            if (gameOver)
+            {
+                EndGame();
+            }
+        }
+
+        private void EndGame()
+        {
+        }
+        #endregion
     }
 }

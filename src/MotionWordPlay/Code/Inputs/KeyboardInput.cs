@@ -10,7 +10,7 @@ namespace NTNU.MotionWordPlay.Inputs
     {
         public event EventHandler<KeyPressedEventArgs> KeyPressed;
 
-        private static readonly Keys[] ValidKeys = { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.F4, Keys.A, Keys.S, Keys.D, Keys.F, Keys.G, Keys.Q };
+        private static readonly Keys[] ValidKeys = { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.F4, Keys.A, Keys.S, Keys.D, Keys.F, Keys.G, Keys.Q, Keys.W };
 
         private KeyboardState _previousState;
         private KeyboardState _currentState;

@@ -4,17 +4,25 @@
 
     public class DemoGame
     {
-        public Tuple<string, int>[] CurrentTask { get; private set; } //Contains a tuple with <"word", correctIndex>
-        private TaskLoader _taskLoader;
+        private const int ScoreIncrementAmount = 50;
 
-        public DemoGame()
+        public Tuple<string, int>[] CurrentTask { get; private set; } //Contains a tuple with <"word", correctIndex>
+        public int Score { get; private set; }
+        public int AnswerCounter { get; private set; }
+        private readonly TaskLoader _taskLoader;
+        private readonly int _numPlayers;
+
+        public DemoGame(int numPlayers, int numAnswers)
         {
+            _numPlayers = numPlayers;
             _taskLoader = new TaskLoader();
+            Score = 0;
+            AnswerCounter = numAnswers;
         }
 
-        public void CreateNewTask(int numPlayers)
+        public void CreateNewTask()
         {
-            SplitSentence(_taskLoader.LoadTask(numPlayers));
+            SplitSentence(_taskLoader.LoadTask(_numPlayers));
             ScrambleWordOrder();
         }
 
@@ -41,14 +49,19 @@
             }
         }
 
-        public bool[] IsCorrect()
+        public bool IsCorrect(out bool[] result)
         {
-            bool[] result = new bool[CurrentTask.Length];
+            bool returnValue = true;
+            result = new bool[CurrentTask.Length];
             for (int i = 0; i < CurrentTask.Length; i++)
             {
                 result[i] = CurrentTask[i].Item2 == i;
+                if (!result[i])
+                {
+                    returnValue = false;
+                }
             }
-            return result;
+            return returnValue;
         }
 
         public void SwapObjects(int index1, int index2)
@@ -56,6 +69,23 @@
             Tuple<string, int> temp = CurrentTask[index1];
             CurrentTask[index1] = CurrentTask[index2];
             CurrentTask[index2] = temp;
+        }
+
+        /// <summary>
+        /// Updates score and checks if it should create new task or end the game. 
+        /// </summary>
+        /// <returns>True if game is over, false if there is more tasks left</returns>
+        public bool CorrectAnswerGiven()
+        {
+            Score += ScoreIncrementAmount;
+            if (AnswerCounter == 0)
+            {
+                return true;
+            }
+            AnswerCounter--;
+            CreateNewTask();
+
+            return false;
         }
 
     }
