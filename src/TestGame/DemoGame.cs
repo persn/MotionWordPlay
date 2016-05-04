@@ -1,16 +1,20 @@
 ﻿namespace NTNU.TestGame
 {
     using System;
-    using System.Collections.Generic;
 
     public class DemoGame
     {
-        private string _dummyTestString = "Word0 word1 word2 word3 word4 word5."; //TODO: Delete
         public Tuple<string, int>[] CurrentTask { get; private set; } //Contains a tuple with <"word", correctIndex>
+        private TaskLoader _taskLoader;
 
-        public void testNewTask() //TODO: Delete
+        public DemoGame()
         {
-            SplitSentence(_dummyTestString);
+            _taskLoader = new TaskLoader();
+        }
+
+        public void CreateNewTask(int numPlayers)
+        {
+            SplitSentence(_taskLoader.LoadTask(numPlayers));
             ScrambleWordOrder();
         }
 
