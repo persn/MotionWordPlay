@@ -63,15 +63,15 @@ namespace NTNU.MotionWordPlay.UserInterface
 
         public void UpdatePuzzleFraction(int index, int x, int y)
         {
-            _rootViewModel.PuzzleFractions[index].Top = x;
-            _rootViewModel.PuzzleFractions[index].Left = y;
+            _rootViewModel.PuzzleFractions[index].Left = x;
+            _rootViewModel.PuzzleFractions[index].Top = y;
         }
 
         public void UpdatePuzzleFraction(int index, string text, int x, int y)
         {
             _rootViewModel.PuzzleFractions[index].PuzzleText = text;
-            _rootViewModel.PuzzleFractions[index].Top = x;
-            _rootViewModel.PuzzleFractions[index].Left = y;
+            _rootViewModel.PuzzleFractions[index].Left = x;
+            _rootViewModel.PuzzleFractions[index].Top = y;
         }
 
         public void ResetUI()
