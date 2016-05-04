@@ -6,6 +6,7 @@
     using Microsoft.Xna.Framework.Input;
     using UserInterface;
     using Inputs;
+    using TestGame;
 
     /// <summary>
     /// This is the main type for your game.
@@ -20,6 +21,8 @@
         private KeyboardInput _keyboardInput;
         private MotionController _motionController;
         private IUserInterface _userInterface;
+
+        private DemoGame _demoGame;
 
         public Game()
         {
@@ -68,6 +71,7 @@
             _keyboardInput.Load(Content);
             _motionController.Load(Content);
             _userInterface.Load(Content);
+            _demoGame = new DemoGame();
         }
 
         /// <summary>
@@ -153,6 +157,34 @@
                 case Keys.F4:
                     _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
                     _graphicsDevice.ApplyChanges();
+                    break;
+                case Keys.A:
+                    _demoGame.SwapObjects(0,1);
+                    break;
+                case Keys.S:
+                    _demoGame.SwapObjects(1,2);
+                    break;
+                case Keys.D:
+                    _demoGame.SwapObjects(2,3);
+                    break;
+                case Keys.F:
+                    _demoGame.SwapObjects(3,4);
+                    break;
+                case Keys.G:
+                    _demoGame.SwapObjects(4,5);
+                    break;
+                case Keys.Q:
+                    _demoGame.CreateNewTask(6);
+                    _userInterface.AddNewPuzzleFractions(6);
+                    for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
+                    {
+                        _userInterface.UpdatePuzzleFraction(
+                            i,
+                            _demoGame.CurrentTask[i].Item1,
+                            50+i*100,
+                            200 
+                            );
+                    }
                     break;
                 default:
                     throw new NotSupportedException("Key is not supported");
