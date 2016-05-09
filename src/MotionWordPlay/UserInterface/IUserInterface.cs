@@ -1,10 +1,12 @@
 namespace NTNU.MotionWordPlay.UserInterface
 {
+    using Controls;
+
     public interface IUserInterface : IGameLoop
     {
-        string Time { get; set; }
-        string Task { get; set; }
-        string Score { get; set; }
+        TextLine Time { get; set; }
+        TextLine Task { get; set; }
+        TextLine Score { get; set; }
 
         void AddNewPuzzleFractions(int amount);
         void UpdatePuzzleFraction(int index, string text);

@@ -246,8 +246,8 @@
         private void RefreshText()
         {
             _userInterface.ResetUI();
-            _userInterface.Score = _demoGame.Score.ToString();
-            _userInterface.Task = _demoGame.AnswerCounter.ToString();
+            _userInterface.Score.Text = _demoGame.Score.ToString();
+            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
             if (_demoGame.CurrentTask == null)
             {
                 return;
@@ -287,7 +287,7 @@
             }
             int scoreChange;
             bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
-            _userInterface.Score = _demoGame.Score.ToString();
+            _userInterface.Score.Text = _demoGame.Score.ToString();
             RefreshText();
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Correct\n+ " + scoreChange + " points", 200, 50);
@@ -295,14 +295,14 @@
             {
                 EndGame();
             }
-            _userInterface.Task = _demoGame.AnswerCounter.ToString();
+            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
         }
 
         private void EndGame()
         {
             _gameEnded = true;
             _userInterface.ResetUI();
-            _userInterface.Score = _demoGame.Score.ToString();
+            _userInterface.Score.Text = _demoGame.Score.ToString();
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(0, "Game Over\nFinal Score: " + _demoGame.Score, 200, 50);
         }

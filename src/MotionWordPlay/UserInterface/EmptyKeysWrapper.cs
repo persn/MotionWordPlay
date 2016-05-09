@@ -5,6 +5,7 @@ namespace NTNU.MotionWordPlay.UserInterface
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+    using Controls;
     using ViewModel;
 
     public class EmptyKeysWrapper : IUserInterface
@@ -12,40 +13,19 @@ namespace NTNU.MotionWordPlay.UserInterface
         private RootView _rootView;
         private RootViewModel _rootViewModel;
 
-        public string Time
+        public TextLine Time
         {
-            get
-            {
-                return _rootViewModel.Time;
-            }
-            set
-            {
-                _rootViewModel.Time = value;
-            }
+            get; set;
         }
 
-        public string Task
+        public TextLine Task
         {
-            get
-            {
-                return _rootViewModel.Task;
-            }
-            set
-            {
-                _rootViewModel.Task = value;
-            }
+            get; set;
         }
 
-        public string Score
+        public TextLine Score
         {
-            get
-            {
-                return _rootViewModel.Score;
-            }
-            set
-            {
-                _rootViewModel.Score = value;
-            }
+            get; set;
         }
 
         public void AddNewPuzzleFractions(int amount)
@@ -76,9 +56,9 @@ namespace NTNU.MotionWordPlay.UserInterface
 
         public void ResetUI()
         {
-            Time = string.Empty;
-            Task = string.Empty;
-            Score = string.Empty;
+            Time.Text = string.Empty;
+            Task.Text = string.Empty;
+            Score.Text = string.Empty;
             _rootViewModel.PuzzleFractions.Clear();
         }
 
@@ -97,6 +77,10 @@ namespace NTNU.MotionWordPlay.UserInterface
             _rootView.DataContext = _rootViewModel;
 
             FontManager.Instance.LoadFonts(contentManager);
+
+            Time = new TimeTextLine(this);
+            Task = new TaskTextLine(this);
+            Score = new ScoreTextLine(this);
         }
 
         public void Update(GameTime gameTime)
@@ -117,6 +101,72 @@ namespace NTNU.MotionWordPlay.UserInterface
                 graphicsDevice,
                 (int)nativeSize.X,
                 (int)nativeSize.Y);
+        }
+
+        private class TimeTextLine : TextLine
+        {
+            private readonly EmptyKeysWrapper _emptyKeysWrapper;
+
+            public TimeTextLine(EmptyKeysWrapper emptyKeysWrapper)
+            {
+                _emptyKeysWrapper = emptyKeysWrapper;
+            }
+
+            public override string Text
+            {
+                get
+                {
+                    return _emptyKeysWrapper._rootViewModel.Time;
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.Time = value;
+                }
+            }
+        }
+
+        private class TaskTextLine : TextLine
+        {
+            private readonly EmptyKeysWrapper _emptyKeysWrapper;
+
+            public TaskTextLine(EmptyKeysWrapper emptyKeysWrapper)
+            {
+                _emptyKeysWrapper = emptyKeysWrapper;
+            }
+
+            public override string Text
+            {
+                get
+                {
+                    return _emptyKeysWrapper._rootViewModel.Task;
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.Task = value;
+                }
+            }
+        }
+
+        private class ScoreTextLine : TextLine
+        {
+            private readonly EmptyKeysWrapper _emptyKeysWrapper;
+
+            public ScoreTextLine(EmptyKeysWrapper emptyKeysWrapper)
+            {
+                _emptyKeysWrapper = emptyKeysWrapper;
+            }
+
+            public override string Text
+            {
+                get
+                {
+                    return _emptyKeysWrapper._rootViewModel.Score;
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.Score = value;
+                }
+            }
         }
     }
 }
