@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.WindowsDX", "MotionWordPlay.WindowsDX\MotionWordPlay.WindowsDX.csproj", "{3B14F827-8748-4565-B921-3999AD83FD52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.DesktopGL", "MotionWordPlay.DesktopGL\MotionWordPlay.DesktopGL.csproj", "{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionControlWrapper", "MotionControlWrapper\MotionControlWrapper.csproj", "{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{30CF25A8-C535-4490-94BB-3AE270F41EE4}"
@@ -16,10 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGame", "TestGame\TestGame.csproj", "{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MotionWordPlay", "MotionWordPlay\MotionWordPlay.shproj", "{B1F6A2FD-1A57-4158-BC84-AE18AAF75241}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.WindowsDX", "MotionWordPlay.WindowsDX\MotionWordPlay.WindowsDX.csproj", "{3B14F827-8748-4565-B921-3999AD83FD52}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.DesktopGL", "MotionWordPlay.DesktopGL\MotionWordPlay.DesktopGL.csproj", "{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
