@@ -9,6 +9,6 @@ namespace NTNU.MotionWordPlay.Inputs
             PressedKey = pressedKey;
         }
 
-        public Keys PressedKey { get; }
+        public Keys PressedKey { get; private set; }
     }
 }

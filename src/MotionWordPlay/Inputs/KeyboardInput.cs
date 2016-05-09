@@ -32,7 +32,7 @@ namespace NTNU.MotionWordPlay.Inputs
             {
                 if (IsKeyPressed(validKey))
                 {
-                    KeyPressed?.Invoke(this, new KeyPressedEventArgs(validKey));
+                    InvokeKeyPressed(validKey);
                 }
             }
         }
@@ -48,6 +48,14 @@ namespace NTNU.MotionWordPlay.Inputs
         private bool IsKeyPressed(Keys key)
         {
             return _currentState.IsKeyDown(key) && !_previousState.IsKeyDown(key);
+        }
+
+        private void InvokeKeyPressed(Keys key)
+        {
+            if (KeyPressed != null)
+            {
+                KeyPressed.Invoke(this, new KeyPressedEventArgs(key));
+            }
         }
     }
 }
