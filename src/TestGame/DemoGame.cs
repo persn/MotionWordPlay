@@ -86,12 +86,14 @@
         /// Updates score and checks if it should create new task or end the game. 
         /// </summary>
         /// <returns>True if game is over, false if there is more tasks left</returns>
-        public bool CorrectAnswerGiven()
+        public bool CorrectAnswerGiven(out int scoreChange)
         {
-            Score += ScoreIncrementAmount + ComboBonus * Combo;
+            scoreChange = ScoreIncrementAmount + ComboBonus * Combo;
+            Score += scoreChange;
             Combo++;
             if (AnswerCounter == 0)
             {
+                CurrentTask = new Tuple<string, int>[0];
                 return true;
             }
             AnswerCounter--;

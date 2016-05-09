@@ -23,6 +23,7 @@
         private IUserInterface _userInterface;
 
         private DemoGame _demoGame;
+        private bool _gameEnded;
 
         public Game()
         {
@@ -72,6 +73,7 @@
             _motionController.Load(Content);
             _userInterface.Load(Content);
             _demoGame = new DemoGame(3);
+            _gameEnded = false;
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(0, "Do stuff to start game", 200, 150);
         }
@@ -233,7 +235,7 @@
 
         private void SwapObjects(int index1, int index2)
         {
-            if (_demoGame.CurrentTask == null || index1 > _demoGame.CurrentTask.Length-1 || index2 > _demoGame.CurrentTask.Length-1)
+            if (_demoGame.CurrentTask == null || index1 > _demoGame.CurrentTask.Length - 1 || index2 > _demoGame.CurrentTask.Length - 1)
             {
                 return;
             }
@@ -241,48 +243,54 @@
             RefreshText();
         }
 
-        private void RefreshText ()
+        private void RefreshText()
         {
+            _userInterface.ResetUI();
+            _userInterface.Score = _demoGame.Score.ToString();
+            _userInterface.Task = _demoGame.AnswerCounter.ToString();
             if (_demoGame.CurrentTask == null)
             {
                 return;
             }
-            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-            {
-                _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1);
-            }
-        }
-
-        private void LoadTask(int numPlayers)
-        {
-            _demoGame.CreateNewTask(true);
-            _userInterface.ResetUI();
-            _userInterface.Task = _demoGame.AnswerCounter.ToString();
-            _userInterface.AddNewPuzzleFractions(numPlayers);
+            _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
             for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
             {
                 _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1, 50 + i * 100, 150);
             }
         }
 
+        private void LoadTask(int numPlayers)
+        {
+            _demoGame.CreateNewTask(true);
+            _gameEnded = false;
+            RefreshText();
+        }
+
         private void CheckAnswer()
         {
-            if (_demoGame.CurrentTask == null)
+            if (_demoGame.CurrentTask == null || _gameEnded)
             {
                 return;
             }
             bool[] result;
             bool correct = _demoGame.IsCorrect(out result);
-            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-            {
-                _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1 + "\n" + result[i]);
-            }
             if (!correct)
             {
+                for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
+                {
+                    if (!result[i])
+                    {
+                        _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1 + "\n" + result[i]);
+                    }
+                }
                 return;
             }
-            bool gameOver = _demoGame.CorrectAnswerGiven();
+            int scoreChange;
+            bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
             _userInterface.Score = _demoGame.Score.ToString();
+            RefreshText();
+            _userInterface.AddNewPuzzleFractions(1);
+            _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Correct\n+ " + scoreChange + " points", 200, 50);
             if (gameOver)
             {
                 EndGame();
@@ -292,8 +300,11 @@
 
         private void EndGame()
         {
+            _gameEnded = true;
+            _userInterface.ResetUI();
+            _userInterface.Score = _demoGame.Score.ToString();
             _userInterface.AddNewPuzzleFractions(1);
-            _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Game Over\n Final Score: "+_demoGame.Score, 200, 50);
+            _userInterface.UpdatePuzzleFraction(0, "Game Over\nFinal Score: " + _demoGame.Score, 200, 50);
         }
         #endregion
     }

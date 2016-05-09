@@ -21,7 +21,6 @@ namespace NTNU.TestGame
 
         private void ReadTasksFromFiles()
         {
-            //TODO: Read from actual file(s)
             _3PlayerTasks = System.IO.File.ReadAllLines(_folder + "3playertasks.txt");
             _4PlayerTasks = System.IO.File.ReadAllLines(_folder + "4playertasks.txt");
             _5PlayerTasks = System.IO.File.ReadAllLines(_folder + "5playertasks.txt");
