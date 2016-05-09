@@ -5,18 +5,21 @@
     public class DemoGame
     {
         private const int ScoreIncrementAmount = 50;
+        private const int ComboBonus = 25;
 
         public Tuple<string, int>[] CurrentTask { get; private set; } //Contains a tuple with <"word", correctIndex>
         public int Score { get; private set; }
         public int AnswerCounter { get; private set; }
         private readonly TaskLoader _taskLoader;
         private readonly int _numPlayers;
+        private int _combo;
 
         public DemoGame(int numPlayers, int numAnswers)
         {
             _numPlayers = numPlayers;
             _taskLoader = new TaskLoader();
             Score = 0;
+            _combo = 0;
             AnswerCounter = numAnswers;
         }
 
@@ -59,6 +62,7 @@
                 if (!result[i])
                 {
                     returnValue = false;
+                    _combo = 0;
                 }
             }
             return returnValue;
@@ -77,7 +81,8 @@
         /// <returns>True if game is over, false if there is more tasks left</returns>
         public bool CorrectAnswerGiven()
         {
-            Score += ScoreIncrementAmount;
+            Score += ScoreIncrementAmount + ComboBonus * _combo;
+            _combo++;
             if (AnswerCounter == 0)
             {
                 return true;

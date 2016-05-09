@@ -71,7 +71,9 @@
             _keyboardInput.Load(Content);
             _motionController.Load(Content);
             _userInterface.Load(Content);
-            _demoGame = new DemoGame(6, 5);
+            _demoGame = new DemoGame(6, 1);
+            _userInterface.AddNewPuzzleFractions(1);
+            _userInterface.UpdatePuzzleFraction(0, "Do stuff to start game", 200, 150);
         }
 
         /// <summary>
@@ -254,6 +256,8 @@
         private void LoadTask(int numPlayers)
         {
             _demoGame.CreateNewTask();
+            _userInterface.ResetUI();
+            _userInterface.Task = _demoGame.AnswerCounter.ToString();
             _userInterface.AddNewPuzzleFractions(numPlayers);
             for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
             {
@@ -283,10 +287,13 @@
             {
                 EndGame();
             }
+            _userInterface.Task = _demoGame.AnswerCounter.ToString();
         }
 
         private void EndGame()
         {
+            _userInterface.AddNewPuzzleFractions(1);
+            _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Game Over\n Final Score: "+_demoGame.Score, 200, 50);
         }
         #endregion
     }

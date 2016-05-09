@@ -1,9 +1,12 @@
-﻿namespace NTNU.TestGame
+﻿using System.IO;
+
+namespace NTNU.TestGame
 {
     using System;
 
     public class TaskLoader
     {
+        private string _folder;
         private string[] _3PlayerTasks;
         private string[] _4PlayerTasks;
         private string[] _5PlayerTasks;
@@ -12,16 +15,17 @@
 
         public TaskLoader()
         {
+            _folder = Directory.GetCurrentDirectory() + "../../../../../../../TestGame/tasks/";
             ReadTasksFromFiles();
         }
 
         private void ReadTasksFromFiles()
         {
             //TODO: Read from actual file(s)
-            _3PlayerTasks = new[] {"Word0 word1 word2."};
-            _4PlayerTasks = new[] {"Word0 word1 word2 word3."};
-            _5PlayerTasks = new[] {"Word0 word1 word2 word3 word4."};
-            _6PlayerTasks = new[] {"Word0 word1 word2 word3 word4 word5."};
+            _3PlayerTasks = System.IO.File.ReadAllLines(_folder + "3playertasks.txt");
+            _4PlayerTasks = System.IO.File.ReadAllLines(_folder + "4playertasks.txt");
+            _5PlayerTasks = System.IO.File.ReadAllLines(_folder + "5playertasks.txt");
+            _6PlayerTasks = System.IO.File.ReadAllLines(_folder + "6playertasks.txt");
         }
 
         public string LoadTask(int numPlayers)
