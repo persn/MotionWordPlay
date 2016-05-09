@@ -33,7 +33,7 @@
                 PreferredBackBufferHeight = (int)BaseScreenSize.Y,
                 GraphicsProfile = GraphicsProfile.Reach
             };
-            _graphicsDevice.DeviceCreated += Graphics_DeviceCreated;
+            _graphicsDevice.DeviceCreated += GraphicsDeviceCreated;
 
             Content.RootDirectory = "Content";
 
@@ -135,7 +135,7 @@
             base.OnExiting(sender, args);
         }
 
-        private void Graphics_DeviceCreated(object sender, EventArgs e)
+        private void GraphicsDeviceCreated(object sender, EventArgs e)
         {
             _keyboardInput.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
             _motionController.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
