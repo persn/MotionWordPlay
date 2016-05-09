@@ -22,3 +22,15 @@
 /processorParam:TextureFormat=Compressed
 /build:Segoe_UI_15_Regular.spritefont
 
+#begin WordPlays/3playertasks.txt
+/copy:WordPlays/3playertasks.txt
+
+#begin WordPlays/4playertasks.txt
+/copy:WordPlays/4playertasks.txt
+
+#begin WordPlays/5playertasks.txt
+/copy:WordPlays/5playertasks.txt
+
+#begin WordPlays/6playertasks.txt
+/copy:WordPlays/6playertasks.txt
+

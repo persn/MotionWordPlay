@@ -14,7 +14,7 @@
 
         public TaskLoader()
         {
-            _folder = Directory.GetCurrentDirectory() + "../../../../../../MotionWordPlay.GameCore/tasks/";
+            _folder = string.Format(@"Content{0}WordPlays{0}", Path.DirectorySeparatorChar);
             ReadTasksFromFiles();
         }
 
@@ -41,7 +41,7 @@
                 default:
                     throw new NotSupportedException("Invalid number of players");
             }
-            
+
         }
     }
 }

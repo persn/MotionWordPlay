@@ -3,6 +3,7 @@ namespace NTNU.MotionWordPlay.Inputs
     using System;
     using System.Drawing;
     using System.Collections.Generic;
+    using Path = System.IO.Path;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -98,7 +99,7 @@ namespace NTNU.MotionWordPlay.Inputs
 
         public void Initialize()
         {
-            _motionController.LoadGestures(@"Content\MotionGestures\GesturesDB.gbd");
+            _motionController.LoadGestures(string.Format(@"Content{0}MotionGestures{0}GesturesDB.gbd", Path.DirectorySeparatorChar));
         }
 
         public void Load(ContentManager contentManager)
