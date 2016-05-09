@@ -71,7 +71,7 @@
             _keyboardInput.Load(Content);
             _motionController.Load(Content);
             _userInterface.Load(Content);
-            _demoGame = new DemoGame(6, 1);
+            _demoGame = new DemoGame(3);
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(0, "Do stuff to start game", 200, 150);
         }
@@ -233,7 +233,7 @@
 
         private void SwapObjects(int index1, int index2)
         {
-            if (_demoGame.CurrentTask == null)
+            if (_demoGame.CurrentTask == null || index1 > _demoGame.CurrentTask.Length-1 || index2 > _demoGame.CurrentTask.Length-1)
             {
                 return;
             }
@@ -255,7 +255,7 @@
 
         private void LoadTask(int numPlayers)
         {
-            _demoGame.CreateNewTask();
+            _demoGame.CreateNewTask(true);
             _userInterface.ResetUI();
             _userInterface.Task = _demoGame.AnswerCounter.ToString();
             _userInterface.AddNewPuzzleFractions(numPlayers);

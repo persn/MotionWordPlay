@@ -1,1 +1,1 @@
-Word0 word1 word2 word3 word4 word5.
+Word0 word1 word2 word3.
