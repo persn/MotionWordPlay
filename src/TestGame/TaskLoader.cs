@@ -1,8 +1,7 @@
-﻿using System.IO;
-
-namespace NTNU.TestGame
+﻿namespace NTNU.TestGame
 {
     using System;
+    using System.IO;
 
     public class TaskLoader
     {
@@ -15,7 +14,7 @@ namespace NTNU.TestGame
 
         public TaskLoader()
         {
-            _folder = Directory.GetCurrentDirectory() + "../../../../../../../TestGame/tasks/";
+            _folder = Directory.GetCurrentDirectory() + "../../../../../../TestGame/tasks/";
             ReadTasksFromFiles();
         }
 

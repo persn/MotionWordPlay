@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b1f6a2fd-1a57-4158-bc84-ae18aaf75241</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>MotionWordPlay</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IGameLoop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\FrameState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\KeyboardInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\KeyPressedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\MotionController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\EmptyKeysWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\IUserInterface.cs" />
+  </ItemGroup>
+</Project>

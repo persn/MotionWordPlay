@@ -5,10 +5,6 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionControlWrapper", "MotionControlWrapper\MotionControlWrapper.csproj", "{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.WindowsDX", "MotionWordPlay\Projects\WindowsDX\MotionWordPlay.WindowsDX.csproj", "{9FFDCCFD-65DA-451F-AA52-456462117A51}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.DesktopGL", "MotionWordPlay\Projects\DesktopGL\MotionWordPlay.DesktopGL.csproj", "{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{30CF25A8-C535-4490-94BB-3AE270F41EE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{8E408B76-7068-42C5-9C3C-B328B0F9B0EA}"
@@ -19,7 +15,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.UserInterfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGame", "TestGame\TestGame.csproj", "{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MotionWordPlay", "MotionWordPlay\MotionWordPlay.shproj", "{B1F6A2FD-1A57-4158-BC84-AE18AAF75241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.WindowsDX", "MotionWordPlay.WindowsDX\MotionWordPlay.WindowsDX.csproj", "{3B14F827-8748-4565-B921-3999AD83FD52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.DesktopGL", "MotionWordPlay.DesktopGL\MotionWordPlay.DesktopGL.csproj", "{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MotionWordPlay\MotionWordPlay.projitems*{3b14f827-8748-4565-b921-3999ad83fd52}*SharedItemsImports = 4
+		MotionWordPlay\MotionWordPlay.projitems*{b4e8bbff-41ba-44d8-b019-34e3a3e6a79b}*SharedItemsImports = 4
+		MotionWordPlay\MotionWordPlay.projitems*{b1f6a2fd-1a57-4158-bc84-ae18aaf75241}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
@@ -47,30 +54,6 @@ Global
 		{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}.WindowsDX Release|Any CPU.Build.0 = WindowsDX Release|Any CPU
 		{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}.WindowsDX Release|x86.ActiveCfg = WindowsDX Release|Any CPU
 		{770E82F2-41F3-4AE9-81AE-B4315CB8CB74}.WindowsDX Release|x86.Build.0 = WindowsDX Release|Any CPU
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.Debug|x86.ActiveCfg = Debug|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.Debug|x86.Build.0 = Debug|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.Release|Any CPU.ActiveCfg = Release|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.Release|x86.ActiveCfg = Release|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.Release|x86.Build.0 = Release|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.WindowsDX Debug|Any CPU.ActiveCfg = WindowsDX Debug|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.WindowsDX Debug|Any CPU.Build.0 = WindowsDX Debug|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.WindowsDX Debug|x86.ActiveCfg = WindowsDX Debug|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.WindowsDX Release|Any CPU.ActiveCfg = WindowsDX Release|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.WindowsDX Release|Any CPU.Build.0 = WindowsDX Release|x86
-		{9FFDCCFD-65DA-451F-AA52-456462117A51}.WindowsDX Release|x86.ActiveCfg = WindowsDX Release|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Debug|Any CPU.Build.0 = Debug|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Debug|x86.ActiveCfg = Debug|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Debug|x86.Build.0 = Debug|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Release|Any CPU.ActiveCfg = Release|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Release|Any CPU.Build.0 = Release|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Release|x86.ActiveCfg = Release|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.Release|x86.Build.0 = Release|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.WindowsDX Debug|Any CPU.ActiveCfg = WindowsDX Debug|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.WindowsDX Debug|x86.ActiveCfg = WindowsDX Debug|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.WindowsDX Release|Any CPU.ActiveCfg = WindowsDX Release|x86
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744}.WindowsDX Release|x86.ActiveCfg = WindowsDX Release|x86
 		{F4ECD093-9810-451B-92E8-C0282F8CF0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F4ECD093-9810-451B-92E8-C0282F8CF0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4ECD093-9810-451B-92E8-C0282F8CF0EF}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -103,14 +86,43 @@ Global
 		{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}.WindowsDX Release|Any CPU.Build.0 = Release|Any CPU
 		{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}.WindowsDX Release|x86.ActiveCfg = Release|Any CPU
 		{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}.WindowsDX Release|x86.Build.0 = Release|Any CPU
+		{3B14F827-8748-4565-B921-3999AD83FD52}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.Debug|x86.ActiveCfg = Debug|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.Debug|x86.Build.0 = Debug|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.Release|Any CPU.ActiveCfg = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.Release|x86.ActiveCfg = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.Release|x86.Build.0 = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Debug|Any CPU.ActiveCfg = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Debug|Any CPU.Build.0 = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Debug|x86.ActiveCfg = Debug|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Debug|x86.Build.0 = Debug|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Release|Any CPU.ActiveCfg = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Release|Any CPU.Build.0 = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Release|x86.ActiveCfg = Release|x86
+		{3B14F827-8748-4565-B921-3999AD83FD52}.WindowsDX Release|x86.Build.0 = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.Debug|x86.ActiveCfg = Debug|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.Debug|x86.Build.0 = Debug|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.Release|Any CPU.ActiveCfg = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.Release|x86.ActiveCfg = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.Release|x86.Build.0 = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Debug|Any CPU.ActiveCfg = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Debug|Any CPU.Build.0 = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Debug|x86.ActiveCfg = Debug|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Debug|x86.Build.0 = Debug|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Release|Any CPU.ActiveCfg = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Release|Any CPU.Build.0 = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Release|x86.ActiveCfg = Release|x86
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B}.WindowsDX Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{770E82F2-41F3-4AE9-81AE-B4315CB8CB74} = {8E408B76-7068-42C5-9C3C-B328B0F9B0EA}
-		{9FFDCCFD-65DA-451F-AA52-456462117A51} = {30CF25A8-C535-4490-94BB-3AE270F41EE4}
-		{B17A6CFA-E7A3-4D24-A847-BC7E26C21744} = {30CF25A8-C535-4490-94BB-3AE270F41EE4}
 		{F4ECD093-9810-451B-92E8-C0282F8CF0EF} = {8E408B76-7068-42C5-9C3C-B328B0F9B0EA}
+		{B1F6A2FD-1A57-4158-BC84-AE18AAF75241} = {8E408B76-7068-42C5-9C3C-B328B0F9B0EA}
+		{3B14F827-8748-4565-B921-3999AD83FD52} = {30CF25A8-C535-4490-94BB-3AE270F41EE4}
+		{B4E8BBFF-41BA-44D8-B019-34E3A3E6A79B} = {30CF25A8-C535-4490-94BB-3AE270F41EE4}
 	EndGlobalSection
 EndGlobal
