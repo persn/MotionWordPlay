@@ -1,4 +1,4 @@
-﻿namespace NTNU.TestGame
+﻿namespace NTNU.MotionWordPlay.GameCore
 {
     using System;
     using System.IO;
@@ -14,7 +14,7 @@
 
         public TaskLoader()
         {
-            _folder = Directory.GetCurrentDirectory() + "../../../../../../TestGame/tasks/";
+            _folder = Directory.GetCurrentDirectory() + "../../../../../../MotionWordPlay.GameCore/tasks/";
             ReadTasksFromFiles();
         }
 
