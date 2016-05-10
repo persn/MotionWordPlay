@@ -1,22 +1,56 @@
 ﻿namespace NTNU.MotionWordPlay.UserInterface.ViewModel
 {
+    using EmptyKeys.UserInterface.Media;
     using EmptyKeys.UserInterface.Mvvm;
 
     public class PuzzleFractionViewModel : BindableBase
     {
-        private string _puzzleText;
+        private string _text;
+        private Brush _background;
+        private Brush _foreground;
         private int _top;
         private int _left;
 
-        public string PuzzleText
+        public PuzzleFractionViewModel()
+        {
+            _text = string.Empty;
+            _background = new SolidColorBrush(ColorW.TransparentBlack);
+            _foreground = new SolidColorBrush(ColorW.White);
+        }
+
+        public string Text
         {
             get
             {
-                return _puzzleText;
+                return _text;
             }
             set
             {
-                SetProperty(ref _puzzleText, value);
+                SetProperty(ref _text, value);
+            }
+        }
+
+        public Brush Background
+        {
+            get
+            {
+                return _background;
+            }
+            set
+            {
+                SetProperty(ref _background, value);
+            }
+        }
+
+        public Brush Foreground
+        {
+            get
+            {
+                return _foreground;
+            }
+            set
+            {
+                SetProperty(ref _foreground, value);
             }
         }
 

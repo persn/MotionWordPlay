@@ -21,17 +21,29 @@
 
             <StackPanel Grid.Column="0" HorizontalAlignment="Center" Background="Gray">
                 <TextBlock Text="Time:"/>
-                <TextBlock Text="{Binding Time}"/>
+                <TextBlock
+                    Text="{Binding Time}"
+                    Background="{Binding TimeBackground}"
+                    Foreground="{Binding TimeForeground}"
+                    />
             </StackPanel>
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" Background="Gray">
                 <TextBlock Text="Task:"/>
-                <TextBlock Text="{Binding Task}"/>
+                <TextBlock
+                    Text="{Binding Task}"
+                    Background="{Binding TaskBackground}"
+                    Foreground="{Binding TaskForeground}"
+                    />
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Center" Background="Gray">
                 <TextBlock Text="Score:"/>
-                <TextBlock Text="{Binding Score}"/>
+                <TextBlock
+                    Text="{Binding Score}"
+                    Background="{Binding ScoreBackground}"
+                    Foreground="{Binding ScoreForeground}"
+                    />
             </StackPanel>
         </Grid>
 
@@ -49,7 +61,11 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding PuzzleText}"/>
+                    <TextBlock
+                        Text="{Binding Text}"
+                        Background="{Binding Background}"
+                        Foreground="{Binding Foreground}"
+                        />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

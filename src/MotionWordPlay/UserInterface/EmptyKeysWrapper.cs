@@ -2,11 +2,13 @@ namespace NTNU.MotionWordPlay.UserInterface
 {
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Generated;
+    using EmptyKeys.UserInterface.Media;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Controls;
     using ViewModel;
+    using Color = System.Drawing.Color;
 
     public class EmptyKeysWrapper : IUserInterface
     {
@@ -38,7 +40,13 @@ namespace NTNU.MotionWordPlay.UserInterface
 
         public void UpdatePuzzleFraction(int index, string text)
         {
-            _rootViewModel.PuzzleFractions[index].PuzzleText = text;
+            _rootViewModel.PuzzleFractions[index].Text = text;
+        }
+
+        public void UpdatePuzzleFraction(int index, Color background, Color foreground)
+        {
+            _rootViewModel.PuzzleFractions[index].Background = GetBrush(background);
+            _rootViewModel.PuzzleFractions[index].Foreground = GetBrush(foreground);
         }
 
         public void UpdatePuzzleFraction(int index, int x, int y)
@@ -49,7 +57,7 @@ namespace NTNU.MotionWordPlay.UserInterface
 
         public void UpdatePuzzleFraction(int index, string text, int x, int y)
         {
-            _rootViewModel.PuzzleFractions[index].PuzzleText = text;
+            _rootViewModel.PuzzleFractions[index].Text = text;
             _rootViewModel.PuzzleFractions[index].Left = x;
             _rootViewModel.PuzzleFractions[index].Top = y;
         }
@@ -103,6 +111,17 @@ namespace NTNU.MotionWordPlay.UserInterface
                 (int)nativeSize.Y);
         }
 
+        private static Color GetColor(Brush brush)
+        {
+            ColorW color = ((SolidColorBrush)brush).Color;
+            return Color.FromArgb(color.A, color.R, color.G, color.B);
+        }
+
+        private static Brush GetBrush(Color color)
+        {
+            return new SolidColorBrush(new ColorW(color.R, color.G, color.B, color.A));
+        }
+
         private class TimeTextLine : TextLine
         {
             private readonly EmptyKeysWrapper _emptyKeysWrapper;
@@ -121,6 +140,30 @@ namespace NTNU.MotionWordPlay.UserInterface
                 set
                 {
                     _emptyKeysWrapper._rootViewModel.Time = value;
+                }
+            }
+
+            public override Color Background
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.TimeBackground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.TimeBackground = GetBrush(value);
+                }
+            }
+
+            public override Color Foreground
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.TimeForeground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.TimeForeground = GetBrush(value);
                 }
             }
         }
@@ -145,6 +188,30 @@ namespace NTNU.MotionWordPlay.UserInterface
                     _emptyKeysWrapper._rootViewModel.Task = value;
                 }
             }
+
+            public override Color Background
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.TaskBackground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.TaskBackground = GetBrush(value);
+                }
+            }
+
+            public override Color Foreground
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.TaskForeground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.TaskForeground = GetBrush(value);
+                }
+            }
         }
 
         private class ScoreTextLine : TextLine
@@ -165,6 +232,30 @@ namespace NTNU.MotionWordPlay.UserInterface
                 set
                 {
                     _emptyKeysWrapper._rootViewModel.Score = value;
+                }
+            }
+
+            public override Color Background
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.ScoreBackground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.ScoreBackground = GetBrush(value);
+                }
+            }
+
+            public override Color Foreground
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.ScoreForeground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.ScoreForeground = GetBrush(value);
                 }
             }
         }

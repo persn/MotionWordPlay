@@ -7,6 +7,7 @@
     using UserInterface;
     using Inputs;
     using GameCore;
+    using Color = System.Drawing.Color;
 
     /// <summary>
     /// This is the main type for your game.
@@ -109,7 +110,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Transparent);
+            GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.Transparent);
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
@@ -278,9 +279,13 @@
             {
                 for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
                 {
-                    if (!result[i])
+                    if (result[i])
                     {
-                        _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1 + "\n" + result[i]);
+                        _userInterface.UpdatePuzzleFraction(i, Color.Transparent, Color.Green);
+                    }
+                    else
+                    {
+                        _userInterface.UpdatePuzzleFraction(i, Color.Transparent, Color.Red);
                     }
                 }
                 return;
@@ -291,6 +296,7 @@
             RefreshText();
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Correct\n+ " + scoreChange + " points", 200, 50);
+            _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, Color.Transparent, Color.Green);
             if (gameOver)
             {
                 EndGame();
