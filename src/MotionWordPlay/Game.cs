@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using NTNU.MotionControlWrapper;
-
-namespace NTNU.MotionWordPlay
+﻿namespace NTNU.MotionWordPlay
 {
     using System;
+    using System.Collections.Generic;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using UserInterface;
     using Inputs;
     using GameCore;
+    using MotionControlWrapper;
     using Color = System.Drawing.Color;
 
     /// <summary>
@@ -259,7 +257,6 @@ namespace NTNU.MotionWordPlay
 
                 foreach (GestureResult gestureResult in gestures)
                 {
-                    Debug.WriteLine("GestureEvent received for player " + i + " gesture name: " + gestureResult.Name);
                 }
             }
         }
