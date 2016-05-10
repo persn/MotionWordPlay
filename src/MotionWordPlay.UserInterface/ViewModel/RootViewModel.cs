@@ -1,4 +1,6 @@
-﻿namespace NTNU.MotionWordPlay.UserInterface.ViewModel
+﻿using EmptyKeys.UserInterface;
+
+namespace NTNU.MotionWordPlay.UserInterface.ViewModel
 {
     using EmptyKeys.UserInterface.Media;
     using EmptyKeys.UserInterface.Mvvm;
@@ -10,14 +12,17 @@
         private string _time;
         private Brush _timeBackground;
         private Brush _timeForeground;
+        private Visibility _timeVisibility;
 
         private string _task;
         private Brush _taskBackground;
         private Brush _taskForeground;
+        private Visibility _taskVisibility;
 
         private string _score;
         private Brush _scoreBackground;
         private Brush _scoreForeground;
+        private Visibility _scoreVisibility;
 
         private IList<PuzzleFractionViewModel> _puzzleFractions;
 
@@ -74,6 +79,18 @@
             }
         }
 
+        public Visibility TimeVisibility
+        {
+            get
+            {
+                return _timeVisibility;
+            }
+            set
+            {
+                SetProperty(ref _timeVisibility, value);
+            }
+        }
+
         public string Task
         {
             get
@@ -110,6 +127,18 @@
             }
         }
 
+        public Visibility TaskVisibility
+        {
+            get
+            {
+                return _taskVisibility;
+            }
+            set
+            {
+                SetProperty(ref _taskVisibility, value);
+            }
+        }
+
         public string Score
         {
             get
@@ -143,6 +172,18 @@
             set
             {
                 SetProperty(ref _scoreForeground, value);
+            }
+        }
+
+        public Visibility ScoreVisibility
+        {
+            get
+            {
+                return _scoreVisibility;
+            }
+            set
+            {
+                SetProperty(ref _scoreVisibility, value);
             }
         }
 
