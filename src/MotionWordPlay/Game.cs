@@ -1,4 +1,8 @@
-﻿namespace NTNU.MotionWordPlay
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using NTNU.MotionControlWrapper;
+
+namespace NTNU.MotionWordPlay
 {
     using System;
     using Microsoft.Xna.Framework;
@@ -24,7 +28,9 @@
         private IUserInterface _userInterface;
 
         private DemoGame _demoGame;
-        private bool _gameEnded;
+        private bool _gameRunning;
+        private double _timer;
+        private int _elapsedTime;
 
         public Game()
         {
@@ -41,7 +47,10 @@
             _keyboardInput = new KeyboardInput();
             _keyboardInput.KeyPressed += KeyboardInputKeyPressed;
             _motionController = new MotionController();
+            _motionController.GesturesReceived += MotionControllerGesturesReceived;
             _userInterface = new EmptyKeysWrapper();
+            _timer = 1000;
+            _elapsedTime = 0;
         }
 
         /// <summary>
@@ -74,7 +83,7 @@
             _motionController.Load(Content);
             _userInterface.Load(Content);
             _demoGame = new DemoGame(3);
-            _gameEnded = false;
+            _gameRunning = false;
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(0, "Do stuff to start game", 200, 150);
         }
@@ -99,6 +108,16 @@
         {
             _keyboardInput.Update(gameTime);
             _motionController.Update(gameTime);
+            if (_gameRunning)
+            {
+                _timer -= gameTime.ElapsedGameTime.Milliseconds;
+                if (_timer < 0)
+                {
+                    _elapsedTime++;
+                    _userInterface.Time.Text = _elapsedTime.ToString();
+                    _timer = 1000;
+                }
+            }
             _userInterface.Update(gameTime);
 
             base.Update(gameTime);
@@ -232,6 +251,19 @@
             _globalTransformation = Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
         }
 
+        private void MotionControllerGesturesReceived(object sender, GestureReceivedEventArgs e)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                IList<GestureResult> gestures = e.Gestures.GetGestures(i);
+
+                foreach (GestureResult gestureResult in gestures)
+                {
+                    Debug.WriteLine("GestureEvent received for player " + i + " gesture name: " + gestureResult.Name);
+                }
+            }
+        }
+
         #region Game Specific functions
 
         private void SwapObjects(int index1, int index2)
@@ -246,9 +278,9 @@
 
         private void RefreshText()
         {
-            _userInterface.ResetUI();
             _userInterface.Score.Text = _demoGame.Score.ToString();
             _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
+
             if (_demoGame.CurrentTask == null)
             {
                 return;
@@ -263,13 +295,13 @@
         private void LoadTask(int numPlayers)
         {
             _demoGame.CreateNewTask(true);
-            _gameEnded = false;
+            _gameRunning = true;
             RefreshText();
         }
 
         private void CheckAnswer()
         {
-            if (_demoGame.CurrentTask == null || _gameEnded)
+            if (_demoGame.CurrentTask == null || !_gameRunning)
             {
                 return;
             }
@@ -292,7 +324,6 @@
             }
             int scoreChange;
             bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
-            _userInterface.Score.Text = _demoGame.Score.ToString();
             RefreshText();
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Correct\n+ " + scoreChange + " points", 200, 50);
@@ -306,9 +337,10 @@
 
         private void EndGame()
         {
-            _gameEnded = true;
+            _gameRunning = false;
             _userInterface.ResetUI();
             _userInterface.Score.Text = _demoGame.Score.ToString();
+            _userInterface.Time.Text = _elapsedTime.ToString();
             _userInterface.AddNewPuzzleFractions(1);
             _userInterface.UpdatePuzzleFraction(0, "Game Over\nFinal Score: " + _demoGame.Score, 200, 50);
         }
