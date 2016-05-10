@@ -25,6 +25,7 @@
                     Text="{Binding Time}"
                     Background="{Binding TimeBackground}"
                     Foreground="{Binding TimeForeground}"
+                    Visibility="{Binding TimeVisibility}"
                     />
             </StackPanel>
 
@@ -34,6 +35,7 @@
                     Text="{Binding Task}"
                     Background="{Binding TaskBackground}"
                     Foreground="{Binding TaskForeground}"
+                    Visibility="{Binding TaskVisibility}"
                     />
             </StackPanel>
 
@@ -43,6 +45,7 @@
                     Text="{Binding Score}"
                     Background="{Binding ScoreBackground}"
                     Foreground="{Binding ScoreForeground}"
+                    Visibility="{Binding ScoreVisibility}"
                     />
             </StackPanel>
         </Grid>

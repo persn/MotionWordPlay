@@ -18,5 +18,10 @@
         {
             get; set;
         }
+
+        public abstract bool Visible
+        {
+            get; set;
+        }
     }
 }

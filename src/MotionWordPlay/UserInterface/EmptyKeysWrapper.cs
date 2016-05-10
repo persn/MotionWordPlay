@@ -1,6 +1,7 @@
 namespace NTNU.MotionWordPlay.UserInterface
 {
     using EmptyKeys.UserInterface;
+    using EmptyKeys.UserInterface.Data;
     using EmptyKeys.UserInterface.Generated;
     using EmptyKeys.UserInterface.Media;
     using Microsoft.Xna.Framework;
@@ -122,6 +123,18 @@ namespace NTNU.MotionWordPlay.UserInterface
             return new SolidColorBrush(new ColorW(color.R, color.G, color.B, color.A));
         }
 
+        private static bool GetBool(Visibility visibility)
+        {
+            BooleanToVisibilityConverter converter = new BooleanToVisibilityConverter();
+            return (bool)converter.ConvertBack(visibility, null, null, null);
+        }
+
+        private static Visibility GetVisibility(bool boolean)
+        {
+            BooleanToVisibilityConverter converter = new BooleanToVisibilityConverter();
+            return (Visibility)converter.Convert(boolean, null, null, null);
+        }
+
         private class TimeTextLine : TextLine
         {
             private readonly EmptyKeysWrapper _emptyKeysWrapper;
@@ -164,6 +177,18 @@ namespace NTNU.MotionWordPlay.UserInterface
                 set
                 {
                     _emptyKeysWrapper._rootViewModel.TimeForeground = GetBrush(value);
+                }
+            }
+
+            public override bool Visible
+            {
+                get
+                {
+                    return GetBool(_emptyKeysWrapper._rootViewModel.TimeVisibility);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.TimeVisibility = GetVisibility(value);
                 }
             }
         }
@@ -212,6 +237,18 @@ namespace NTNU.MotionWordPlay.UserInterface
                     _emptyKeysWrapper._rootViewModel.TaskForeground = GetBrush(value);
                 }
             }
+
+            public override bool Visible
+            {
+                get
+                {
+                    return GetBool(_emptyKeysWrapper._rootViewModel.TaskVisibility);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.TaskVisibility = GetVisibility(value);
+                }
+            }
         }
 
         private class ScoreTextLine : TextLine
@@ -256,6 +293,18 @@ namespace NTNU.MotionWordPlay.UserInterface
                 set
                 {
                     _emptyKeysWrapper._rootViewModel.ScoreForeground = GetBrush(value);
+                }
+            }
+
+            public override bool Visible
+            {
+                get
+                {
+                    return GetBool(_emptyKeysWrapper._rootViewModel.ScoreVisibility);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.ScoreVisibility = GetVisibility(value);
                 }
             }
         }
