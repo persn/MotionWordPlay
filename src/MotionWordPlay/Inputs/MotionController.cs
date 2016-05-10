@@ -30,6 +30,8 @@ namespace NTNU.MotionWordPlay.Inputs
             Dispose();
         }
 
+        public event EventHandler<GestureReceivedEventArgs> GesturesReceived;
+
         public FrameState CurrentFrameState { get; set; }
 
         public Size ColorFrameSize
@@ -145,17 +147,20 @@ namespace NTNU.MotionWordPlay.Inputs
             _motionController.PollMostRecentBodyFrame();
             _motionController.PollMostRecentGestureFrame();
 
-            #region Debug proof-of-concept for gestures retrieval from framework
+            bool gesturesDetected = false;
             for (int i = 0; i < 6; i++)
             {
                 IList<GestureResult> gestures = _motionController.MostRecentGestures.GetGestures(i);
 
                 if (gestures.Count > 0)
-                {//Breakpoint goes here
-                    //System.Windows.Forms.MessageBox.Show("hOi! Welcome to da tem shop");
+                {
+                    gesturesDetected = true;
                 }
             }
-            #endregion
+            if (gesturesDetected)
+            {
+                InvokeGesturesReceived(_motionController.MostRecentGestures);
+            }
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -204,6 +209,14 @@ namespace NTNU.MotionWordPlay.Inputs
             if (frame != null)
             {
                 spriteBatch.Draw(frame, Vector2.Zero);
+            }
+        }
+
+        private void InvokeGesturesReceived(GestureResults gestures)
+        {
+            if (GesturesReceived != null)
+            {
+                GesturesReceived.Invoke(this, new GestureReceivedEventArgs(gestures));
             }
         }
     }
