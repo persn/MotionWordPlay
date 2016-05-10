@@ -68,6 +68,7 @@
                         Text="{Binding Text}"
                         Background="{Binding Background}"
                         Foreground="{Binding Foreground}"
+                        Visibility="{Binding Visibility}"
                         />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

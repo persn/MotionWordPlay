@@ -12,6 +12,7 @@ namespace NTNU.MotionWordPlay.UserInterface
         void AddNewPuzzleFractions(int amount);
         void UpdatePuzzleFraction(int index, string text);
         void UpdatePuzzleFraction(int index, Color background, Color foreground);
+        void UpdatePuzzleFraction(int index, bool isVisible);
         void UpdatePuzzleFraction(int index, int x, int y);
         void UpdatePuzzleFraction(int index, string text, int x, int y);
         void ResetUI();

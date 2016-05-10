@@ -50,6 +50,11 @@ namespace NTNU.MotionWordPlay.UserInterface
             _rootViewModel.PuzzleFractions[index].Foreground = GetBrush(foreground);
         }
 
+        public void UpdatePuzzleFraction(int index, bool isVisible)
+        {
+            _rootViewModel.PuzzleFractions[index].Visibility = GetVisibility(isVisible);
+        }
+
         public void UpdatePuzzleFraction(int index, int x, int y)
         {
             _rootViewModel.PuzzleFractions[index].Left = x;

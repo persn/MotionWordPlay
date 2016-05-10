@@ -1,5 +1,6 @@
 ﻿namespace NTNU.MotionWordPlay.UserInterface.ViewModel
 {
+    using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Media;
     using EmptyKeys.UserInterface.Mvvm;
 
@@ -8,6 +9,7 @@
         private string _text;
         private Brush _background;
         private Brush _foreground;
+        private Visibility _visibility;
         private int _top;
         private int _left;
 
@@ -51,6 +53,18 @@
             set
             {
                 SetProperty(ref _foreground, value);
+            }
+        }
+
+        public Visibility Visibility
+        {
+            get
+            {
+                return _visibility;
+            }
+            set
+            {
+                SetProperty(ref _visibility, value);
             }
         }
 
