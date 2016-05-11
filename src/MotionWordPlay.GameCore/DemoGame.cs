@@ -12,12 +12,12 @@
         public int Score { get; private set; }
         public int AnswerCounter { get; private set; }
         public int Combo { get; private set; }
+        public int NumPlayers { get; private set; }
         private readonly TaskLoader _taskLoader;
-        private readonly int _numPlayers;
 
         public DemoGame(int numPlayers)
         {
-            _numPlayers = numPlayers;
+            NumPlayers = numPlayers;
             _taskLoader = new TaskLoader();
             Score = 0;
             Combo = 0;
@@ -32,7 +32,7 @@
                 AnswerCounter = AnswersToFinish;
                 Combo = 0;
             }
-            SplitSentence(_taskLoader.LoadTask(_numPlayers));
+            SplitSentence(_taskLoader.LoadTask(NumPlayers));
             ScrambleWordOrder();
         }
 
