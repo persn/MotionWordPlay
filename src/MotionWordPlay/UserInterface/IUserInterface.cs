@@ -8,6 +8,7 @@ namespace NTNU.MotionWordPlay.UserInterface
         TextLine Time { get; set; }
         TextLine Task { get; set; }
         TextLine Score { get; set; }
+        TextLine Status { get; set; }
 
         void AddNewPuzzleFractions(int amount);
         void UpdatePuzzleFraction(int index, string text);

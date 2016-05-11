@@ -31,6 +31,11 @@ namespace NTNU.MotionWordPlay.UserInterface
             get; set;
         }
 
+        public TextLine Status
+        {
+            get; set;
+        }
+
         public void AddNewPuzzleFractions(int amount)
         {
             for (int i = 0; i < amount; i++)
@@ -95,6 +100,7 @@ namespace NTNU.MotionWordPlay.UserInterface
             Time = new TimeTextLine(this);
             Task = new TaskTextLine(this);
             Score = new ScoreTextLine(this);
+            Status = new StatusTextLine(this);
         }
 
         public void Update(GameTime gameTime)
@@ -310,6 +316,64 @@ namespace NTNU.MotionWordPlay.UserInterface
                 set
                 {
                     _emptyKeysWrapper._rootViewModel.ScoreVisibility = GetVisibility(value);
+                }
+            }
+        }
+
+        private class StatusTextLine : TextLine
+        {
+            private readonly EmptyKeysWrapper _emptyKeysWrapper;
+
+            public StatusTextLine(EmptyKeysWrapper emptyKeysWrapper)
+            {
+                _emptyKeysWrapper = emptyKeysWrapper;
+            }
+
+            public override string Text
+            {
+                get
+                {
+                    return _emptyKeysWrapper._rootViewModel.Status;
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.Status = value;
+                }
+            }
+
+            public override Color Background
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.StatusBackground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.StatusBackground = GetBrush(value);
+                }
+            }
+
+            public override Color Foreground
+            {
+                get
+                {
+                    return GetColor(_emptyKeysWrapper._rootViewModel.StatusForeground);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.StatusForeground = GetBrush(value);
+                }
+            }
+
+            public override bool Visible
+            {
+                get
+                {
+                    return GetBool(_emptyKeysWrapper._rootViewModel.StatusVisibility);
+                }
+                set
+                {
+                    _emptyKeysWrapper._rootViewModel.StatusVisibility = GetVisibility(value);
                 }
             }
         }

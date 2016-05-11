@@ -1,7 +1,6 @@
-﻿using EmptyKeys.UserInterface;
-
-namespace NTNU.MotionWordPlay.UserInterface.ViewModel
+﻿namespace NTNU.MotionWordPlay.UserInterface.ViewModel
 {
+    using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Media;
     using EmptyKeys.UserInterface.Mvvm;
     using System.Collections.Generic;
@@ -24,6 +23,11 @@ namespace NTNU.MotionWordPlay.UserInterface.ViewModel
         private Brush _scoreForeground;
         private Visibility _scoreVisibility;
 
+        private string _status;
+        private Brush _statusBackground;
+        private Brush _statusForeground;
+        private Visibility _statusVisibility;
+
         private IList<PuzzleFractionViewModel> _puzzleFractions;
 
         public RootViewModel()
@@ -39,6 +43,10 @@ namespace NTNU.MotionWordPlay.UserInterface.ViewModel
             Score = string.Empty;
             ScoreBackground = new SolidColorBrush(ColorW.TransparentBlack);
             ScoreForeground = new SolidColorBrush(ColorW.White);
+
+            Status = string.Empty;
+            StatusBackground = new SolidColorBrush(ColorW.TransparentBlack);
+            StatusForeground = new SolidColorBrush(ColorW.White);
 
             _puzzleFractions = new ObservableCollection<PuzzleFractionViewModel>();
         }
@@ -184,6 +192,54 @@ namespace NTNU.MotionWordPlay.UserInterface.ViewModel
             set
             {
                 SetProperty(ref _scoreVisibility, value);
+            }
+        }
+
+        public string Status
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                SetProperty(ref _status, value);
+            }
+        }
+
+        public Brush StatusBackground
+        {
+            get
+            {
+                return _statusBackground;
+            }
+            set
+            {
+                SetProperty(ref _statusBackground, value);
+            }
+        }
+
+        public Brush StatusForeground
+        {
+            get
+            {
+                return _statusForeground;
+            }
+            set
+            {
+                SetProperty(ref _statusForeground, value);
+            }
+        }
+
+        public Visibility StatusVisibility
+        {
+            get
+            {
+                return _statusVisibility;
+            }
+            set
+            {
+                SetProperty(ref _statusVisibility, value);
             }
         }
 
