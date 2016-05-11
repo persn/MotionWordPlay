@@ -85,8 +85,7 @@
             _userInterface.Load(Content);
             _demoGame = new DemoGame(3);
             _gameRunning = false;
-            _userInterface.AddNewPuzzleFractions(1);
-            _userInterface.UpdatePuzzleFraction(0, "Do stuff to start game", 200, 150);
+            _userInterface.Status.Text = "Do stuff to start game";
         }
 
         /// <summary>
@@ -298,6 +297,9 @@
         {
             _userInterface.Score.Text = _demoGame.Score.ToString();
             _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
+            _userInterface.Time.Text = _elapsedTime.ToString();
+            _userInterface.Status.Text = string.Empty;
+            _userInterface.Status.Foreground = Color.White;
 
             if (_demoGame.CurrentTask == null)
             {
@@ -307,6 +309,7 @@
             for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
             {
                 _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1, 50 + i * 100, 150);
+                _userInterface.UpdatePuzzleFraction(i, Color.Transparent, Color.White);
             }
         }
 
@@ -314,6 +317,8 @@
         {
             _demoGame.CreateNewTask(true);
             _gameRunning = true;
+            _elapsedTime = 0;
+            _timer = 1000;
             RefreshText();
         }
 
@@ -327,25 +332,23 @@
             bool correct = _demoGame.IsCorrect(out result);
             if (!correct)
             {
+                _userInterface.Status.Foreground = Color.Red;
+                _userInterface.Status.Text = "Wrong! Try again";
                 for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
                 {
-                    if (result[i])
-                    {
-                        _userInterface.UpdatePuzzleFraction(i, Color.Transparent, Color.Green);
-                    }
-                    else
-                    {
-                        _userInterface.UpdatePuzzleFraction(i, Color.Transparent, Color.Red);
-                    }
+                    _userInterface.UpdatePuzzleFraction(i, Color.Transparent, result[i] ? Color.Green : Color.Red);
                 }
                 return;
             }
             int scoreChange;
             bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
             RefreshText();
-            _userInterface.AddNewPuzzleFractions(1);
-            _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, "Correct\n+ " + scoreChange + " points", 200, 50);
-            _userInterface.UpdatePuzzleFraction(_demoGame.CurrentTask.Length, Color.Transparent, Color.Green);
+            _userInterface.Status.Foreground = Color.Green;
+            _userInterface.Status.Text = "Correct! + " + scoreChange + " points";
+            if (_demoGame.Combo > 1)
+            {
+                _userInterface.Status.Text += " Combo: " + (_demoGame.Combo);
+            }
             if (gameOver)
             {
                 EndGame();
@@ -359,8 +362,7 @@
             _userInterface.ResetUI();
             _userInterface.Score.Text = _demoGame.Score.ToString();
             _userInterface.Time.Text = _elapsedTime.ToString();
-            _userInterface.AddNewPuzzleFractions(1);
-            _userInterface.UpdatePuzzleFraction(0, "Game Over\nFinal Score: " + _demoGame.Score, 200, 50);
+            _userInterface.Status.Text = "Game Over\nFinal Score: " + _demoGame.Score;
         }
         #endregion
     }
