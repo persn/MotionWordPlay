@@ -16,6 +16,9 @@
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
+        private const string SwapObjectGestureName = "swapObjectGesturePlaceholder";
+        private const string CheckAnswerGestureName = "checkAnswerGesturePlaceholder";
+
         private static readonly Vector2 BaseScreenSize = new Vector2(640, 360);
         private readonly GraphicsDeviceManager _graphicsDevice;
         private SpriteBatch _spriteBatch;
@@ -196,7 +199,7 @@
                     SwapObjects(4, 5);
                     break;
                 case Keys.Q:
-                    LoadTask(6);
+                    LoadTask();
                     break;
                 case Keys.W:
                     CheckAnswer();
@@ -251,13 +254,31 @@
 
         private void MotionControllerGesturesReceived(object sender, GestureReceivedEventArgs e)
         {
+            List<int> playersDoingSwapObjectGesture = new List<int>();
+            List<int> playersDoingCheckAnswerGesture = new List<int>();
             for (int i = 0; i < 6; i++)
             {
                 IList<GestureResult> gestures = e.Gestures.GetGestures(i);
 
                 foreach (GestureResult gestureResult in gestures)
                 {
+                    if (gestureResult.Name.Equals(SwapObjectGestureName))
+                    {
+                        playersDoingSwapObjectGesture.Add(i);
+                    }
+                    else if (gestureResult.Name.Equals(CheckAnswerGestureName))
+                    {
+                        playersDoingCheckAnswerGesture.Add(i);
+                    }
                 }
+            }
+            if (playersDoingCheckAnswerGesture.Count == _demoGame.NumPlayers)
+            {
+                CheckAnswer();
+            }
+            if (playersDoingSwapObjectGesture.Count >= 2)
+            {
+                SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
             }
         }
 
@@ -289,7 +310,7 @@
             }
         }
 
-        private void LoadTask(int numPlayers)
+        private void LoadTask()
         {
             _demoGame.CreateNewTask(true);
             _gameRunning = true;
