@@ -75,9 +75,11 @@ namespace NTNU.MotionWordPlay.UserInterface
 
         public void ResetUI()
         {
-            Time.Text = string.Empty;
-            Task.Text = string.Empty;
-            Score.Text = string.Empty;
+            Time = new TextBlockWrapper(_rootViewModel.Time);
+            Task = new TextBlockWrapper(_rootViewModel.Task);
+            Score = new TextBlockWrapper(_rootViewModel.Score);
+            Status = new TextBlockWrapper(_rootViewModel.Status);
+
             _rootViewModel.PuzzleFractions.Clear();
         }
 
@@ -97,10 +99,10 @@ namespace NTNU.MotionWordPlay.UserInterface
 
             FontManager.Instance.LoadFonts(contentManager);
 
-            Time = new TimeTextLine(this);
-            Task = new TaskTextLine(this);
-            Score = new ScoreTextLine(this);
-            Status = new StatusTextLine(this);
+            Time = new TextBlockWrapper(_rootViewModel.Time);
+            Task = new TextBlockWrapper(_rootViewModel.Task);
+            Score = new TextBlockWrapper(_rootViewModel.Score);
+            Status = new TextBlockWrapper(_rootViewModel.Status);
         }
 
         public void Update(GameTime gameTime)
@@ -146,24 +148,24 @@ namespace NTNU.MotionWordPlay.UserInterface
             return (Visibility)converter.Convert(boolean, null, null, null);
         }
 
-        private class TimeTextLine : TextLine
+        private class TextBlockWrapper : TextLine
         {
-            private readonly EmptyKeysWrapper _emptyKeysWrapper;
+            private readonly TextBlockViewModel _textBlockViewModel;
 
-            public TimeTextLine(EmptyKeysWrapper emptyKeysWrapper)
+            public TextBlockWrapper(TextBlockViewModel textBlockViewModel)
             {
-                _emptyKeysWrapper = emptyKeysWrapper;
+                _textBlockViewModel = textBlockViewModel;
             }
 
             public override string Text
             {
                 get
                 {
-                    return _emptyKeysWrapper._rootViewModel.Time;
+                    return _textBlockViewModel.Text;
                 }
                 set
                 {
-                    _emptyKeysWrapper._rootViewModel.Time = value;
+                    _textBlockViewModel.Text = value;
                 }
             }
 
@@ -171,11 +173,11 @@ namespace NTNU.MotionWordPlay.UserInterface
             {
                 get
                 {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.TimeBackground);
+                    return GetColor(_textBlockViewModel.Background);
                 }
                 set
                 {
-                    _emptyKeysWrapper._rootViewModel.TimeBackground = GetBrush(value);
+                    _textBlockViewModel.Background = GetBrush(value);
                 }
             }
 
@@ -183,11 +185,11 @@ namespace NTNU.MotionWordPlay.UserInterface
             {
                 get
                 {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.TimeForeground);
+                    return GetColor(_textBlockViewModel.Foreground);
                 }
                 set
                 {
-                    _emptyKeysWrapper._rootViewModel.TimeForeground = GetBrush(value);
+                    _textBlockViewModel.Foreground = GetBrush(value);
                 }
             }
 
@@ -195,185 +197,11 @@ namespace NTNU.MotionWordPlay.UserInterface
             {
                 get
                 {
-                    return GetBool(_emptyKeysWrapper._rootViewModel.TimeVisibility);
+                    return GetBool(_textBlockViewModel.Visibility);
                 }
                 set
                 {
-                    _emptyKeysWrapper._rootViewModel.TimeVisibility = GetVisibility(value);
-                }
-            }
-        }
-
-        private class TaskTextLine : TextLine
-        {
-            private readonly EmptyKeysWrapper _emptyKeysWrapper;
-
-            public TaskTextLine(EmptyKeysWrapper emptyKeysWrapper)
-            {
-                _emptyKeysWrapper = emptyKeysWrapper;
-            }
-
-            public override string Text
-            {
-                get
-                {
-                    return _emptyKeysWrapper._rootViewModel.Task;
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.Task = value;
-                }
-            }
-
-            public override Color Background
-            {
-                get
-                {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.TaskBackground);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.TaskBackground = GetBrush(value);
-                }
-            }
-
-            public override Color Foreground
-            {
-                get
-                {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.TaskForeground);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.TaskForeground = GetBrush(value);
-                }
-            }
-
-            public override bool Visible
-            {
-                get
-                {
-                    return GetBool(_emptyKeysWrapper._rootViewModel.TaskVisibility);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.TaskVisibility = GetVisibility(value);
-                }
-            }
-        }
-
-        private class ScoreTextLine : TextLine
-        {
-            private readonly EmptyKeysWrapper _emptyKeysWrapper;
-
-            public ScoreTextLine(EmptyKeysWrapper emptyKeysWrapper)
-            {
-                _emptyKeysWrapper = emptyKeysWrapper;
-            }
-
-            public override string Text
-            {
-                get
-                {
-                    return _emptyKeysWrapper._rootViewModel.Score;
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.Score = value;
-                }
-            }
-
-            public override Color Background
-            {
-                get
-                {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.ScoreBackground);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.ScoreBackground = GetBrush(value);
-                }
-            }
-
-            public override Color Foreground
-            {
-                get
-                {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.ScoreForeground);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.ScoreForeground = GetBrush(value);
-                }
-            }
-
-            public override bool Visible
-            {
-                get
-                {
-                    return GetBool(_emptyKeysWrapper._rootViewModel.ScoreVisibility);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.ScoreVisibility = GetVisibility(value);
-                }
-            }
-        }
-
-        private class StatusTextLine : TextLine
-        {
-            private readonly EmptyKeysWrapper _emptyKeysWrapper;
-
-            public StatusTextLine(EmptyKeysWrapper emptyKeysWrapper)
-            {
-                _emptyKeysWrapper = emptyKeysWrapper;
-            }
-
-            public override string Text
-            {
-                get
-                {
-                    return _emptyKeysWrapper._rootViewModel.Status;
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.Status = value;
-                }
-            }
-
-            public override Color Background
-            {
-                get
-                {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.StatusBackground);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.StatusBackground = GetBrush(value);
-                }
-            }
-
-            public override Color Foreground
-            {
-                get
-                {
-                    return GetColor(_emptyKeysWrapper._rootViewModel.StatusForeground);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.StatusForeground = GetBrush(value);
-                }
-            }
-
-            public override bool Visible
-            {
-                get
-                {
-                    return GetBool(_emptyKeysWrapper._rootViewModel.StatusVisibility);
-                }
-                set
-                {
-                    _emptyKeysWrapper._rootViewModel.StatusVisibility = GetVisibility(value);
+                    _textBlockViewModel.Visibility = GetVisibility(value);
                 }
             }
         }

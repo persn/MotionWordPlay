@@ -23,30 +23,30 @@
             <StackPanel Grid.Column="0" HorizontalAlignment="Center" Background="Gray">
                 <TextBlock Text="Time:"/>
                 <TextBlock
-                    Text="{Binding Time}"
-                    Background="{Binding TimeBackground}"
-                    Foreground="{Binding TimeForeground}"
-                    Visibility="{Binding TimeVisibility}"
+                    Text="{Binding Time.Text}"
+                    Background="{Binding Time.Background}"
+                    Foreground="{Binding Time.Foreground}"
+                    Visibility="{Binding Time.Visibility}"
                     />
             </StackPanel>
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" Background="Gray">
                 <TextBlock Text="Task:"/>
                 <TextBlock
-                    Text="{Binding Task}"
-                    Background="{Binding TaskBackground}"
-                    Foreground="{Binding TaskForeground}"
-                    Visibility="{Binding TaskVisibility}"
+                    Text="{Binding Task.Text}"
+                    Background="{Binding Task.Background}"
+                    Foreground="{Binding Task.Foreground}"
+                    Visibility="{Binding Task.Visibility}"
                     />
             </StackPanel>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Center" Background="Gray">
                 <TextBlock Text="Score:"/>
                 <TextBlock
-                    Text="{Binding Score}"
-                    Background="{Binding ScoreBackground}"
-                    Foreground="{Binding ScoreForeground}"
-                    Visibility="{Binding ScoreVisibility}"
+                    Text="{Binding Score.Text}"
+                    Background="{Binding Score.Background}"
+                    Foreground="{Binding Score.Foreground}"
+                    Visibility="{Binding Score.Visibility}"
                     />
             </StackPanel>
         </Grid>
@@ -54,10 +54,10 @@
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Center"
-            Text="{Binding Status}"
-            Background="{Binding StatusBackground}"
-            Foreground="{Binding StatusForeground}"
-            Visibility="{Binding StatusVisibility}"
+            Text="{Binding Status.Text}"
+            Background="{Binding Status.Background}"
+            Foreground="{Binding Status.Foreground}"
+            Visibility="{Binding Status.Visibility}"
             />
 
         <ItemsControl Grid.Row="2" ItemsSource="{Binding PuzzleFractions}">
