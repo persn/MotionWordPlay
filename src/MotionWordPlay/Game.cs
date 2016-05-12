@@ -177,19 +177,24 @@
                     _graphicsDevice.ApplyChanges();
                     break;
                 case Keys.A:
-                    SwapObjects(0, 1);
+                    _demoGame.SwapObjects(0, 1);
+                    RefreshText();
                     break;
                 case Keys.S:
-                    SwapObjects(1, 2);
+                    _demoGame.SwapObjects(1, 2);
+                    RefreshText();
                     break;
                 case Keys.D:
-                    SwapObjects(2, 3);
+                    _demoGame.SwapObjects(2, 3);
+                    RefreshText();
                     break;
                 case Keys.F:
-                    SwapObjects(3, 4);
+                    _demoGame.SwapObjects(3, 4);
+                    RefreshText();
                     break;
                 case Keys.G:
-                    SwapObjects(4, 5);
+                    _demoGame.SwapObjects(4, 5);
+                    RefreshText();
                     break;
                 case Keys.Q:
                     LoadTask();
@@ -230,21 +235,12 @@
             }
             if (playersDoingSwapObjectGesture.Count >= 2)
             {
-                SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
+                _demoGame.SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
+                RefreshText();
             }
         }
 
         #region Game Specific functions
-
-        private void SwapObjects(int index1, int index2)
-        {
-            if (_demoGame.CurrentTask == null || index1 > _demoGame.CurrentTask.Length - 1 || index2 > _demoGame.CurrentTask.Length - 1)
-            {
-                return;
-            }
-            _demoGame.SwapObjects(index1, index2);
-            RefreshText();
-        }
 
         private void RefreshText()
         {

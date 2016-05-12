@@ -77,6 +77,10 @@
 
         public void SwapObjects(int index1, int index2)
         {
+            if (CurrentTask == null || index1 > CurrentTask.Length - 1 || index2 > CurrentTask.Length - 1)
+            {
+                return;
+            }
             Tuple<string, int> temp = CurrentTask[index1];
             CurrentTask[index1] = CurrentTask[index2];
             CurrentTask[index2] = temp;
