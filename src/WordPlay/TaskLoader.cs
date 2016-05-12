@@ -1,4 +1,4 @@
-﻿namespace NTNU.MotionWordPlay.GameCore
+﻿namespace NTNU.WordPlay
 {
     using System;
     using System.IO;

@@ -9,8 +9,8 @@
     using Inputs;
     using Inputs.Keyboard;
     using Inputs.Motion;
-    using GameCore;
     using MotionControlWrapper;
+    using WordPlay;
     using Color = System.Drawing.Color;
 
     /// <summary>

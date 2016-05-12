@@ -7,8 +7,8 @@
     <ProjectGuid>{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NTNU.MotionWordPlay.GameCore</RootNamespace>
-    <AssemblyName>MotionWordPlay.GameCore</AssemblyName>
+    <RootNamespace>NTNU.WordPlay</RootNamespace>
+    <AssemblyName>WordPlay</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

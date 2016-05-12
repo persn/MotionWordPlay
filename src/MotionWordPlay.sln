@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{557F269C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.UserInterface", "MotionWordPlay.UserInterface\MotionWordPlay.UserInterface.csproj", "{F4ECD093-9810-451B-92E8-C0282F8CF0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionWordPlay.GameCore", "MotionWordPlay.GameCore\MotionWordPlay.GameCore.csproj", "{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPlay", "WordPlay\WordPlay.csproj", "{82A5FFE1-6EFE-4CEA-9CCE-F20485FFC761}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MotionWordPlay", "MotionWordPlay\MotionWordPlay.shproj", "{B1F6A2FD-1A57-4158-BC84-AE18AAF75241}"
 EndProject

@@ -84,7 +84,7 @@
       <Project>{f4ecd093-9810-451b-92e8-c0282f8cf0ef}</Project>
       <Name>MotionWordPlay.UserInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MotionWordPlay.GameCore\MotionWordPlay.GameCore.csproj">
+    <ProjectReference Include="..\WordPlay\WordPlay.csproj">
       <Project>{82a5ffe1-6efe-4cea-9cce-f20485ffc761}</Project>
       <Name>TestGame</Name>
     </ProjectReference>
