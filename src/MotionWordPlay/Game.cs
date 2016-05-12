@@ -10,6 +10,7 @@
     using GameCore;
     using MotionControlWrapper;
     using Color = System.Drawing.Color;
+    using KeyboardInput = Inputs.KeyboardInput;
 
     /// <summary>
     /// This is the main type for your game.
