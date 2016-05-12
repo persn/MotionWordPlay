@@ -38,7 +38,7 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
         {
             get
             {
-                return _motionController.DepthFrameSize;
+                return _motionController.ColorFrameSize;
             }
         }
 
