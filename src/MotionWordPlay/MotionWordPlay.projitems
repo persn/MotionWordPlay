@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Inputs\KeyboardInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inputs\KeyPressedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inputs\MotionController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Controls\PuzzleFraction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Controls\TextLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Controls\UserInterfaceControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\EmptyKeysWrapper.cs" />

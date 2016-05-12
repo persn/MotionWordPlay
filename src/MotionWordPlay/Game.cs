@@ -308,8 +308,10 @@
             _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
             for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
             {
-                _userInterface.UpdatePuzzleFraction(i, _demoGame.CurrentTask[i].Item1, 50 + i * 100, 150);
-                _userInterface.UpdatePuzzleFraction(i, Color.Transparent, Color.White);
+                _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;
+                _userInterface.PuzzleFractions[i].Foreground = Color.White;
+                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
+                _userInterface.PuzzleFractions[i].Y = 150;
             }
         }
 
@@ -336,7 +338,7 @@
                 _userInterface.Status.Text = "Wrong! Try again";
                 for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
                 {
-                    _userInterface.UpdatePuzzleFraction(i, Color.Transparent, result[i] ? Color.Green : Color.Red);
+                    _userInterface.PuzzleFractions[i].Foreground = result[i] ? Color.Green : Color.Red;
                 }
                 return;
             }

@@ -75,10 +75,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
-                        Text="{Binding Text}"
-                        Background="{Binding Background}"
-                        Foreground="{Binding Foreground}"
-                        Visibility="{Binding Visibility}"
+                        Text="{Binding TextBlock.Text}"
+                        Background="{Binding TextBlock.Background}"
+                        Foreground="{Binding TextBlock.Foreground}"
+                        Visibility="{Binding TextBlock.Visibility}"
                         />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

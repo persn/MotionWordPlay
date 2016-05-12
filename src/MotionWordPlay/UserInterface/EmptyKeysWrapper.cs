@@ -1,5 +1,6 @@
 namespace NTNU.MotionWordPlay.UserInterface
 {
+    using System.Collections.Generic;
     using EmptyKeys.UserInterface;
     using EmptyKeys.UserInterface.Data;
     using EmptyKeys.UserInterface.Generated;
@@ -36,41 +37,17 @@ namespace NTNU.MotionWordPlay.UserInterface
             get; set;
         }
 
+        public IList<PuzzleFraction> PuzzleFractions
+        {
+            get; set;
+        }
+
         public void AddNewPuzzleFractions(int amount)
         {
             for (int i = 0; i < amount; i++)
             {
-                _rootViewModel.PuzzleFractions.Add(new PuzzleFractionViewModel());
+                PuzzleFractions.Add(new PuzzleFractionWrapper(_rootViewModel));
             }
-        }
-
-        public void UpdatePuzzleFraction(int index, string text)
-        {
-            _rootViewModel.PuzzleFractions[index].Text = text;
-        }
-
-        public void UpdatePuzzleFraction(int index, Color background, Color foreground)
-        {
-            _rootViewModel.PuzzleFractions[index].Background = GetBrush(background);
-            _rootViewModel.PuzzleFractions[index].Foreground = GetBrush(foreground);
-        }
-
-        public void UpdatePuzzleFraction(int index, bool isVisible)
-        {
-            _rootViewModel.PuzzleFractions[index].Visibility = GetVisibility(isVisible);
-        }
-
-        public void UpdatePuzzleFraction(int index, int x, int y)
-        {
-            _rootViewModel.PuzzleFractions[index].Left = x;
-            _rootViewModel.PuzzleFractions[index].Top = y;
-        }
-
-        public void UpdatePuzzleFraction(int index, string text, int x, int y)
-        {
-            _rootViewModel.PuzzleFractions[index].Text = text;
-            _rootViewModel.PuzzleFractions[index].Left = x;
-            _rootViewModel.PuzzleFractions[index].Top = y;
         }
 
         public void ResetUI()
@@ -81,6 +58,7 @@ namespace NTNU.MotionWordPlay.UserInterface
             Status = new TextBlockWrapper(_rootViewModel.Status);
 
             _rootViewModel.PuzzleFractions.Clear();
+            PuzzleFractions.Clear();
         }
 
         public void Initialize()
@@ -103,6 +81,7 @@ namespace NTNU.MotionWordPlay.UserInterface
             Task = new TextBlockWrapper(_rootViewModel.Task);
             Score = new TextBlockWrapper(_rootViewModel.Score);
             Status = new TextBlockWrapper(_rootViewModel.Status);
+            PuzzleFractions = new List<PuzzleFraction>();
         }
 
         public void Update(GameTime gameTime)
@@ -202,6 +181,89 @@ namespace NTNU.MotionWordPlay.UserInterface
                 set
                 {
                     _textBlockViewModel.Visibility = GetVisibility(value);
+                }
+            }
+        }
+
+        private class PuzzleFractionWrapper : PuzzleFraction
+        {
+            private readonly PuzzleFractionViewModel _puzzleFraction;
+
+            public PuzzleFractionWrapper(RootViewModel rootViewModel)
+            {
+                rootViewModel.PuzzleFractions.Add(new PuzzleFractionViewModel());
+                _puzzleFraction = rootViewModel.PuzzleFractions[rootViewModel.PuzzleFractions.Count - 1];
+            }
+
+            public override string Text
+            {
+                get
+                {
+                    return _puzzleFraction.TextBlock.Text;
+                }
+                set
+                {
+                    _puzzleFraction.TextBlock.Text = value;
+                }
+            }
+
+            public override Color Background
+            {
+                get
+                {
+                    return GetColor(_puzzleFraction.TextBlock.Background);
+                }
+                set
+                {
+                    _puzzleFraction.TextBlock.Background = GetBrush(value);
+                }
+            }
+
+            public override Color Foreground
+            {
+                get
+                {
+                    return GetColor(_puzzleFraction.TextBlock.Foreground);
+                }
+                set
+                {
+                    _puzzleFraction.TextBlock.Foreground = GetBrush(value);
+                }
+            }
+
+            public override bool Visible
+            {
+                get
+                {
+                    return GetBool(_puzzleFraction.TextBlock.Visibility);
+                }
+                set
+                {
+                    _puzzleFraction.TextBlock.Visibility = GetVisibility(value);
+                }
+            }
+
+            public override int X
+            {
+                get
+                {
+                    return _puzzleFraction.Left;
+                }
+                set
+                {
+                    _puzzleFraction.Left = value;
+                }
+            }
+
+            public override int Y
+            {
+                get
+                {
+                    return _puzzleFraction.Top;
+                }
+                set
+                {
+                    _puzzleFraction.Top = value;
                 }
             }
         }

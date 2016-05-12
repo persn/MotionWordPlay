@@ -1,82 +1,27 @@
 ﻿namespace NTNU.MotionWordPlay.UserInterface.ViewModel
 {
-    using EmptyKeys.UserInterface;
-    using EmptyKeys.UserInterface.Media;
     using EmptyKeys.UserInterface.Mvvm;
 
     public class PuzzleFractionViewModel : BindableBase
     {
-        private string _text;
-        private Brush _background;
-        private Brush _foreground;
-        private Visibility _visibility;
-        private int _top;
+        private TextBlockViewModel _textBlock;
         private int _left;
+        private int _top;
 
         public PuzzleFractionViewModel()
         {
-            _text = string.Empty;
-            _background = new SolidColorBrush(ColorW.TransparentBlack);
-            _foreground = new SolidColorBrush(ColorW.White);
+            TextBlock = new TextBlockViewModel();
         }
 
-        public string Text
+        public TextBlockViewModel TextBlock
         {
             get
             {
-                return _text;
+                return _textBlock;
             }
             set
             {
-                SetProperty(ref _text, value);
-            }
-        }
-
-        public Brush Background
-        {
-            get
-            {
-                return _background;
-            }
-            set
-            {
-                SetProperty(ref _background, value);
-            }
-        }
-
-        public Brush Foreground
-        {
-            get
-            {
-                return _foreground;
-            }
-            set
-            {
-                SetProperty(ref _foreground, value);
-            }
-        }
-
-        public Visibility Visibility
-        {
-            get
-            {
-                return _visibility;
-            }
-            set
-            {
-                SetProperty(ref _visibility, value);
-            }
-        }
-
-        public int Top
-        {
-            get
-            {
-                return _top;
-            }
-            set
-            {
-                SetProperty(ref _top, value);
+                SetProperty(ref _textBlock, value);
             }
         }
 
@@ -89,6 +34,18 @@
             set
             {
                 SetProperty(ref _left, value);
+            }
+        }
+
+        public int Top
+        {
+            get
+            {
+                return _top;
+            }
+            set
+            {
+                SetProperty(ref _top, value);
             }
         }
     }
