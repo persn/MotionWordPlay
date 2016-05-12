@@ -11,9 +11,12 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
 
     public class MotionController : IGameLoop, IDisposable
     {
+        public event EventHandler<GestureReceivedEventArgs> GesturesReceived;
+
         private GraphicsDevice _graphicsDevice;
 
         private IMotionController _motionController;
+        private FrameState _currentFrameState;
         private Texture2D _currentColorFrame;
         private Texture2D _currentDepthFrame;
         private Texture2D _currentInfraredFrame;
@@ -23,6 +26,7 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
         {
             _motionController = MotionControllerFactory.CreateMotionController(
                 MotionControllerAPI.Kinectv2);
+            _currentFrameState = FrameState.Color;
         }
 
         ~MotionController()
@@ -30,39 +34,15 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
             Dispose();
         }
 
-        public event EventHandler<GestureReceivedEventArgs> GesturesReceived;
-
-        public FrameState CurrentFrameState { get; set; }
-
-        public Size ColorFrameSize
+        public FrameState CurrentFrameState
         {
             get
             {
-                return _motionController.ColorFrameSize;
+                return _currentFrameState;
             }
-        }
-
-        public Size DepthFrameSize
-        {
-            get
+            set
             {
-                return _motionController.DepthFrameSize;
-            }
-        }
-
-        public Size InfraredFrameSize
-        {
-            get
-            {
-                return _motionController.InfraredFrameSize;
-            }
-        }
-
-        public Size SilhouetteFrameSize
-        {
-            get
-            {
-                return _motionController.SilhouetteFrameSize;
+                _currentFrameState = value;
             }
         }
 
@@ -187,6 +167,48 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
         public void GraphicsDeviceCreated(GraphicsDevice graphicsDevice, Vector2 nativeSize)
         {
             _graphicsDevice = graphicsDevice;
+        }
+
+        public Matrix CalculateDrawScale(Vector2 nativeScreenSize)
+        {
+            float width;
+            float height;
+
+            switch (_currentFrameState)
+            {
+                case FrameState.Color:
+                    width = _motionController.ColorFrameSize.Width;
+                    height = _motionController.ColorFrameSize.Height;
+                    break;
+                case FrameState.Depth:
+                    width = _motionController.DepthFrameSize.Width;
+                    height = _motionController.DepthFrameSize.Height;
+                    break;
+                case FrameState.Infrared:
+                    width = _motionController.InfraredFrameSize.Width;
+                    height = _motionController.InfraredFrameSize.Height;
+                    break;
+                case FrameState.Silhouette:
+                    width = _motionController.SilhouetteFrameSize.Width;
+                    height = _motionController.SilhouetteFrameSize.Height;
+                    break;
+                default:
+                    throw new NotSupportedException("Switch case reached somewhere it shouldn't.");
+            }
+
+            float horScaling = nativeScreenSize.X / width;
+            float verScaling = nativeScreenSize.Y / height;
+
+            if (horScaling < verScaling)
+            {
+                verScaling = horScaling;
+            }
+            else
+            {
+                horScaling = verScaling;
+            }
+
+            return Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
         }
 
         private Texture2D CreateTexture(Size size)

@@ -62,7 +62,7 @@
         /// </summary>
         protected override void Initialize()
         {
-            ChangeDrawScale(FrameState.Color);
+            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(BaseScreenSize);
 
             _inputHandler.Initialize();
             _userInterface.Initialize();
@@ -201,49 +201,7 @@
                     throw new NotSupportedException("Key is not supported");
             }
 
-            ChangeDrawScale(_inputHandler.MotionController.CurrentFrameState);
-        }
-
-        private void ChangeDrawScale(FrameState frameState)
-        {
-            float width;
-            float height;
-
-            switch (frameState)
-            {
-                case FrameState.Color:
-                    width = _inputHandler.MotionController.ColorFrameSize.Width;
-                    height = _inputHandler.MotionController.ColorFrameSize.Height;
-                    break;
-                case FrameState.Depth:
-                    width = _inputHandler.MotionController.DepthFrameSize.Width;
-                    height = _inputHandler.MotionController.DepthFrameSize.Height;
-                    break;
-                case FrameState.Infrared:
-                    width = _inputHandler.MotionController.InfraredFrameSize.Width;
-                    height = _inputHandler.MotionController.InfraredFrameSize.Height;
-                    break;
-                case FrameState.Silhouette:
-                    width = _inputHandler.MotionController.SilhouetteFrameSize.Width;
-                    height = _inputHandler.MotionController.SilhouetteFrameSize.Height;
-                    break;
-                default:
-                    throw new NotSupportedException("Switch case reached somewhere it shouldn't.");
-            }
-
-            float horScaling = BaseScreenSize.X / width;
-            float verScaling = BaseScreenSize.Y / height;
-
-            if (horScaling < verScaling)
-            {
-                verScaling = horScaling;
-            }
-            else
-            {
-                horScaling = verScaling;
-            }
-
-            _globalTransformation = Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
+            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(BaseScreenSize);
         }
 
         private void MotionControllerGesturesReceived(object sender, GestureReceivedEventArgs e)
