@@ -13,42 +13,72 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Margin="15">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" HorizontalAlignment="Center" Background="Gray">
-                <TextBlock Text="Time:"/>
-                <TextBlock
-                    Text="{Binding Time.Text}"
-                    Background="{Binding Time.Background}"
-                    Foreground="{Binding Time.Foreground}"
-                    Visibility="{Binding Time.Visibility}"
-                    />
-            </StackPanel>
+            <Border
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                Background="Gray"
+                Padding="5"
+                BorderBrush="DarkGray"
+                BorderThickness="5"
+                CornerRadius="15">
+                <StackPanel>
+                    <TextBlock Text="Time" HorizontalAlignment="Center"/>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Text="{Binding Time.Text}"
+                        Background="{Binding Time.Background}"
+                        Foreground="{Binding Time.Foreground}"
+                        Visibility="{Binding Time.Visibility}"
+                        />
+                </StackPanel>
+            </Border>
 
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Background="Gray">
-                <TextBlock Text="Task:"/>
-                <TextBlock
-                    Text="{Binding Task.Text}"
-                    Background="{Binding Task.Background}"
-                    Foreground="{Binding Task.Foreground}"
-                    Visibility="{Binding Task.Visibility}"
-                    />
-            </StackPanel>
+            <Border
+                Grid.Column="1"
+                Background="Gray"
+                Padding="5"
+                Margin="15,0,15,0"
+                BorderBrush="DarkGray"
+                BorderThickness="5"
+                CornerRadius="15">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Task" HorizontalAlignment="Center"/>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Text="{Binding Task.Text}"
+                        Background="{Binding Task.Background}"
+                        Foreground="{Binding Task.Foreground}"
+                        Visibility="{Binding Task.Visibility}"
+                        />
+                </StackPanel>
+            </Border>
 
-            <StackPanel Grid.Column="2" HorizontalAlignment="Center" Background="Gray">
-                <TextBlock Text="Score:"/>
-                <TextBlock
-                    Text="{Binding Score.Text}"
-                    Background="{Binding Score.Background}"
-                    Foreground="{Binding Score.Foreground}"
-                    Visibility="{Binding Score.Visibility}"
-                    />
-            </StackPanel>
+            <Border
+                Grid.Column="2"
+                HorizontalAlignment="Right"
+                Background="Gray"
+                Padding="5"
+                BorderBrush="DarkGray"
+                BorderThickness="5"
+                CornerRadius="15">
+                <StackPanel>
+                    <TextBlock Text="Score" HorizontalAlignment="Center"/>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Text="{Binding Score.Text}"
+                        Background="{Binding Score.Background}"
+                        Foreground="{Binding Score.Foreground}"
+                        Visibility="{Binding Score.Visibility}"
+                        />
+                </StackPanel>
+            </Border>
         </Grid>
 
         <TextBlock
