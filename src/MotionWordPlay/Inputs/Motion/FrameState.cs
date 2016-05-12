@@ -1,4 +1,4 @@
-namespace NTNU.MotionWordPlay.Inputs
+namespace NTNU.MotionWordPlay.Inputs.Motion
 {
     public enum FrameState
     {

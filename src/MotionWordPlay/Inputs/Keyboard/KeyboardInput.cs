@@ -1,4 +1,4 @@
-namespace NTNU.MotionWordPlay.Inputs
+namespace NTNU.MotionWordPlay.Inputs.Keyboard
 {
     using System;
     using Microsoft.Xna.Framework;

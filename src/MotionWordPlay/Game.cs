@@ -7,10 +7,11 @@
     using Microsoft.Xna.Framework.Input;
     using UserInterface;
     using Inputs;
+    using Inputs.Keyboard;
+    using Inputs.Motion;
     using GameCore;
     using MotionControlWrapper;
     using Color = System.Drawing.Color;
-    using KeyboardInput = Inputs.KeyboardInput;
 
     /// <summary>
     /// This is the main type for your game.
@@ -25,9 +26,8 @@
         private SpriteBatch _spriteBatch;
         private Matrix _globalTransformation;
 
-        private KeyboardInput _keyboardInput;
-        private MotionController _motionController;
-        private IUserInterface _userInterface;
+        private readonly InputHandler _inputHandler;
+        private readonly IUserInterface _userInterface;
 
         private DemoGame _demoGame;
         private bool _gameRunning;
@@ -46,10 +46,9 @@
 
             Content.RootDirectory = "Content";
 
-            _keyboardInput = new KeyboardInput();
-            _keyboardInput.KeyPressed += KeyboardInputKeyPressed;
-            _motionController = new MotionController();
-            _motionController.GesturesReceived += MotionControllerGesturesReceived;
+            _inputHandler = new InputHandler();
+            _inputHandler.KeyboardInput.KeyPressed += KeyboardInputKeyPressed;
+            _inputHandler.MotionController.GesturesReceived += MotionControllerGesturesReceived;
             _userInterface = new EmptyKeysWrapper();
             _timer = 1000;
             _elapsedTime = 0;
@@ -65,8 +64,7 @@
         {
             ChangeDrawScale(FrameState.Color);
 
-            _keyboardInput.Initialize();
-            _motionController.Initialize();
+            _inputHandler.Initialize();
             _userInterface.Initialize();
 
             base.Initialize();
@@ -81,8 +79,7 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _keyboardInput.Load(Content);
-            _motionController.Load(Content);
+            _inputHandler.Load(Content);
             _userInterface.Load(Content);
             _demoGame = new DemoGame(3);
             _gameRunning = false;
@@ -107,8 +104,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            _keyboardInput.Update(gameTime);
-            _motionController.Update(gameTime);
+            _inputHandler.Update(gameTime);
             if (_gameRunning)
             {
                 _timer -= gameTime.ElapsedGameTime.Milliseconds;
@@ -134,8 +130,7 @@
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
-            _keyboardInput.Draw(gameTime, _spriteBatch);
-            _motionController.Draw(gameTime, _spriteBatch);
+            _inputHandler.Draw(gameTime, _spriteBatch);
 
             _spriteBatch.End();
 
@@ -147,10 +142,9 @@
 
         protected override void OnExiting(object sender, EventArgs args)
         {
-            if (_motionController != null)
+            if (_inputHandler != null)
             {
-                _motionController.Dispose();
-                _motionController = null;
+                _inputHandler.Dispose();
             }
 
             base.OnExiting(sender, args);
@@ -158,8 +152,7 @@
 
         private void GraphicsDeviceCreated(object sender, EventArgs e)
         {
-            _keyboardInput.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
-            _motionController.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+            _inputHandler.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
             _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
         }
 
@@ -168,16 +161,16 @@
             switch (e.PressedKey)
             {
                 case Keys.D1:
-                    _motionController.CurrentFrameState = FrameState.Color;
+                    _inputHandler.MotionController.CurrentFrameState = FrameState.Color;
                     break;
                 case Keys.D2:
-                    _motionController.CurrentFrameState = FrameState.Depth;
+                    _inputHandler.MotionController.CurrentFrameState = FrameState.Depth;
                     break;
                 case Keys.D3:
-                    _motionController.CurrentFrameState = FrameState.Infrared;
+                    _inputHandler.MotionController.CurrentFrameState = FrameState.Infrared;
                     break;
                 case Keys.D4:
-                    _motionController.CurrentFrameState = FrameState.Silhouette;
+                    _inputHandler.MotionController.CurrentFrameState = FrameState.Silhouette;
                     break;
                 case Keys.F4:
                     _graphicsDevice.IsFullScreen = !_graphicsDevice.IsFullScreen;
@@ -207,7 +200,8 @@
                 default:
                     throw new NotSupportedException("Key is not supported");
             }
-            ChangeDrawScale(_motionController.CurrentFrameState);
+
+            ChangeDrawScale(_inputHandler.MotionController.CurrentFrameState);
         }
 
         private void ChangeDrawScale(FrameState frameState)
@@ -218,20 +212,20 @@
             switch (frameState)
             {
                 case FrameState.Color:
-                    width = _motionController.ColorFrameSize.Width;
-                    height = _motionController.ColorFrameSize.Height;
+                    width = _inputHandler.MotionController.ColorFrameSize.Width;
+                    height = _inputHandler.MotionController.ColorFrameSize.Height;
                     break;
                 case FrameState.Depth:
-                    width = _motionController.DepthFrameSize.Width;
-                    height = _motionController.DepthFrameSize.Height;
+                    width = _inputHandler.MotionController.DepthFrameSize.Width;
+                    height = _inputHandler.MotionController.DepthFrameSize.Height;
                     break;
                 case FrameState.Infrared:
-                    width = _motionController.InfraredFrameSize.Width;
-                    height = _motionController.InfraredFrameSize.Height;
+                    width = _inputHandler.MotionController.InfraredFrameSize.Width;
+                    height = _inputHandler.MotionController.InfraredFrameSize.Height;
                     break;
                 case FrameState.Silhouette:
-                    width = _motionController.SilhouetteFrameSize.Width;
-                    height = _motionController.SilhouetteFrameSize.Height;
+                    width = _inputHandler.MotionController.SilhouetteFrameSize.Width;
+                    height = _inputHandler.MotionController.SilhouetteFrameSize.Height;
                     break;
                 default:
                     throw new NotSupportedException("Switch case reached somewhere it shouldn't.");

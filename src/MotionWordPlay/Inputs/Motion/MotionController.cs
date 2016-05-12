@@ -1,13 +1,13 @@
-namespace NTNU.MotionWordPlay.Inputs
+namespace NTNU.MotionWordPlay.Inputs.Motion
 {
     using System;
     using System.Drawing;
     using System.Collections.Generic;
-    using Path = System.IO.Path;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using MotionControlWrapper;
+    using Path = System.IO.Path;
 
     public class MotionController : IGameLoop, IDisposable
     {

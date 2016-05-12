@@ -1,7 +1,6 @@
-﻿namespace NTNU.MotionWordPlay.Inputs
+﻿namespace NTNU.MotionWordPlay.Inputs.Motion
 {
-    using System.Collections.Generic;
-    using NTNU.MotionControlWrapper;
+    using MotionControlWrapper;
 
     public class GestureReceivedEventArgs
     {
