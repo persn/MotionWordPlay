@@ -2,26 +2,47 @@
 {
     using System;
 
-    public class DemoGame
+    public class WordPlayGame
     {
         private const int ScoreIncrementAmount = 50;
         private const int ComboBonus = 25;
         private const int AnswersToFinish = 5;
 
-        public Tuple<string, int>[] CurrentTask { get; private set; } //Contains a tuple with <"word", correctIndex>
-        public int Score { get; private set; }
-        public int AnswerCounter { get; private set; }
-        public int Combo { get; private set; }
-        public int NumPlayers { get; private set; }
         private readonly TaskLoader _taskLoader;
 
-        public DemoGame(int numPlayers)
+        public WordPlayGame(int numPlayers)
         {
             NumPlayers = numPlayers;
             _taskLoader = new TaskLoader();
             Score = 0;
             Combo = 0;
             AnswerCounter = AnswersToFinish;
+        }
+
+        // Contains a tuple with <"word", correctIndex>
+        public Tuple<string, int>[] CurrentTask
+        {
+            get; private set;
+        }
+
+        public int Score
+        {
+            get; private set;
+        }
+
+        public int AnswerCounter
+        {
+            get; private set;
+        }
+
+        public int Combo
+        {
+            get; private set;
+        }
+
+        public int NumPlayers
+        {
+            get; private set;
         }
 
         public void CreateNewTask(bool newGame = false)
@@ -32,6 +53,7 @@
                 AnswerCounter = AnswersToFinish;
                 Combo = 0;
             }
+
             SplitSentence(_taskLoader.LoadTask(NumPlayers));
             ScrambleWordOrder();
         }
@@ -40,6 +62,7 @@
         {
             string[] segments = input.Split(' ');
             CurrentTask = new Tuple<string, int>[segments.Length];
+
             for (int i = 0; i < segments.Length; i++)
             {
                 CurrentTask[i] = new Tuple<string, int>(segments[i], i);
@@ -50,6 +73,7 @@
         {
             Random rng = new Random();
             int i = CurrentTask.Length;
+
             while (i > 1)
             {
                 int j = rng.Next(i--);
@@ -63,15 +87,18 @@
         {
             bool returnValue = true;
             result = new bool[CurrentTask.Length];
+
             for (int i = 0; i < CurrentTask.Length; i++)
             {
                 result[i] = CurrentTask[i].Item2 == i;
+
                 if (!result[i])
                 {
                     returnValue = false;
                     Combo = 0;
                 }
             }
+
             return returnValue;
         }
 
@@ -81,6 +108,7 @@
             {
                 return;
             }
+
             Tuple<string, int> temp = CurrentTask[index1];
             CurrentTask[index1] = CurrentTask[index2];
             CurrentTask[index2] = temp;
