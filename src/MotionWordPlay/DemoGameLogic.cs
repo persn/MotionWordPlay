@@ -14,9 +14,8 @@
             get { return _demoGame.NumPlayers; }
         }
 
-        private IUserInterface _userInterface;
-        private DemoGame _demoGame;
-        private int _numPlayers;
+        private readonly IUserInterface _userInterface;
+        private readonly DemoGame _demoGame;
         private bool _gameRunning;
         private double _timer;
         private int _elapsedTime;
@@ -24,7 +23,7 @@
         public DemoGameLogic(int numPlayers, IUserInterface userInterface)
         {
             _userInterface = userInterface;
-            _numPlayers = numPlayers;
+            _demoGame = new DemoGame(numPlayers);
         }
 
         public void Initialize()
@@ -35,7 +34,6 @@
 
         public void Load(ContentManager contentManager)
         {
-            _demoGame = new DemoGame(_numPlayers);
             _gameRunning = false;
             _userInterface.Status.Text = "Do stuff to start game";
         }
