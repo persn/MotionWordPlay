@@ -29,10 +29,7 @@
         private readonly InputHandler _inputHandler;
         private readonly IUserInterface _userInterface;
 
-        private DemoGame _demoGame;
-        private bool _gameRunning;
-        private double _timer;
-        private int _elapsedTime;
+        private DemoGameLogic _demoGame;
 
         public Game()
         {
@@ -50,8 +47,7 @@
             _inputHandler.KeyboardInput.KeyPressed += KeyboardInputKeyPressed;
             _inputHandler.MotionController.GesturesReceived += MotionControllerGesturesReceived;
             _userInterface = new EmptyKeysWrapper();
-            _timer = 1000;
-            _elapsedTime = 0;
+            _demoGame = new DemoGameLogic(6, _userInterface);
         }
 
         /// <summary>
@@ -66,6 +62,7 @@
 
             _inputHandler.Initialize();
             _userInterface.Initialize();
+            _demoGame.Initialize();
 
             base.Initialize();
         }
@@ -81,9 +78,7 @@
 
             _inputHandler.Load(Content);
             _userInterface.Load(Content);
-            _demoGame = new DemoGame(3);
-            _gameRunning = false;
-            _userInterface.Status.Text = "Do stuff to start game";
+            _demoGame.Load(Content);
         }
 
         /// <summary>
@@ -105,16 +100,7 @@
         protected override void Update(GameTime gameTime)
         {
             _inputHandler.Update(gameTime);
-            if (_gameRunning)
-            {
-                _timer -= gameTime.ElapsedGameTime.Milliseconds;
-                if (_timer < 0)
-                {
-                    _elapsedTime++;
-                    _userInterface.Time.Text = _elapsedTime.ToString();
-                    _timer = 1000;
-                }
-            }
+            _demoGame.Update(gameTime);
             _userInterface.Update(gameTime);
 
             base.Update(gameTime);
@@ -178,29 +164,24 @@
                     break;
                 case Keys.A:
                     _demoGame.SwapObjects(0, 1);
-                    RefreshText();
                     break;
                 case Keys.S:
                     _demoGame.SwapObjects(1, 2);
-                    RefreshText();
                     break;
                 case Keys.D:
                     _demoGame.SwapObjects(2, 3);
-                    RefreshText();
                     break;
                 case Keys.F:
                     _demoGame.SwapObjects(3, 4);
-                    RefreshText();
                     break;
                 case Keys.G:
                     _demoGame.SwapObjects(4, 5);
-                    RefreshText();
                     break;
                 case Keys.Q:
-                    LoadTask();
+                    _demoGame.LoadTask();
                     break;
                 case Keys.W:
-                    CheckAnswer();
+                    _demoGame.CheckAnswer();
                     break;
                 default:
                     throw new NotSupportedException("Key is not supported");
@@ -231,90 +212,12 @@
             }
             if (playersDoingCheckAnswerGesture.Count == _demoGame.NumPlayers)
             {
-                CheckAnswer();
+                _demoGame.CheckAnswer();
             }
             if (playersDoingSwapObjectGesture.Count >= 2)
             {
                 _demoGame.SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
-                RefreshText();
             }
         }
-
-        #region Game Specific functions
-
-        private void RefreshText()
-        {
-            _userInterface.Score.Text = _demoGame.Score.ToString();
-            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
-            _userInterface.Time.Text = _elapsedTime.ToString();
-            _userInterface.Status.Text = string.Empty;
-            _userInterface.Status.Foreground = Color.White;
-
-            if (_demoGame.CurrentTask == null)
-            {
-                return;
-            }
-            _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
-            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-            {
-                _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;
-                _userInterface.PuzzleFractions[i].Foreground = Color.White;
-                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
-                _userInterface.PuzzleFractions[i].Y = 150;
-            }
-        }
-
-        private void LoadTask()
-        {
-            _demoGame.CreateNewTask(true);
-            _gameRunning = true;
-            _elapsedTime = 0;
-            _timer = 1000;
-            RefreshText();
-        }
-
-        private void CheckAnswer()
-        {
-            if (_demoGame.CurrentTask == null || !_gameRunning)
-            {
-                return;
-            }
-            bool[] result;
-            bool correct = _demoGame.IsCorrect(out result);
-            if (!correct)
-            {
-                _userInterface.Status.Foreground = Color.Red;
-                _userInterface.Status.Text = "Wrong! Try again";
-                for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-                {
-                    _userInterface.PuzzleFractions[i].Foreground = result[i] ? Color.Green : Color.Red;
-                }
-                return;
-            }
-            int scoreChange;
-            bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
-            RefreshText();
-            _userInterface.Status.Foreground = Color.Green;
-            _userInterface.Status.Text = "Correct! + " + scoreChange + " points";
-            if (_demoGame.Combo > 1)
-            {
-                _userInterface.Status.Text += " Combo: " + (_demoGame.Combo);
-            }
-            if (gameOver)
-            {
-                EndGame();
-            }
-            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
-        }
-
-        private void EndGame()
-        {
-            _gameRunning = false;
-            _userInterface.ResetUI();
-            _userInterface.Score.Text = _demoGame.Score.ToString();
-            _userInterface.Time.Text = _elapsedTime.ToString();
-            _userInterface.Status.Text = "Game Over\nFinal Score: " + _demoGame.Score;
-        }
-        #endregion
     }
 }
