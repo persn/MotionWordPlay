@@ -7,7 +7,7 @@
     using WordPlay;
     using Color = System.Drawing.Color;
 
-    class DemoGameLogic : IGameLoop
+    public class DemoGameLogic : IGameLoop
     {
         public int NumPlayers
         {
@@ -56,12 +56,10 @@
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            throw new System.NotImplementedException();
         }
 
         public void GraphicsDeviceCreated(GraphicsDevice graphicsDevice, Vector2 nativeSize)
         {
-            throw new System.NotImplementedException();
         }
 
         private void RefreshText()

@@ -10,8 +10,6 @@
     using Inputs.Keyboard;
     using Inputs.Motion;
     using MotionControlWrapper;
-    using WordPlay;
-    using Color = System.Drawing.Color;
 
     /// <summary>
     /// This is the main type for your game.
@@ -112,7 +110,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.Transparent);
+            GraphicsDevice.Clear(Color.Transparent);
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
