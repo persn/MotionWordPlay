@@ -18,8 +18,8 @@
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private const string SwapObjectGestureName = "swapObjectGesturePlaceholder";
-        private const string CheckAnswerGestureName = "checkAnswerGesturePlaceholder";
+        private const string SwapObjectGestureName = "CrossedArms";
+        private const string CheckAnswerGestureName = "RaisedHands";
 
         private static readonly Vector2 BaseScreenSize = new Vector2(640, 360);
         private readonly GraphicsDeviceManager _graphicsDevice;
@@ -198,17 +198,21 @@
             {
                 IList<GestureResult> gestures = e.Gestures.GetGestures(i);
 
-                foreach (GestureResult gestureResult in gestures)
+                if (gestures.Count > 0)
                 {
-                    if (gestureResult.Name.Equals(SwapObjectGestureName))
+                    foreach (GestureResult gestureResult in gestures)
                     {
-                        playersDoingSwapObjectGesture.Add(i);
-                    }
-                    else if (gestureResult.Name.Equals(CheckAnswerGestureName))
-                    {
-                        playersDoingCheckAnswerGesture.Add(i);
+                        if (gestureResult.Name.Equals(SwapObjectGestureName) && gestureResult.IsDetected)
+                        {
+                            playersDoingSwapObjectGesture.Add(i);
+                        }
+                        else if (gestureResult.Name.Equals(CheckAnswerGestureName) && gestureResult.Confidence > 0.7)
+                        {
+                            playersDoingCheckAnswerGesture.Add(i);
+                        }
                     }
                 }
+                
             }
             if (playersDoingCheckAnswerGesture.Count == _demoGame.NumPlayers)
             {

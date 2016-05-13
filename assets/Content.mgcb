@@ -13,9 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin MotionGestures/GesturesDB.gbd
-/copy:MotionGestures/GesturesDB.gbd
-
 #begin Segoe_UI_15_Regular.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -33,4 +30,7 @@
 
 #begin WordPlays/6playertasks.txt
 /copy:WordPlays/6playertasks.txt
+
+#begin MotionGestures/GesturesDB.gbd
+/copy:MotionGestures/GesturesDB.gbd
 
