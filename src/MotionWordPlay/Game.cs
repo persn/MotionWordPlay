@@ -48,9 +48,9 @@
             _userInterface = new EmptyKeysWrapper();
 
             _demoGame = new WordPlayWrapper(6, _userInterface);
-            _demoGame.PreGame += PreGame;
-            _demoGame.GameUpdate += GameUpdate;
-            _demoGame.PostGame += PostGame;
+            _demoGame.PreGame += WordPlayPreGame;
+            _demoGame.GameUpdate += WordPlayGameUpdate;
+            _demoGame.PostGame += WordPlayPostGame;
         }
 
         /// <summary>
@@ -227,17 +227,17 @@
             }
         }
 
-        private void PreGame(object sender, EventArgs e)
+        private void WordPlayPreGame(object sender, GameDataEventArgs e)
         {
             _userInterface.Status.Text = "Do stuff to start game";
         }
 
-        private void GameUpdate(object sender, GameUpdateEventArgs e)
+        private void WordPlayGameUpdate(object sender, GameDataEventArgs e)
         {
             _userInterface.Time.Text = e.ElapsedTime.ToString();
         }
 
-        private void PostGame(object sender, PostGameEventArgs e)
+        private void WordPlayPostGame(object sender, GameDataEventArgs e)
         {
             _userInterface.ResetUI();
 

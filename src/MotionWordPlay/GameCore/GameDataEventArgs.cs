@@ -2,13 +2,16 @@
 {
     using System;
 
-    public class GameUpdateEventArgs : EventArgs
+    public class GameDataEventArgs : EventArgs
     {
-        public GameUpdateEventArgs(int elapsedTime)
+        public GameDataEventArgs(int elapsedTime, int score)
         {
             ElapsedTime = elapsedTime;
+            Score = score;
         }
 
         public int ElapsedTime { get; private set; }
+
+        public int Score { get; private set; }
     }
 }

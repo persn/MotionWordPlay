@@ -10,9 +10,9 @@
 
     public class WordPlayWrapper : IGameLoop
     {
-        public event EventHandler<EventArgs> PreGame;
-        public event EventHandler<GameUpdateEventArgs> GameUpdate;
-        public event EventHandler<PostGameEventArgs> PostGame;
+        public event EventHandler<GameDataEventArgs> PreGame;
+        public event EventHandler<GameDataEventArgs> GameUpdate;
+        public event EventHandler<GameDataEventArgs> PostGame;
 
         private const double CooldownTime = 1000;
 
@@ -183,7 +183,7 @@
         {
             if (PreGame != null)
             {
-                PreGame.Invoke(this, EventArgs.Empty);
+                PreGame.Invoke(this, GenerateEventArgs());
             }
         }
 
@@ -191,7 +191,7 @@
         {
             if (GameUpdate != null)
             {
-                GameUpdate.Invoke(this, new GameUpdateEventArgs(_elapsedTime));
+                GameUpdate.Invoke(this, GenerateEventArgs());
             }
         }
 
@@ -199,8 +199,13 @@
         {
             if (PostGame != null)
             {
-                PostGame.Invoke(this, new PostGameEventArgs(_elapsedTime, _demoGame.Score));
+                PostGame.Invoke(this, GenerateEventArgs());
             }
+        }
+
+        private GameDataEventArgs GenerateEventArgs()
+        {
+            return new GameDataEventArgs(_elapsedTime, _demoGame.Score);
         }
     }
 }
