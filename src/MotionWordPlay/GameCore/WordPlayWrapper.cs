@@ -165,8 +165,6 @@
                 return;
             }
 
-            _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
-
             for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
             {
                 _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;

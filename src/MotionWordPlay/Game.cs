@@ -272,8 +272,6 @@
                 return;
             }
 
-            _userInterface.AddNewPuzzleFractions(_demoGame.WordPlayGame.CurrentTask.Length);
-
             for (int i = 0; i < _demoGame.WordPlayGame.CurrentTask.Length; i++)
             {
                 _userInterface.PuzzleFractions[i].Text = _demoGame.WordPlayGame.CurrentTask[i].Item1;
