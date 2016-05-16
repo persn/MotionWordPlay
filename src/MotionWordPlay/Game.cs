@@ -11,6 +11,7 @@
     using Inputs.Keyboard;
     using Inputs.Motion;
     using MotionControlWrapper;
+    using Color = System.Drawing.Color;
 
     /// <summary>
     /// This is the main type for your game.
@@ -51,6 +52,7 @@
             _demoGame.PreGame += WordPlayPreGame;
             _demoGame.GameUpdate += WordPlayGameUpdate;
             _demoGame.PostGame += WordPlayPostGame;
+            _demoGame.NewGameLoaded += WordPlayNewGameLoaded;
         }
 
         /// <summary>
@@ -115,7 +117,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Transparent);
+            GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.Transparent);
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, transformMatrix: _globalTransformation);
 
@@ -217,7 +219,7 @@
                 }
 
             }
-            if (playersDoingCheckAnswerGesture.Count == _demoGame.NumPlayers)
+            if (playersDoingCheckAnswerGesture.Count == _demoGame.WordPlayGame.NumPlayers)
             {
                 _demoGame.CheckAnswer();
             }
@@ -244,6 +246,35 @@
             _userInterface.Time.Text = e.ElapsedTime.ToString();
             _userInterface.Status.Text = "Game Over\nFinal Score: " + e.Score;
             _userInterface.Score.Text = e.Score.ToString();
+        }
+
+        private void WordPlayNewGameLoaded(object sender, GameDataEventArgs e)
+        {
+            ResetUIToDefaultValues(e);
+        }
+
+        private void ResetUIToDefaultValues(GameDataEventArgs e)
+        {
+            _userInterface.Time.Text = e.ElapsedTime.ToString();
+            _userInterface.Task.Text = e.AnswerCounter.ToString();
+            _userInterface.Score.Text = e.Score.ToString();
+            _userInterface.Status.Text = string.Empty;
+            _userInterface.Status.Foreground = Color.White;
+
+            if (e.IsGameLoaded)
+            {
+                return;
+            }
+
+            _userInterface.AddNewPuzzleFractions(_demoGame.WordPlayGame.CurrentTask.Length);
+
+            for (int i = 0; i < _demoGame.WordPlayGame.CurrentTask.Length; i++)
+            {
+                _userInterface.PuzzleFractions[i].Text = _demoGame.WordPlayGame.CurrentTask[i].Item1;
+                _userInterface.PuzzleFractions[i].Foreground = Color.White;
+                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
+                _userInterface.PuzzleFractions[i].Y = 150;
+            }
         }
     }
 }

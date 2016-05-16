@@ -13,6 +13,7 @@
         public event EventHandler<GameDataEventArgs> PreGame;
         public event EventHandler<GameDataEventArgs> GameUpdate;
         public event EventHandler<GameDataEventArgs> PostGame;
+        public event EventHandler<GameDataEventArgs> NewGameLoaded;
 
         private const double CooldownTime = 1000;
 
@@ -30,11 +31,11 @@
             _demoGame = new DemoGame(numPlayers);
         }
 
-        public int NumPlayers
+        public DemoGame WordPlayGame
         {
             get
             {
-                return _demoGame.NumPlayers;
+                return _demoGame;
             }
         }
 
@@ -95,7 +96,7 @@
             _elapsedTime = 0;
             _timer = 1000;
 
-            RefreshText();
+            InvokeNewGameLoaded();
         }
 
         public void CheckAnswer()
@@ -203,9 +204,21 @@
             }
         }
 
+        private void InvokeNewGameLoaded()
+        {
+            if (NewGameLoaded != null)
+            {
+                NewGameLoaded.Invoke(this, GenerateEventArgs());
+            }
+        }
+
         private GameDataEventArgs GenerateEventArgs()
         {
-            return new GameDataEventArgs(_elapsedTime, _demoGame.Score);
+            return new GameDataEventArgs(
+                _elapsedTime,
+                _demoGame.AnswerCounter,
+                _demoGame.Score,
+                _demoGame.CurrentTask == null);
         }
     }
 }
