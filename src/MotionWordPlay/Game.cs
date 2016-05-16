@@ -251,6 +251,7 @@
 
         private void WordPlayNewGameLoaded(object sender, GameDataEventArgs e)
         {
+            _userInterface.ResetUI();
             _userInterface.AddNewPuzzleFractions(_demoGame.WordPlayGame.CurrentTask.Length);
 
             ResetUIToDefaultValues(e);
