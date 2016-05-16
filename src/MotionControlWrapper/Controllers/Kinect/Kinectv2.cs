@@ -1,6 +1,7 @@
 ﻿namespace NTNU.MotionControlWrapper.Controllers.Kinect
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.Drawing;
     using Microsoft.Kinect;
@@ -249,7 +250,8 @@
             {
                 return;
             }
-
+            
+            _bodies = _bodies.OrderBy(body => body.Joints[0].Position.X).ToArray();
             for (int i = 0; i < _sensor.BodyFrameSource.BodyCount; i++)
             {
                 ulong trackingId = _bodies[i].TrackingId;
