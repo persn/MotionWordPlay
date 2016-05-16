@@ -10,11 +10,11 @@
 
     public class WordPlayWrapper : IGameLoop
     {
-        private const double CooldownTime = 1000;
-
         public event EventHandler<EventArgs> PreGame;
         public event EventHandler<GameUpdateEventArgs> GameUpdate;
         public event EventHandler<PostGameEventArgs> PostGame;
+
+        private const double CooldownTime = 1000;
 
         private readonly IUserInterface _userInterface;
         private readonly DemoGame _demoGame;
@@ -161,13 +161,6 @@
             _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
         }
 
-        private void EndGame()
-        {
-            _gameRunning = false;
-
-            InvokePostGame();
-        }
-
         public void SwapObjects(int index1, int index2)
         {
             if (_recentlyPerformedAction)
@@ -177,6 +170,13 @@
             _recentlyPerformedAction = true;
             _demoGame.SwapObjects(index1, index2);
             RefreshText();
+        }
+
+        private void EndGame()
+        {
+            _gameRunning = false;
+
+            InvokePostGame();
         }
 
         private void InvokePreGame()
