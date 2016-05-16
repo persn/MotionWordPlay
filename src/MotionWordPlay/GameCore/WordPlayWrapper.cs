@@ -11,7 +11,7 @@
     public class WordPlayWrapper : IGameLoop
     {
         public event EventHandler<EventArgs> PreGame;
-        public event EventHandler<EventArgs> GameUpdate;
+        public event EventHandler<GameUpdateEventArgs> GameUpdate;
         public event EventHandler<EventArgs> PostGame;
 
         private readonly IUserInterface _userInterface;
@@ -61,8 +61,9 @@
             }
 
             _elapsedTime++;
-            _userInterface.Time.Text = _elapsedTime.ToString();
             _timer = 1000;
+
+            InvokeGameUpdate();
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -172,7 +173,7 @@
         {
             if (GameUpdate != null)
             {
-                GameUpdate.Invoke(this, EventArgs.Empty);
+                GameUpdate.Invoke(this, new GameUpdateEventArgs(_elapsedTime));
             }
         }
 

@@ -49,6 +49,7 @@
 
             _demoGame = new WordPlayWrapper(6, _userInterface);
             _demoGame.PreGame += PreGame;
+            _demoGame.GameUpdate += GameUpdate;
         }
 
         /// <summary>
@@ -228,6 +229,11 @@
         private void PreGame(object sender, EventArgs e)
         {
             _userInterface.Status.Text = "Do stuff to start game";
+        }
+
+        private void GameUpdate(object sender, GameUpdateEventArgs e)
+        {
+            _userInterface.Time.Text = e.ElapsedTime.ToString();
         }
     }
 }
