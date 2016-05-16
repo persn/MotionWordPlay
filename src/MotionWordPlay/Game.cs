@@ -27,8 +27,7 @@
 
         private readonly InputHandler _inputHandler;
         private readonly IUserInterface _userInterface;
-
-        private WordPlayWrapper _demoGame;
+        private readonly WordPlayWrapper _demoGame;
 
         public Game()
         {
@@ -45,8 +44,11 @@
             _inputHandler = new InputHandler();
             _inputHandler.KeyboardInput.KeyPressed += KeyboardInputKeyPressed;
             _inputHandler.MotionController.GesturesReceived += MotionControllerGesturesReceived;
+
             _userInterface = new EmptyKeysWrapper();
+
             _demoGame = new WordPlayWrapper(6, _userInterface);
+            _demoGame.PreGame += PreGame;
         }
 
         /// <summary>
@@ -211,7 +213,7 @@
                         }
                     }
                 }
-                
+
             }
             if (playersDoingCheckAnswerGesture.Count == _demoGame.NumPlayers)
             {
@@ -221,6 +223,11 @@
             {
                 _demoGame.SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
             }
+        }
+
+        private void PreGame(object sender, EventArgs e)
+        {
+            _userInterface.Status.Text = "Do stuff to start game";
         }
     }
 }

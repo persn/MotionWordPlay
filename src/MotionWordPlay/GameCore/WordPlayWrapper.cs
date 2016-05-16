@@ -1,5 +1,6 @@
 ﻿namespace NTNU.MotionWordPlay.GameCore
 {
+    using System;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -9,6 +10,10 @@
 
     public class WordPlayWrapper : IGameLoop
     {
+        public event EventHandler<EventArgs> PreGame;
+        public event EventHandler<EventArgs> GameUpdate;
+        public event EventHandler<EventArgs> PostGame;
+
         private readonly IUserInterface _userInterface;
         private readonly DemoGame _demoGame;
         private bool _gameRunning;
@@ -38,7 +43,7 @@
 
         public void Load(ContentManager contentManager)
         {
-            _userInterface.Status.Text = "Do stuff to start game";
+            InvokePreGame();
         }
 
         public void Update(GameTime gameTime)
@@ -153,6 +158,30 @@
         {
             _demoGame.SwapObjects(index1, index2);
             RefreshText();
+        }
+
+        private void InvokePreGame()
+        {
+            if (PreGame != null)
+            {
+                PreGame.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void InvokeGameUpdate()
+        {
+            if (GameUpdate != null)
+            {
+                GameUpdate.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void InvokePostGame()
+        {
+            if (PostGame != null)
+            {
+                PostGame.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }
