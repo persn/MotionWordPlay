@@ -1,6 +1,7 @@
 ﻿namespace NTNU.MotionWordPlay.GameCore
 {
     using System;
+    using System.Linq;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -227,7 +228,8 @@
                 _elapsedTime,
                 _demoGame.AnswerCounter,
                 _demoGame.Score,
-                _demoGame.CurrentTask == null);
+                _demoGame.CurrentTask == null,
+                _demoGame.CurrentTask == null ? null : _demoGame.CurrentTask.Select(item => item.Item1).ToArray());
         }
     }
 }
