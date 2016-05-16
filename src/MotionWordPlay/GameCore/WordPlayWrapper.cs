@@ -88,30 +88,6 @@
         {
         }
 
-        private void RefreshText()
-        {
-            _userInterface.Score.Text = _demoGame.Score.ToString();
-            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
-            _userInterface.Time.Text = _elapsedTime.ToString();
-            _userInterface.Status.Text = string.Empty;
-            _userInterface.Status.Foreground = Color.White;
-
-            if (_demoGame.CurrentTask == null)
-            {
-                return;
-            }
-
-            _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
-
-            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-            {
-                _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;
-                _userInterface.PuzzleFractions[i].Foreground = Color.White;
-                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
-                _userInterface.PuzzleFractions[i].Y = 150;
-            }
-        }
-
         public void LoadTask()
         {
             _demoGame.CreateNewTask(true);
@@ -170,6 +146,30 @@
             _recentlyPerformedAction = true;
             _demoGame.SwapObjects(index1, index2);
             RefreshText();
+        }
+
+        private void RefreshText()
+        {
+            _userInterface.Score.Text = _demoGame.Score.ToString();
+            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
+            _userInterface.Time.Text = _elapsedTime.ToString();
+            _userInterface.Status.Text = string.Empty;
+            _userInterface.Status.Foreground = Color.White;
+
+            if (_demoGame.CurrentTask == null)
+            {
+                return;
+            }
+
+            _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
+
+            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
+            {
+                _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;
+                _userInterface.PuzzleFractions[i].Foreground = Color.White;
+                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
+                _userInterface.PuzzleFractions[i].Y = 150;
+            }
         }
 
         private void EndGame()
