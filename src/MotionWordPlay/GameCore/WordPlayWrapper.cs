@@ -133,9 +133,12 @@
             {
                 _userInterface.Status.Text += " Combo: " + (_demoGame.Combo);
             }
+
             if (gameOver)
             {
-                EndGame();
+                _gameRunning = false;
+
+                InvokePostGame();
             }
         }
 
@@ -172,13 +175,6 @@
                 _userInterface.PuzzleFractions[i].X = 50 + i * 100;
                 _userInterface.PuzzleFractions[i].Y = 150;
             }
-        }
-
-        private void EndGame()
-        {
-            _gameRunning = false;
-
-            InvokePostGame();
         }
 
         private void InvokePreGame()
