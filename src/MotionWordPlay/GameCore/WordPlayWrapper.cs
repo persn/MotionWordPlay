@@ -9,11 +9,6 @@
 
     public class WordPlayWrapper : IGameLoop
     {
-        public int NumPlayers
-        {
-            get { return _demoGame.NumPlayers; }
-        }
-
         private readonly IUserInterface _userInterface;
         private readonly DemoGame _demoGame;
         private bool _gameRunning;
@@ -26,15 +21,23 @@
             _demoGame = new DemoGame(numPlayers);
         }
 
+        public int NumPlayers
+        {
+            get
+            {
+                return _demoGame.NumPlayers;
+            }
+        }
+
         public void Initialize()
         {
             _timer = 1000;
             _elapsedTime = 0;
+            _gameRunning = false;
         }
 
         public void Load(ContentManager contentManager)
         {
-            _gameRunning = false;
             _userInterface.Status.Text = "Do stuff to start game";
         }
 
@@ -44,11 +47,14 @@
             {
                 return;
             }
+
             _timer -= gameTime.ElapsedGameTime.Milliseconds;
+
             if (!(_timer < 0))
             {
                 return;
             }
+
             _elapsedTime++;
             _userInterface.Time.Text = _elapsedTime.ToString();
             _timer = 1000;
@@ -74,7 +80,9 @@
             {
                 return;
             }
+
             _userInterface.AddNewPuzzleFractions(_demoGame.CurrentTask.Length);
+
             for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
             {
                 _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;
@@ -90,6 +98,7 @@
             _gameRunning = true;
             _elapsedTime = 0;
             _timer = 1000;
+
             RefreshText();
         }
 
@@ -99,8 +108,10 @@
             {
                 return;
             }
+
             bool[] result;
             bool correct = _demoGame.IsCorrect(out result);
+
             if (!correct)
             {
                 _userInterface.Status.Foreground = Color.Red;
@@ -111,11 +122,13 @@
                 }
                 return;
             }
+
             int scoreChange;
             bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
             RefreshText();
             _userInterface.Status.Foreground = Color.Green;
             _userInterface.Status.Text = "Correct! + " + scoreChange + " points";
+
             if (_demoGame.Combo > 1)
             {
                 _userInterface.Status.Text += " Combo: " + (_demoGame.Combo);
