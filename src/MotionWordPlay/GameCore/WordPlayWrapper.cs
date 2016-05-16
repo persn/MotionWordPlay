@@ -137,7 +137,6 @@
             {
                 EndGame();
             }
-            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
         }
 
         public void SwapObjects(int index1, int index2)
