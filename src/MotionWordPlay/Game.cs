@@ -50,6 +50,7 @@
             _demoGame = new WordPlayWrapper(6, _userInterface);
             _demoGame.PreGame += PreGame;
             _demoGame.GameUpdate += GameUpdate;
+            _demoGame.PostGame += PostGame;
         }
 
         /// <summary>
@@ -234,6 +235,15 @@
         private void GameUpdate(object sender, GameUpdateEventArgs e)
         {
             _userInterface.Time.Text = e.ElapsedTime.ToString();
+        }
+
+        private void PostGame(object sender, PostGameEventArgs e)
+        {
+            _userInterface.ResetUI();
+
+            _userInterface.Time.Text = e.ElapsedTime.ToString();
+            _userInterface.Status.Text = "Game Over\nFinal Score: " + e.Score;
+            _userInterface.Score.Text = e.Score.ToString();
         }
     }
 }

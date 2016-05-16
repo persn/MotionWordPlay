@@ -12,7 +12,7 @@
     {
         public event EventHandler<EventArgs> PreGame;
         public event EventHandler<GameUpdateEventArgs> GameUpdate;
-        public event EventHandler<EventArgs> PostGame;
+        public event EventHandler<PostGameEventArgs> PostGame;
 
         private readonly IUserInterface _userInterface;
         private readonly DemoGame _demoGame;
@@ -149,10 +149,8 @@
         private void EndGame()
         {
             _gameRunning = false;
-            _userInterface.ResetUI();
-            _userInterface.Score.Text = _demoGame.Score.ToString();
-            _userInterface.Time.Text = _elapsedTime.ToString();
-            _userInterface.Status.Text = "Game Over\nFinal Score: " + _demoGame.Score;
+
+            InvokePostGame();
         }
 
         public void SwapObjects(int index1, int index2)
@@ -181,7 +179,7 @@
         {
             if (PostGame != null)
             {
-                PostGame.Invoke(this, EventArgs.Empty);
+                PostGame.Invoke(this, new PostGameEventArgs(_elapsedTime, _demoGame.Score));
             }
         }
     }
