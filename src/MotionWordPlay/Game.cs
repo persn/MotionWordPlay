@@ -274,9 +274,9 @@
                 return;
             }
 
-            for (int i = 0; i < _demoGame.WordPlayGame.CurrentTask.Length; i++)
+            for (int i = 0; i < _userInterface.PuzzleFractions.Count; i++)
             {
-                _userInterface.PuzzleFractions[i].Text = _demoGame.WordPlayGame.CurrentTask[i].Item1;
+                _userInterface.PuzzleFractions[i].Text = e.WordFractions[i];
                 _userInterface.PuzzleFractions[i].Foreground = Color.White;
                 _userInterface.PuzzleFractions[i].X = 50 + i * 100;
                 _userInterface.PuzzleFractions[i].Y = 150;
