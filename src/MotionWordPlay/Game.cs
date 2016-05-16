@@ -251,6 +251,8 @@
 
         private void WordPlayNewGameLoaded(object sender, GameDataEventArgs e)
         {
+            _userInterface.AddNewPuzzleFractions(_demoGame.WordPlayGame.CurrentTask.Length);
+
             ResetUIToDefaultValues(e);
         }
 
@@ -267,7 +269,7 @@
             _userInterface.Status.Text = string.Empty;
             _userInterface.Status.Foreground = Color.White;
 
-            if (e.IsGameLoaded)
+            if (!e.IsGameLoaded)
             {
                 return;
             }

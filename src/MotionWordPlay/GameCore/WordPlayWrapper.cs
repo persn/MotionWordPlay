@@ -227,7 +227,7 @@
                 _elapsedTime,
                 _demoGame.AnswerCounter,
                 _demoGame.Score,
-                _demoGame.CurrentTask == null);
+                _demoGame.CurrentTask != null);
         }
     }
 }
