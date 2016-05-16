@@ -1,4 +1,4 @@
-﻿namespace NTNU.MotionWordPlay
+﻿namespace NTNU.MotionWordPlay.GameCore
 {
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
@@ -7,7 +7,7 @@
     using WordPlay;
     using Color = System.Drawing.Color;
 
-    public class DemoGameLogic : IGameLoop
+    public class WordPlayWrapper : IGameLoop
     {
         public int NumPlayers
         {
@@ -20,7 +20,7 @@
         private double _timer;
         private int _elapsedTime;
 
-        public DemoGameLogic(int numPlayers, IUserInterface userInterface)
+        public WordPlayWrapper(int numPlayers, IUserInterface userInterface)
         {
             _userInterface = userInterface;
             _demoGame = new DemoGame(numPlayers);

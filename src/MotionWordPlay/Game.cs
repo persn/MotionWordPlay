@@ -5,6 +5,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using GameCore;
     using UserInterface;
     using Inputs;
     using Inputs.Keyboard;
@@ -27,7 +28,7 @@
         private readonly InputHandler _inputHandler;
         private readonly IUserInterface _userInterface;
 
-        private DemoGameLogic _demoGame;
+        private WordPlayWrapper _demoGame;
 
         public Game()
         {
@@ -45,7 +46,7 @@
             _inputHandler.KeyboardInput.KeyPressed += KeyboardInputKeyPressed;
             _inputHandler.MotionController.GesturesReceived += MotionControllerGesturesReceived;
             _userInterface = new EmptyKeysWrapper();
-            _demoGame = new DemoGameLogic(6, _userInterface);
+            _demoGame = new WordPlayWrapper(6, _userInterface);
         }
 
         /// <summary>
