@@ -10,6 +10,8 @@
 
     public class WordPlayWrapper : IGameLoop
     {
+        private const double CooldownTime = 1000;
+
         public event EventHandler<EventArgs> PreGame;
         public event EventHandler<GameUpdateEventArgs> GameUpdate;
         public event EventHandler<PostGameEventArgs> PostGame;
@@ -19,6 +21,8 @@
         private bool _gameRunning;
         private double _timer;
         private int _elapsedTime;
+        private bool _recentlyPerformedAction;
+        private double _actionCooldownTimer;
 
         public WordPlayWrapper(int numPlayers, IUserInterface userInterface)
         {
@@ -39,6 +43,8 @@
             _timer = 1000;
             _elapsedTime = 0;
             _gameRunning = false;
+            _recentlyPerformedAction = false;
+            _actionCooldownTimer = CooldownTime;
         }
 
         public void Load(ContentManager contentManager)
@@ -55,13 +61,21 @@
 
             _timer -= gameTime.ElapsedGameTime.Milliseconds;
 
-            if (!(_timer < 0))
+            if (_timer < 0)
             {
-                return;
+                _elapsedTime++;
+                _timer = 1000;
             }
 
-            _elapsedTime++;
-            _timer = 1000;
+            if (_recentlyPerformedAction)
+            {
+                _actionCooldownTimer -= gameTime.ElapsedGameTime.Milliseconds;
+                if (_actionCooldownTimer <= 0)
+                {
+                    _recentlyPerformedAction = false;
+                    _actionCooldownTimer = CooldownTime;
+                }
+            }
 
             InvokeGameUpdate();
         }
@@ -110,11 +124,12 @@
 
         public void CheckAnswer()
         {
-            if (_demoGame.CurrentTask == null || !_gameRunning)
+            if (_demoGame.CurrentTask == null || !_gameRunning || _recentlyPerformedAction)
             {
                 return;
             }
 
+            _recentlyPerformedAction = true;
             bool[] result;
             bool correct = _demoGame.IsCorrect(out result);
 
@@ -155,6 +170,11 @@
 
         public void SwapObjects(int index1, int index2)
         {
+            if (_recentlyPerformedAction)
+            {
+                return;
+            }
+            _recentlyPerformedAction = true;
             _demoGame.SwapObjects(index1, index2);
             RefreshText();
         }
