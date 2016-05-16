@@ -53,6 +53,7 @@
             _demoGame.GameUpdate += WordPlayGameUpdate;
             _demoGame.PostGame += WordPlayPostGame;
             _demoGame.NewGameLoaded += WordPlayNewGameLoaded;
+            _demoGame.AnswersChangedPlaces += WordPlayAnswersChangedPlaces;
         }
 
         /// <summary>
@@ -249,6 +250,11 @@
         }
 
         private void WordPlayNewGameLoaded(object sender, GameDataEventArgs e)
+        {
+            ResetUIToDefaultValues(e);
+        }
+
+        private void WordPlayAnswersChangedPlaces(object sender, GameDataEventArgs e)
         {
             ResetUIToDefaultValues(e);
         }

@@ -14,6 +14,7 @@
         public event EventHandler<GameDataEventArgs> GameUpdate;
         public event EventHandler<GameDataEventArgs> PostGame;
         public event EventHandler<GameDataEventArgs> NewGameLoaded;
+        public event EventHandler<GameDataEventArgs> AnswersChangedPlaces;
 
         private const double CooldownTime = 1000;
 
@@ -144,9 +145,11 @@
             {
                 return;
             }
+
             _recentlyPerformedAction = true;
             _demoGame.SwapObjects(index1, index2);
-            RefreshText();
+
+            InvokeAnswersChangedPlaces();
         }
 
         private void RefreshText()
@@ -209,6 +212,14 @@
             if (NewGameLoaded != null)
             {
                 NewGameLoaded.Invoke(this, GenerateEventArgs());
+            }
+        }
+
+        private void InvokeAnswersChangedPlaces()
+        {
+            if (AnswersChangedPlaces != null)
+            {
+                AnswersChangedPlaces.Invoke(this, GenerateEventArgs());
             }
         }
 
