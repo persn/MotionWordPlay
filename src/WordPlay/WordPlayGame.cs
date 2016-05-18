@@ -1,6 +1,7 @@
 ﻿namespace NTNU.WordPlay
 {
     using System;
+    using System.IO;
 
     public class WordPlayGame
     {
@@ -8,16 +9,19 @@
         private const int ComboBonus = 25;
         private const int AnswersToFinish = 5;
 
-        private readonly TaskLoader _taskLoader;
+        private readonly string[] _currentGame;
+        private readonly Random _random;
 
-        public WordPlayGame(int playerCount)
+        public WordPlayGame(int playerCount, string file)
         {
-            _taskLoader = new TaskLoader();
+            _random = new Random();
 
             PlayerCount = playerCount;
             Score = 0;
             Combo = 0;
             AnswerCounter = AnswersToFinish;
+
+            _currentGame = File.ReadAllLines(file);
         }
 
         // Contains a tuple with <"word", correctIndex>
@@ -55,7 +59,7 @@
                 Combo = 0;
             }
 
-            SplitSentence(_taskLoader.LoadTask(PlayerCount));
+            SplitSentence(_currentGame[_random.Next(_currentGame.Length)]);
             ScrambleWordOrder();
         }
 
@@ -124,12 +128,11 @@
 
         private void ScrambleWordOrder()
         {
-            Random rng = new Random();
             int i = CurrentTask.Length;
 
             while (i > 1)
             {
-                int j = rng.Next(i--);
+                int j = _random.Next(i--);
                 Tuple<string, int> temp = CurrentTask[i];
                 CurrentTask[i] = CurrentTask[j];
                 CurrentTask[j] = temp;

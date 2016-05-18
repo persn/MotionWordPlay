@@ -1,6 +1,7 @@
 ﻿namespace NTNU.MotionWordPlay.GameCore
 {
     using System;
+    using System.IO;
     using System.Linq;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
@@ -28,7 +29,9 @@
 
         public WordPlayWrapper(int numPlayers)
         {
-            _wordPlayGame = new WordPlayGame(numPlayers);
+            _wordPlayGame = new WordPlayGame(
+                numPlayers,
+                string.Format(@"Content{0}WordPlays{0}{1}playertasks.txt", Path.DirectorySeparatorChar, numPlayers));
         }
 
         public WordPlayGame WordPlayGame
