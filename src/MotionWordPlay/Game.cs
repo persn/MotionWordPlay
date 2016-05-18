@@ -48,12 +48,14 @@
 
             _userInterface = new EmptyKeysWrapper();
 
-            _demoGame = new WordPlayWrapper(6, _userInterface);
+            _demoGame = new WordPlayWrapper(6);
             _demoGame.PreGame += WordPlayPreGame;
             _demoGame.GameUpdate += WordPlayGameUpdate;
             _demoGame.PostGame += WordPlayPostGame;
             _demoGame.NewGameLoaded += WordPlayNewGameLoaded;
             _demoGame.AnswersChangedPlaces += WordPlayAnswersChangedPlaces;
+            _demoGame.AnswersIncorrect += WordPlayAnswersIncorrect;
+            _demoGame.AnswersCorrect += WordPlayAnswersCorrect;
         }
 
         /// <summary>
@@ -260,6 +262,32 @@
         private void WordPlayAnswersChangedPlaces(object sender, GameDataEventArgs e)
         {
             ResetUIToDefaultValues(e);
+        }
+
+        private void WordPlayAnswersIncorrect(object sender, GameDataEventArgs e)
+        {
+            ResetUIToDefaultValues(e);
+
+            _userInterface.Status.Foreground = Color.Red;
+            _userInterface.Status.Text = "Wrong! Try again";
+
+            for (int i = 0; i < _userInterface.PuzzleFractions.Count; i++)
+            {
+                _userInterface.PuzzleFractions[i].Foreground = e.Result[i] ? Color.Green : Color.Red;
+            }
+        }
+
+        private void WordPlayAnswersCorrect(object sender, GameDataEventArgs e)
+        {
+            ResetUIToDefaultValues(e);
+
+            _userInterface.Status.Foreground = Color.Green;
+            _userInterface.Status.Text = "Correct! + " + e.ScoreIncrement + " points";
+
+            if (e.Combo > 1)
+            {
+                _userInterface.Status.Text += "Combo: " + e.Combo;
+            }
         }
 
         private void ResetUIToDefaultValues(GameDataEventArgs e)

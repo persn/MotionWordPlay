@@ -5,9 +5,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
-    using UserInterface;
     using WordPlay;
-    using Color = System.Drawing.Color;
 
     public class WordPlayWrapper : IGameLoop
     {
@@ -16,10 +14,11 @@
         public event EventHandler<GameDataEventArgs> PostGame;
         public event EventHandler<GameDataEventArgs> NewGameLoaded;
         public event EventHandler<GameDataEventArgs> AnswersChangedPlaces;
+        public event EventHandler<GameDataEventArgs> AnswersIncorrect;
+        public event EventHandler<GameDataEventArgs> AnswersCorrect;
 
         private const double CooldownTime = 1000;
 
-        private readonly IUserInterface _userInterface;
         private readonly DemoGame _demoGame;
         private bool _gameRunning;
         private double _timer;
@@ -27,9 +26,8 @@
         private bool _recentlyPerformedAction;
         private double _actionCooldownTimer;
 
-        public WordPlayWrapper(int numPlayers, IUserInterface userInterface)
+        public WordPlayWrapper(int numPlayers)
         {
-            _userInterface = userInterface;
             _demoGame = new DemoGame(numPlayers);
         }
 
@@ -114,31 +112,23 @@
 
             if (!correct)
             {
-                _userInterface.Status.Foreground = Color.Red;
-                _userInterface.Status.Text = "Wrong! Try again";
-                for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-                {
-                    _userInterface.PuzzleFractions[i].Foreground = result[i] ? Color.Green : Color.Red;
-                }
+                InvokeAnswersIncorrect(result);
+
                 return;
             }
 
             int scoreChange;
             bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
-            RefreshText();
-            _userInterface.Status.Foreground = Color.Green;
-            _userInterface.Status.Text = "Correct! + " + scoreChange + " points";
-
-            if (_demoGame.Combo > 1)
-            {
-                _userInterface.Status.Text += " Combo: " + (_demoGame.Combo);
-            }
 
             if (gameOver)
             {
                 _gameRunning = false;
 
                 InvokePostGame();
+            }
+            else
+            {
+                InvokeAnswersCorrect(scoreChange);
             }
         }
 
@@ -153,28 +143,6 @@
             _demoGame.SwapObjects(index1, index2);
 
             InvokeAnswersChangedPlaces();
-        }
-
-        private void RefreshText()
-        {
-            _userInterface.Score.Text = _demoGame.Score.ToString();
-            _userInterface.Task.Text = _demoGame.AnswerCounter.ToString();
-            _userInterface.Time.Text = _elapsedTime.ToString();
-            _userInterface.Status.Text = string.Empty;
-            _userInterface.Status.Foreground = Color.White;
-
-            if (_demoGame.CurrentTask == null)
-            {
-                return;
-            }
-
-            for (int i = 0; i < _demoGame.CurrentTask.Length; i++)
-            {
-                _userInterface.PuzzleFractions[i].Text = _demoGame.CurrentTask[i].Item1;
-                _userInterface.PuzzleFractions[i].Foreground = Color.White;
-                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
-                _userInterface.PuzzleFractions[i].Y = 150;
-            }
         }
 
         private void InvokePreGame()
@@ -217,14 +185,33 @@
             }
         }
 
-        private GameDataEventArgs GenerateEventArgs()
+        private void InvokeAnswersIncorrect(bool[] result)
+        {
+            if (AnswersIncorrect != null)
+            {
+                AnswersIncorrect.Invoke(this, GenerateEventArgs(result: result));
+            }
+        }
+
+        private void InvokeAnswersCorrect(int scoreIncrement)
+        {
+            if (AnswersCorrect != null)
+            {
+                AnswersCorrect.Invoke(this, GenerateEventArgs(scoreIncrement));
+            }
+        }
+
+        private GameDataEventArgs GenerateEventArgs(int scoreIncrement = 0, bool[] result = null)
         {
             return new GameDataEventArgs(
                 _elapsedTime,
                 _demoGame.AnswerCounter,
                 _demoGame.Score,
+                scoreIncrement,
+                _demoGame.Combo,
                 _demoGame.CurrentTask != null,
-                _demoGame.CurrentTask == null ? null : _demoGame.CurrentTask.Select(item => item.Item1).ToArray());
+                _demoGame.CurrentTask == null ? null : _demoGame.CurrentTask.Select(item => item.Item1).ToArray(),
+                result);
         }
     }
 }
