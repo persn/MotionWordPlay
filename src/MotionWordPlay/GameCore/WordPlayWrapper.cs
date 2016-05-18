@@ -19,8 +19,8 @@
 
         private const double CooldownTime = 1000;
 
-        private readonly DemoGame _demoGame;
-        private bool _gameRunning;
+        private readonly WordPlayGame _wordPlayGame;
+        private bool _isGameRunning;
         private double _timer;
         private int _elapsedTime;
         private bool _recentlyPerformedAction;
@@ -28,14 +28,14 @@
 
         public WordPlayWrapper(int numPlayers)
         {
-            _demoGame = new DemoGame(numPlayers);
+            _wordPlayGame = new WordPlayGame(numPlayers);
         }
 
-        public DemoGame WordPlayGame
+        public WordPlayGame WordPlayGame
         {
             get
             {
-                return _demoGame;
+                return _wordPlayGame;
             }
         }
 
@@ -43,7 +43,7 @@
         {
             _timer = 1000;
             _elapsedTime = 0;
-            _gameRunning = false;
+            _isGameRunning = false;
             _recentlyPerformedAction = false;
             _actionCooldownTimer = CooldownTime;
         }
@@ -55,7 +55,7 @@
 
         public void Update(GameTime gameTime)
         {
-            if (!_gameRunning)
+            if (!_isGameRunning)
             {
                 return;
             }
@@ -91,8 +91,8 @@
 
         public void LoadTask()
         {
-            _demoGame.CreateNewTask(true);
-            _gameRunning = true;
+            _wordPlayGame.CreateNewTask(true);
+            _isGameRunning = true;
             _elapsedTime = 0;
             _timer = 1000;
 
@@ -101,14 +101,14 @@
 
         public void CheckAnswer()
         {
-            if (_demoGame.CurrentTask == null || !_gameRunning || _recentlyPerformedAction)
+            if (_wordPlayGame.CurrentTask == null || !_isGameRunning || _recentlyPerformedAction)
             {
                 return;
             }
 
             _recentlyPerformedAction = true;
             bool[] result;
-            bool correct = _demoGame.IsCorrect(out result);
+            bool correct = _wordPlayGame.IsCorrect(out result);
 
             if (!correct)
             {
@@ -118,11 +118,11 @@
             }
 
             int scoreChange;
-            bool gameOver = _demoGame.CorrectAnswerGiven(out scoreChange);
+            bool gameOver = _wordPlayGame.CorrectAnswerGiven(out scoreChange);
 
             if (gameOver)
             {
-                _gameRunning = false;
+                _isGameRunning = false;
 
                 InvokePostGame();
             }
@@ -140,7 +140,7 @@
             }
 
             _recentlyPerformedAction = true;
-            _demoGame.SwapObjects(index1, index2);
+            _wordPlayGame.SwapObjects(index1, index2);
 
             InvokeAnswersChangedPlaces();
         }
@@ -205,12 +205,12 @@
         {
             return new GameDataEventArgs(
                 _elapsedTime,
-                _demoGame.AnswerCounter,
-                _demoGame.Score,
+                _wordPlayGame.AnswerCounter,
+                _wordPlayGame.Score,
                 scoreIncrement,
-                _demoGame.Combo,
-                _demoGame.CurrentTask != null,
-                _demoGame.CurrentTask == null ? null : _demoGame.CurrentTask.Select(item => item.Item1).ToArray(),
+                _wordPlayGame.Combo,
+                _wordPlayGame.CurrentTask != null,
+                _wordPlayGame.CurrentTask == null ? null : _wordPlayGame.CurrentTask.Select(item => item.Item1).ToArray(),
                 result);
         }
     }

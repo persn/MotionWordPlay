@@ -28,7 +28,7 @@
 
         private readonly InputHandler _inputHandler;
         private readonly IUserInterface _userInterface;
-        private readonly WordPlayWrapper _demoGame;
+        private readonly WordPlayWrapper _wordPlayGame;
 
         public Game()
         {
@@ -48,14 +48,14 @@
 
             _userInterface = new EmptyKeysWrapper();
 
-            _demoGame = new WordPlayWrapper(6);
-            _demoGame.PreGame += WordPlayPreGame;
-            _demoGame.GameUpdate += WordPlayGameUpdate;
-            _demoGame.PostGame += WordPlayPostGame;
-            _demoGame.NewGameLoaded += WordPlayNewGameLoaded;
-            _demoGame.AnswersChangedPlaces += WordPlayAnswersChangedPlaces;
-            _demoGame.AnswersIncorrect += WordPlayAnswersIncorrect;
-            _demoGame.AnswersCorrect += WordPlayAnswersCorrect;
+            _wordPlayGame = new WordPlayWrapper(6);
+            _wordPlayGame.PreGame += WordPlayPreGame;
+            _wordPlayGame.GameUpdate += WordPlayGameUpdate;
+            _wordPlayGame.PostGame += WordPlayPostGame;
+            _wordPlayGame.NewGameLoaded += WordPlayNewGameLoaded;
+            _wordPlayGame.AnswersChangedPlaces += WordPlayAnswersChangedPlaces;
+            _wordPlayGame.AnswersIncorrect += WordPlayAnswersIncorrect;
+            _wordPlayGame.AnswersCorrect += WordPlayAnswersCorrect;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@
 
             _inputHandler.Initialize();
             _userInterface.Initialize();
-            _demoGame.Initialize();
+            _wordPlayGame.Initialize();
 
             base.Initialize();
         }
@@ -86,7 +86,7 @@
 
             _inputHandler.Load(Content);
             _userInterface.Load(Content);
-            _demoGame.Load(Content);
+            _wordPlayGame.Load(Content);
         }
 
         /// <summary>
@@ -108,7 +108,7 @@
         protected override void Update(GameTime gameTime)
         {
             _inputHandler.Update(gameTime);
-            _demoGame.Update(gameTime);
+            _wordPlayGame.Update(gameTime);
             _userInterface.Update(gameTime);
 
             base.Update(gameTime);
@@ -171,25 +171,25 @@
                     _graphicsDevice.ApplyChanges();
                     break;
                 case Keys.A:
-                    _demoGame.SwapObjects(0, 1);
+                    _wordPlayGame.SwapObjects(0, 1);
                     break;
                 case Keys.S:
-                    _demoGame.SwapObjects(1, 2);
+                    _wordPlayGame.SwapObjects(1, 2);
                     break;
                 case Keys.D:
-                    _demoGame.SwapObjects(2, 3);
+                    _wordPlayGame.SwapObjects(2, 3);
                     break;
                 case Keys.F:
-                    _demoGame.SwapObjects(3, 4);
+                    _wordPlayGame.SwapObjects(3, 4);
                     break;
                 case Keys.G:
-                    _demoGame.SwapObjects(4, 5);
+                    _wordPlayGame.SwapObjects(4, 5);
                     break;
                 case Keys.Q:
-                    _demoGame.LoadTask();
+                    _wordPlayGame.LoadTask();
                     break;
                 case Keys.W:
-                    _demoGame.CheckAnswer();
+                    _wordPlayGame.CheckAnswer();
                     break;
                 default:
                     throw new NotSupportedException("Key is not supported");
@@ -222,13 +222,13 @@
                 }
 
             }
-            if (playersDoingCheckAnswerGesture.Count == _demoGame.WordPlayGame.NumPlayers)
+            if (playersDoingCheckAnswerGesture.Count == _wordPlayGame.WordPlayGame.PlayerCount)
             {
-                _demoGame.CheckAnswer();
+                _wordPlayGame.CheckAnswer();
             }
             if (playersDoingSwapObjectGesture.Count >= 2)
             {
-                _demoGame.SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
+                _wordPlayGame.SwapObjects(playersDoingSwapObjectGesture[0], playersDoingSwapObjectGesture[1]);
             }
         }
 
@@ -254,7 +254,7 @@
         private void WordPlayNewGameLoaded(object sender, GameDataEventArgs e)
         {
             _userInterface.ResetUI();
-            _userInterface.AddNewPuzzleFractions(_demoGame.WordPlayGame.CurrentTask.Length);
+            _userInterface.AddNewPuzzleFractions(_wordPlayGame.WordPlayGame.CurrentTask.Length);
 
             ResetUIToDefaultValues(e);
         }
