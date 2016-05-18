@@ -1,8 +1,8 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/Windows
-/intermediateDir:obj/Windows
+/outputDir:../src/MotionWordPlay.Content/bin/$(Platform)
+/intermediateDir:../src/MotionWordPlay.Content/obj/$(Platform)
 /platform:Windows
 /config:
 /profile:Reach
