@@ -321,7 +321,7 @@
                 _userInterface.PuzzleFractions[i].Text = e.WordFractions[i];
                 _userInterface.PuzzleFractions[i].Foreground = Color.White;
                 _userInterface.PuzzleFractions[i].X = 50 + i * 100;
-                _userInterface.PuzzleFractions[i].Y = (int)(-BaseScreenSize.Y / 3);
+                _userInterface.PuzzleFractions[i].Y = (int)(-NativeSize.Y / 3);
             }
         }
     }
