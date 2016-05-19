@@ -251,11 +251,13 @@
                 return;
             }
             
-            _bodies = _bodies.OrderBy(body => body.Joints[0].Position.X).ToArray();
+            
+            _bodies = _bodies.OrderBy(body => body.Joints[JointType.Head].Position.X).ToArray();
             for (int i = 0; i < _sensor.BodyFrameSource.BodyCount; i++)
             {
                 ulong trackingId = _bodies[i].TrackingId;
-
+                _gestureTrackers[i].XPosition = (int)_sensor.CoordinateMapper.MapCameraPointToColorSpace(_bodies[i].Joints[JointType.Head].Position).X;
+                _gestureTrackers[i].YPosition = (int)_sensor.CoordinateMapper.MapCameraPointToColorSpace(_bodies[i].Joints[JointType.Head].Position).Y;
                 _gestureTrackers[i].TrackingId = trackingId;
                 _gestureTrackers[i].IsPaused = trackingId == 0;
             }
@@ -269,6 +271,8 @@
 
                 MostRecentGestures.Clear(i);
                 MostRecentGestures.AddGestures(i, gestures);
+                MostRecentGestures.SetXPosition(i, _gestureTrackers[i].XPosition);
+                MostRecentGestures.SetYPosition(i, _gestureTrackers[i].YPosition);
             }
         }
 

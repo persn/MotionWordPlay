@@ -20,6 +20,7 @@
     {
         private const string SwapObjectGestureName = "CrossedArms";
         private const string CheckAnswerGestureName = "RaisedHands";
+        private const int NumPlayers = 6;
 
         private readonly GraphicsDeviceManager _graphicsDevice;
         private SpriteBatch _spriteBatch;
@@ -43,7 +44,7 @@
 
             _userInterface = new EmptyKeysWrapper();
 
-            _wordPlayGame = new WordPlayWrapper(2);
+            _wordPlayGame = new WordPlayWrapper(NumPlayers);
             _wordPlayGame.PreGame += WordPlayPreGame;
             _wordPlayGame.GameUpdate += WordPlayGameUpdate;
             _wordPlayGame.PostGame += WordPlayPostGame;
@@ -324,7 +325,7 @@
             {
                 _userInterface.PuzzleFractions[i].Text = e.WordFractions[i];
                 _userInterface.PuzzleFractions[i].Foreground = Color.White;
-                _userInterface.PuzzleFractions[i].X = 50 + i * 100;
+                _userInterface.PuzzleFractions[i].X = 25 + i * (int)(BaseScreenSize.X / NumPlayers);
                 _userInterface.PuzzleFractions[i].Y = (int)(-NativeSize.Y / 3);
             }
         }

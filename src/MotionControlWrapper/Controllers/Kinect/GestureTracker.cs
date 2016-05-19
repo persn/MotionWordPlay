@@ -29,6 +29,9 @@
             Dispose();
         }
 
+        public int XPosition { get; set; }
+        public int YPosition { get; set; }
+
         public ulong TrackingId
         {
             get { return _gestureSource.TrackingId; }
