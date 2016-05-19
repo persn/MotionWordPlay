@@ -22,7 +22,6 @@
         private const string CheckAnswerGestureName = "RaisedHands";
         private const int NumPlayers = 6;
 
-        private static readonly Vector2 BaseScreenSize = new Vector2(640, 360);
         private readonly GraphicsDeviceManager _graphicsDevice;
         private SpriteBatch _spriteBatch;
         private Matrix _globalTransformation;
@@ -33,12 +32,8 @@
 
         public Game()
         {
-            _graphicsDevice = new GraphicsDeviceManager(this)
-            {
-                PreferredBackBufferWidth = (int)BaseScreenSize.X,
-                PreferredBackBufferHeight = (int)BaseScreenSize.Y,
-                GraphicsProfile = GraphicsProfile.Reach
-            };
+            _graphicsDevice = new GraphicsDeviceManager(this);
+            _graphicsDevice.PreparingDeviceSettings += PrepareGraphicsDevice;
             _graphicsDevice.DeviceCreated += GraphicsDeviceCreated;
 
             Content.RootDirectory = "Content";
@@ -59,6 +54,16 @@
             _wordPlayGame.AnswersCorrect += WordPlayAnswersCorrect;
         }
 
+        private Vector2 NativeSize
+        {
+            get
+            {
+                return new Vector2(
+                    _graphicsDevice.PreferredBackBufferWidth,
+                    _graphicsDevice.PreferredBackBufferHeight);
+            }
+        }
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -67,7 +72,7 @@
         /// </summary>
         protected override void Initialize()
         {
-            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(BaseScreenSize);
+            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(NativeSize);
 
             _inputHandler.Initialize();
             _userInterface.Initialize();
@@ -145,10 +150,18 @@
             base.OnExiting(sender, args);
         }
 
+        private void PrepareGraphicsDevice(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            _graphicsDevice.PreferredBackBufferWidth = e.GraphicsDeviceInformation.Adapter.CurrentDisplayMode.Width;
+            _graphicsDevice.PreferredBackBufferHeight = e.GraphicsDeviceInformation.Adapter.CurrentDisplayMode.Height;
+            _graphicsDevice.GraphicsProfile = GraphicsProfile.Reach;
+            _graphicsDevice.IsFullScreen = true;
+        }
+
         private void GraphicsDeviceCreated(object sender, EventArgs e)
         {
-            _inputHandler.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
-            _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+            _inputHandler.GraphicsDeviceCreated(GraphicsDevice, NativeSize);
+            _userInterface.GraphicsDeviceCreated(GraphicsDevice, NativeSize);
         }
 
         private void KeyboardInputKeyPressed(object sender, KeyPressedEventArgs e)
@@ -196,7 +209,7 @@
                     throw new NotSupportedException("Key is not supported");
             }
 
-            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(BaseScreenSize);
+            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(NativeSize);
         }
 
         private void MotionControllerGesturesReceived(object sender, GestureReceivedEventArgs e)
@@ -235,6 +248,7 @@
 
         private void WordPlayPreGame(object sender, GameDataEventArgs e)
         {
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Text = "Do stuff to start game";
         }
 
@@ -248,6 +262,7 @@
             _userInterface.ResetUI();
 
             _userInterface.Time.Text = e.ElapsedTime.ToString();
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Text = "Game Over\nFinal Score: " + e.Score;
             _userInterface.Score.Text = e.Score.ToString();
         }
@@ -269,6 +284,7 @@
         {
             ResetUIToDefaultValues(e);
 
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Foreground = Color.Red;
             _userInterface.Status.Text = "Wrong! Try again";
 
@@ -282,6 +298,7 @@
         {
             ResetUIToDefaultValues(e);
 
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Foreground = Color.Green;
             _userInterface.Status.Text = "Correct! + " + e.ScoreIncrement + " points";
 
@@ -297,6 +314,7 @@
             _userInterface.Task.Text = e.AnswerCounter.ToString();
             _userInterface.Score.Text = e.Score.ToString();
             _userInterface.Status.Text = string.Empty;
+            _userInterface.Status.Visible = false;
             _userInterface.Status.Foreground = Color.White;
 
             if (!e.IsGameLoaded)
@@ -309,7 +327,7 @@
                 _userInterface.PuzzleFractions[i].Text = e.WordFractions[i];
                 _userInterface.PuzzleFractions[i].Foreground = Color.White;
                 _userInterface.PuzzleFractions[i].X = 25 + i * (int)(BaseScreenSize.X / NumPlayers);
-                _userInterface.PuzzleFractions[i].Y = (int)(-BaseScreenSize.Y / 3);
+                _userInterface.PuzzleFractions[i].Y = (int)(-NativeSize.Y / 3);
             }
         }
     }

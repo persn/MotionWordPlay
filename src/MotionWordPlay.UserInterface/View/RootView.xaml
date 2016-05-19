@@ -81,14 +81,21 @@
             </Border>
         </Grid>
 
-        <TextBlock
+        <Border
             Grid.Row="1"
             HorizontalAlignment="Center"
-            Text="{Binding Status.Text}"
-            Background="{Binding Status.Background}"
-            Foreground="{Binding Status.Foreground}"
-            Visibility="{Binding Status.Visibility}"
-            />
+            Background="Gray"
+            Padding="5"
+            BorderBrush="DarkGray"
+            BorderThickness="5"
+            CornerRadius="15"
+            Visibility="{Binding Status.Visibility}">
+            <TextBlock
+                Text="{Binding Status.Text}"
+                Background="{Binding Status.Background}"
+                Foreground="{Binding Status.Foreground}"
+                />
+        </Border>
 
         <ItemsControl Grid.Row="2" ItemsSource="{Binding PuzzleFractions}" VerticalAlignment="Bottom">
             <ItemsControl.ItemsPanel>
@@ -104,12 +111,19 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock
-                        Text="{Binding TextBlock.Text}"
-                        Background="{Binding TextBlock.Background}"
-                        Foreground="{Binding TextBlock.Foreground}"
-                        Visibility="{Binding TextBlock.Visibility}"
+                    <Border
+                        Background="Gray"
+                        Padding="5"
+                        BorderBrush="DarkGray"
+                        BorderThickness="5"
+                        CornerRadius="15">
+                        <TextBlock
+                            Text="{Binding TextBlock.Text}"
+                            Background="{Binding TextBlock.Background}"
+                            Foreground="{Binding TextBlock.Foreground}"
+                            Visibility="{Binding TextBlock.Visibility}"
                         />
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
