@@ -204,15 +204,6 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
             float horScaling = nativeScreenSize.X / width;
             float verScaling = nativeScreenSize.Y / height;
 
-            if (horScaling < verScaling)
-            {
-                verScaling = horScaling;
-            }
-            else
-            {
-                horScaling = verScaling;
-            }
-
             return Matrix.CreateScale(new Vector3(horScaling, verScaling, 1));
         }
 
