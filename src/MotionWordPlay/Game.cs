@@ -247,6 +247,7 @@
 
         private void WordPlayPreGame(object sender, GameDataEventArgs e)
         {
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Text = "Do stuff to start game";
         }
 
@@ -260,6 +261,7 @@
             _userInterface.ResetUI();
 
             _userInterface.Time.Text = e.ElapsedTime.ToString();
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Text = "Game Over\nFinal Score: " + e.Score;
             _userInterface.Score.Text = e.Score.ToString();
         }
@@ -281,6 +283,7 @@
         {
             ResetUIToDefaultValues(e);
 
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Foreground = Color.Red;
             _userInterface.Status.Text = "Wrong! Try again";
 
@@ -294,6 +297,7 @@
         {
             ResetUIToDefaultValues(e);
 
+            _userInterface.Status.Visible = true;
             _userInterface.Status.Foreground = Color.Green;
             _userInterface.Status.Text = "Correct! + " + e.ScoreIncrement + " points";
 
@@ -309,6 +313,7 @@
             _userInterface.Task.Text = e.AnswerCounter.ToString();
             _userInterface.Score.Text = e.Score.ToString();
             _userInterface.Status.Text = string.Empty;
+            _userInterface.Status.Visible = false;
             _userInterface.Status.Foreground = Color.White;
 
             if (!e.IsGameLoaded)
