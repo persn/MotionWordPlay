@@ -41,6 +41,7 @@
             _inputHandler = new InputHandler();
             _inputHandler.KeyboardInput.KeyPressed += KeyboardInputKeyPressed;
             _inputHandler.MotionController.GesturesReceived += MotionControllerGesturesReceived;
+            _inputHandler.MotionController.BodyFrameReceived += UpdatePuzzleFractionPositions;
 
             _userInterface = new EmptyKeysWrapper();
 
@@ -328,6 +329,14 @@
                 _userInterface.PuzzleFractions[i].Foreground = Color.White;
                 _userInterface.PuzzleFractions[i].X = 25 + i * (int)(BaseScreenSize.X / NumPlayers);
                 _userInterface.PuzzleFractions[i].Y = (int)(-NativeSize.Y / 3);
+            }
+        }
+
+        private void UpdatePuzzleFractionPositions(object sender, int[] xCoordinates)
+        {
+            for (int i = 0; i < _userInterface.PuzzleFractions.Count; i++)
+            {
+                _userInterface.PuzzleFractions[i].X = xCoordinates[i];
             }
         }
     }

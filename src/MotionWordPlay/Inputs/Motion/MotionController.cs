@@ -12,6 +12,7 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
     public class MotionController : IGameLoop, IDisposable
     {
         public event EventHandler<GestureReceivedEventArgs> GesturesReceived;
+        public event EventHandler<int[]> BodyFrameReceived;
 
         private GraphicsDevice _graphicsDevice;
 
@@ -128,9 +129,12 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
             _motionController.PollMostRecentGestureFrame();
 
             bool gesturesDetected = false;
+            int[] xCoordinates = new int[6];
             for (int i = 0; i < 6; i++)
             {
                 IList<GestureResult> gestures = _motionController.MostRecentGestures.GetGestures(i);
+
+                xCoordinates[i] = _motionController.MostRecentGestures.GetXPosition(i);
 
                 if (gestures.Count > 0)
                 {
@@ -141,6 +145,7 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
             {
                 InvokeGesturesReceived(_motionController.MostRecentGestures);
             }
+            InvokeBodyFrameReceived(xCoordinates);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -239,6 +244,14 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
             if (GesturesReceived != null)
             {
                 GesturesReceived.Invoke(this, new GestureReceivedEventArgs(gestures));
+            }
+        }
+
+        private void InvokeBodyFrameReceived(int[] coordinates)
+        {
+            if (BodyFrameReceived != null)
+            {
+                BodyFrameReceived.Invoke(this, coordinates);
             }
         }
     }
