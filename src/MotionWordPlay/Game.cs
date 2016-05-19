@@ -154,7 +154,6 @@
             _graphicsDevice.PreferredBackBufferWidth = e.GraphicsDeviceInformation.Adapter.CurrentDisplayMode.Width;
             _graphicsDevice.PreferredBackBufferHeight = e.GraphicsDeviceInformation.Adapter.CurrentDisplayMode.Height;
             _graphicsDevice.GraphicsProfile = GraphicsProfile.Reach;
-            _graphicsDevice.IsFullScreen = true;
         }
 
         private void GraphicsDeviceCreated(object sender, EventArgs e)
