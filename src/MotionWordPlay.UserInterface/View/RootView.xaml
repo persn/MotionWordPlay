@@ -90,7 +90,7 @@
             Visibility="{Binding Status.Visibility}"
             />
 
-        <ItemsControl Grid.Row="2" ItemsSource="{Binding PuzzleFractions}">
+        <ItemsControl Grid.Row="2" ItemsSource="{Binding PuzzleFractions}" VerticalAlignment="Bottom">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas/>
