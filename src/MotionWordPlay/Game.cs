@@ -48,7 +48,7 @@
 
             _userInterface = new EmptyKeysWrapper();
 
-            _wordPlayGame = new WordPlayWrapper(6);
+            _wordPlayGame = new WordPlayWrapper(2);
             _wordPlayGame.PreGame += WordPlayPreGame;
             _wordPlayGame.GameUpdate += WordPlayGameUpdate;
             _wordPlayGame.PostGame += WordPlayPostGame;

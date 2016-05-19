@@ -34,3 +34,6 @@
 #begin MotionGestures/GesturesDB.gbd
 /copy:MotionGestures/GesturesDB.gbd
 
+#begin WordPlays/2playertasks.txt
+/copy:WordPlays/2playertasks.txt
+
