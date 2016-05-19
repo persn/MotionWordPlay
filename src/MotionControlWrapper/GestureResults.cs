@@ -6,11 +6,15 @@
     {
         private readonly int _playerCount;
         private IList<GestureResult>[] _gestures;
+        private int[] _xPositions;
+        private int[] _yPositions;
 
         public GestureResults(int playerCount)
         {
             _playerCount = playerCount;
             _gestures = new IList<GestureResult>[_playerCount];
+            _xPositions = new int[playerCount];
+            _yPositions = new int[playerCount];
 
             for (int i = 0; i < _gestures.Length; i++)
             {
@@ -34,6 +38,26 @@
             {
                 _gestures[player].Add(gestureResult);
             }
+        }
+
+        public void SetXPosition(int player, int xPosition)
+        {
+            _xPositions[player] = xPosition;
+        }
+
+        public int GetXPosition(int player)
+        {
+            return _xPositions[player];
+        }
+
+        public void SetYPosition(int player, int yPosition)
+        {
+            _yPositions[player] = yPosition;
+        }
+
+        public int GetYPosition(int player)
+        {
+            return _yPositions[player];
         }
 
         public void Clear()
