@@ -21,7 +21,6 @@
         private const string SwapObjectGestureName = "CrossedArms";
         private const string CheckAnswerGestureName = "RaisedHands";
 
-        private static readonly Vector2 BaseScreenSize = new Vector2(640, 360);
         private readonly GraphicsDeviceManager _graphicsDevice;
         private SpriteBatch _spriteBatch;
         private Matrix _globalTransformation;
@@ -32,12 +31,8 @@
 
         public Game()
         {
-            _graphicsDevice = new GraphicsDeviceManager(this)
-            {
-                PreferredBackBufferWidth = (int)BaseScreenSize.X,
-                PreferredBackBufferHeight = (int)BaseScreenSize.Y,
-                GraphicsProfile = GraphicsProfile.Reach
-            };
+            _graphicsDevice = new GraphicsDeviceManager(this);
+            _graphicsDevice.PreparingDeviceSettings += PrepareGraphicsDevice;
             _graphicsDevice.DeviceCreated += GraphicsDeviceCreated;
 
             Content.RootDirectory = "Content";
@@ -58,6 +53,16 @@
             _wordPlayGame.AnswersCorrect += WordPlayAnswersCorrect;
         }
 
+        private Vector2 NativeSize
+        {
+            get
+            {
+                return new Vector2(
+                    _graphicsDevice.PreferredBackBufferWidth,
+                    _graphicsDevice.PreferredBackBufferHeight);
+            }
+        }
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -66,7 +71,7 @@
         /// </summary>
         protected override void Initialize()
         {
-            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(BaseScreenSize);
+            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(NativeSize);
 
             _inputHandler.Initialize();
             _userInterface.Initialize();
@@ -144,10 +149,18 @@
             base.OnExiting(sender, args);
         }
 
+        private void PrepareGraphicsDevice(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            _graphicsDevice.PreferredBackBufferWidth = e.GraphicsDeviceInformation.Adapter.CurrentDisplayMode.Width;
+            _graphicsDevice.PreferredBackBufferHeight = e.GraphicsDeviceInformation.Adapter.CurrentDisplayMode.Height;
+            _graphicsDevice.GraphicsProfile = GraphicsProfile.Reach;
+            _graphicsDevice.IsFullScreen = true;
+        }
+
         private void GraphicsDeviceCreated(object sender, EventArgs e)
         {
-            _inputHandler.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
-            _userInterface.GraphicsDeviceCreated(GraphicsDevice, BaseScreenSize);
+            _inputHandler.GraphicsDeviceCreated(GraphicsDevice, NativeSize);
+            _userInterface.GraphicsDeviceCreated(GraphicsDevice, NativeSize);
         }
 
         private void KeyboardInputKeyPressed(object sender, KeyPressedEventArgs e)
@@ -195,7 +208,7 @@
                     throw new NotSupportedException("Key is not supported");
             }
 
-            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(BaseScreenSize);
+            _globalTransformation = _inputHandler.MotionController.CalculateDrawScale(NativeSize);
         }
 
         private void MotionControllerGesturesReceived(object sender, GestureReceivedEventArgs e)
