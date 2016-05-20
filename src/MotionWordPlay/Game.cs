@@ -333,7 +333,7 @@
         {
             for (int i = 0; i < _userInterface.PuzzleFractions.Count; i++)
             {
-                _userInterface.PuzzleFractions[i].X = xCoordinates[i];
+                _userInterface.PuzzleFractions[i].X = xCoordinates[i+(6-_wordPlayGame.WordPlayGame.PlayerCount)];
             }
         }
     }
