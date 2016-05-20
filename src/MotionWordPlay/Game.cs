@@ -224,7 +224,7 @@
                     {
                         if (gestureResult.Name.Equals("HandsForward") && gestureResult.Confidence > 0.7)
                         {
-                            playersDoingSwapObjectGesture.Add(i);
+                            playersDoingSwapObjectGesture.Add(i - (6 - _wordPlayGame.WordPlayGame.PlayerCount));
                         }
                         else if (gestureResult.Name.Equals("RaisedHands") && gestureResult.Confidence > 0.7)
                         {
