@@ -252,7 +252,7 @@
             }
             
             
-            _bodies = _bodies.OrderBy(body => body.Joints[JointType.Head].Position.X).ToArray();
+            _bodies = _bodies.OrderBy(body => _sensor.CoordinateMapper.MapCameraPointToColorSpace(body.Joints[JointType.Head].Position).X).ToArray();
             for (int i = 0; i < _sensor.BodyFrameSource.BodyCount; i++)
             {
                 ulong trackingId = _bodies[i].TrackingId;
