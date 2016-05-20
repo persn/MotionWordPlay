@@ -18,8 +18,6 @@
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private const string SwapObjectGestureName = "CrossedArms";
-        private const string CheckAnswerGestureName = "RaisedHands";
         private const int NumPlayers = 6;
 
         private readonly GraphicsDeviceManager _graphicsDevice;
@@ -224,11 +222,11 @@
                 {
                     foreach (GestureResult gestureResult in gestures)
                     {
-                        if (gestureResult.Name.Equals(SwapObjectGestureName) && gestureResult.IsDetected)
+                        if (gestureResult.Name.Equals("CrossedArms") && gestureResult.IsDetected)
                         {
                             playersDoingSwapObjectGesture.Add(i);
                         }
-                        else if (gestureResult.Name.Equals(CheckAnswerGestureName) && gestureResult.Confidence > 0.7)
+                        else if (gestureResult.Name.Equals("RaisedHands") && gestureResult.Confidence > 0.7)
                         {
                             playersDoingCheckAnswerGesture.Add(i);
                         }
