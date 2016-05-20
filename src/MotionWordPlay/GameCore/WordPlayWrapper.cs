@@ -98,14 +98,21 @@
             _isGameRunning = true;
             _elapsedTime = 0;
             _timer = 1000;
+            _recentlyPerformedAction = true;
 
             InvokeNewGameLoaded();
         }
 
         public void CheckAnswer()
         {
-            if (_wordPlayGame.CurrentTask == null || !_isGameRunning || _recentlyPerformedAction)
+            if (_wordPlayGame.CurrentTask == null || _recentlyPerformedAction)
             {
+                return;
+            }
+
+            if (!_isGameRunning)
+            {
+                LoadTask();
                 return;
             }
 
