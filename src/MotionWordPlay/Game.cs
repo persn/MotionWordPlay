@@ -222,7 +222,7 @@
                 {
                     foreach (GestureResult gestureResult in gestures)
                     {
-                        if (gestureResult.Name.Equals("CrossedArms") && gestureResult.Confidence > 0.7)
+                        if (gestureResult.Name.Equals("HandsForward") && gestureResult.Confidence > 0.7)
                         {
                             playersDoingSwapObjectGesture.Add(i);
                         }
