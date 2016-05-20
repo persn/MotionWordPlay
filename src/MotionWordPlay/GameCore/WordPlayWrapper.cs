@@ -105,12 +105,12 @@
 
         public void CheckAnswer()
         {
-            if (_wordPlayGame.CurrentTask == null || _recentlyPerformedAction)
+            if (_recentlyPerformedAction)
             {
                 return;
             }
 
-            if (!_isGameRunning)
+            if (_wordPlayGame.CurrentTask == null)
             {
                 LoadTask();
                 return;
