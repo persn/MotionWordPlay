@@ -224,7 +224,7 @@
                 {
                     foreach (GestureResult gestureResult in gestures)
                     {
-                        if (gestureResult.Name.Equals(SwapObjectGestureName) && gestureResult.IsDetected)
+                        if (gestureResult.Name.Equals(SwapObjectGestureName) && gestureResult.Confidence > 0.7)
                         {
                             playersDoingSwapObjectGesture.Add(i);
                         }
