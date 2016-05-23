@@ -1991,5 +1991,77 @@ The main points we can take with us from this is that we need a way to scale
  is played, to eliminate the need for any instructions before starting.
 \end_layout
 
+\begin_layout Section
+Related Work
+\end_layout
+
+\begin_layout Standard
+Here we will show the work of two earlier master thesis projects that are
+ also using the Kinect sensor.
+ Both of these projects created game prototypes using the Kinect v1 sensor,
+ one with the OpenNI framework, and one using the Microsoft Kinect framework.
+\end_layout
+
+\begin_layout Subsection
+Evaluation of an Interactive Campaign using Motion Sensing Technology
+\end_layout
+
+\begin_layout Standard
+This project, from 2012 by Mari Hansen Asplem and Mia Aasbakken 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EvaluationInteractive"
+
+\end_inset
+
+, created a motion controlled game to be used in public spaces.
+ The goal of the project is to map out people's reactions to this type of
+ installations and judge if there’s a use for them.
+ In order to figure this out, they created a game where the player use their
+ own silhouette to gather balls in a basket.
+ Since the focus of this project was more on people’s behaviour and reactions
+ than on the pedagogical aspect, their results give a great deal of insight
+ into how to best approach creating a game aimed at a public setting.
+\end_layout
+
+\begin_layout Subsection
+Learning Recycling From Playing a Kinect Game
+\end_layout
+
+\begin_layout Standard
+José de Jesús Luis González Ibáñez performed a study in 2013, creating a
+ motion controlled educational game with the goal of teaching recycling
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KinectRecycle"
+
+\end_inset
+
+.
+ This project had a focus on how to best create a game that is fun, while
+ still keeping the learning aspect.
+ There is a multiplayer aspect in this game as well, with both cooperative
+ and competitive moduses, although due to the older version of kinect it
+ is limited to two players.
+ The results show an interesting trend in that the multiplayer mode is largely
+ preferred over single player, by over 90
+\begin_inset Formula $\%$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout Standard
+From these two projects we can gather that there are many unexplored potential
+ uses for the combination of motion tracking and game technology.
+ Combining the findings of Asplem and Aasbakken, as well as the more game
+ related project of Ibáñez, gives a good foundation of results.
+\end_layout
+
 \end_body
 \end_document
