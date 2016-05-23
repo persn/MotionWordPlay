@@ -148,7 +148,7 @@ The Kinect is Microsoft’s version of motion tracking for the home consoles,
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -668,7 +668,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="4">
+<lyxtabular version="3" rows="11" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -839,7 +839,7 @@ Supported
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -850,7 +850,7 @@ License
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -859,7 +859,7 @@ Proprietary
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -872,7 +872,45 @@ Proprietary
 \begin_inset Text
 
 \begin_layout Plain Layout
-Apache v2/GPL v2
+Apache v2 &
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GPL v2
 \end_layout
 
 \end_inset
@@ -890,20 +928,20 @@ Language
 
 \end_inset
 </cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-.NET compatible
+.NET compatible,
 \end_layout
 
 \end_inset
 </cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-.NET compatible
+.NET compatible,
 \end_layout
 
 \end_inset
@@ -928,20 +966,20 @@ C/C++, C#,
 
 \end_inset
 </cell>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Visual C++
 \end_layout
 
 \end_inset
 </cell>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Visual C++
 \end_layout
 
 \end_inset
@@ -966,7 +1004,7 @@ Python, Ruby,
 
 \end_inset
 </cell>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -975,7 +1013,7 @@ Python, Ruby,
 
 \end_inset
 </cell>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -995,7 +1033,7 @@ Actionscript, Java
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1006,7 +1044,7 @@ OS
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1015,7 +1053,7 @@ Windows
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1024,11 +1062,49 @@ Windows
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Windows, OS X, Linux
+Windows, OS X,
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Linux
 \end_layout
 
 \end_inset
@@ -1117,6 +1193,11 @@ Most serious games are meant to be entertaining as this is the main motivation
 
 \begin_layout Subsection
 Common Types of Serious Games
+\end_layout
+
+\begin_layout Standard
+This chapter will present some of the most popular types of serious games,
+ and try to explain the reasoning behind why they are created and used.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1232,7 +1313,7 @@ Health focused serious game is one of the fastest growing sub genres, with
  We also have games like wii fit, that physically tracks the player and
  help guide workouts, and similar games for rehabilitation.
  Games have even been used to treat post traumatic stress disorder for war
- veterans
+ veterans 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "VirtualIraq"
@@ -1595,7 +1676,7 @@ In terms of technology game development have changed drastically over the
  been any real change.
  The reason people still play games is because they still find them fun,
  and the reason for this haven’t changed on a fundamental level.
- This means that the article by Malone
+ This means that the article by Malone 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Malone"
@@ -1603,7 +1684,7 @@ key "Malone"
 \end_inset
 
  about what makes games intrinsically motivating, as well as the study by
- Sweetser and Wyeth
+ Sweetser and Wyeth 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GameFlow"
@@ -1854,6 +1935,7 @@ Invoking the player's curiosity is a crucial part in maintaining their interest
 Sensory curiosity is the response to changes in the environment, such as
  light, sound, or movement.
  In his book “Four Arguments for the Elimination of Television”, Jerry Mander
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ElimTellie"
