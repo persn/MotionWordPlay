@@ -1165,6 +1165,25 @@ name "tab:Kinect-SDK-Comparison"
 
 \end_layout
 
+\begin_layout Standard
+Additionally there is a framework called OpenNI (Open Natural Interaction)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OpenNI"
+
+\end_inset
+
+ which has been developed to act as an abstraction layer between multiple
+ supported hardware devices, including the Kinect.
+ It has not been included in the comparison because it is believed to not
+ be very relevant anymore.
+ The original OpenNI project was acquired by Apple and shut down in November
+ 2013, since then a new open-source project called OpenNI 2 has surfaced,
+ but any concrete information on the capabilities and features of said project
+ is hard to come by.
+\end_layout
+
 \begin_layout Subsection
 Summary
 \end_layout
