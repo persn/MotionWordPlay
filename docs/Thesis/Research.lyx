@@ -122,8 +122,15 @@ Microsoft Kinect
 \end_layout
 
 \begin_layout Standard
-The Kinect is Microsoft’s version of motion tracking for the home consoles,
- an answer to Nintendo's Wii Remote, and Sony's PlayStation Move/Camera.
+The Kinect, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Microsoft-Kinect-v2"
+
+\end_inset
+
+ is Microsoft’s version of motion tracking for the home consoles, an answer
+ to Nintendo's Wii Remote, and Sony's PlayStation Move/Camera.
  Initially sold for the Xbox 360, there are now versions for the Xbox One
  as well as PC.
  Microsoft have also released a software development kit that allows developers
@@ -199,8 +206,16 @@ Hardware Comparison
 On the hardware side the Kinect isn’t that interesting, it has a color camera
  similar to a webcam, an infrared camera that functions as a depth sensor,
  and a microphone array that captures positional audio.
- Both versions of the Kinect have an effective distance of depth tracking
- at approximately 0.5 to 4.5 meters.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Kinect-Hardware-Specification"
+
+\end_inset
+
+ shows the different specifications of the kinect versions, both versions
+ of the Kinect have an effective distance of depth tracking at approximately
+ 0.5 to 4.5 meters.
  The v1 has a smaller field of view than the v2, but compensates with a
  tilt motor that can adjust the focus of the sensors.
  The largest difference between the two is the jump from USB 2.0 to USB 3.0
@@ -638,15 +653,24 @@ Software
 \end_layout
 
 \begin_layout Standard
-The simplest and most comprehensive SDK for the Kinect is the official kit
- from Microsoft themselves.
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Kinect-SDK-Comparison"
+
+\end_inset
+
+ compares the different available development kits with support for the
+ Kinect.
+ The easiest to use and most comprehensive SDK for the Kinect is the official
+ kit from Microsoft themselves.
  This SDK includes everything needed to start creating applications for
  the Kinect written in any .NET compatible language, such as C#, Visual Basic,
  or C++.
  The SDK includes several examples and test applications that can be used
  to troubleshoot the Kinect itself or help in development of new applications.
- Main drawbacks of the official SDK is that it is proprietary, and no way
- to look at the actual source code for the drivers, it also only functions
+ The main drawback of the official SDK is that it is proprietary, and no
+ way to look at the actual source code for the drivers, it also only functions
  on Windows.
  To use the Kinect on other operating system it requires the use of third
  party drivers.
@@ -1122,6 +1146,13 @@ Linux
 
 \begin_layout Plain Layout
 Kinect SDK Comparison
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Kinect-SDK-Comparison"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1357,9 +1388,16 @@ The Oregon Trail
 \end_layout
 
 \begin_layout Standard
-The Oregon Trail is an “edutainment” title made in the 70’s for the purpose
- of teaching students about american history, more specifically the 19th
- century life of the pioneers travelling from Independence to Oregon.
+The Oregon Trail, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-Oregon-Trail"
+
+\end_inset
+
+, is an “edutainment” title made in the 70’s for the purpose of teaching
+ students about american history, more specifically the 19th century life
+ of the pioneers travelling from Independence to Oregon.
  Originally the game started out in the classroom as a concept of combining
  learning with an extra element of fun to grab the attention of the students.
  The players found it entertaining and it became popular and successful,
@@ -1413,9 +1451,15 @@ The Incredible Machine(TIM)
 \end_layout
 
 \begin_layout Standard
-The Incredible Machine(TIM) is an “edutainment” puzzle game that puts the
- player in the position of having to solve contraptions similar to a Rube
- Goldberg machine.
+The Incredible Machine(TIM), Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-Incredible-Machine"
+
+\end_inset
+
+, is an “edutainment” puzzle game that puts the player in the position of
+ having to solve contraptions similar to a Rube Goldberg machine.
  TIM challenged players to think outside the box to solve abstract problems
  and became quite popular, however it was critiqued by teachers for having
  a game format that was difficult to adapt to a curriculum.
@@ -1472,8 +1516,15 @@ America’s Army
 \end_layout
 
 \begin_layout Standard
-America’s Army is a first person tactical shooter created to provide a virtual
- experience of being a soldier.
+America’s Army, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:America's-Army"
+
+\end_inset
+
+, is a first person tactical shooter created to provide a virtual experience
+ of being a soldier.
  The game was published by the US Army in 2002, as a free download.
  The game has since seen numerous updates and several re-releases on new
  engines with the latest in 2013.
@@ -1534,8 +1585,15 @@ X-Plane
 \end_layout
 
 \begin_layout Standard
-X-Plane is a “Simulation” title, more specifically a flight simulator that
- aims to deliver a realistic flying experience.
+X-Plane, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:X-Plane"
+
+\end_inset
+
+, is a “Simulation” title, more specifically a flight simulator that aims
+ to deliver a realistic flying experience.
  It is FAA approved and is used for pilot training[ref], advertising such
  features as Artificially Controlled Air Traffic Controller, an extensive
  amount of airports from real life, a wide range of aircrafts available,
@@ -1594,9 +1652,16 @@ Wii Fit
 \end_layout
 
 \begin_layout Standard
-Wii Fit is a “Games for Health” title for the Nintendo Wii that by an extra
- peripheral allowed the players to do exercises and measure BMI amongst
- other things in their living room.
+Wii Fit, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Wii-Fit"
+
+\end_inset
+
+, is a “Games for Health” title for the Nintendo Wii that by an extra peripheral
+ allowed the players to do exercises and measure BMI amongst other things
+ in their living room.
  The effectiveness of the Wii Fit has been debated, as the intensity in
  the exercises is lackluster and will most likely not yield much benefits
  unless the player was in poor shape to begin with.
