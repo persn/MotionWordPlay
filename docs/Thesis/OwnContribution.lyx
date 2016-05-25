@@ -86,21 +86,51 @@ Placeholder Intro
 \end_layout
 
 \begin_layout Section
-Design and Development
-\end_layout
-
-\begin_layout Standard
-For us to sufficiently answer our research questions it was necessary for
- us to develop a prototype game.
- This chapter will present our process and work with designing and developing
- this game.
- First we present the game concept and our reasoning behind this, then we
- describe the technology used to develop the prototype, and finally, showing
- the details of how we implemented the prototype.
+Framework
 \end_layout
 
 \begin_layout Subsection
+Design goals
+\end_layout
+
+\begin_layout Subsubsection
+Reusability
+\end_layout
+
+\begin_layout Subsubsection
+Usability
+\end_layout
+
+\begin_layout Subsection
+Motion Capture Technology
+\end_layout
+
+\begin_layout Subsection
+Engines and Frameworks
+\end_layout
+
+\begin_layout Subsection
+Architecture
+\end_layout
+
+\begin_layout Section
+Game
+\end_layout
+
+\begin_layout Subsection
+Concept
+\end_layout
+
+\begin_layout Subsubsection
+Goals
+\end_layout
+
+\begin_layout Subsubsection
 Game Concept
+\end_layout
+
+\begin_layout Subsubsection
+Original Concept
 \end_layout
 
 \begin_layout Standard
@@ -111,7 +141,7 @@ Our prototype will be a grammar focused multiplayer educational game based
  the need for a motivational boost is most urgent.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Platform
 \end_layout
 
@@ -122,7 +152,7 @@ The concept is intended for use on a Windows PC with a Kinect sensor, but
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Target Audience
 \end_layout
 
@@ -139,7 +169,7 @@ The game is primarily targeted towards elementary school children that needs
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Gameplay
 \end_layout
 
@@ -180,7 +210,7 @@ reference "fig:Example-situation---1"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -212,16 +242,12 @@ name "fig:Game-concept-scetch"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subparagraph
 Main game flow:
 \end_layout
 
@@ -266,7 +292,7 @@ If the time or number of problem limit is reached the game proceeds to the
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -298,10 +324,6 @@ name "fig:Example-situation--"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -313,7 +335,7 @@ name "fig:Example-situation--"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -350,8 +372,8 @@ name "fig:Example-situation---1"
 
 \end_layout
 
-\begin_layout Paragraph
-Problem types:
+\begin_layout Subparagraph
+Example problem types:
 \end_layout
 
 \begin_layout Itemize
@@ -369,23 +391,35 @@ Verb tenses: Ordering a verbs tenses in the correct order.
 \end_layout
 
 \begin_layout Subsection
-Technology
-\end_layout
-
-\begin_layout Standard
-Intentionally left blank for now
-\end_layout
-
-\begin_layout Subsection
 Prototype
-\end_layout
-
-\begin_layout Standard
-Intentionally left blank until prototype is working 
 \end_layout
 
 \begin_layout Section
 Empirical Study
+\end_layout
+
+\begin_layout Subsection
+Experiment Context
+\end_layout
+
+\begin_layout Subsubsection
+Research group
+\end_layout
+
+\begin_layout Subsubsection
+Participants Location
+\end_layout
+
+\begin_layout Subsubsection
+Questionnaire results
+\end_layout
+
+\begin_layout Subsection
+Interview results
+\end_layout
+
+\begin_layout Subsection
+Observation results
 \end_layout
 
 \begin_layout Section
