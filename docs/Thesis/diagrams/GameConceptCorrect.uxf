@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>480</x>
+      <y>480</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>440</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Word #1
+layer=1
+bg=white
+fg=green
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>440</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Word #4
+layer=1
+bg=white
+fg=green
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>720</x>
+      <y>480</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>440</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Word #6
+layer=1
+bg=white
+fg=green
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>880</x>
+      <y>480</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player 3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>560</x>
+      <y>480</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player 4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>440</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Word #2
+layer=1
+bg=white
+fg=green
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>440</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Word #5
+layer=1
+bg=white
+fg=green
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>800</x>
+      <y>480</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player 5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>440</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Word #3
+layer=1
+bg=white
+fg=green
+transparency=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>640</x>
+      <y>480</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player 6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>360</y>
+      <w>300</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Task: 
+Arrange the words in the correct order</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>360</y>
+      <w>60</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Time:
+12:34</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>360</y>
+      <w>60</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Score:
+1234</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>670</x>
+      <y>400</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Correct
+fg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
