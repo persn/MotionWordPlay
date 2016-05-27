@@ -1,4 +1,7 @@
-﻿namespace NTNU.WordPlay
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace NTNU.WordPlay
 {
     using System;
     using System.IO;
@@ -8,9 +11,11 @@
         private const int ScoreIncrementAmount = 50;
         private const int ComboBonus = 25;
         private const int AnswersToFinish = 5;
-
-        private readonly string[] _currentGame;
+        
         private readonly Random _random;
+        private readonly string _file;
+
+        private List<string> _currentGame;
 
         public WordPlayGame(int playerCount, string file)
         {
@@ -19,9 +24,7 @@
             PlayerCount = playerCount;
             Score = 0;
             Combo = 0;
-            AnswerCounter = AnswersToFinish;
-
-            _currentGame = File.ReadAllLines(file);
+            _file = file;
         }
 
         // Contains a tuple with <"word", correctIndex>
@@ -55,11 +58,21 @@
             if (newGame)
             {
                 Score = 0;
-                AnswerCounter = AnswersToFinish;
+                _currentGame = File.ReadAllLines(_file).ToList();
+                if (AnswersToFinish <= _currentGame.Count)
+                {
+                    AnswerCounter = AnswersToFinish;
+                }
+                else
+                {
+                    AnswerCounter = _currentGame.Count-1;
+                }
                 Combo = 0;
             }
 
-            SplitSentence(_currentGame[_random.Next(_currentGame.Length)]);
+            int taskIndex = _random.Next(_currentGame.Count);
+            SplitSentence(_currentGame[taskIndex]);
+            _currentGame.RemoveAt(taskIndex);
             ScrambleWordOrder();
         }
 

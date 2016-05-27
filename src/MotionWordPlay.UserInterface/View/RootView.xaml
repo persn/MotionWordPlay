@@ -29,7 +29,7 @@
                 BorderThickness="5"
                 CornerRadius="15">
                 <StackPanel>
-                    <TextBlock Text="Time" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Tid" HorizontalAlignment="Center"/>
                     <TextBlock
                         HorizontalAlignment="Center"
                         Text="{Binding Time.Text}"
@@ -49,7 +49,7 @@
                 BorderThickness="5"
                 CornerRadius="15">
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Text="Task" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Oppgaver igjen:" HorizontalAlignment="Center"/>
                     <TextBlock
                         HorizontalAlignment="Center"
                         Text="{Binding Task.Text}"
@@ -69,7 +69,7 @@
                 BorderThickness="5"
                 CornerRadius="15">
                 <StackPanel>
-                    <TextBlock Text="Score" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Poeng" HorizontalAlignment="Center"/>
                     <TextBlock
                         HorizontalAlignment="Center"
                         Text="{Binding Score.Text}"

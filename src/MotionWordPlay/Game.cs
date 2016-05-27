@@ -18,7 +18,7 @@
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
     {
-        private const int NumPlayers = 6;
+        private const int NumPlayers = 2;
 
         private readonly GraphicsDeviceManager _graphicsDevice;
         private SpriteBatch _spriteBatch;
@@ -247,7 +247,7 @@
         private void WordPlayPreGame(object sender, GameDataEventArgs e)
         {
             _userInterface.Status.Visible = true;
-            _userInterface.Status.Text = "Do stuff to start game";
+            _userInterface.Status.Text = "Start spillet med å løfte armene oppover";
         }
 
         private void WordPlayGameUpdate(object sender, GameDataEventArgs e)
@@ -261,7 +261,7 @@
 
             _userInterface.Time.Text = e.ElapsedTime.ToString();
             _userInterface.Status.Visible = true;
-            _userInterface.Status.Text = "Game Over\nFinal Score: " + e.Score;
+            _userInterface.Status.Text = "Game Over\nPoengsum: " + e.Score;
             _userInterface.Score.Text = e.Score.ToString();
         }
 
@@ -284,7 +284,7 @@
 
             _userInterface.Status.Visible = true;
             _userInterface.Status.Foreground = Color.Red;
-            _userInterface.Status.Text = "Wrong! Try again";
+            _userInterface.Status.Text = "Feil! Prøv igjen";
 
             for (int i = 0; i < _userInterface.PuzzleFractions.Count; i++)
             {
@@ -298,11 +298,11 @@
 
             _userInterface.Status.Visible = true;
             _userInterface.Status.Foreground = Color.Green;
-            _userInterface.Status.Text = "Correct! + " + e.ScoreIncrement + " points";
+            _userInterface.Status.Text = "Riktig! + " + e.ScoreIncrement + " poeng";
 
             if (e.Combo > 1)
             {
-                _userInterface.Status.Text += "Combo: " + e.Combo;
+                _userInterface.Status.Text += "\n" + e.Combo + " på rad!";
             }
         }
 
@@ -333,7 +333,7 @@
         {
             for (int i = 0; i < _userInterface.PuzzleFractions.Count; i++)
             {
-                _userInterface.PuzzleFractions[i].X = xCoordinates[i+(6-_wordPlayGame.WordPlayGame.PlayerCount)];
+                _userInterface.PuzzleFractions[i].X = xCoordinates[i + (6 - _wordPlayGame.WordPlayGame.PlayerCount)];
             }
         }
     }
