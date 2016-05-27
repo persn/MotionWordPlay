@@ -2077,6 +2077,13 @@ The main points we can take with us from this is that we need a way to scale
 
 \begin_layout Section
 Related Work
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Related-Work"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

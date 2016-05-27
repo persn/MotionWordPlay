@@ -1524,20 +1524,178 @@ This section will detail the metrics used to answer our research questions,
 Literature Study
 \end_layout
 
+\begin_layout Standard
+A literature study is one of the most used methods for any research, reviewing
+ literature relevant to the subject at hand.
+ The purpose of this is to familiarize oneself with the research topic,
+ and thus increase the credibility of the research.
+ Our sources for this project will be published articles, documentation
+ on the web, and other master's theses.
+ The topics of our literature study are:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Motion Capture Technology
+\series default
+ will cover basic information about the workings and usage of the technology.
+ We will also cover the Microsoft Kinect sensor in a bit more detail, as
+ this is the one we had available during our project.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Engines and Frameworks
+\series default
+ showcases the game engines and frameworks most compatible for use with
+ C#.
+ We have focused on this since we will be using the Microsoft Kinect, whose
+ official SDK is .NET based and thus making C# the preferred language for
+ us.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Serious Games
+\series default
+ defines the term as it is used in our project, as well as listing some
+ of the more common subgenres, and examples.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Designing an Engaging Game
+\series default
+ is where we go into more general game design theory, touching upon subjects
+ such as flow.
+ The principles covered here play a large role when designing a game, as
+ an oversight will often harm the enjoyment of the game.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Related Work
+\series default
+ covers two master’s theses which also worked with motion technology.
+\end_layout
+
 \begin_layout Subsubsection
 Prototype Development
 \end_layout
 
+\begin_layout Standard
+Our research in this project is based upon gathering information about how
+ well a motion controlled educational game is received, and if it can have
+ a positive impact on learning when compared to more traditional educational
+ methods.
+ To collect data on this we need to develop a prototype that fits these
+ criteria.
+ Considering that this type of technology is relatively new, we are also
+ interested in the maturity of the development tools that are available,
+ especially compared to how they behaved only a few years back as shown
+ from the master’s theses in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Related-Work"
+
+\end_inset
+
+ Related Work.
+\end_layout
+
+\begin_layout Standard
+As opposed to just creating a simple game prototype for use in this project,
+ we also want to develop a more general usage framework that can be used
+ in future projects.
+ This also helps ensure that our prototype will be as flexible as possible,
+ keeping the intricacies of the motion tracking away from the actual game
+ implementation, so that it can be used to easier create other games in
+ the future.
+\end_layout
+
 \begin_layout Subsubsection
-Questionnaires
+Questionnaire
+\end_layout
+
+\begin_layout Standard
+We have decided to use a questionnaire to help us gather data on the users
+ of our prototype system.
+ The data we are interested in is simple background information such as
+ age, gaming habits, and experience with similar technology to see if this
+ impacts their perception and educational gain of our game.
+ In addition to this, we want to gather opinions on whether they feel that
+ using games like this could be useful in education.
+ Since our game will be aimed at children, the format of the questionnaire
+ will be mostly yes/no answers with a few questions that have a more open
+ answer.
+ This is to keep the questionnaire easy to answer, so that we can ensure
+ the information we get is as accurate as possible.
+ Experience has shown that scaling questions often end up with results that
+ are either very positive, very negative, or simply just neutral because
+ it is difficult to quantify impressions such as fun on a scale from one
+ to ten.
+ In addition to the questionnaire we will be talking to the players after
+ they are done, to gauge the overall impressions, so we can see if there
+ is anything they want to give us feedback on that goes outside the questionnair
+e.
 \end_layout
 
 \begin_layout Subsubsection
 Observation
 \end_layout
 
+\begin_layout Standard
+Observing how people play the game can give us information that is difficult
+ to come by using more structured data gathering methods, like interviews.
+ It is particularly useful to discern whether our control schemes and graphical
+ interfaces are intuitive enough.
+ In this project we are also interested in seeing whether solving tasks
+ in a game format makes the players more inclined to discuss solutions compared
+ to when working in a traditional classroom setting, this would however
+ require some assistance from a teacher or similar who works with the kids
+ on a regular basis and knows how they normally behave to compare.
+ Data gathering with observation can be difficult, since things like taking
+ notes while someone is playing could impact their behaviour.
+ As such we will try to write down impressions between sessions, and then
+ compare with the questionnaire result afterwards.
+\end_layout
+
 \begin_layout Subsubsection
 Practical Issues
+\end_layout
+
+\begin_layout Standard
+Considering the nature of this project, there are several possible issues
+ that can occur.
+ This is a given in any software development project when dealing with unknown
+ technology, but we also have some potential problems regarding the execution
+ of the experiment.
+ One such problem can be finding a suitable location to perform the experiment,
+ we aim to contact a school or an after school programme, so we can gather
+ a useful number of participants of the right age.
+ We might also find some problems with the body tracking when it is applied
+ to the smaller stature of the children compared to how it is calibrated.
+ In regards to the questionnaire there is a possibility that the answers
+ will be skewed towards being positive due to the children not wanting to
+ disappoint us, this is a main reason to keep it anonymous and combine the
+ results with data from observation.
+\end_layout
+
+\begin_layout Subsubsection
+Summary
+\end_layout
+
+\begin_layout Standard
+Of the methods presented here we will attempt to find answers to our research
+ goals with the literature study, and these findings will be tried and tested
+ during the development of our prototype, and the experiment.
+ We believe this will give us enough data to come to a conclusion for our
+ research questions.
 \end_layout
 
 \end_body
