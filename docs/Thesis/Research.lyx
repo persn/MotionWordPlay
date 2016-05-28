@@ -119,6 +119,13 @@ Since our project entails using motion capture as the primary input method,
 
 \begin_layout Subsection
 Microsoft Kinect
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Microsoft-Kinect"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

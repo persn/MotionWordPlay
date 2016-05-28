@@ -83,6 +83,331 @@ Our results and findings from working with this project.
 \end_layout
 
 \begin_layout Section
+Microsoft Kinect
+\end_layout
+
+\begin_layout Standard
+In this section we will present our experiences from working with the Kinect
+ v2 sensor combined with the Kinect for Windows SDK 2.0, both from Microsoft.
+\end_layout
+
+\begin_layout Subsection
+Kinect v2 Sensor
+\end_layout
+
+\begin_layout Standard
+This is the latest of the two sensors in the Kinect family, with superior
+ technical specs and tools compared to the first iteration as shown in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Microsoft-Kinect"
+
+\end_inset
+
+ Microsoft Kinect.
+ Due to the larger field of view this sensor is easier to place, because
+ it is less restrictive in terms of angling the camera.
+ The improvements in image quality and tracking speed gained from the increased
+ bandwidth of USB 3.0 is noticeable.
+ However, the sensor is limited to USB controllers from Intel and Renesas
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KinectIssues"
+
+\end_inset
+
+, using other types can result in issues such as losing the connection,
+ corrupted image frames, and even with some of them not detecting the sensor
+ at all.
+ These are not common issues, but it is a good idea to be aware of the possibili
+ty and research accordingly.
+ The fact that the sensor does not work at all with a USB 2.0 port also limits
+ the usage of some older computers.
+ The Kinect v1 also required periodical calibration to keep performance
+ at an optimal level, to do this you needed a Kinect Calibration Card which
+ was recognised by the sensor and then aligned with a position on the screen.
+ Calibration is no longer necessary on the Kinect v2 as this is handled
+ automatically.
+\end_layout
+
+\begin_layout Subsection
+The Kinect for Windows SDK 2.0
+\end_layout
+
+\begin_layout Standard
+The Kinect for Windows SDK 2.0 is the latest version of development tools
+ from Microsoft meant to assist the development of applications using the
+ Kinect v2 sensor.
+ The SDK is available from Microsoft’s web site free of charge (the Kinect
+ v2 sensor is not).
+ Installing the kit was very straightforward.
+ There is also add-ons for Unity pro and Visual Studio.
+ We installed the NuGet packages from within Visual Studio to add Kinect
+ capabilities to our projects.
+\end_layout
+
+\begin_layout Subsubsection
+What is Included in the Kit
+\end_layout
+
+\begin_layout Standard
+The installation file includes the driver for the Kinect sensor itself,
+ small programs showing the different sensor capabilities, assembly files,
+ Kinect studio, a beta version of Visual Gesture Builder, and Visual Studio
+ (VS) solutions for the example programs.
+ We found the demo programs helpful for understanding the different sensor
+ modes on the Kinect.
+ The VS solutions was a big help for getting started with the project.
+ Although the examples are based on Windows Presentation Foundation (WPF),
+ which we weren’t using, the general logic and approach were the same.
+\end_layout
+
+\begin_layout Subsubsection
+Kinect Studio
+\end_layout
+
+\begin_layout Standard
+Kinect Studio, displayed in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Kinect-Studio"
+
+\end_inset
+
+, can be used to monitor the data streams from the Kinect v2 sensor in real
+ time, as well as create eXtended Event File (.xef) files that functions
+ as recordings.
+ It has access to all the data streams, such as color, infrared, depth,
+ audio, and body.
+ This is probably the first application you’d want to launch after installing
+ the SDK, mainly to ensure that everything is working correctly.
+ It is very helpful when placing the Kinect, being able to see the sensor
+ input while adjusting the angle and positioning.
+ It can also play back the .xef files for other application, by sending the
+ data via the Kinect sensor driver.
+ This allows testing applications on a non changing data set, instead of
+ using live input from the Kinect.
+ If Microsoft decides to implement the functionality to allow programmatically
+ controlling Kinect Studio, it would in theory be possible to create automated
+ tests for Kinect based applications without even having a Kinect sensor
+ plugged in.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/kinectStudio.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Kinect Studio
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Kinect-Studio"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Visual Gesture Builder
+\end_layout
+
+\begin_layout Standard
+Visual Gesture Builder (VGB), shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Visual-Gesture-Builder"
+
+\end_inset
+
+, is the main tool for creating a Gesture DataBase (.gdb) file, which is
+ used to recognise gestures with the Kinect’s skeleton tracking capabilities.
+ VGB uses the recordings from Kinect Studio to create and test gdb files.
+ To create a gesture in VGB you create a new solution, like in Visual Studio,
+ and add a new project to that solution for each gesture.
+ Then one or more clips from the Kinect Studio recordings are added to each
+ project.
+ These clips are manually tagged to indicate whether the gesture is being
+ performed, before they are fed through machine learning algorithms (which
+ ones depend on the type of gesture) which results in a gesture file.
+ This gesture file can then be manually checked by doing a live preview
+ in VGB, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Visual-Gesture-Builder-1"
+
+\end_inset
+
+, showing how confident the system is that the gesture is being performed.
+ If the result is not satisfactory, you can go back and add more clips,
+ or redo the tags on the previous one.
+ Once all the required gesture files have been created, a gdb file is generated
+ by combining these, this file can then be used to recognise these gestures
+ by another program.
+ We found that for simple gestures it was enough with one clip of 5-10 seconds
+ to generate a satisfactory result.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/visualGestureBuilder.PNG
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Visual Gesture Builder
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Visual-Gesture-Builder"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/vgbLivePreview.png
+	scale 47
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Visual Gesture Builder Live Preview
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Visual-Gesture-Builder-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Body Tracking
+\end_layout
+
+\begin_layout Standard
+Implementing the body tracking itself was fairly easy thanks to the example
+ projects.
+ There are some things about how it behaves though that is worth noting.
+ When deciding on gestures to use, it is useful to use the monitoring functions
+ in Kinect Studio to check if they may be difficult to track.
+ Monitoring the skeleton figure displayed there will show if there is any
+ problems detecting the relevant joint points.
+ Gestures that might obscure the line of sight for the Kinect can cause
+ problems getting detected, we tried with a gesture that required crossed
+ arms, and this did not work well.
+ Looking at the body source with Kinect Studio showed a lot of jittering
+ of the elbow joints during the gesture, due to the occlusion caused by
+ the crossed arms, this made it difficult for the sensor to get good data.
+\end_layout
+
+\begin_layout Standard
+Tracking multiple people at once is fairly simple when using the Kinect
+ for Windows 2.0 SDK, for each person the software returns a body frame.
+ This frame contains all of the data related to body tracking, and some
+ identification functions, such as an id for each registered body.
+ This id however, does not solve everything.
+ The assigned id is an arbitrary integer, and it does happen that a body
+ disappears from the tracking for a frame or two sometimes, for instance
+ if someone walks too close to the sensor.
+ If this happens the same body will get a new random id, this means that
+ the id is not good enough identification by itself.
+ In our case we decided to arrange the bodies according to their x-coordinate
+ instead of relying on the assigned id, this means that we could also swap
+ players mid-game if we wanted.
+\end_layout
+
+\begin_layout Section
 Framework
 \end_layout
 
