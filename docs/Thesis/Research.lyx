@@ -210,9 +210,9 @@ Hardware Comparison
 \end_layout
 
 \begin_layout Standard
-On the hardware side the Kinect isn’t that interesting, it has a color camera
- similar to a webcam, an infrared camera that functions as a depth sensor,
- and a microphone array that captures positional audio.
+On the hardware side the two Kinect versions are similar, they both have
+ a color camera similar to a webcam, an infrared camera that functions as
+ a depth sensor, and a microphone array that captures positional audio.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -232,7 +232,7 @@ reference "tab:Kinect-Hardware-Specification"
  trackable skeletons to 6 up from 2 on the v1, as well as 26 instead of
  20 joints per skeleton.
  The v2 can also display a video stream from the infrared camera, which
- the v2 is unable to.
+ the v1 is unable to.
 \end_layout
 
 \begin_layout Standard
@@ -1393,7 +1393,7 @@ The differences between a game framework and an engine is not clearly defined,
  more modifiable and easier to upgrade to newer technology as it doesn’t
  have to follow the rigid “recipe” set from an engine and its editor.
  For C#, Unity is the most popular game engine, and Microsoft XNA is the
- most popular for framework.
+ most popular framework.
  All engines and frameworks listed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1401,8 +1401,14 @@ reference "sub:Unity"
 
 \end_inset
 
--XX uses some variant of the “Game Loop”, which is described in section
- 
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:CocosSharp"
+
+\end_inset
+
+ uses some variant of the “Game Loop”, which is described in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:The-Game-Loop"
@@ -1819,6 +1825,13 @@ reference "fig:FNA"
 
 \begin_layout Subsubsection
 CocosSharp
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:CocosSharp"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2023,8 +2036,8 @@ Much of the reason for the failing of these games was that they usually
  Judging by the trends over the years, it is most likely that in the future
  we will not have games dedicated to teaching specifics subjects in the
  degree that we have seen.
- Instead we will probably have more game technology included in the traditional
- teaching, such as the general-purpose quiz game Kahoot! as shown in Figure
+ Instead we will probably have more game technology complimenting the traditiona
+l teaching, such as the general-purpose quiz game Kahoot! as shown in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
