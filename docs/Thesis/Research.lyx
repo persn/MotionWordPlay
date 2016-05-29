@@ -1206,6 +1206,732 @@ Since we have a Kinect v2 Sensor for use with our experiments, we want our
 \end_layout
 
 \begin_layout Section
+Game Development Technology
+\end_layout
+
+\begin_layout Standard
+This section is devoted to finding possible candidates for frameworks or
+ engines that meets our requirements.
+ For a simple mock prototype we do not require a high level of functionality
+ of features, however the bare essentials should be covered, which is:
+\end_layout
+
+\begin_layout Itemize
+An implementation of the Game Loop.
+\end_layout
+
+\begin_layout Itemize
+Handling of Graphics.
+\end_layout
+
+\begin_layout Itemize
+Handling of Audio.
+ 
+\end_layout
+
+\begin_layout Standard
+Additionally the framework or engine should be compatible with the Kinect
+ SDK.
+\end_layout
+
+\begin_layout Standard
+This section will start with explaining what we mean by the game loop, before
+ we review possible candidates for engine/framework for our prototype.
+\end_layout
+
+\begin_layout Subsection
+The Game Loop
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:The-Game-Loop"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most computer/video games are made using some variant of the Game Loop 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GameLoop"
+
+\end_inset
+
+, which is represented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-Game-Loop"
+
+\end_inset
+
+.
+ The Game Loop is responsible for handling the game initialization, update
+ and draw mechanics, where update and draw usually runs once for every frame
+ rendered in an endless loop until termination of the game has been requested.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/GameLoop.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The Game Loop
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-Game-Loop"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Initialize and Load
+\end_layout
+
+\begin_layout Standard
+The “Initialize and Load” step is where data, graphics, audio, etc.
+ is instantiated and loaded, it is usually executed only once after the
+ game is started and before the “Update” and “Draw” for the first frame
+ is invoked.
+ If the software supports it, graphics may be loaded onto the GPU.
+\end_layout
+
+\begin_layout Subsubsection
+Update
+\end_layout
+
+\begin_layout Standard
+The “Update” step is invoked before “Draw” of any frame in the game.
+ This is where data is updated and prepared in the event of any changes
+ so that it is ready to be rendered, one example of change being the result
+ of I/O input like mouse and keyboard.
+\end_layout
+
+\begin_layout Subsubsection
+Draw
+\end_layout
+
+\begin_layout Standard
+The “Draw” step is invoked after “Update” of any frame in the game.
+ This is where the actual rendering takes place.
+\end_layout
+
+\begin_layout Subsubsection
+Unload
+\end_layout
+
+\begin_layout Standard
+The “Unload” step is where all game data is unloaded before the game shuts
+ down.
+\end_layout
+
+\begin_layout Subsection
+Engines and Frameworks
+\end_layout
+
+\begin_layout Standard
+One of the first question we would like to answer is “What game engine or
+ framework should we choose for developing a game?”.
+ The list of candidates are seemingly endless, to narrow it down we’ll only
+ look at popular choices in relation with the C# programming language, as
+ C# is the most relevant when developing with the Kinect in mind.
+ C/C++ is also a relevant alternative, however the project members doesn’t
+ have much experience with C/C++, whereas they are quite familiar with C#.
+\end_layout
+
+\begin_layout Standard
+The second question is “What do we need? An engine or a framework?”.
+ Keeping in mind that a framework is usually built to solve a specific issue,
+ while an engine may be densely packed with features that go beyond the
+ scope of what we are trying to accomplish.
+\end_layout
+
+\begin_layout Standard
+The differences between a game framework and an engine is not clearly defined,
+ however it is generally understood that a framework is a set of libraries
+ packed together to solve a specific issue, while a game engine is a set
+ of frameworks bundled together, usually with an editor.
+ An engine comes with many tools and eases the burdens of programming on
+ the developer, which makes development much more accessible to those who
+ don’t strictly come from a programming background.
+ However a game built on frameworks instead of an engine will usually be
+ more modifiable and easier to upgrade to newer technology as it doesn’t
+ have to follow the rigid “recipe” set from an engine and its editor.
+ For C#, Unity is the most popular game engine, and Microsoft XNA is the
+ most popular for framework.
+ All engines and frameworks listed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Unity"
+
+\end_inset
+
+-XX uses some variant of the “Game Loop”, which is described in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:The-Game-Loop"
+
+\end_inset
+
+ The Game Loop.
+\end_layout
+
+\begin_layout Subsubsection
+Unity
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Unity"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/UnityLogo.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Unity
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Unity"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unity 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Unity"
+
+\end_inset
+
+, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Unity"
+
+\end_inset
+
+, is a commercial game engine which is widely used, and is one of the most
+ popular engines currently on the market.
+ The latest edition supports scripting in the languages C# and JavaScript.
+ Two of the major reasons it has become so established amongst game developers
+ is that it is easy to use, and have wide platform support, spanning from
+ PC, Consoles, Mobile and even platforms that are not common like Smart
+ TV’s.
+ It has been used to make games such as Ori and the Blind Forest, Endless
+ Legend, Dungeon of the Endless, Satellite Reign, HearthStone, Cities Skylines,
+ and many more.
+ It uses a custom made edition of Mono to achieve support for all the platforms.
+ This custom edition is based off of the rules and conventions of .NET 2.0,
+ with some added modifications that allows developer to script with certain
+ .NET 3.5 features on code files within the Unity environment.
+ This however, means that it is incompatible with the official Kinect SDK
+ which requires .NET 4.0 at minimum.
+ To circumvent this issue Microsoft has made a custom Unity add-on that
+ allows developers to use the Kinect in Unity.
+\end_layout
+
+\begin_layout Subsubsection
+Xenko
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/XenkoLogoTM.png
+	scale 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Xenko
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Xenko"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Xenko 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xenko"
+
+\end_inset
+
+, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Xenko"
+
+\end_inset
+
+, is a open-source game engine for development of games in a C# environment,
+ meaning that it provides its own editor, however it generates a C# project
+ following the standards established by Microsoft, meaning the Xenko editor
+ is optional for those who prefer using an IDE instead.
+ It supports Windows, Android, iOS and Windows Phone, there is also some
+ functional experimental support for Linux, OS X and Consoles.
+ Xenko is fairly new, so unfortunately there aren’t many examples of games
+ made with it, however it is fully compatible with the official Kinect SDK.
+\end_layout
+
+\begin_layout Subsubsection
+Microsoft XNA
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/MicrosoftXNALogo.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+XNA
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:XNA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+XNA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XNA"
+
+\end_inset
+
+, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:XNA"
+
+\end_inset
+
+, is arguably the best known framework for game development in the C# programmin
+g language.
+ Developed by Microsoft it supports platforms such as Windows, Xbox 360
+ and Windows Phone.
+ It has been used in development of titles such as Bastion, Apatheon, Rogue
+ Legacy, Fez, Stardew Valley and more.
+ It is also fully compatible with the official Kinect SDK.
+ Unfortunately it has been discontinued by Microsoft which makes it an unideal
+ candidate for development with reusability in mind.
+\end_layout
+
+\begin_layout Subsubsection
+MonoGame
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/MonoGameLogo.png
+	scale 5
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MonoGame
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MonoGame"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MonoGame 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MonoGame"
+
+\end_inset
+
+, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MonoGame"
+
+\end_inset
+
+, is an open source game development framework maintained by MonoProject
+ (known for Mono, MonoDevelop, etc.), as a derivative of XNA.
+ Originally started out as a wrapper library to port games developed in
+ the XNA framework to other platforms, it eventually evolved into a stand-alone
+ framework.
+ Of all the frameworks for C# game development, MonoGame currently has the
+ biggest community and highest development rate.
+ It supports platforms such as Windows, Linux, OS X, iOS, Android, Xbox
+ One, PS4.
+ Bastion, Fez and Stardew Valley are examples of games that started development
+ in XNA, but has been ported to other platforms using MonoGame.
+ Since MonoGame is just a framework that can be implemented into a standard
+ C# project it is fully compatible with the official Kinect SDK.
+\end_layout
+
+\begin_layout Subsubsection
+FNA
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/FNA.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+FNA
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FNA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+FNA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FNA"
+
+\end_inset
+
+, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FNA"
+
+\end_inset
+
+, is an open source game development framework made and maintained by Ethan
+ Lee, and just like MonoGame it is also a derivative of XNA.
+ It’s a fairly young and immature project so information about it is sparse.
+ It supports PC platforms exclusively, namely Windows, Linux and OS X, and
+ just like MonoGame it is fully compatible with the official Kinect SDK
+ for the same reasons.
+\end_layout
+
+\begin_layout Subsubsection
+CocosSharp
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/CocosLogo.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CocosSharp
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CocosSharp"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+CocosSharp 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CocosSharp"
+
+\end_inset
+
+, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CocosSharp"
+
+\end_inset
+
+, is an open source game development framework maintained by Xamarin(known
+ for the Xamarin Platform, Xamarin Forms, Xamarin Studio, etc.).
+ It is built on top of MonoGame with C# implementations of the API of the
+ already well established open source game development frameworks of Cocos2D
+ and Cocos3D.
+ Like FNA it is a relatively young project so there’s not much concrete
+ information on the framework.
+ Since it is built on top of MonoGame it can run any platform that MonoGame
+ supports, and for the same reason it is also compatible with the official
+ Kinect SDK.
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout Standard
+It is evident that there is no lack of alternatives when it comes to doing
+ game development in C# for the Kinect, all the candidates we have found
+ are solid and feature complete.
+ Some however, like Xenko, FNA, and CocosSharp have the disadvantage of
+ being introduced relatively recently to the market, which makes it hard
+ to favor them in the interest of building a prototype that can be reused,
+ modified, or expanded upon for later research projects, as any of these
+ projects may or may not be relevant in the future.
+ Since XNA is discontinued it is clearly not a candidate, but it was important
+ to mention either way because it has been so important for C# game development,
+ and many of the potential candidates are derivatives of XNA.
+ Unity is usually the crowd favorite for game development in C#, however
+ the lack of support for the official Kinect SDK is worrying.
+\end_layout
+
+\begin_layout Standard
+Xenko or MonoGame seem to be the best and safest choices in the interest
+ of building reusable software.
+ Xenko is still a fairly new engine, and the project team doesn’t have much
+ experience with it, but it appears to be quite capable.
+ MonoGame is probably the strongest contender because of its popularity
+ and devoted developers.
+\end_layout
+
+\begin_layout Standard
+Conclusively it also is worth noting that choosing any XNA or any derivative
+ will provide the benefit of easy portability, since they are all designed
+ to be easy to convert from one to another.
+\end_layout
+
+\begin_layout Section
 Serious Games
 \end_layout
 
