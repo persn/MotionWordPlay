@@ -27,7 +27,7 @@ namespace NTNU.MotionWordPlay.Inputs.Motion
         {
             _motionController = MotionControllerFactory.CreateMotionController(
                 MotionControllerAPI.Kinectv2);
-            _currentFrameState = FrameState.Color;
+            _currentFrameState = FrameState.Silhouette;
         }
 
         ~MotionController()
