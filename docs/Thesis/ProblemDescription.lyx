@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -53,8 +54,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -70,6 +71,55 @@
 
 \begin_layout Section*
 Problem Description
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Title:
+\series default
+ Game-based Learning
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Sub-title
+\series default
+: Motion-based Educational Game
+\end_layout
+
+\begin_layout Standard
+This project focuses on the development, testing and experimentation with
+ motion-based educational games.
+ The games will use body movement as input to provide a natural user interface
+ and will provide learning through gesture based movement.
+\end_layout
+
+\begin_layout Standard
+The project consists of a state-of the-art study, prototyping and development,
+ testing and experimentation with real users, and analysis of the experimental
+ data.
+\end_layout
+
+\begin_layout Standard
+The project will utilize technology like Kinect or similar.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Assignment given:
+\series default
+ 13:01.2015
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Supervisor
+\series default
+: Alf Inge Wang
 \end_layout
 
 \end_body
