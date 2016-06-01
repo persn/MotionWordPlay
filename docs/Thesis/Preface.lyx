@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -53,8 +54,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -70,6 +71,69 @@
 
 \begin_layout Section*
 Preface
+\end_layout
+
+\begin_layout Standard
+This Master Thesis is the presentation of the work devoted by Per Olav Flaten
+ and Henrik Reitan during the fall semester 2015 and spring semester 2016.
+ This project will conclude our master’s degree in Informatics with specializati
+on in Game Technology at the Norwegian University of Science and Technology
+ (NTNU) with the Department of Computer and Information Science (IDI) under
+ the supervision of Alf Inge Wang.
+\end_layout
+
+\begin_layout Standard
+We would like to express our gratitude to Martin Almvik and Mikael Rino
+ Solstad for helping us test our prototype and its functionality, we would
+ like to thank Linda Skistad and the children at the Eberg SFO for helping
+ us with our experiment, and of course we want to thank Alf Inge Wang for
+ providing us with supervision, assistance, and feedback during the course
+ of the thesis.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Trondheim, June 8th, 2016
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="5cm">
+<column alignment="center" valignment="top" width="5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Per Olav Flaten
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Henrik Reitan
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_body
