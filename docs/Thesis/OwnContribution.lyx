@@ -414,6 +414,13 @@ Tracking multiple people at once is fairly simple when using the Kinect
  players mid-game if we wanted.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Framework
 \begin_inset CommandInset label
@@ -451,6 +458,13 @@ Architecture
 
 \begin_layout Subsection
 Implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1209,6 +1223,13 @@ Our most likely contender as to why we struggled with the gestures is that
  While it’s not possible for us to actually test if this is the reason,
  we strongly recommend anyone working on something similar to use several
  recordings of the same gesture, preferably with different people.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2094,6 +2115,13 @@ l gain.
  Fourth graders would probably find the tasks to easy altogether, but it
  might be suitable for second graders with above average reading skills.
  Overall we were really happy about the results we got from the third graders.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

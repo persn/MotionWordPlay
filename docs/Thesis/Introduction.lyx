@@ -89,6 +89,13 @@ Placeholder Intro
 Thesis Structure
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Thesis Information
 \end_layout
@@ -103,6 +110,13 @@ Personal Motivation
 
 \begin_layout Subsection
 Goals
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

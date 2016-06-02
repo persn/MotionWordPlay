@@ -1205,6 +1205,13 @@ Since we have a Kinect v2 Sensor for use with our experiments, we want our
  people at once is the requirement for a large room.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Game Development Technology
 \end_layout
@@ -1944,6 +1951,13 @@ Conclusively it also is worth noting that choosing any XNA or any derivative
  to be easy to convert from one to another.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Serious Games
 \end_layout
@@ -2492,7 +2506,13 @@ What we can gather from this is that the most successful serious games,
  Considering this, we believe that instead of trying to compete with other
  games, we should compete with the traditional blackboard teaching methods
  and introduce an alternative to this instead.
- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2819,6 +2839,13 @@ The main points we can take with us from this is that we need a way to scale
  influences the player experience.
  On top of this we should have a small tutorial that explains how the game
  is played, to eliminate the need for any instructions before starting.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
