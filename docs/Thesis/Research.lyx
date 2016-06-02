@@ -2863,6 +2863,13 @@ key "EvaluationInteractive"
 
 \begin_layout Subsection
 Learning Recycling From Playing a Kinect Game
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Learning-Recycling-From"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

@@ -373,6 +373,13 @@ name "fig:Visual-Gesture-Builder-1"
 
 \begin_layout Subsection
 Body Tracking
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Body-Tracking"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -409,6 +416,13 @@ Tracking multiple people at once is fairly simple when using the Kinect
 
 \begin_layout Section
 Framework
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Framework"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -443,31 +457,54 @@ Implementation
 Game
 \end_layout
 
+\begin_layout Standard
+In addition to developing a framework intended to reduce the workload when
+ creating games for use with motion controllers, we have created a game
+ prototype.
+ This is both to test our own framework, and for gathering data via an experimen
+t.
+ We will present our game concept, show how this has evolved since the original
+ concept which was created before we started working with the Kinect, and
+ detail our final prototype including the results from the playtesting.
+\end_layout
+
 \begin_layout Subsection
 Concept
 \end_layout
 
-\begin_layout Subsubsection
-Goals
+\begin_layout Standard
+The game concept is arguably the most important part of any game development
+ process.
+ Although poor execution of a good concept can still make the result fail,
+ even flawless execution will be helpless to save a bad concept.
+ In this section we will show the goals we want our prototype to fulfill,
+ as well as how the consideration of these translated into our final game
+ concept.
 \end_layout
 
 \begin_layout Subsubsection
-Game Concept
-\end_layout
-
-\begin_layout Subsubsection
-Original Concept
+Background
 \end_layout
 
 \begin_layout Standard
-Our prototype will be a grammar focused multiplayer educational game based
- on sorting words.
- While the gameplay and functionality could easily be used for other educational
- topics, we believe that language, especially grammar, is the subject where
- the need for a motivational boost is most urgent.
+Our assignment is very clear on the fact that we have to develop a game
+ intended to encourage learning, this has thus become one of our main goals.
+ In addition to this we also want to do something new, which is very difficult
+ in terms of game development.
+ Since we are developing a game, which should be inherently fun, we want
+ to aim this prototype at the more tedious part of education, namely repetition
+ exercises.
+ These are most prominent in math and language courses, especially at the
+ lower levels of education.
+ Our target audience has therefore become the first half or so of elementary
+ school.
+ Instead of trying to replace the current learning methods, we want to expand
+ upon them.
+ In particular we want to encourage more discussions between the students
+ themselves, and thus make them learn more from each other.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Platform
 \end_layout
 
@@ -475,10 +512,9 @@ Platform
 The concept is intended for use on a Windows PC with a Kinect sensor, but
  could be adapted to any platform with the ability to do full body tracking
  of multiple people.
- 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Target Audience
 \end_layout
 
@@ -492,11 +528,143 @@ The game is primarily targeted towards elementary school children that needs
  We believe that introducing an element of social interaction, both in terms
  of competitiveness and discussion, will increase the motivation to learn
  about these topics.
- 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Gameplay
+\end_layout
+
+\begin_layout Standard
+In order to achieve a game that is suitable for an audience with a great
+ degree of variation in preferences, gaming experience, and academic ability,
+ we need to have our core gameplay elements relatively simple.
+ The game needs to be easy to both understand and play, but it also need
+ to be enough of a challenge to keep players interested.
+ From the results based upon “The Recycling Game” in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Learning-Recycling-From"
+
+\end_inset
+
+ we can conclude that a multiplayer game is preferred.
+ Considering that the Kinect v2 sensor can track up to six persons at once,
+ combined with the space requirements to do this, we believe our game should
+ be targeted at a classroom setting.
+ A typical scenario could then be having a group of students playing the
+ game, while the rest of the class works individually with textbook exercises.
+ In this case the game should be related to the subject at hand and, ideally,
+ tailored to fit the textbooks.
+\end_layout
+
+\begin_layout Standard
+With regard to these points, we have decided to build a prototype focused
+ on language courses, grammar in particular, where the players arrange words
+ to build proper sentences.
+\end_layout
+
+\begin_layout Standard
+Our original concept outlined several different types of tasks that could
+ be suited for this game.
+ We have decided to focus on arranging sentences, displaying a sentences
+ with the word order scrambled, which needs to be put back together in the
+ right order.
+ This type of task is easy to understand, and should be sufficiently difficult
+ for our target audience.
+ The original concept was based upon having the players change position
+ relative to the words.
+ However this caused some issues when they passed by each other, as the
+ Kinect lost track of the person walking behind, thus losing the ID.
+ In order to remedy this we changed it so they instead swap their assigned
+ words with another person, for instance player three and player five can
+ swap their words by doing a predecided gesture, and thus change the order.
+ This is continued until the players are satisfied that they have created
+ the correct sentence, and then do a gesture indicating that they want to
+ lock their answer.
+ When they do the game checks if it is correct, and if it is the score will
+ get updated and the players are given a new task.
+ The game keeps going like this until a set number of tasks is completed.
+ There is also a bonus for getting several correct in a row to encourage
+ getting it right the first time, instead of going for a more brute-force
+ approach.
+ We believe this can create a better foundation for discussion.
+ There is a timer running in the game, but we do not use it to calculate
+ score.
+ This is because we want to encourage discussion between the players, and
+ time pressure can be a detriment to this.
+ The flow of a game session is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Game-Flow"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/gameLoopActivity.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Game Flow
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Game-Flow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Relation to the Original Concept
+\end_layout
+
+\begin_layout Standard
+First up is the gameplay section of our original concept, in its unaltered
+ state, which we based our prototype on.
+ Our target audience and platform sections are still the same as their originals
+, and thus need no further discussion in this chapter.
+ Following this we will detail how and why things changed since the first
+ iteration of our concept.
+\end_layout
+
+\begin_layout Subsubsection
+Original Gameplay
 \end_layout
 
 \begin_layout Standard
@@ -525,9 +693,9 @@ reference "fig:Example-situation---1"
 
  showing how it might look when an attempted answer is either correct or
  incorrect.
- Players will be able to swap words with the players next to them, making
- this a shuffle puzzle that needs solving in addition to finding the correct
- word order.
+ Players will be able to move words around by swapping their positions relative
+ to each other, making this a shuffle puzzle that needs solving in addition
+ to finding the correct word order.
 \end_layout
 
 \begin_layout Standard
@@ -716,8 +884,246 @@ Word classes: Identifying and placing words in the right categories such
 Verb tenses: Ordering a verbs tenses in the correct order.
 \end_layout
 
+\begin_layout Subsubsection
+Changes from Original Concept
+\end_layout
+
+\begin_layout Standard
+The most fundamental change since our original concept is the fact that
+ we no longer require the players themselves to move around.
+ We thought this would make the game more involving, as opposed to standing
+ on one spot all the time, but we discovered that there were some technical
+ limitations to this, more on this in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Body-Tracking"
+
+\end_inset
+
+: Body Tracking.
+ Remedying this would require us to develop our of system for skeleton tracking,
+ a task that would be far too large of an undertaking for us to complete
+ as a part of this project.
+ Instead we adjusted the concept to have the players swap the words.
+\end_layout
+
+\begin_layout Standard
+In addition to this, we have only implemented one type of task.
+ This is mostly due to time constraint, but also the fact that although
+ having several types would be beneficial for a complete game experience,
+ we do not need them in order to create a prototype intended to test if
+ the concept can work.
+\end_layout
+
 \begin_layout Subsection
 Prototype
+\end_layout
+
+\begin_layout Standard
+Since section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Framework"
+
+\end_inset
+
+: Framework covers the technical aspect of our implementation, this section
+ will instead cover the game functionality and behaviour during our experiment.
+ The prototype is simple, but does what we have outlined in our concept.
+ Our main goals with this prototype is confirming the functionality of our
+ framework, mapping the Kinect behaviour in practice, and lastly having
+ something playable to use in our experiment.
+\end_layout
+
+\begin_layout Standard
+We have not implemented any menu system, the game starts in a waiting state
+ expecting a set number of players when launched.
+ To start the game from here all of the players need to do a gesture.
+ There are two gestures implemented, one is “Raised Hands”, and the other
+ is “Hands Forward”.
+ These are fairly self-explanatory, “Raised Hands” require the player the
+ place both hands straight up, while “Hands Forward” is both hands straight
+ ahead.
+ The reason we have only two gestures is simply that we didn’t need more
+ for our concept to work.
+ Our “Raised Hands” gesture is used for two purposes.
+ Firstly we use it to start the game, and second the players perform this
+ gesture again when they want to lock their answer.
+ To swap the words assigned to players during play, any two players perform
+ the “Hands Forward” gesture.
+ This will swap the words they have been assigned.
+ If more than two players perform “Hands Forward” at once, only two will
+ be used.
+ 
+\end_layout
+
+\begin_layout Standard
+Our graphical style is simple, the main mode for displaying players is showing
+ their tracked silhouette on a black background, displayed in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Our-Prototype-in"
+
+\end_inset
+
+, using the silhouette frames provided by the Kinect sensor, with each silhouett
+e having a random predefined color.
+ We have also implemented other display modes supported by the Kinect, namely
+ color, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Our-Prototype-in-1"
+
+\end_inset
+
+, and infrared, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Our-Prototype-in-2"
+
+\end_inset
+
+.
+ Color acts as a regular web camera, showing the feed from the camera implemente
+d on the Kinect.
+ Infrared does the same, only that it shows data from the infrared sensor
+ as a black and white image, as opposed to a color image.
+ The prototype defaults to the silhouette mode on startup, but the display
+ mode can be changed using the number keys on the keyboard.
+ We decided to use the silhouette frame as default because it is the one
+ that best shows how the Kinect is interpreting the input.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Silhouette.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Our Prototype in Silhouette Mode
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Our-Prototype-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Color.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Our Prototype in Color Mode
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Our-Prototype-in-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Infrared.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Our Prototype in Infrared Mode
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Our-Prototype-in-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -729,6 +1135,80 @@ name "sub:Technical-Issues"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+During our experiment, which also doubled a bit as a playtesting session
+ since this was the only time we had been able to get anyone from our target
+ audience to test the prototype, we discovered that we had some technical
+ issues.
+ At first this seemed like it could potentially stop the whole experiment,
+ but we managed to remedy the problem enough to get the prototype playable.
+\end_layout
+
+\begin_layout Standard
+The biggest issue was getting our gestures to register, our “Raised Hands”
+ gesture in particular.
+ Using the diagnostic tools in the Kinect SDK showed that it was registering
+ with a hundred percent confidence level, but we had no luck getting it
+ to work in our prototype.
+ We managed to narrow down the issue to being connected to tracking several
+ people at once, one player showed full confidence levels on the tracking,
+ while the rest hovered around thirty to forty percent.
+ We then tried lowering the threshold value for allowing the gesture to
+ register.
+ This helped the issue, but did not fix it.
+ Ultimately we didn’t get a working solution for this problem, so we instead
+ used the keyboard shortcuts to bypass the problem altogether.
+ Whenever the players performed the gesture as they should, we pressed the
+ key for the corresponding function.
+ This allowed us to test the game as if it was working as intended, even
+ though it wasn’t.
+ 
+\end_layout
+
+\begin_layout Standard
+Luckily the “Hands Forward” gesture was working as it should, allowing us
+ to test the game as we wanted, even if the answer locking was being done
+ by us instead of the players themselves.
+ Having this gesture was much more critical, as we didn’t have any way to
+ bypass this functionality using the keyboard.
+ It was reassuring to see that the word swapping was working as intended
+ up to six players, as we had previously only managed to test it with up
+ to four.
+ We never had time to find the exact reason for the gesture issues, but
+ we do have a number of theories.
+ 
+\end_layout
+
+\begin_layout Standard
+It’s possible that the light could have been part of the issue, we ended
+ up being situated alongside some large windows giving us a fair amount
+ of sunlight.
+ We did cover them up as best we could but there was no way to block the
+ light completely.
+ This was probably not the main issue, but it could have had an adverse
+ effect on the sensor input which relies on infrared data.
+ We tried adjusting the angle and position of the Kinect itself, in case
+ the difference when compared to how we had it in our lab had any impact
+ on the readings.
+ After moving it up fairly high giving it a good view of all the players,
+ and making sure it could easily track the joints related to the gestures,
+ we still didn’t see any improvements.
+ This indicates that the sensor position does not matter to a large degree,
+ as long as the sensor has a clear line of sight to every player.
+ 
+\end_layout
+
+\begin_layout Standard
+Our most likely contender as to why we struggled with the gestures is that
+ we hadn’t been thorough enough when creating our gesture database.
+ This database is generated based upon machine learning using potentially
+ several video clips per gesture, we only used one clip for each gesture
+ because this was working well when we were testing it.
+ While it’s not possible for us to actually test if this is the reason,
+ we strongly recommend anyone working on something similar to use several
+ recordings of the same gesture, preferably with different people.
 \end_layout
 
 \begin_layout Section
