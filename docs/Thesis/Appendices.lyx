@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -53,8 +54,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -84,22 +85,108 @@ Placeholder
 
 \end_layout
 
-\begin_layout Section
-Questionnaire
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Questionnaire"
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaire.pdf
+	extra LaTeX "pages=1,pagecommand=\section{Questionnaire\label{sec:Questionnaire}}"
+	scale 70
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Section
-Questionnaire Results
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Questionnaire-Results"
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaire.pdf
+	extra LaTeX "pages=2"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaire.pdf
+	extra LaTeX "pages=3"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaireResult.pdf
+	extra LaTeX "pages=1,pagecommand=\section{Questionnaire\label{sec:Questionnaire-Results}}"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaireResult.pdf
+	extra LaTeX "pages=2"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaireResult.pdf
+	extra LaTeX "pages=3"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaireResult.pdf
+	extra LaTeX "pages=4"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaireResult.pdf
+	extra LaTeX "pages=5"
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename figures/AppendixQuestionnaireResult.pdf
+	extra LaTeX "pages=6"
+	scale 70
 
 \end_inset
 
