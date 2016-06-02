@@ -125,7 +125,7 @@ Placeholder
 \begin_inset External
 	template PDFPages
 	filename figures/AppendixQuestionnaireResult.pdf
-	extra LaTeX "pages=1,pagecommand=\section{Questionnaire\label{sec:Questionnaire-Results}}"
+	extra LaTeX "pages=1,pagecommand=\section{Questionnaire Results\label{sec:Questionnaire-Results}}"
 	scale 70
 
 \end_inset
