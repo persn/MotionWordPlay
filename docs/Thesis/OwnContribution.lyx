@@ -333,7 +333,7 @@ name "fig:Visual-Gesture-Builder"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -720,32 +720,900 @@ Verb tenses: Ordering a verbs tenses in the correct order.
 Prototype
 \end_layout
 
+\begin_layout Subsubsection
+Technical Issues
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Technical-Issues"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Empirical Study
+Experiment
+\end_layout
+
+\begin_layout Standard
+Here we will present our experiment, which is where we obtained most of
+ our results regarding the potential of using a game such as this for educationa
+l purposes..
 \end_layout
 
 \begin_layout Subsection
 Experiment Context
 \end_layout
 
-\begin_layout Subsubsection
-Research group
+\begin_layout Standard
+This section will describe the practicalities of our experiment, such as
+ the research group, our participants, location, as well as our results
+ from the questionnaire and observations.
+ The experiment was performed on Monday 30.05.2016.
 \end_layout
 
 \begin_layout Subsubsection
-Participants Location
+Research Group
+\end_layout
+
+\begin_layout Standard
+Per Olav Flaten & Henrik Reitan: Handled the main parts of the experiment,
+ setting up the equipment, sorting out the technical difficulties, and explainin
+g the game as well as the questionnaire to the participants.
+ We took turns monitoring the game while the students played, giving the
+ other more room to make observations.
+\end_layout
+
+\begin_layout Standard
+Alf Inge Wang: Our supervisor on this project, he tipped us about contacting
+ Eberg SFO to see if they had opportunity to help with the experiment.
+ He also helped the students fill out the questionnaire, aided us with observati
+ons, and even jumped in to play the game when one of the students have to
+ go before they finished playing.
 \end_layout
 
 \begin_layout Subsubsection
-Questionnaire results
+Participants
+\end_layout
+
+\begin_layout Standard
+We were lucky enough to get a group of third graders in the after school
+ programme at Eberg SFO.
+ This fit perfectly with our intended audience.
+ However, since this was an after school programme, we weren’t able to get
+ a lot of students.
+ The test group numbered 9 people, this is not ideal, but we did get some
+ decent reactions on our game which is what we were looking for.
+\end_layout
+
+\begin_layout Subsubsection
+Location
+\end_layout
+
+\begin_layout Standard
+The experiment was performed at Eberg SFO, pictured in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Eberg-SFO"
+
+\end_inset
+
+, part of Eberg elementary school, which is relatively new, opened in 1997.
+ The staff was helpful and enthusiastic about the experiment from the start.
+ We were placed in a corner part of a larger room, where there was a projector
+ for us to connect a laptop.
+ Although we were in a multi-use room, we ended up being the only ones there
+ because the students were outside this time of day.
+ Thanks to this we could do the experiment without any neighbouring activities
+ impacting our work.
+ We set up chairs for the participants to sit on, this was easier than trying
+ to make six eight-year-olds stand in place for more than a couple seconds.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/locationExperiment.jpg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Eberg SFO
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Eberg-SFO"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Experiment Procedure
+\end_layout
+
+\begin_layout Standard
+Once we had our equipment set up, and chairs in place, we started having
+ technical issues.
+ We will discuss the actual issues in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Technical-Issues"
+
+\end_inset
+
+ Technical Issues.
+ These issues didn’t slow us down for long, but we did have to send back
+ the first groups of students for a while until we got things sorted out.
+ The students were sorted into groups of five beforehand by the staff, and
+ we had no knowledge about who was in what group, and because we had to
+ delay the first group this caused some mix ups and minor confusion between
+ the groups.
+ Kids at this age are apparently obsessed with things being done in order,
+ this lead to some amount of yelling and arguments between the students
+ when they thought someone had gotten several turns, or skipped ahead in
+ line.
+\end_layout
+
+\begin_layout Standard
+As soon as we got things working we had no more problems during the experiment.
+ Even having the players fill out the questionnaire after playing was no
+ problem, we had somewhat expected them to complain and make a fuzz about
+ this since filling out forms isn’t generally known to be very exciting.
+ Most of them had no problem reading the questions, but we did make sure
+ to read them out loud so we avoided any potential misunderstandings.
+ With our participant group being smaller than we had prepared for, we gave
+ them several turns instead.
+ This allowed us to test the modes for different amounts of players with
+ the same group, giving us a better read on the change in difficulty.
+\end_layout
+
+\begin_layout Standard
+One good thing about the fact that we had this few participants was that
+ we could skip a lot of explaining on how to play the game, and instead
+ focus on having them actually play it.
+ The second group of students appeared while the first was playing, so we
+ could also show them by example.
+\end_layout
+
+\begin_layout Subsubsection
+Questionnaire
+\end_layout
+
+\begin_layout Standard
+Our questionnaire was designed to fit our target audience of young children,
+ this includes having mostly yes or no style questions, and relatively simple
+ language.
+ We had hoped to be able to gather more responses to get a dataset that
+ could be used on its own, but instead we have used it as a complement to
+ our observations.
+ There were some responses here that went against what the students said
+ out loud, which is good, this is what we wanted to use the questionnaire
+ for.
+ It is much easier, especially for kids this age, to give negative feedback
+ if they can do it anonymously, though some were definitely not afraid to
+ speak their mind.
+ 
+\end_layout
+
+\begin_layout Standard
+Ideally, having a questionnaire like this should be performed with the students
+ separated.
+ It was obvious that the answers given by one student, often also said out
+ loud, swayed the other participants.
+ This is something we would advise any other projects to do, but we did
+ not focus much on this due to our small number of participants.
+\end_layout
+
+\begin_layout Subsubsection
+Interviews
+\end_layout
+
+\begin_layout Standard
+We did not conduct any formal interviews in the traditional sense, but we
+ did get some comments during the playtesting.
+ In addition to this, since our questionnaire got a bit compromised, we
+ tried to get the participants to discuss the questions a bit between themselves.
+ This allowed us to catch up on things that weren’t necessarily covered
+ by the questionnaire itself.
+ 
 \end_layout
 
 \begin_layout Subsection
-Interview results
+Questionnaire results
+\end_layout
+
+\begin_layout Standard
+Here we will cover our most interesting findings from our questionnaire,
+ the full set of questions can be found in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Questionnaire"
+
+\end_inset
+
+: Questionnaire, and the full set of results in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Questionnaire-Results"
+
+\end_inset
+
+: Questionnaire Results.
+ We had a group of nine participants, with six girls and three boys, all
+ third graders.
+ Considering the small number of participants we did not distinguish between
+ genders to see if there was any patterns to the answers, we believe this
+ would only lead to potentially false claims.
+ All except one claimed to have tried educational games before.
+ There was also a surprisingly even distribution in terms of gaming habits.
+ This is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:How-Often-Do"
+
+\end_inset
+
+, we had three participants each claiming to play games “almost every day”,
+ “a few times a week”, and “rarely”.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/howOften.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+How Often Do You Play Games?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:How-Often-Do"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All but one of our participants reported having played educational games
+ before, reflected in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Have-You-Ever"
+
+\end_inset
+
+, although they were initially a bit unsure what the term meant.When we further
+ explained that it meant games that focused on teaching a subject like for
+ instance math, most of of them recalled having tried something of the sort.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/triedEducationalGames.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Have You Ever Played Educational Games?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Have-You-Ever"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We also wanted to see if any of the participants had any experience using
+ motion controllers from before, as this could have an impact on both how
+ quickly they learned the control the game and their impressions.
+ The response, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Have-You-Tried"
+
+\end_inset
+
+, was somewhat as we expected.
+ A majority of the participants have tried the Nintendo Wii, and some have
+ tried other alternatives, including the Kinect.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/triedMotionControllers.PNG
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Have You Tried Motion Controllers Before?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Have-You-Tried"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once our questions started about our game prototype itself, the answers
+ we got became less varied.
+ Two thirds of our questions, such as “Did you find the game fun?” and “Did
+ you feel that you learned something from the game?” all received 100% yes
+ answers.
+ This was more or less expected, especially considering the age group, but
+ we did get some interesting results nonetheless.
+ Even though everyone claimed that they learned something from playing our
+ game, became more motivated to learn, and said they would have played the
+ game at home if given the chance, a third of them said they would not want
+ to incorporate games alongside traditional education, as shown in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Would-You-Want"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/includeInEducation.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Would You Want Games to be Used in Addition to Ordinary Education?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Would-You-Want"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When we asked about whether they felt it was easier to focus on the tasks
+ when compared to traditional teaching we got some interesting results,
+ shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Did-you-feel"
+
+\end_inset
+
+.
+ Four participants said no, with the other five saying yes.
+ This is interesting because what we observed somewhat indicates that they
+ all worked fairly well on the tasks.
+ One potential cause for this is that they didn’t feel that they really
+ had to focus on it because it was “just a game”, and didn’t realise themselves
+ the level of concentration they were displaying.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/focusComparedToTraditional.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Did you feel that it was easier to focus on the tasks than in normal classes?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Did-you-feel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the multiplayer aspect in mind, we asked if the participants felt it
+ was easier to get a discussion going than it would be in a normal class.
+ Response was mostly towards yes again, depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Is-it-easier"
+
+\end_inset
+
+, but we did have three participants that said no.
+ This matches well with what we observed, with some players being eager
+ to take charge, leaving less room for the more quiet students.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/startDiscussion.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Is it easier to start a discussion about the tasks when they are in a game
+ than when they occur in normal classes?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Is-it-easier"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We also asked whether the participants found it easy to know if the answers
+ they gave were correct or not, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Was-it-easy"
+
+\end_inset
+
+.
+ Three participants said no, but we believe this could also be due to the
+ fact that our first group of testers never got any wrong answers, and thus
+ never experienced the actual feedback related to this question.
+ Still, it is an indication that we should have even clearer feedback on
+ correct answers as well.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/rightWrong.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Was it easy to know if the given answer was correct or not?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Was-it-easy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After this we asked whether they felt time passed by fast while they were
+ playing, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Did-you-feel-1"
+
+\end_inset
+
+.
+ Only two out of the nine participants said no, this indicates that most
+ of the players found the game engaging enough that they to some degree
+ forgot about everything else.
+ This is a good result, showing that our prototype might have real potential.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/timeWentFast.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Did you feel that time passed by fast while playing?
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Did-you-feel-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At the end of the questionnaire we had a field where we asked for the participan
+ts input on what we should do to improve the game.
+ The most common comment to this was that they wanted to control which color
+ they were assigned, this was not something we had even considered before
+ this point.
+ Following this, the second most common, was that the game was too easy.
+ Also, they wanted it to last longer.
+ The game length is something we can change on the fly, but we decided not
+ to as it was already a challenge to keep a group of six third graders sitting
+ still for the sessions we were running at six tasks per playthrough.
+ In a more structured setting than what we had, for instance a normal class
+ in a classroom with their regular teacher, a larger set of tasks could
+ be more suitable.
+\end_layout
+
+\begin_layout Standard
+All in all, we feel that the answers we got on our questionnaire were overall
+ good, if a little small to be an ideal dataset.
+ The answers given reflect what we observed, and for the most part, what
+ we expected.
 \end_layout
 
 \begin_layout Subsection
 Observation results
+\end_layout
+
+\begin_layout Standard
+The kids at the SFO had not been informed beforehand that we would be coming
+ to test a game.
+ We did get some reactions once we arrived however, all kinds of variations
+ on questions like who we were, and what we were doing there.
+ This did not stop once we had our equipment up and running, once the Kinect
+ was up and silhouettes started showing up on the canvas displaying people
+ in the vicinity, more and more kids started coming up to us asking if this
+ was a game and whether they could play.
+ Obviously we had at least succeeded in creating something capable of generating
+ some curiosity.
+ 
+\end_layout
+
+\begin_layout Standard
+Once we got everything set up and our technical issues sorted out, we started
+ testing the game with a group of 4 participants.
+ As mentioned before, getting the players to understand the game was easy
+ enough.
+ Having them stand in one place so they avoided overlapping their silhouettes,
+ and thus making the Kinect struggle, was nigh impossible.
+ This was much due to the fact that they found it very interesting to see
+ how their silhouettes interacted.
+ Especially the fact that if you got close enough they merged into one color,
+ and when separated again one player would get a new color.
+ After a bit of struggle getting them started with the actual game instead
+ of just playing with the silhouettes, we ended up setting down chairs with
+ a suitable distance in between so we had the players situated as ideal
+ as possible for the body tracking.
+ Everyone was also noticeably calmer when sitting down compared to when
+ they were jumping around and running in between each other to see what
+ would happen to the silhouettes.
+\end_layout
+
+\begin_layout Standard
+The first round with four players went by smoothly after getting everyone
+ placed on their chairs.
+ There were no problems with understanding how to play the game, despite
+ several of the players having never tried a motion controlled game before.
+ The first round went by quickly, and ended up with a perfect score, the
+ players never locked a wrong answer.
+ One main reason these tasks went by as quickly as they did was that to
+ a large degree a single person, usually the one that spotted a solution
+ first, just took charge and everyone agreed.
+ This combined with the fact that the first word had a capital letter, and
+ the last word having punctuation, made the four player tasks too easy.
+ Most likely, we should have had separate types of tasks for less players
+ than five.
+\end_layout
+
+\begin_layout Standard
+When we upped the number of players to five, each of the tasks took a little
+ bit longer, and there was a noticeable increase in the amount of word swaps
+ they were doing before locking in the answer.
+ In addition we started seeing situations where three or four of the players
+ wanted to lock the answer, with one or two disagreeing with what they had.
+ This was exactly what we wanted to see, as this lead to the players having
+ to discuss their answer until everyone agreed on a solution.
+ We still didn’t see any real problems getting to the correct solution,
+ with only a few wrong answers actually being locked.
+ 
+\end_layout
+
+\begin_layout Standard
+Running the game with six players, we started to see some struggles appearing.
+ With just over half of the answers being locked correctly.
+ This was much more interesting to watch, when the tasks started getting
+ more challenging, more of the participants began speaking up as well.
+ We also noticed that the ones that had been struggling a bit more with
+ actually reading the words joined the discussions, probably because they
+ got the time to finish reading before someone else had already found the
+ solution.
+ 
+\end_layout
+
+\begin_layout Standard
+All of the participants were eager to try the game, and most played three
+ or four sessions, with different amounts of players.
+ This allowed us to observe differences between the different sets of tasks
+ more clearly since we could see how their behaviour changed when things
+ became more difficult, instead of having a separate group of people for
+ each set.
+ There was one thing we would’ve liked, that we didn’t get the chance to
+ try.
+ Having an observer that knew how the kids normally behave during class,
+ like a teacher, that could tell us if there was any noticeable differences
+ in how they approached the tasks and the amount of participation in the
+ discussions.
+\end_layout
+
+\begin_layout Standard
+From these observations we think the ideal number of players for the current
+ state of the game is five or six, at least for third graders.
+ Four players ended up making the tasks too easy, and thus negate the educationa
+l gain.
+ Fourth graders would probably find the tasks to easy altogether, but it
+ might be suitable for second graders with above average reading skills.
+ Overall we were really happy about the results we got from the third graders.
 \end_layout
 
 \begin_layout Section

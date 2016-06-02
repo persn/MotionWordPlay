@@ -86,10 +86,24 @@ Placeholder
 
 \begin_layout Section
 Questionnaire
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Questionnaire"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Questionnaire Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Questionnaire-Results"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
