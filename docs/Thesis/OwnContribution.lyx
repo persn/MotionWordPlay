@@ -2388,5 +2388,97 @@ Any time when new types of tasks are implemented to the game, it is important
  gets broken up too much.
 \end_layout
 
+\begin_layout Subsection
+Technology
+\end_layout
+
+\begin_layout Standard
+Working with motion controller technology has been interesting, and as this
+ is a relatively new field of study there isn’t a whole lot of previous
+ work to build upon.
+ Our research questions related to the motion technology are: 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 2.1:
+\series default
+ How easy is it to start developing a motion-capture application?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 2.2:
+\series default
+ How mature is the current technology, is the hardware available for the
+ average developer good enough?
+\end_layout
+
+\begin_layout Standard
+In regards to the hardware, at least in the case of the Kinect, it is plenty
+ powerful.
+ When it comes to deciding which API and drivers to use with such hardware
+ however, it becomes more complicated.
+ There are several possible combinations of drivers and frameworks to use
+ when creating a motion controlled application, and more often than not,
+ the documentation is lacking.
+ It is difficult to decide on which one suits your needs best.
+ In some cases, like linux support, it is easy to for instance discard the
+ Microsoft SDK since it only works on Windows, but this still doesn’t cover
+ all the alternatives.
+ Some of the best sources of information is blogs run by developers who
+ have had the same issue before, but most of the time these refer to older
+ versions of the available software, thus often failing to mention that
+ one tiny detail that would have finalised your decision due to a change
+ in a newer version.
+ 
+\end_layout
+
+\begin_layout Standard
+Our impression is that most of the alternatives can do the job, and the
+ final decision should instead be based on what you want to combine it with.
+ If the project is based upon WPF for instance, the Microsoft SDK for the
+ Kinect would be a prime candidate, not only because of the inherent compatibili
+ty, but also the included code samples targeting the same platform.
+ Likewise if the project is focused in supporting several types of sensors,
+ and running on any platform, OpenNI is likely to be the better choice.
+ This is a major part of our motivation to develop our framework, as explained
+ in Section XX: Framework, is to assist in the starting phase of a new project
+ by providing a foundation to build upon.
+\end_layout
+
+\begin_layout Standard
+While there are several alternatives to the Kinect, all of the hardware
+ options are essentially the same thing, an infrared camera.
+ The important work is done on the software side, this consists of using
+ computer vision techniques to translate the infrared input into a depth
+ image, and from there extrapolating to other features like skeleton tracking.
+ The skeleton tracking implementations vary in function between the different
+ alternatives, but the core of them remain the same; keeping track of where
+ the users are, and how they move.
+ These differences become apparent in things such as what types of gestures
+ are supported, and the number of possible users that can be tracked at
+ once.
+ The skeleton tracking is the most complex part of these frameworks, and
+ the one that helps developers the most.
+ Implementing your own skeleton tracking system would be a huge amount of
+ work, assuming you have the skill to do it.
+ Not needing to do all this allows more time to focus on game design and
+ developing features, instead of doing all the groundwork.
+\end_layout
+
+\begin_layout Standard
+Getting a hold of a sensor for use with a motion controlled application
+ is for the most part affordable, there are several alternatives that most
+ hobbyists should be able to afford.
+ When it comes to the software part, most of the alternatives are open source,
+ and free.
+ While some others, such as the Microsoft Kinect SDK, are proprietary, they
+ are freely available but only supports their specified hardware counterpart,
+ and don’t allow any changing of the drivers themselves.
+\end_layout
+
 \end_body
 \end_document
