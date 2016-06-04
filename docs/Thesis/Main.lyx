@@ -35,7 +35,7 @@ tabs-within-sections
 \bibtex_command default
 \index_command default
 \float_placement H
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref false
 \papersize default
