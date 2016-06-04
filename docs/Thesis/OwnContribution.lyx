@@ -2140,5 +2140,20 @@ l gain.
 Discussion
 \end_layout
 
+\begin_layout Standard
+The main goal of this thesis is to figure out whether or not there is a
+ basis for focusing on developing motion controlled educational games.
+ We have split this into three smaller subcategories, with one focusing
+ on the feasibility of developing these without already having extensive
+ knowledge about the technology, another on more general game design, and
+ lastly if there is any signs that this kind of games could in fact have
+ an effect on learning.
+ This section will cover both of these, and discuss our work and findings
+ in relation to our research questions.
+ We will start with our findings and observations related to using motion
+ controllers, as well as a bit on educational games in general.
+ Following this we shall cover our results related to the technology itself.
+\end_layout
+
 \end_body
 \end_document
