@@ -73,5 +73,52 @@
 Abstract
 \end_layout
 
+\begin_layout Standard
+This master’s thesis project is dedicated to investigate the potential for
+ educational games with a motion controller based interface.
+ Through professor Alf Inge Wang at NTNU we were tasked with the brainstorming
+ and development of a concept that would utilize motion controllers, more
+ specifically the Microsoft Kinect, and investigate if it could be useful
+ outside of a traditional game setting.
+ Additionally it was expressed a desire to have emphasis on reusable software
+ that would benefit future projects investigating the same area or using
+ the same technology.
+\end_layout
+
+\begin_layout Standard
+Throughout our research period we’ve discovered several interesting things.
+ We found that although the Kinect failed to gain any traction on its intended
+ area of use, it is a very impressive piece of affordable technology that
+ is worth investigating further.
+ Educational games have varying popularity among consumers due to the difficulty
+ of finding a formula that combines the values of education and fun in a
+ good way.
+ A teacher will want a game that can be adapted into a curriculum, which
+ the students can learn from, while the students themselves will want a
+ game than is engaging and entertaining.
+\end_layout
+
+\begin_layout Standard
+Using the Kinect SDK and the MonoGame framework we were able to develop
+ a prototype for a basic grammar game, 4-6 players will stand in front of
+ the kinect and be designated a word from a sentence.
+ Through discussion and cooperation the players will need to exchange words
+ between each other until they agree on how the sentence should be.
+ The prototype was tested in an experiment with a group of third graders
+ who also answered a questionnaire for our data gathering.
+\end_layout
+
+\begin_layout Standard
+We conclude in this report that there is definitely potential in the idea
+ of using motion controllers for educational purposes that is worth exploring
+ further.
+ The children who tried our prototype expressed great enthusiasm over interactiv
+e play in a subject that is normally considered dull for pupils of this
+ age group.
+ With this report and the software we have produced we hope that we have
+ accomplished to make fundament for future endeavours in the topic of using
+ motion controllers for educational games.
+\end_layout
+
 \end_body
 \end_document
