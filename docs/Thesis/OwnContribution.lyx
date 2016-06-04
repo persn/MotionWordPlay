@@ -2179,8 +2179,8 @@ RQ 1.1:
 \series bold
 RQ 1.2:
 \series default
- Does a cooperative game increase the amount of discussion/cooperation between
- people in a classroom compared to traditional teaching?
+ Does a cooperative game increase the amount of discussion / cooperation
+ between people in a classroom compared to traditional teaching?
 \end_layout
 
 \begin_layout Itemize
@@ -2290,6 +2290,102 @@ Overall we have some positive results, and believe they could warrant further
  More conclusive evidence gathered by having a much larger scale on the
  experiment, and ideally including several subjects of education, would
  further the insight on this topic immensely.
+\end_layout
+
+\begin_layout Subsection
+Important Factors for Designing a Game
+\end_layout
+
+\begin_layout Standard
+When creating an educational game it is imperative that we don’t forget
+ to include aspects that make the game fun and engaging.
+ There is no point in creating an educational game that no one will want
+ to play.
+ To circumvent this issue we have tried to answer the following research
+ questions:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 3.1:
+\series default
+ How do we keep the player(s) interested in the game over time?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 3.2: 
+\series default
+What are important factors to consider when designing a game?
+\end_layout
+
+\begin_layout Standard
+Since we had every student participating in our experiment coming back wanting
+ to play more after their first turn was done, we must have been doing something
+ right when creating our prototype.
+ As our goal was to be able to create something that could be used alongside
+ textbook tasks during classes, having the students come back to play more
+ of their own volition was much better than we had hoped for.
+\end_layout
+
+\begin_layout Standard
+Because our focus have been on creating a game prototype that was to be
+ used in the lower end of elementary school, it was important that the game
+ concept wasn’t overly complex.
+ We have focused on the findings in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Designing-an-Engaging"
+
+\end_inset
+
+: Designing an Engaging Game.
+ The research covered here lists some interesting facts about how to best
+ design a game to keep the players interest.
+ In particular it lists the need to provide the player with a continuous
+ stream of choices to be made.
+ This doesn’t necessarily entail answering questions constantly, but rather
+ subtle things they don’t really think about.
+ In our case this is covered by the fact that they players need to shuffle
+ the words back into the correct order.
+ And although there was no extra reward for doing it in the correct order,
+ they became inherently focused on doing in the most efficient fashion.
+\end_layout
+
+\begin_layout Standard
+Giving the players ample feedback about both how they are doing, and that
+ the game is responding to their actions is also important.
+ Our way of telling them if their answer was wrong is simply showing a dialogue
+ box with the words “Incorrect answer, try again!” with bright red letters.
+ This is a simple, but effective, way of conveying their progress during
+ the game.
+ If their answer is correct we show them a similar dialogue box with green
+ colored text telling them their new score, and bonus points if they have
+ managed several correct answers in a row.
+ We believe the positive reinforcement of a combo system is more effective
+ than subtracting points for giving the wrong answer.
+\end_layout
+
+\begin_layout Standard
+There is also a timer in our prototype, but this is not used for impacting
+ the score in any way currently, because the added pressure of having to
+ hurry the tasks could impact the likelihood of meaningful discussions in
+ a negative way.
+ It is however useful when trying to gauging the most suitable number of
+ tasks per round.
+ 
+\end_layout
+
+\begin_layout Standard
+Any time when new types of tasks are implemented to the game, it is important
+ to consider the impact they have on the gameplay.
+ The tasks have to be of a suitable difficulty, preferably scaleable to
+ fit the players preferences.
+ Adding variety to the types of tasks is beneficial to keep the player’s
+ interest, but could also be hazardous for their concentration if the pacing
+ gets broken up too much.
 \end_layout
 
 \end_body
