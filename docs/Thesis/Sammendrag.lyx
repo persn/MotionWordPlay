@@ -54,8 +54,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip bigskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -71,6 +71,52 @@
 
 \begin_layout Section*
 Sammendrag
+\end_layout
+
+\begin_layout Standard
+Denne masteroppgaven er dedikert til å utforske potensialet for læringsspill
+ som er styrt via bevegelsessensorer.
+ Gjennom professor Alf Inge Wang hos NTNU ble vi gitt i oppgave å tenke
+ ut og utvikle et konsept som skal bruke bevegelsessensorer, mer spesifikt
+ Microsoft Kinect, til å finne ut om den kan være nyttig i bruksområder
+ utenfor et mer tradisjonelt dataspill.
+ I tillegg ble det utrykt et ønske om å gjøre programvaren gjenbrukbar til
+ nytte for framtidige prosjekter som undersøker samme felt eller teknologi.
+\end_layout
+
+\begin_layout Standard
+Gjennom vår forskningsperiode har vi oppdaget flere interessante ting.
+ Vi har funnet at selv om Kinect sensoren ikke ble en suksess på sitt tiltenkte
+ bruksområde så er det like fullt et imponerede og rimelig stykke teknologi
+ som er verdt å undersøke nærmere.
+ Læringsspill har hatt varierende populæritet blant forbrukere grunnet vanskelig
+heten med å finne en god balanse i kombinasjonen læring og spill.
+ En lærer vil ha et spill som kan tilpasses inn i pensum, og som elevene
+ kan lære av, mens elevene på en annen side vil være mer interesserte i
+ et spill som er engasjerende og morsomt.
+\end_layout
+
+\begin_layout Standard
+Ved å ta i bruk Kinect SDK og MonoGame rammeverket var vi i stand til å
+ utvikle en prototype for et grunnleggende grammatikkspill, 4-6 spillere
+ vil stå foran Kinect sensoren og hver spiller vil bli tildelt et ord fra
+ en setning.
+ Gjennom diskusjon og samarbeid må spillerne utveksle ord seg imellom til
+ de blir enige om hvordan setningen skal utformes.
+ Prototypen ble testet i et eksperiment med en gruppe av tredjeklassinger
+ som også svarte på et spørreskjema i forbindelse med vår datainnsamling.
+\end_layout
+
+\begin_layout Standard
+Vi konkluderer i denne rapporten med at det definitivt finnes et potensiale
+ i ideen med å bruke bevegelsessensorer for læringsspill som er verdt å
+ utforske videre.
+ Barna som prøvde vår prototype uttrykte stor entusiasme over å få delta
+ interaktivt i ett tema som vanligvis blir betraktet som kjedelig for elever
+ på denne aldersgruppen.
+ Fra denne rapporten og programvaren som vi har laget så håper vi å ha oppnådd
+ et fundament for framtidige forsøk basert på å ta i bruk bevegelsessensorer
+ for læringsspill.
 \end_layout
 
 \end_body
