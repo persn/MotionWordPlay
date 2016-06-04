@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>420</y>
+      <w>370</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>GestureTracker
+--
+-_gestureSource : VisualGestureBuilderFrameSource
+-_gestureReader : VisualGestureBuilderFrameReader
+--
++GetXPosition : int
++SetXPosition : void
++GetYPosition : int
++SetYPosition : void
++GetTrackingId : ulong
++SetTrackingId : void
++GetIsPaused : bool
++SetIsPaused : void
++Dispose()
++PollMostRecentGestureFrame() :  IList&lt;GestureResult&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>330</y>
+      <w>590</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>Kinectv2
+--
+_-BytesPerPixelRGBA : int = 4_
+_-MapDepthToByte : int = 8000/256_
+_-InfraredSourceValueMaximum : float = ushort.MaxValue_
+_-InfraredSourceScale : float = 0.75_
+_-InfraredOutputValueMinimum : float = 0.01_
+_-InfraredOutputValueMaximum : float = 1.0_
+-_sensor : KinectSensor
+-_reader : _MultiSourceFrameReader
+-_gestureTrackers : IList&lt;GestureTracker&gt;
+-_bodies : Body[]
+--
++Dispose() : void
+-SetColorFrameSize : void
+-SetDepthFrameSize : void
+-SetInfraredFrameSize : void
+-SetSilhouetteFrameSize : void
+-SetMostRecentColorFrame : void
+-SetMostRecentDpethFrame : void
+-SetMostRecentInfraredFrame : void
+-SetMostRecentSilhouetteFrame : void
+-SetMostRecentGestures : void
+-GetColorFrameDescription :FrameDescription
+-GetDepthFrameDescription : FrameDescription
+-GetInfraredFrameDescription : FrameDescription
+-GetSilhouetteFrameDescription : FrameDescription
+-ProcessDepthFrameData(IntPtr data, uint size, ushort minDepth, ushort maxDpeth) : void
+-ProcessInfraredFrameData(IntPtr data, uint size) : void
+-ProcessInfraredSilhouetteData(IntPtr data, uint size) : void
+_-CalculateImageSize(FrameDescription frameDescription) : Size_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>60</y>
+      <w>330</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>GestureResults
+--
+- _playerCount : int
+- _gestures : IList&lt;GestureResult&gt;[]
+- _xPositions : int[]
+- yPositions : int[]
+--
++GetGestures(int player) : IList&lt;GestureResult&gt;
++GetGesture(int player, int gesture) : GestureResult
++AddGestures(int player, IEnumerable&lt;GestureResult&gt; gestures) : void
++GetXPosition(int player) : int
++SetXPosition(int player, int xPosition) : void
++GetYPosition(int player) : int
++SetYPosition(int player, int YPosition) : void
++Clear() : void
++Clear(int player) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>690</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+MotionControllerAPI
+--
+Kinectv2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>440</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>MotionControllerFactory
+--
+--
+_+CreateMotionController(MotionControllerAPI api) : IMotionController_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>90</y>
+      <w>290</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IMotionController
+-
+-
++GetColorFrameSize : Size
++GetDepthFrameSize : Size
++GetInfraredFrameSize : Size
++GetSilhouetteFrameSize : Size
++GetMostRecentColorFrame : byte[]
++GetMostRecentDepthFrame : byte[]
++GetMostRecentInfraredFrame : byte[]
++GetMostRecentSilhouetteFrame : byte[]
++GetMostRecentGestures : GestureResults
++LoadGestures(string gesturesDB) : void
++PollMostRecentColorFrame() : void
++PollMostRecentDepthFrame() : void
++PollMostRecentInfraredFrame() : void
++PollMostRecentSilhouetteFrame() : void
++PollMostRecentBodyFrame() : void
++PollMostRecentGestureFrame() : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>680</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>GestureResult
+--
+--
++GetName : string
++GetConfidence : float
++IsDetected : bool
+-SetName : void
+-SetConfidence : void
+-SetIsDetected : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
