@@ -4,6 +4,7 @@
 \begin_header
 \textclass article
 \begin_preamble
+\usepackage[a4paper,inner=4.5cm,outer=3cm]{geometry}
 \usepackage{hyperref}
 
 \exhyphenpenalty=10000\hyphenpenalty=10000 % Avoid breaking words
@@ -69,7 +70,7 @@ tabs-within-sections
 \defskip medskip
 \quotes_language english
 \papercolumns 1
-\papersides 1
+\papersides 2
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
@@ -89,6 +90,22 @@ status open
 
 \backslash
 pagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
 \end_layout
 
 \end_inset
@@ -121,7 +138,7 @@ status open
 
 
 \backslash
-mbox{}% Force new page
+cleardoublepage
 \end_layout
 
 \end_inset
@@ -154,7 +171,7 @@ status open
 
 
 \backslash
-mbox{}% Force new page
+cleardoublepage
 \end_layout
 
 \end_inset
@@ -187,7 +204,7 @@ status open
 
 
 \backslash
-mbox{}% Force new page
+cleardoublepage
 \end_layout
 
 \end_inset
@@ -220,7 +237,7 @@ status open
 
 
 \backslash
-mbox{}% Force new page
+cleardoublepage
 \end_layout
 
 \end_inset
@@ -253,16 +270,9 @@ status open
 
 
 \backslash
-mbox{}% Force new page
+cleardoublepage
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -285,6 +295,22 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset FloatList figure
 
 \end_inset
@@ -301,6 +327,22 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset FloatList table
 
 \end_inset
@@ -310,6 +352,22 @@ LatexCommand tableofcontents
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
 \end_inset
 
 
@@ -363,6 +421,22 @@ setcounter{page}{1}
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
 filename "Introduction.lyx"
@@ -374,6 +448,22 @@ filename "Introduction.lyx"
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
 \end_inset
 
 
@@ -397,6 +487,22 @@ filename "Research.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
 filename "OwnContribution.lyx"
@@ -408,6 +514,22 @@ filename "OwnContribution.lyx"
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
 \end_inset
 
 
@@ -431,6 +553,22 @@ filename "Conclusion.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "Thesis"
@@ -443,6 +581,22 @@ options "plain"
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
 \end_inset
 
 
