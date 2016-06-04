@@ -69,7 +69,7 @@ tabs-within-sections
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation skip
-\defskip medskip
+\defskip bigskip
 \quotes_language english
 \papercolumns 1
 \papersides 2
