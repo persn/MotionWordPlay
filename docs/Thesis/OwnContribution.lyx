@@ -76,7 +76,19 @@ Own Contribution
 
 \begin_layout Standard
 Our results and findings from working with this project.
-\begin_inset Newpage newpage
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
 \end_inset
 
 
