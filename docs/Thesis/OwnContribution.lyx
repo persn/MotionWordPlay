@@ -2155,5 +2155,142 @@ The main goal of this thesis is to figure out whether or not there is a
  Following this we shall cover our results related to the technology itself.
 \end_layout
 
+\begin_layout Subsection
+Using a Motion Controlled Multiplayer Game for Education
+\end_layout
+
+\begin_layout Standard
+The aim of this thesis was mainly to research if using motion controllers
+ in educational games could have any benefits.
+ Our research questions relevant for this are:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 1.1:
+\series default
+ Is there a benefit for using motion-control as input compared to traditional
+ control methods?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 1.2:
+\series default
+ Does a cooperative game increase the amount of discussion/cooperation between
+ people in a classroom compared to traditional teaching?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RQ 2.3:
+\series default
+ Is it easy for a new user to adapt to using motion controllers as opposed
+ to more traditional input devices?
+\end_layout
+
+\begin_layout Standard
+Our experiment involving our prototype game and the third grade students
+ at Eberg SFO have given us a clear indication that there is a great potential
+ for increasing educational gain by using motion controlled games alongside
+ regular classes.
+ The combination of motion control and multiplayer seemed to be especially
+ well suited for engaging players in this age group.
+\end_layout
+
+\begin_layout Standard
+Any concerns we had about the students having difficulty adjusting to using
+ the motion controls, as opposed to traditional input like keyboard and
+ mouse or controllers, were quickly taken away.
+ Although the majority had tried motion controllers before, only a few had
+ experience with a type that didn’t involve physical controllers.
+ This turned out to be a non-issue as the students were quick to grasp the
+ concept, some even before we had explained how the game worked.
+ Turns out using silhouette as the display mode made things more intuitive,
+ as it shows how the scene is interpreted by the Kinect.
+ The students started experimenting with how the silhouettes followed their
+ movements and interacted with each other as soon as they were able to get
+ in front of the screen.
+ They even asked if they could dance around in front of the sensor after
+ they were finished playing a round.
+ Obviously the current generation of kids are quick to pick up on new types
+ of technology and controller schemes.
+ Even though this would require some more testing focus on this very subject,
+ we believe that there shouldn’t be any issues introducing a motion controlled
+ game for a full class of students and have them playing within minutes.
+\end_layout
+
+\begin_layout Standard
+Based on the response we got from the students, using motion controllers
+ as a replacement for the more traditional input methods didn’t matter much
+ for their ability to play the game itself.
+ But they did find it more interesting than they probably would have done
+ if they had been sitting on individual screens using a keyboard.
+ Our experiment didn’t show any real difference to how long it took for
+ the players to get comfortable with the Kinect in regards to their gaming
+ habits.
+ This indicates that the intuitive nature of using your own body as a controller
+ as opposed to any intermediary, such as a keyboard, is more easily picked
+ up by non-gamers.
+ In addition, using the player's own bodies as the controllers makes them
+ feel more like a part of the game, instead of just controlling an avatar
+ on the screen.
+ However, this means that the responsiveness of the controls are more important
+ than ever, it easily feels clunky if the game is too slow to register the
+ player movements.
+\end_layout
+
+\begin_layout Standard
+Adding the multiplayer aspect into the mix with education and motion controllers
+ seemed to be a good idea.
+ First of all this allows us to create games that has the ability to let
+ every student in a class have a turn during a single period, by letting
+ larger groups play at once.
+ This could help with adding variety to the classes where a lot of the time
+ is spent working on individual or group tasks, while at the same time encouragi
+ng more discussion and learning with the motivation being getting the game’s
+ high score within the class.
+ Our observations pointed out that the students were quick to start discussing
+ the answers to the tasks between themselves, showing that the threshold
+ for speaking up was low.
+ Assuming this is a general trend when playing games, we believe that using
+ games to present the tasks can create more discussions within the related
+ topics, thus increasing the amount the students are learning from each
+ other.
+ With a well structured game, the students also wouldn’t need much supervision
+ (although it is interesting to watch them discuss solutions), making it
+ entirely possible to have a game session going alongside the regular class.
+\end_layout
+
+\begin_layout Standard
+Much of the feedback we received from the experiment was based upon the
+ difficulty of the tasks, as well as the overall length of a round.
+ For the sake of the experiment we didn’t want to have each group spend
+ too much time on each round, we instead had several players come back and
+ try again.
+ This did have the unfortunate effect that the game ended when the players
+ had really gotten into it and weren’t quite ready for it to be over yet.
+ We consider this a good sign, as it means they most likely wouldn’t have
+ lost interest for a while still.
+ In our prototype the difficulty of the game was directly proportional to
+ the amount of players, since the length of our sentences was one word per
+ player.
+ This lead to the four player groups having an easier time than the six
+ player group.
+ The ideal fix for this would be to create tasks type where the difficulty
+ is not related to the number of players, and ideally having several types.
+\end_layout
+
+\begin_layout Standard
+Overall we have some positive results, and believe they could warrant further
+ investigation.
+ More conclusive evidence gathered by having a much larger scale on the
+ experiment, and ideally including several subjects of education, would
+ further the insight on this topic immensely.
+\end_layout
+
 \end_body
 \end_document
