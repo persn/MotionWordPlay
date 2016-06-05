@@ -7,8 +7,6 @@
 \usepackage[a4paper,inner=4.5cm,outer=3cm]{geometry}
 \usepackage{hyperref}
 
-\exhyphenpenalty=10000\hyphenpenalty=10000 % Avoid breaking words
-
 \raggedbottom
 \end_preamble
 \use_default_options true
