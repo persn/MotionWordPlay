@@ -348,7 +348,7 @@ status open
 
 
 \backslash
-setcounter{page}{1}
+cleardoublepage
 \end_layout
 
 \end_inset
@@ -364,7 +364,7 @@ status open
 
 
 \backslash
-cleardoublepage
+setcounter{page}{1}
 \end_layout
 
 \end_inset
