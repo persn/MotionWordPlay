@@ -96,7 +96,19 @@ cleardoublepage
 \end_layout
 
 \begin_layout Section
-Thesis Structure
+Thesis Information
+\end_layout
+
+\begin_layout Standard
+Here we will describe some general information about the thesis, starting
+ with the thesis structure.
+ Afterwards we will go into more details on our project’s context, before
+ we have a bit on our personal motivation, followed by the goals we hope
+ to achieve.
+\end_layout
+
+\begin_layout Subsection
+Thesis Structutre
 \end_layout
 
 \begin_layout Standard
@@ -110,10 +122,10 @@ The thesis is structured according to our process in the project.
 \begin_layout Standard
 
 \series bold
-Introduction:
+Introduction
 \series default
- Covers the context of the project, our motivation for working on this project,
- and the goals this project hopes to achieve.
+: Covers the context of the project, our motivation for working on this
+ project, and the goals this project hopes to achieve.
 \end_layout
 
 \begin_layout Standard
@@ -151,27 +163,79 @@ Appendices:
  due to size or relevance.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Thesis Information
-\end_layout
-
 \begin_layout Subsection
 Context
+\end_layout
+
+\begin_layout Standard
+This project covers the work done in conjunction with our master’s thesis
+ as part of our master’s programme in informatics, with specialisation in
+ game technology, at the Norwegian University of Science and Technology.
+ 
+\end_layout
+
+\begin_layout Standard
+The project partially builds upon the findings in the projects presented
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Related-Work"
+
+\end_inset
+
+: Related Work, but also stems from an interesting in having more research
+ that can be used in future projects.
+ The field of motion controlled educational games is practically non-existent,
+ this leaves a lot of questions unanswered.
+ 
 \end_layout
 
 \begin_layout Subsection
 Personal Motivation
 \end_layout
 
+\begin_layout Standard
+Both of us have a large interest in games and technology in general, being
+ able to apply this into the largest project we will undertake during our
+ education is part of the reason we chose this project in particular.
+ We both believe that there is potential for applying game technology into
+ the regular education curriculum, especially for the earlier parts of primary
+ school.
+ 
+\end_layout
+
+\begin_layout Standard
+Many of the more “boring” subjects could benefit greatly from giving the
+ students more variation in how they can learn about the different topics.
+ If we can figure out a way to also give them a motivational boost, we would
+ be able to show that there are several reasons to start considering the
+ implementation of more game technology in school.
+\end_layout
+
 \begin_layout Subsection
 Goals
+\end_layout
+
+\begin_layout Standard
+The main goal of this project is to research the basis for using motion
+ control in an educational game, and if the addition of motion control has
+ an effect on how the players interact with the game.
+ Our focus will be on whether using motion control can improve the degree
+ of intrinsic motivation the player's experience while playing the game,
+ as well as to map out some reactions in regard to motion controllers.
+ We want to know if there is any reason to spend resources on developing
+ this type of games aimed at education, and if they can have a positive
+ effect on educational gain.
+ 
+\end_layout
+
+\begin_layout Standard
+In addition we will attempt to develop a framework that is suited for future
+ work with similar projects.
+ This is to reduce the amount of time that would be required for implementing
+ the basic functionality of motion controllers, and instead allow more focus
+ on creating the games themselves.
+ Doing this could allow future projects to aim towards an even larger scope.
 \end_layout
 
 \begin_layout Standard
