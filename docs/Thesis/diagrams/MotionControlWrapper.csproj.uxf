@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>420</y>
+      <x>1010</x>
+      <y>630</y>
       <w>370</w>
       <h>240</h>
     </coordinates>
@@ -14,14 +14,14 @@
 -_gestureSource : VisualGestureBuilderFrameSource
 -_gestureReader : VisualGestureBuilderFrameReader
 --
-+GetXPosition : int
-+SetXPosition : void
-+GetYPosition : int
-+SetYPosition : void
-+GetTrackingId : ulong
-+SetTrackingId : void
-+GetIsPaused : bool
-+SetIsPaused : void
++GetXPosition() : int
++SetXPosition(int) : void
++GetYPosition() : int
++SetYPosition(int) : void
++GetTrackingId() : ulong
++SetTrackingId(ulong) : void
++GetIsPaused() : bool
++SetIsPaused(bool) : void
 +Dispose()
 +PollMostRecentGestureFrame() :  IList&lt;GestureResult&gt;</panel_attributes>
     <additional_attributes/>
@@ -29,9 +29,9 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>460</x>
-      <y>330</y>
-      <w>590</w>
+      <x>570</x>
+      <y>360</y>
+      <w>380</w>
       <h>490</h>
     </coordinates>
     <panel_attributes>Kinectv2
@@ -48,31 +48,31 @@ _-InfraredOutputValueMaximum : float = 1.0_
 -_bodies : Body[]
 --
 +Dispose() : void
--SetColorFrameSize : void
--SetDepthFrameSize : void
--SetInfraredFrameSize : void
--SetSilhouetteFrameSize : void
--SetMostRecentColorFrame : void
--SetMostRecentDpethFrame : void
--SetMostRecentInfraredFrame : void
--SetMostRecentSilhouetteFrame : void
--SetMostRecentGestures : void
--GetColorFrameDescription :FrameDescription
--GetDepthFrameDescription : FrameDescription
--GetInfraredFrameDescription : FrameDescription
--GetSilhouetteFrameDescription : FrameDescription
--ProcessDepthFrameData(IntPtr data, uint size, ushort minDepth, ushort maxDpeth) : void
+-SetColorFrameSize(Size) : void
+-SetDepthFrameSize(Size) : void
+-SetInfraredFrameSize(Size) : void
+-SetSilhouetteFrameSize(Size) : void
+-SetMostRecentColorFrame(byte[]) : void
+-SetMostRecentDpethFrame(byte[]) : void
+-SetMostRecentInfraredFrame(byte[]) : void
+-SetMostRecentSilhouetteFrame(byte[]) : void
+-SetMostRecentGestures(GestureResults) : void
+-GetColorFrameDescription() :FrameDescription
+-GetDepthFrameDescription() : FrameDescription
+-GetInfraredFrameDescription() : FrameDescription
+-GetSilhouetteFrameDescription() : FrameDescription
+-ProcessDepthFrameData(IntPtr, uint, ushort, ushort) : void
 -ProcessInfraredFrameData(IntPtr data, uint size) : void
--ProcessInfraredSilhouetteData(IntPtr data, uint size) : void
-_-CalculateImageSize(FrameDescription frameDescription) : Size_</panel_attributes>
+-ProcessInfraredSilhouetteData(IntPtr, uint) : void
+_-CalculateImageSize(FrameDescription) : Size_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>60</y>
-      <w>330</w>
+      <x>1010</x>
+      <y>360</y>
+      <w>360</w>
       <h>250</h>
     </coordinates>
     <panel_attributes>GestureResults
@@ -82,22 +82,22 @@ _-CalculateImageSize(FrameDescription frameDescription) : Size_</panel_attribute
 - _xPositions : int[]
 - yPositions : int[]
 --
-+GetGestures(int player) : IList&lt;GestureResult&gt;
-+GetGesture(int player, int gesture) : GestureResult
-+AddGestures(int player, IEnumerable&lt;GestureResult&gt; gestures) : void
-+GetXPosition(int player) : int
-+SetXPosition(int player, int xPosition) : void
-+GetYPosition(int player) : int
-+SetYPosition(int player, int YPosition) : void
++GetGestures(int) : IList&lt;GestureResult&gt;
++GetGesture(int, int) : GestureResult
++AddGestures(int, IEnumerable&lt;GestureResult&gt;) : void
++GetXPosition(int) : int
++SetXPosition(int, int) : void
++GetYPosition(int) : int
++SetYPosition(int, int) : void
 +Clear() : void
-+Clear(int player) : void</panel_attributes>
++Clear(int) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>690</y>
+      <x>1050</x>
+      <y>890</y>
       <w>150</w>
       <h>70</h>
     </coordinates>
@@ -110,8 +110,8 @@ Kinectv2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>20</y>
+      <x>540</x>
+      <y>900</y>
       <w>440</w>
       <h>60</h>
     </coordinates>
@@ -124,8 +124,8 @@ _+CreateMotionController(MotionControllerAPI api) : IMotionController_</panel_at
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>90</y>
+      <x>600</x>
+      <y>0</y>
       <w>290</w>
       <h>320</h>
     </coordinates>
@@ -133,43 +133,111 @@ _+CreateMotionController(MotionControllerAPI api) : IMotionController_</panel_at
 IMotionController
 -
 -
-+GetColorFrameSize : Size
-+GetDepthFrameSize : Size
-+GetInfraredFrameSize : Size
-+GetSilhouetteFrameSize : Size
-+GetMostRecentColorFrame : byte[]
-+GetMostRecentDepthFrame : byte[]
-+GetMostRecentInfraredFrame : byte[]
-+GetMostRecentSilhouetteFrame : byte[]
-+GetMostRecentGestures : GestureResults
-+LoadGestures(string gesturesDB) : void
++GetColorFrameSize() : Size
++GetDepthFrameSize() : Size
++GetInfraredFrameSize() : Size
++GetSilhouetteFrameSize() : Size
++GetMostRecentColorFrame() : byte[]
++GetMostRecentDepthFrame() : byte[]
++GetMostRecentInfraredFrame() : byte[]
++GetMostRecentSilhouetteFrame() : byte[]
++GetMostRecentGestures() : GestureResults
++LoadGestures(string) : void
 +PollMostRecentColorFrame() : void
 +PollMostRecentDepthFrame() : void
 +PollMostRecentInfraredFrame() : void
 +PollMostRecentSilhouetteFrame() : void
 +PollMostRecentBodyFrame() : void
-+PollMostRecentGestureFrame() : void
-
-</panel_attributes>
++PollMostRecentGestureFrame() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>680</y>
-      <w>150</w>
+      <x>1090</x>
+      <y>180</y>
+      <w>180</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>GestureResult
 --
 --
-+GetName : string
-+GetConfidence : float
-+IsDetected : bool
--SetName : void
--SetConfidence : void
--SetIsDetected : void</panel_attributes>
++GetName() : string
++GetConfidence() : float
++IsDetected() : bool
+-SetName(string) : void
+-SetConfidence(float) : void
+-SetIsDetected(bool): void</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>310</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1180</x>
+      <y>310</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>940</x>
+      <y>730</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>930</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>840</y>
+      <w>50</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..1</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>940</x>
+      <y>510</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
 </diagram>
