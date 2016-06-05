@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>120</y>
+      <w>200</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>TextBlockViewModel
+--
+-_text : string
+-_background : Brush
+-_foreground : Brush
+-_visibility : Visibility
+--
++GetText() : string
++SetText(string) : void
++GetBackground() : Brush
++SetBackground(Brush) : void
++GetForeground() : Brush
++SetForeground(Brush) : void
++GetVisibility() : Visibility
++SetVisibility(Visibility) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>400</y>
+      <w>400</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>RootViewModel
+--
+-_time : TextBlockViewModel
+-_task : TextBlockViewModel
+-_score : TextBlockViewModel
+-_status : TextBlockViewModel
+-_puzzleFractions : IList&lt;TextBlockViewModel&gt;
+--
++GetTime() : TextBlockViewModel
++SetTime(TextBlockViewModel) : void
++GetTask() : TextBlockViewModel
++SetTask(TextBlockViewModel) : void
++GetScore() : TextBlockViewModel
++SetScore(TextBlockViewModel) : void
++GetStatus() : TextBlockViewModel
++SetStatus(TextBlockViewModel) : void
++GetPuzzleFractions() : IList&lt;PuzzleFractionViewModel&gt;
++SetPuzzleFractions(IList&lt;PuzzleFractionViewModel&gt;) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>180</y>
+      <w>280</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>PuzzleFractionViewModel
+--
+-_textblock : TextBlockViewModel
+-_left : int
+_top : int
+--
++GetTextBlock() : TextBlockViewModel
++SetTextBlock(TextBlockViewModel) : void
++GetLeft() : int
++SetLeft(int) : void
++GetTop() : int
++Settop(int) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>70</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;auto-generated&gt;&gt;
+RootView</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
