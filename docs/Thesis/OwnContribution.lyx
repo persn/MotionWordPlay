@@ -455,12 +455,63 @@ This section will present our work with the framework we have produced to
 Design goals
 \end_layout
 
+\begin_layout Standard
+Our main goal with this framework is aimed at having someone else use it
+ for future projects that also involves creating motion controlled applications.
+ With this in mind we have decided that the main goals of this framework
+ should be modifiability, reusability, and usability.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Modifiability
+\end_layout
+
+\begin_layout Standard
+Modifiability relates to how much of an impact changing one part of a system
+ will have on the rest of the system.
+ Ideally the impact should be small, but the extra cost of preparing for
+ this could outweigh the gain.
+ It is important for this framework since we don’t know how it would be
+ used in the future.
+ It has to be possible to make changes without causing large ripple effects
+ throughout the system.
+ We have attempted to minimise the impact future changes would have by splitting
+ the framework into smaller modules, each with their own specialised tasks.
+ In addition we have focused on increasing cohesion and reducing coupling,
+ often via encapsulation.
+\end_layout
+
 \begin_layout Subsubsection
 Reusability
 \end_layout
 
+\begin_layout Standard
+Reusability is defined as the reuse of existing assets, with varying degree
+ of modification.
+ A very simple example of reuse is adapting a function from an earlier project.
+ Our solution file also contains two startup projects, enabling building
+ both a DirectX and an OpenGL version.
+ This should be easy to port over to also build versions for other operating
+ systems such as Linux.
+\end_layout
+
 \begin_layout Subsubsection
 Usability
+\end_layout
+
+\begin_layout Standard
+Usability describes how quickly a new user can start using a product efficiently.
+ In this case it would mean how quickly they would be able to use the framework
+ to creating a functional application.
+ Usually it is used to describe an application, where the user refers to
+ the end-user and covers items such as user interface and persisting user
+ states.
+ In this case however, we need to tweak it a little so that it covers future
+ users of our framework, who also are developers.
+ The main steps we have taken to make it easier to use is separating it
+ into logical modules with recognisable naming, hoping that anyone using
+ it will find the structure intuitive.
 \end_layout
 
 \begin_layout Subsection
