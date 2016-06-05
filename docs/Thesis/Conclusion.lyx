@@ -180,5 +180,85 @@ ts.
 Future Work
 \end_layout
 
+\begin_layout Standard
+The combination of motion capture and multiplayer educational games is an
+ area that still warrants further exploration.
+ Both the observations we noted during the experiment and the feedback we
+ received on our questionnaire show that there is a great deal of potential
+ for this kind of games.
+ The only problem is how to best tap into this potential, not to mention
+ getting through the bureaucracy needed to get it implemented in any kind
+ of approved curriculum.
+ Throughout the project we have gathered some pointers on which areas need
+ more work before we believe this topic can be closed, as well as which
+ technical aspects of our prototype that needs addressing.
+\end_layout
+
+\begin_layout Standard
+First and foremost we would like to see a larger study than what we were
+ able to perform with our experiment, namely a larger amount of participants
+ with more varying age, varied types of tasks, and different subjects.
+\end_layout
+
+\begin_layout Standard
+The game prototype itself is far from a finished product.
+ A menu system would benefit it nicely by working as a sort of tutorial
+ for getting used to controlling the game using gestures, there should also
+ be a small tutorial available that could assist new users on how to play.
+ The user interface needs to be made more clear, and scale better to different
+ screen sizes.
+ We also saw the the horizontal alignment on the textboxes containing the
+ single words didn’t quite match the players positions.
+ 
+\end_layout
+
+\begin_layout Standard
+There should be a highscore list, this would increase the level of competitivene
+ss among the players and thus increase motivation to keep playing.
+ We also had several requests on our questionnaire to add more customisation
+ options, such as nicknames and choosing their own silhouette color for
+ each individual player.
+ It should be possible to modify the game length by setting the amount of
+ tasks for a round before starting.
+\end_layout
+
+\begin_layout Standard
+Support for different topics should be implemented, ideally allowing for
+ a mix of several subjects to the chosen at the start.
+ Examples include math or different languages.
+ In addition to this there should be more variation in the tasks within
+ one subject.
+ There should be an accompanying tool to configure the tasks that can appear
+ in the game, this would allow for instance teachers to modify the subjects
+ covered in the game to suit their curriculum.
+\end_layout
+
+\begin_layout Standard
+For the game itself we have identified two more issues that needs to be
+ fixed.
+ One is the game over screen, currently this is only a short message showing
+ the words “Game Over” and the score acquired from this round.
+ The other issue is somewhat related to this, namely sound.
+ We currently have no sound implementation as this wasn’t important for
+ a prototype, we are even more sure about this after experiencing the noise
+ level six third graders can produce during a gaming session.
+ However it is something that greatly impacts how finished a product feels
+ and should be implemented.
+\end_layout
+
+\begin_layout Standard
+Lastly, we experienced issues having our gestures register during the experiment.
+ This was most likely caused by us not being thorough enough when creating
+ our gesture database file.
+ Ideally this should be done by working with several recordings of different
+ people performing the same gesture.
+ Since we had everything working out just fine in our lab we assumed this
+ would be the case when we were to test the prototype, which it wasn’t.
+ We also recommend using someone from the target audience when creating
+ this gesture, as a possible reason for the problems is the difference is
+ physical size between us university students which did the recordings in
+ this project, and the third graders who were testing it.
+\end_layout
+
 \end_body
 \end_document
