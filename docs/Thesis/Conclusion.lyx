@@ -74,7 +74,7 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-Placeholder Intro
+A summary of our project, and suggestions for further work.
 \end_layout
 
 \begin_layout Standard
@@ -95,6 +95,78 @@ cleardoublepage
 
 \begin_layout Section
 Summary
+\end_layout
+
+\begin_layout Standard
+Over the course of this master’s thesis we have designed, developed, and
+ evaluated a motion controlled educational game.
+ We started the project with a literature study to get familiar with the
+ subject at hand, as well as some research into the technology we would
+ base the project on.
+ The literature study helped us decide on how to progress with our project,
+ especially in terms of how we wanted to design our prototype.
+ Our focus quickly turned towards making a multiplayer game, especially
+ targeted towards a younger audience.
+ This decision came from both personal dislike for how much of the earlier
+ years of education are structured, as well as a belief that we could have
+ an actual impact on how it could be shaped for the future.
+ 
+\end_layout
+
+\begin_layout Standard
+During the project we performed an experiment involving third year elementary
+ school students, where we had them try out our newly developed prototype.
+ One of the main goals of our design was to be able to allow a whole class
+ to play the game during one period, something we achieved.
+ We were able to have six students play at once, which makes it feasible
+ to allow a whole class to play during a relatively short amount of time
+ by assigning them to rotating groups.
+ The observations we noted during the experiment were largely positive,
+ the students enjoyed the game (especially well noticed by the fact that
+ several came back multiple times), they were actively discussing the tasks
+ they were given, and everyone was eager to participate from the start.
+ Engagement levels during the experiment were way higher than we had expected
+ beforehand, especially when considering the simplicity of our core game.
+ This only shows how much of an impact adding some less used elements into
+ the mix can have, not only the motion controls but also the multiplayer
+ focus.
+ Neither of these things have been prevalent in educational games targeting
+ this age group, with motion controls largely non-existent in general.
+ They also showed much interest for the Kinect itself, many of the students
+ had experience with motion controls from before, but only a couple had
+ tried a system based on camera tracking.
+ Some of the interest in the game could be explained by the novelty factor
+ of motion tracking, and might be argued that it gets old quick, but we
+ still believe that this is an area of usage that has potential.
+ 
+\end_layout
+
+\begin_layout Standard
+All of our student participants claimed that they preferred games like this
+ to be multiplayer.
+ Adding a social aspect to the games often lead to an increase in playtime.
+ Even when the game itself isn’t intended to be directly competitive, players
+ often create competitions among their friends and social circle to compare
+ how well they do, just look at the Flappy Bird craze from a short time
+ back.
+ This competitive aspect is a good motivator, and if harnessed correctly
+ it can lead to an increase in educational gain as the students want to
+ spend more time playing the game.
+\end_layout
+
+\begin_layout Standard
+The technology itself has also gotten a thorough review during our project.
+ As far as we can tell the main drawback to using this kind of motion tracking
+ for the average home user is the amount of open space required.
+ In terms of cost the technology is starting to get affordable by most,
+ in the case of the Kinect it even came bundled with the Xbox console for
+ a while.
+ However, there is a distinct lack of good games that utilise it.
+ Taking into account the low interest for having such things at home also
+ affected our decision to aim our prototype at a classroom setting.
+ All of our findings suggest that this is something that should be taken
+ further, with more feature complete games, and a larger pool of test participan
+ts.
 \end_layout
 
 \begin_layout Standard
