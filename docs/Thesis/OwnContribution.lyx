@@ -444,6 +444,13 @@ name "sec:Framework"
 
 \end_layout
 
+\begin_layout Standard
+This section will present our work with the framework we have produced to
+ assist the development of motion controlled games.
+ We will cover the design goals of our framework, as well as the underlying
+ architectural decisions, and implementation.
+\end_layout
+
 \begin_layout Subsection
 Design goals
 \end_layout
