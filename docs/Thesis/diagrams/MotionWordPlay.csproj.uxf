@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>0</y>
+      <w>220</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>GameDataEventArgs
+--
+--
++GetElapsedTime() : int
++GetAnswerCounter() : int
++GetScore() : int
++GetScoreIncrement() : int
++GetCombo() : int
++GetIsGameLoaded() : bool
++GetWordFractions() : string[]
++GetResult() : bool[]
+-SetElapsedTime(int) : void
+-SetAnswerCounter(int) : void
+-SetScore(int) : void
+-SetScoreIncrement(int) : void
+-SetCombo(int) : void
+-SetIsGameLoaded(bool) : void
+-SetWordFractions(string[]) : void
+-SetResult(bool[]) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>830</y>
+      <w>320</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IGameLoop
+--
+--
++Initialize() : void
++Load(ContentManager) : void
++Update(Gametime) : void
++Draw(GameTime, SpriteBatch) : void
++GraphicsDeviceCreated(GraphicsDevice) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>1000</y>
+      <w>720</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>Game
+--
+_-NumPlayers : int = 2_
+-_graphicsDevice : GraphicsDeviceManager
+-_globalTransformation : Matrix
+-_inputHandler : InputHandler
+-_userInterface : IUserInterface
+-_wordPlayGame :WordPlayWrapper
+--
+#Initialize() : void
+#LoadContent() : void
+#UnloadContent() : void
+#Update(GameTime) : void
+#Draw(GameTime) : void
+#OnExiting(object, EventArgs) : void
+-GetNativeSize() : Vector2
+-PrepareGraphicsDevice(object, PreparingDeviceSettingsEventArgs) : void
+-GraphicsDeviceCreated(object, EventArgs) : void
+-KeyboardInputKeyPressed(object, KeyPressedEventArgs) : void
+-MotionControllerGesturesReceived(object, GestureReceivedEventArgs) : void
+-WordPlayPreGame(object, GameDataEventArgs) : void
+-WordPlayGameUpate(object, GameDataEventArgs) : void
+-WordPlayPostGame(object, GameDataEventArgs) : void
+-WordPlayNewGameLoaded(object, GameDataEventArgs) : void
+-WordPlayAnswersChangedPlaces(object, GameDataEventArgs : void
+-WordPlayAnswersIncorrect(object, GameDataEventArgs) : void
+-WordPlayAnswersCorrect(object, GameDataEventARgs) : void
+-ResetUIToDefaultValues(GameDataEventArgs) : void
+-UpdatePuzzleFractionPositions(object, int[]) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>350</y>
+      <w>350</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>WordPlayWrapper
+--
++PreGame : event
++GameUpdate : event
++PostGame : event
++NewGameLoaded : event
++AnswersChangedPlaces : event
++AnswersIncorrect : event
++AnswersCorrect : event
+_-CooldownTime : int = 1000_
+-_wordPlayGame : WordPlayGame
+-_isGameRunning : bool
+-_timer : double
+-_elapsedTime : int
+-recentlyPerformedAction : bool
+-_actionCooldownTimer : double
+--
++GetWordPlayGame() : WordPlayGame
++LoadTask() : void
++CheckAnswer() : void
++SwapObjects(int, int) : void
+-InvokePreGame() : void
+-InvokeGameUpdate() : void
+-InvokePostGame() : void
+-InvokeNewGameLoaded() : void
+-InvokeAnswersChangedPlaces() : void
+-InvokeAnswersIncorrect(bool[]) : void
+-InvokeAnswersCorrect(int) : void
+-GenerateEventArgs(int, bool[]) : GameDataEventArgs</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>480</y>
+      <w>340</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IUserInterface
+--
+--
++GetTime() : TextLine
++GetTask() : TextLine
++GetScore() : TextLine
++GetStatus() : TextLine
++GetPuzzleFractions() : IList&lt;PuzzleFractions&gt;
++SetTime(TextLine) : void
++SetTask(TextLine) : void
++SetScore(TextLine) : void
++SetStatus(TextLine) : void
++GetPuzzleFractions(IList&lt;PuzzleFractions&gt;) : void
++AddNewPuzzleFractions(int) : void
++ResetUI() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>750</y>
+      <w>370</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>EmptyKeysWrapper
+--
+-_rootView : RootView
+-_rootViewModel : RootViewModel
+--
+_-GetColor(Brush) : Color_
+_GetBrush(Color) : Brush_
+_GetBool(Visibility : bool)
+_GetVisibility(bool) : Visibility_
+{innerclass
+TextBlockWrapper
+--
+_textBlockViewModel : TextBlockViewModel
+--
+innerclass}
+{innerclass
+PuzzleFractionWrapper
+--
+-_puzzleFractionViewModel : PuzzleFractionViewModel
+--
+innerclass}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>130</y>
+      <w>110</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>/PuzzleFraction/
+--
+--
+/+GetX() : int/
+/+GetY() : int/
+/+SetX(int) : void/
+/-SetY(int) : void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>250</y>
+      <w>80</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>/TextLine/
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>370</y>
+      <w>200</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>/UserInterfaceControl/
+--
+--
+/+GetText() : string/
+/+GetBackground() : Color/
+/+GetForeround() : Color/
+/+GetVisible() : bool/
+/-SetText(string) : void/
+/-SetBackground(Color) : void/
+/-SetForeground(Color) : void/
+/-SetVisible(bool) : void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>110</x>
+      <y>350</y>
+      <w>290</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>InputHandler
+--
+--
++GetKeyboardInput() : KeyboardInput
++GetMotionController() : MotionController
+-SetKeyboardInput(KeyboardInput) : void
+-SetMotionController(MotionController) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>170</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>KeyboardInput
+--
++KeyPressed : event
+-_previousState : KeyboardState
+-_currentState : KeyboardState
+--
+-IsKeyPressed(Keys) : bool
+-InvokeKeyPressed(Keys) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>90</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>KeyPressedEventArgs
+--
+--
++GetPressedKey() : Keys
+-SetPressedKey(Keys) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>110</x>
+      <y>0</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+FrameState
+--
+Color
+Depth
+Infrared
+Silhouette</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>0</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>GestureReceivedEventArgs
+--
+--
++GetGestures() : GestureResults
+-SetGesturs(GestureResults) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>0</y>
+      <w>370</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>MotionController
+--
++GesturesReceived : event
++BodyFrameReceived : event
+-_graphicsDevice : GraphicsDevice
+-_motionController : IMotionController
+-_currentFrameState : FrameState
+-_currentColorFrame : Texture2D
+-_currentDepthFrame : Texture2D
+-_currentInfraredFrame : Texture2D
+-_currentSilhouetteFrame : Texture2D
+--
++GetCurrentFrameState() : FrameState
++SetCurrentFrameState(FrameState) : void
++Dispose() : void
++CalculateDrawScale(Vector2) : Matrix
+-CreateTexture(Size) : Texture2D
+_-UpdateFrame(texture2D, byte[] Action) : void_
+_-DrawFrame(Texture2D, SpriteBatch) : void_
+-InvokeGestureReceived(GestureResults) : void
+-InvokeBodyFrameReceived(int[]) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
