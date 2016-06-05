@@ -100,6 +100,58 @@ Thesis Structure
 \end_layout
 
 \begin_layout Standard
+The thesis is structured according to our process in the project.
+ Starting with an introduction to the project, then our findings from the
+ literature study in research, followed by our own contribution to the subject,
+ and lastly a summary of our project as well as some comments on future
+ work.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Introduction:
+\series default
+ Covers the context of the project, our motivation for working on this project,
+ and the goals this project hopes to achieve.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Research:
+\series default
+ The findings from our literature study covering the subjects Motion Capture
+ Technology, Game Development Technology, Serious Games, Designing an Engaging
+ Game, and Related Work.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Own Contribution:
+\series default
+ Presents our work on the prototype, our framework, and our experiment.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Conclusion:
+\series default
+ A summary of the project and our recommendations for future work.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Appendices:
+\series default
+ Contains our subsidiary documents that did not fit into our regular sections
+ due to size or relevance.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
