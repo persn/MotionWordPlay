@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>270</y>
+      <w>280</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>WordPlayGame
+--
+_-ScoreIncrementAmount : int = 50_
+_-ComboBonus : int = 50_
+_-AnswersToFinish : int = 5_
+-_random : Random
+-_file : string
+_currentGame : List&lt;string&gt;
+--
++GetCurrentTask() : Tuple&lt;string, int&gt;[]
++GetScore() : int
++GetAnswerCounter() : int
++GetPlayerCount() : int
++CreateNewTask(bool) : void
++IsCorrect(bool[]) : bool
++SwapObjects(int, int) : void
++CorrectAnswerGiven(int) : scoreChange
+-SetCurrentTask(Tuple&lt;string, int&gt;[]) : void
+-SetScore(int) : void
+-SetAnswerCounter(int) : void
+-SetPlayerCount(int) : void
+-SplitSentence(string) : void
+-ScrambleWorder() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
