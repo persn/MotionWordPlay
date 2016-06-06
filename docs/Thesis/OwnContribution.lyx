@@ -61,6 +61,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\listings_params "language=Java,breaklines=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -652,7 +653,7 @@ reference "sub:Game-Core-Module"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -835,6 +836,299 @@ name "sub:Motion-Control-Module"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+This module handles everything related to motion control, including sensor
+ communication and skeleton tracking.
+ The main purpose of this module is to abstract this functionality away
+ from the rest of the system.
+ This is accomplished by using a factory pattern that creates a class which
+ implements our IMotionController interface, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Class-Diagram-for"
+
+\end_inset
+
+.
+ In the current state of the system, the only type of motion controller
+ is our implementation for the Kinect v2 sensor, using the official Kinect
+ NuGet package.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/MotionControlWrapper.csproj - Simple.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Class Diagram for the Motion Control Module
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Class-Diagram-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One example of how this interface works is the way we poll and utilise the
+ data frames used for drawing our different display modes.
+ Instead of returning the different frame objects created by the Kinect,
+ the interface specifies that they should be returned as byte arrays, shown
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Code-extract-from"
+
+\end_inset
+
+.
+ Luckily for us the frames themselves have functions implemented to do this
+ conversion.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+byte[] MostRecentColorFrame { get; }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Code extract from IMotionController.cs
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Code-extract-from"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This byte array is then passed through the interface before it is converted
+ to a Texture2D by MonoGame using the UpdateFrame function, which is then
+ used by the Draw function in MotionController.cs which is part of the Game
+ Core Module, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Code-extract-from-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private static void UpdateFrame(Texture2D frame, byte[] data, Action pollNewFram
+e)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    pollNewFrame();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (data != null)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        frame.SetData(data);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private static void DrawFrame(Texture2D frame, SpriteBatch spriteBatch)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (frame != null)
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        spriteBatch.Draw(frame, Vector2.Zero);
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Code extract from MotionController.cs
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Code-extract-from-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The intention here is that any future users of this framework can implement
+ their own implementations for other sensors using the same interface.
+ This allows the addition of new sensors, or even just new versions of drivers
+ for existing sensors, without changing any other parts of the system.
+ Every change regarding sensors and their capabilities are contained within
+ the module itself, even if they require a drastically different implementation
+ compared to the Kinect within the module.
+ This means that no matter what may change within the module, as long as
+ the interface itself stays untouched, it will be compatible with any other
+ modules that depend on it.
+\end_layout
+
+\begin_layout Standard
+We assume that most sensors have their own implementation of body and gesture
+ tracking, hence we have decided to create a general class for providing
+ these results to the rest of the system.
+ This is the GestureResult class, which only contains standard data types,
+ thus ensuring compatibility.
 \end_layout
 
 \begin_layout Subsubsection
