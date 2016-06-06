@@ -173,7 +173,7 @@ The installation file includes the driver for the Kinect sensor itself,
  modes on the Kinect.
  The VS solutions was a big help for getting started with the project.
  Although the examples are based on Windows Presentation Foundation (WPF),
- which we weren’t using, the general logic and approach were the same.
+ which we were not using, the general logic and approach were the same.
 \end_layout
 
 \begin_layout Subsubsection
@@ -472,7 +472,7 @@ Modifiability relates to how much of an impact changing one part of a system
  will have on the rest of the system.
  Ideally the impact should be small, but the extra cost of preparing for
  this could outweigh the gain.
- It is important for this framework since we don’t know how it would be
+ It is important for this framework since we do not know how it would be
  used in the future.
  It has to be possible to make changes without causing large ripple effects
  throughout the system.
@@ -1024,7 +1024,7 @@ We have not implemented any menu system, the game starts in a waiting state
  These are fairly self-explanatory, “Raised Hands” require the player the
  place both hands straight up, while “Hands Forward” is both hands straight
  ahead.
- The reason we have only two gestures is simply that we didn’t need more
+ The reason we have only two gestures is simply that we did not need more
  for our concept to work.
  Our “Raised Hands” gesture is used for two purposes.
  Firstly we use it to start the game, and second the players perform this
@@ -1238,12 +1238,12 @@ The biggest issue was getting our gestures to register, our “Raised Hands”
  We then tried lowering the threshold value for allowing the gesture to
  register.
  This helped the issue, but did not fix it.
- Ultimately we didn’t get a working solution for this problem, so we instead
+ Ultimately we did not get a working solution for this problem, so we instead
  used the keyboard shortcuts to bypass the problem altogether.
  Whenever the players performed the gesture as they should, we pressed the
  key for the corresponding function.
  This allowed us to test the game as if it was working as intended, even
- though it wasn’t.
+ though it was not.
  
 \end_layout
 
@@ -1251,8 +1251,8 @@ The biggest issue was getting our gestures to register, our “Raised Hands”
 Luckily the “Hands Forward” gesture was working as it should, allowing us
  to test the game as we wanted, even if the answer locking was being done
  by us instead of the players themselves.
- Having this gesture was much more critical, as we didn’t have any way to
- bypass this functionality using the keyboard.
+ Having this gesture was much more critical, as we did not have any way
+ to bypass this functionality using the keyboard.
  It was reassuring to see that the word swapping was working as intended
  up to six players, as we had previously only managed to test it with up
  to four.
@@ -1262,7 +1262,7 @@ Luckily the “Hands Forward” gesture was working as it should, allowing us
 \end_layout
 
 \begin_layout Standard
-It’s possible that the light could have been part of the issue, we ended
+It is possible that the light could have been part of the issue, we ended
  up being situated alongside some large windows giving us a fair amount
  of sunlight.
  We did cover them up as best we could but there was no way to block the
@@ -1274,7 +1274,7 @@ It’s possible that the light could have been part of the issue, we ended
  on the readings.
  After moving it up fairly high giving it a good view of all the players,
  and making sure it could easily track the joints related to the gestures,
- we still didn’t see any improvements.
+ we still did not see any improvements.
  This indicates that the sensor position does not matter to a large degree,
  as long as the sensor has a clear line of sight to every player.
  
@@ -1282,11 +1282,11 @@ It’s possible that the light could have been part of the issue, we ended
 
 \begin_layout Standard
 Our most likely contender as to why we struggled with the gestures is that
- we hadn’t been thorough enough when creating our gesture database.
+ we had not been thorough enough when creating our gesture database.
  This database is generated based upon machine learning using potentially
  several video clips per gesture, we only used one clip for each gesture
  because this was working well when we were testing it.
- While it’s not possible for us to actually test if this is the reason,
+ While it is not possible for us to actually test if this is the reason,
  we strongly recommend anyone working on something similar to use several
  recordings of the same gesture, preferably with different people.
 \end_layout
@@ -1347,8 +1347,8 @@ Participants
 We were lucky enough to get a group of third graders in the after school
  programme at Eberg SFO.
  This fit perfectly with our intended audience.
- However, since this was an after school programme, we weren’t able to get
- a lot of students.
+ However, since this was an after school programme, we were not able to
+ get a lot of students.
  The test group numbered 9 people, this is not ideal, but we did get some
  decent reactions on our game which is what we were looking for.
 \end_layout
@@ -1441,7 +1441,7 @@ reference "sub:Technical-Issues"
 \end_inset
 
  Technical Issues.
- These issues didn’t slow us down for long, but we did have to send back
+ These issues did not slow us down for long, but we did have to send back
  the first groups of students for a while until we got things sorted out.
  The students were sorted into groups of five beforehand by the staff, and
  we had no knowledge about who was in what group, and because we had to
@@ -1457,7 +1457,7 @@ reference "sub:Technical-Issues"
 As soon as we got things working we had no more problems during the experiment.
  Even having the players fill out the questionnaire after playing was no
  problem, we had somewhat expected them to complain and make a fuzz about
- this since filling out forms isn’t generally known to be very exciting.
+ this since filling out forms is not generally known to be very exciting.
  Most of them had no problem reading the questions, but we did make sure
  to read them out loud so we avoided any potential misunderstandings.
  With our participant group being smaller than we had prepared for, we gave
@@ -1512,7 +1512,7 @@ We did not conduct any formal interviews in the traditional sense, but we
  did get some comments during the playtesting.
  In addition to this, since our questionnaire got a bit compromised, we
  tried to get the participants to discuss the questions a bit between themselves.
- This allowed us to catch up on things that weren’t necessarily covered
+ This allowed us to catch up on things that were not necessarily covered
  by the questionnaire itself.
  
 \end_layout
@@ -1810,8 +1810,8 @@ reference "fig:Did-you-feel"
  Four participants said no, with the other five saying yes.
  This is interesting because what we observed somewhat indicates that they
  all worked fairly well on the tasks.
- One potential cause for this is that they didn’t feel that they really
- had to focus on it because it was “just a game”, and didn’t realise themselves
+ One potential cause for this is that they did not feel that they really
+ had to focus on it because it was “just a game”, and did not realise themselves
  the level of concentration they were displaying.
 \end_layout
 
@@ -2141,7 +2141,7 @@ When we upped the number of players to five, each of the tasks took a little
  wanted to lock the answer, with one or two disagreeing with what they had.
  This was exactly what we wanted to see, as this lead to the players having
  to discuss their answer until everyone agreed on a solution.
- We still didn’t see any real problems getting to the correct solution,
+ We still did not see any real problems getting to the correct solution,
  with only a few wrong answers actually being locked.
  
 \end_layout
@@ -2165,8 +2165,8 @@ All of the participants were eager to try the game, and most played three
  more clearly since we could see how their behaviour changed when things
  became more difficult, instead of having a separate group of people for
  each set.
- There was one thing we would’ve liked, that we didn’t get the chance to
- try.
+ There was one thing we would have liked, that we did not get the chance
+ to try.
  Having an observer that knew how the kids normally behave during class,
  like a teacher, that could tell us if there was any noticeable differences
  in how they approached the tasks and the amount of participation in the
@@ -2260,7 +2260,7 @@ Any concerns we had about the students having difficulty adjusting to using
  the motion controls, as opposed to traditional input like keyboard and
  mouse or controllers, were quickly taken away.
  Although the majority had tried motion controllers before, only a few had
- experience with a type that didn’t involve physical controllers.
+ experience with a type that did not involve physical controllers.
  This turned out to be a non-issue as the students were quick to grasp the
  concept, some even before we had explained how the game worked.
  Turns out using silhouette as the display mode made things more intuitive,
@@ -2273,17 +2273,17 @@ Any concerns we had about the students having difficulty adjusting to using
  Obviously the current generation of kids are quick to pick up on new types
  of technology and controller schemes.
  Even though this would require some more testing focus on this very subject,
- we believe that there shouldn’t be any issues introducing a motion controlled
+ we believe that there should not be any issues introducing a motion controlled
  game for a full class of students and have them playing within minutes.
 \end_layout
 
 \begin_layout Standard
 Based on the response we got from the students, using motion controllers
- as a replacement for the more traditional input methods didn’t matter much
- for their ability to play the game itself.
+ as a replacement for the more traditional input methods did not matter
+ much for their ability to play the game itself.
  But they did find it more interesting than they probably would have done
  if they had been sitting on individual screens using a keyboard.
- Our experiment didn’t show any real difference to how long it took for
+ Our experiment did not show any real difference to how long it took for
  the players to get comfortable with the Kinect in regards to their gaming
  habits.
  This indicates that the intuitive nature of using your own body as a controller
@@ -2314,7 +2314,7 @@ ng more discussion and learning with the motivation being getting the game’s
  games to present the tasks can create more discussions within the related
  topics, thus increasing the amount the students are learning from each
  other.
- With a well structured game, the students also wouldn’t need much supervision
+ With a well structured game, the students also would not need much supervision
  (although it is interesting to watch them discuss solutions), making it
  entirely possible to have a game session going alongside the regular class.
 \end_layout
@@ -2322,12 +2322,12 @@ ng more discussion and learning with the motivation being getting the game’s
 \begin_layout Standard
 Much of the feedback we received from the experiment was based upon the
  difficulty of the tasks, as well as the overall length of a round.
- For the sake of the experiment we didn’t want to have each group spend
+ For the sake of the experiment we did not want to have each group spend
  too much time on each round, we instead had several players come back and
  try again.
  This did have the unfortunate effect that the game ended when the players
- had really gotten into it and weren’t quite ready for it to be over yet.
- We consider this a good sign, as it means they most likely wouldn’t have
+ had really gotten into it and were not quite ready for it to be over yet.
+ We consider this a good sign, as it means they most likely would not have
  lost interest for a while still.
  In our prototype the difficulty of the game was directly proportional to
  the amount of players, since the length of our sentences was one word per
@@ -2351,7 +2351,7 @@ Important Factors for Designing a Game
 \end_layout
 
 \begin_layout Standard
-When creating an educational game it is imperative that we don’t forget
+When creating an educational game it is imperative that we do not forget
  to include aspects that make the game fun and engaging.
  There is no point in creating an educational game that no one will want
  to play.
@@ -2387,7 +2387,7 @@ Since we had every student participating in our experiment coming back wanting
 \begin_layout Standard
 Because our focus have been on creating a game prototype that was to be
  used in the lower end of elementary school, it was important that the game
- concept wasn’t overly complex.
+ concept was not overly complex.
  We have focused on the findings in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2400,8 +2400,8 @@ reference "sec:Designing-an-Engaging"
  design a game to keep the players interest.
  In particular it lists the need to provide the player with a continuous
  stream of choices to be made.
- This doesn’t necessarily entail answering questions constantly, but rather
- subtle things they don’t really think about.
+ This does not necessarily entail answering questions constantly, but rather
+ subtle things they do not really think about.
  In our case this is covered by the fact that they players need to shuffle
  the words back into the correct order.
  And although there was no extra reward for doing it in the correct order,
@@ -2448,7 +2448,7 @@ Technology
 
 \begin_layout Standard
 Working with motion controller technology has been interesting, and as this
- is a relatively new field of study there isn’t a whole lot of previous
+ is a relatively new field of study there is not a whole lot of previous
  work to build upon.
  Our research questions related to the motion technology are: 
 \end_layout
@@ -2480,7 +2480,7 @@ In regards to the hardware, at least in the case of the Kinect, it is plenty
  the documentation is lacking.
  It is difficult to decide on which one suits your needs best.
  In some cases, like linux support, it is easy to for instance discard the
- Microsoft SDK since it only works on Windows, but this still doesn’t cover
+ Microsoft SDK since it only works on Windows, but this still does not cover
  all the alternatives.
  Some of the best sources of information is blogs run by developers who
  have had the same issue before, but most of the time these refer to older
@@ -2531,7 +2531,7 @@ Getting a hold of a sensor for use with a motion controlled application
  and free.
  While some others, such as the Microsoft Kinect SDK, are proprietary, they
  are freely available but only supports their specified hardware counterpart,
- and don’t allow any changing of the drivers themselves.
+ and do not allow any changing of the drivers themselves.
 \end_layout
 
 \end_body
