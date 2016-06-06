@@ -146,6 +146,13 @@ ty and research accordingly.
 
 \begin_layout Subsection
 The Kinect for Windows SDK 2.0
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:The-Kinect-for"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -527,6 +534,55 @@ Here we will explain our choices in regards to the frameworks and engines
 
 \begin_layout Subsubsection
 Microsoft Kinect
+\end_layout
+
+\begin_layout Standard
+As we were provided with a Kinect sensor, the project naturally focused
+ on SDK’s aimed at this specific sensor.
+ While all the alternatives likely would have had enough functionality for
+ this project, there are a couple reasons why we specifically went for the
+ official SDK.
+ The code module provided with the official Microsoft Kinect for Windows
+ SDK provides the necessary classes for connecting to the sensor, getting
+ data frames from the sensor, and some helpful functions for transforming
+ this data into useful formats for less specialised classes.
+ 
+\end_layout
+
+\begin_layout Standard
+Considering the fact that we had no requirements to make this system available
+ for platforms other than Windows, the main downside of using the code supplied
+ by Microsoft disappeared.
+ If we had multiplatform support as a priority we would have had to go for
+ something else.
+ 
+\end_layout
+
+\begin_layout Standard
+The main reason we chose this over OpenNI in the end was mainly the supplied
+ documentation, which also include a lot of useful code samples.
+ These saved us a lot of time, since they showed us how to best utilise
+ the different features of the Kinect.
+ It also allowed us to use the gesture tools provided by the SDK, presented
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:The-Kinect-for"
+
+\end_inset
+
+: The Kinect for Windows SDK 2.0, which greatly simplifies the amount of
+ work required to create gestures that can be used in the system.
+ 
+\end_layout
+
+\begin_layout Standard
+All that is needed to start using this module is installing the NuGet package.
+ In addition the Kinect driver included in the SDK is required to get the
+ application to utilise the sensor, but it is possible to start programming
+ without it.
+ After installing the NuGet package, all that is needed is creating a .NET
+ compatible project and including the Kinect based namespaces.
 \end_layout
 
 \begin_layout Subsubsection
