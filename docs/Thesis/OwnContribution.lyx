@@ -518,6 +518,18 @@ Usability describes how quickly a new user can start using a product efficiently
 Engines and Frameworks
 \end_layout
 
+\begin_layout Subsubsection
+Microsoft Kinect
+\end_layout
+
+\begin_layout Subsubsection
+MonoGame
+\end_layout
+
+\begin_layout Subsubsection
+Empty Keys UI
+\end_layout
+
 \begin_layout Subsection
 Architecture
 \end_layout
@@ -688,7 +700,7 @@ reference "fig:Game-Flow"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -784,7 +796,7 @@ reference "fig:Example-situation---1"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
