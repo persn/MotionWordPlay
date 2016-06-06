@@ -1383,11 +1383,12 @@ Engines and Frameworks
 \begin_layout Standard
 One of the first question we would like to answer is “What game engine or
  framework should we choose for developing a game?”.
- The list of candidates are seemingly endless, to narrow it down we’ll only
- look at popular choices in relation with the C# programming language, as
- C# is the most relevant when developing with the Kinect in mind.
- C/C++ is also a relevant alternative, however the project members doesn’t
- have much experience with C/C++, whereas they are quite familiar with C#.
+ The list of candidates are seemingly endless, to narrow it down we will
+ only look at popular choices in relation with the C# programming language,
+ as C# is the most relevant when developing with the Kinect in mind.
+ C/C++ is also a relevant alternative, however the project members does
+ not have much experience with C/C++, whereas they are quite familiar with
+ C#.
 \end_layout
 
 \begin_layout Standard
@@ -1404,9 +1405,9 @@ The differences between a game framework and an engine is not clearly defined,
  of frameworks bundled together, usually with an editor.
  An engine comes with many tools and eases the burdens of programming on
  the developer, which makes development much more accessible to those who
- don’t strictly come from a programming background.
+ does not strictly come from a programming background.
  However a game built on frameworks instead of an engine will usually be
- more modifiable and easier to upgrade to newer technology as it doesn’t
+ more modifiable and easier to upgrade to newer technology as it does not
  have to follow the rigid “recipe” set from an engine and its editor.
  For C#, Unity is the most popular game engine, and Microsoft XNA is the
  most popular framework.
@@ -1601,7 +1602,7 @@ reference "fig:Xenko"
  is optional for those who prefer using an IDE instead.
  It supports Windows, Android, iOS and Windows Phone, there is also some
  functional experimental support for Linux, OS X and Consoles.
- Xenko is fairly new, so unfortunately there aren’t many examples of games
+ Xenko is fairly new, so unfortunately there are not many examples of games
  made with it, however it is fully compatible with the official Kinect SDK.
 \end_layout
 
@@ -1833,7 +1834,7 @@ reference "fig:FNA"
 
 , is an open source game development framework made and maintained by Ethan
  Lee, and just like MonoGame it is also a derivative of XNA.
- It’s a fairly young and immature project so information about it is sparse.
+ It is a fairly young and immature project so information about it is sparse.
  It supports PC platforms exclusively, namely Windows, Linux and OS X, and
  just like MonoGame it is fully compatible with the official Kinect SDK
  for the same reasons.
@@ -1918,7 +1919,7 @@ reference "fig:CocosSharp"
  It is built on top of MonoGame with C# implementations of the API of the
  already well established open source game development frameworks of Cocos2D
  and Cocos3D.
- Like FNA it is a relatively young project so there’s not much concrete
+ Like FNA it is a relatively young project so there is not much concrete
  information on the framework.
  Since it is built on top of MonoGame it can run any platform that MonoGame
  supports, and for the same reason it is also compatible with the official
@@ -1948,8 +1949,8 @@ It is evident that there is no lack of alternatives when it comes to doing
 \begin_layout Standard
 Xenko or MonoGame seem to be the best and safest choices in the interest
  of building reusable software.
- Xenko is still a fairly new engine, and the project team doesn’t have much
- experience with it, but it appears to be quite capable.
+ Xenko is still a fairly new engine, and the project team does not have
+ much experience with it, but it appears to be quite capable.
  MonoGame is probably the strongest contender because of its popularity
  and devoted developers.
 \end_layout
@@ -2538,10 +2539,10 @@ name "sec:Designing-an-Engaging"
 \begin_layout Standard
 In terms of technology game development have changed drastically over the
  years, and will continue to do so.
- However, when it comes to the core aspects of game development, there hasn’t
- been any real change.
+ However, when it comes to the core aspects of game development, there has
+ not been any real change.
  The reason people still play games is because they still find them fun,
- and the reason for this haven’t changed on a fundamental level.
+ and the reason for this has not changed on a fundamental level.
  This means that the article by Malone 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2608,7 +2609,7 @@ Creating a suitable level of difficulty is possibly the hardest part about
  but scaling it in a way that keeps it on a level that changes according
  to the player's own skill development.
  If a game is too easy the player will get bored and lose interest, while
- if it’s too difficulty frustration will occur and the player might give
+ if it is too difficult frustration will occur and the player might give
  up.
  Most games today become more challenging as you progress, unlocking more
  complex mechanics or harder enemies, in addition to often giving a choice
@@ -2658,7 +2659,7 @@ Lastly, the game controls are a very important aspect.
  Input devices need to be responsive and precise.
  The graphics interface, including sound, need to show feedback immediately
  when required as a response to commands from the player.
- If the interfaces are too clunky to use it won’t matter how intriguing
+ If the interfaces are too clunky to use it will not matter how intriguing
  the story is, or how good the mechanics are, the player will stop playing
  the game because of undue frustration.
  It is also important that the player feels that he is discovering and planning
@@ -2896,7 +2897,7 @@ key "EvaluationInteractive"
 
 , created a motion controlled game to be used in public spaces.
  The goal of the project is to map out people's reactions to this type of
- installations and judge if there’s a use for them.
+ installations and judge if there is a use for them.
  In order to figure this out, they created a game where the player use their
  own silhouette to gather balls in a basket.
  Since the focus of this project was more on people’s behaviour and reactions
