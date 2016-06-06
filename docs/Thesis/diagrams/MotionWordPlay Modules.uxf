@@ -9,7 +9,7 @@
       <w>130</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>MotionWordPlay</panel_attributes>
+    <panel_attributes>Game Core</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -20,7 +20,7 @@
       <w>210</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>MotionWordPlay.UserInterface</panel_attributes>
+    <panel_attributes>User Interface</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -31,7 +31,7 @@
       <w>210</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>WordPlay</panel_attributes>
+    <panel_attributes>Game Logic</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -42,7 +42,7 @@
       <w>170</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>MotionControlWrapper</panel_attributes>
+    <panel_attributes>Motion Control</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
