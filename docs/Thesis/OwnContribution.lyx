@@ -541,6 +541,13 @@ Empty Keys UI
 Architecture and Implementation
 \end_layout
 
+\begin_layout Standard
+This section will explain our system in detail.
+ We will start with an overview of the system, before we go over each module
+ showing how they are implemented, before finishing with the module that
+ binds it all together.
+\end_layout
+
 \begin_layout Subsubsection
 Modules Overview
 \end_layout
