@@ -453,10 +453,19 @@ name "sec:Framework"
 \end_layout
 
 \begin_layout Standard
-This section will present our work with the framework we have produced to
- assist the development of motion controlled games.
- We will cover the design goals of our framework, as well as the underlying
- architectural decisions, and implementation.
+This section will explain our system in detail.
+ We will start with an overview of the system, before we go over each module
+ showing how they are implemented, before finishing with the module that
+ binds it all together.
+ Most of the following sections contain simplified class diagrams, the full
+ versions of these can be found in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Class-Diagrams"
+
+\end_inset
+
+: Class Diagrams.
 \end_layout
 
 \begin_layout Subsection
