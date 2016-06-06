@@ -74,10 +74,10 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-This master’s thesis project is dedicated to investigate the potential for
- educational games with a motion controller based interface.
- Through professor Alf Inge Wang at NTNU we were tasked with the brainstorming
- and development of a concept that would utilize motion controllers, more
+This master’s project is dedicated to investigate the potential for educational
+ games with a motion controller based interface.
+ Through professor Alf Inge Wang at NTNU we were assigned the task of brainstorm
+ing and developing a concept that would utilize motion controllers, more
  specifically the Microsoft Kinect, and investigate if it could be useful
  outside of a traditional game setting.
  Additionally it was expressed a desire to have emphasis on reusable software
@@ -86,7 +86,7 @@ This master’s thesis project is dedicated to investigate the potential for
 \end_layout
 
 \begin_layout Standard
-Throughout our research period we’ve discovered several interesting things.
+Throughout our research period we have discovered several interesting things.
  We found that although the Kinect failed to gain any traction on its intended
  area of use, it is a very impressive piece of affordable technology that
  is worth investigating further.
@@ -100,7 +100,7 @@ Throughout our research period we’ve discovered several interesting things.
 
 \begin_layout Standard
 Using the Kinect SDK and the MonoGame framework we were able to develop
- a prototype for a basic grammar game, 4-6 players will stand in front of
+ a prototype of a basic grammar game, 4-6 players will stand in front of
  the kinect and be designated a word from a sentence.
  Through discussion and cooperation the players will need to exchange words
  between each other until they agree on how the sentence should be.
