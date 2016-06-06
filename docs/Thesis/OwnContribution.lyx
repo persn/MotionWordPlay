@@ -688,7 +688,7 @@ reference "fig:Game-Flow"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -784,7 +784,7 @@ reference "fig:Example-situation---1"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -801,7 +801,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Game concept scetch
+Game concept sketch
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Game-concept-scetch"
