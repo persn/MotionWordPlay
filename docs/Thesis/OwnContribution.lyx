@@ -552,20 +552,266 @@ This section will explain our system in detail.
 Modules Overview
 \end_layout
 
+\begin_layout Standard
+The system is divided into 4 modules, each with their own roles and responsibili
+ties, a rough overview is presented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Module-Overview"
+
+\end_inset
+
+.
+ We have decided to give the modules generic names in this report for the
+ sake of simplicity, so here we will give a brief presentation on what each
+ module does and what would be their respective C# project counterparts
+ in our Visual Studio solution as seen in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Visual-Studio-Project"
+
+\end_inset
+
+.
+ Detailed descriptions of each module can be found in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Motion-Control-Module"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Core-Module"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/MotionWordPlay Modules.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Module Overview
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Module-Overview"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Modules VisualStudio.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Visual Studio Project Screenshot
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Visual-Studio-Project"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+Motion Control Module
+\series default
+ is a framework for handling motion controller hardware, more details in
+ section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Motion-Control-Module"
+
+\end_inset
+
+.
+ The corresponding C# project would be 
+\series bold
+MotionControlWrapper
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+User Interface Module
+\series default
+ contains the UI, this is put in a separate project to make the UI more
+ independent, more details in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:User-Interface-Module"
+
+\end_inset
+
+.
+ The corresponding C# project would be 
+\series bold
+MotionWordPlay.UserInterface
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+Game Logic Module
+\series default
+ contains all the logic for our word play game, more details in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Logic-Module"
+
+\end_inset
+
+.
+ The corresponding C# project would be 
+\series bold
+WordPlay
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+Game Core Module
+\series default
+ is the implementation module, it imports all other modules, encapsulates
+ them and add game specific functionality like graphics, more details in
+ section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Core-Module"
+
+\end_inset
+
+.
+ The corresponding C# project would be 
+\series bold
+MotionWordPlay
+\series default
+, 
+\series bold
+MotionWordPlay.WindowsDX
+\series default
+ and 
+\series bold
+MotionWordPlay.DesktopGL
+\series default
+.
+\end_layout
+
 \begin_layout Subsubsection
 Motion Control Module
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Motion-Control-Module"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 User Interface Module
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:User-Interface-Module"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Game Logic Module
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Game-Logic-Module"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Game Core Module
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Game-Core-Module"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
