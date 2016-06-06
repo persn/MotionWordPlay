@@ -538,11 +538,27 @@ Empty Keys UI
 \end_layout
 
 \begin_layout Subsection
-Architecture
+Architecture and Implementation
 \end_layout
 
-\begin_layout Subsection
-Implementation
+\begin_layout Subsubsection
+Modules Overview
+\end_layout
+
+\begin_layout Subsubsection
+Motion Control Module
+\end_layout
+
+\begin_layout Subsubsection
+User Interface Module
+\end_layout
+
+\begin_layout Subsubsection
+Game Logic Module
+\end_layout
+
+\begin_layout Subsubsection
+Core Game Module
 \end_layout
 
 \begin_layout Standard
