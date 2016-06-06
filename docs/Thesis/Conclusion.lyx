@@ -145,7 +145,7 @@ During the project we performed an experiment involving third year elementary
 All of our student participants claimed that they preferred games like this
  to be multiplayer.
  Adding a social aspect to the games often lead to an increase in playtime.
- Even when the game itself isn’t intended to be directly competitive, players
+ Even when the game itself is not intended to be directly competitive, players
  often create competitions among their friends and social circle to compare
  how well they do, just look at the Flappy Bird craze from a short time
  back.
@@ -208,7 +208,7 @@ The game prototype itself is far from a finished product.
  The user interface needs to be made more clear, and scale better to different
  screen sizes.
  We also saw the the horizontal alignment on the textboxes containing the
- single words didn’t quite match the players positions.
+ single words did not quite match the players positions.
  
 \end_layout
 
@@ -239,7 +239,7 @@ For the game itself we have identified two more issues that needs to be
  One is the game over screen, currently this is only a short message showing
  the words “Game Over” and the score acquired from this round.
  The other issue is somewhat related to this, namely sound.
- We currently have no sound implementation as this wasn’t important for
+ We currently have no sound implementation as this was not important for
  a prototype, we are even more sure about this after experiencing the noise
  level six third graders can produce during a gaming session.
  However it is something that greatly impacts how finished a product feels
@@ -253,7 +253,7 @@ Lastly, we experienced issues having our gestures register during the experiment
  Ideally this should be done by working with several recordings of different
  people performing the same gesture.
  Since we had everything working out just fine in our lab we assumed this
- would be the case when we were to test the prototype, which it wasn’t.
+ would be the case when we were to test the prototype, which it was not.
  We also recommend using someone from the target audience when creating
  this gesture, as a possible reason for the problems is the difference is
  physical size between us university students which did the recordings in
