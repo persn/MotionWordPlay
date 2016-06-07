@@ -1428,6 +1428,164 @@ name "sub:Game-Core-Module"
 \end_layout
 
 \begin_layout Standard
+This is the module that binds everything together, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Class-Diagram-for-2"
+
+\end_inset
+
+.
+ The Game class controls the basic MonoGame functionality, such as setting
+ up a graphics device, loading content, display resolution, and initialising
+ our other modules.
+ The Game Loop, as mentioned in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:The-Game-Loop"
+
+\end_inset
+
+: Game Development Technology, is implemented in the Game class which extends
+ the Game template class from MonoGame.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/MotionWordPlay.csproj - Simple.png
+	scale 40
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Class Diagram for the Game Core Module
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Class-Diagram-for-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MonoGame supports various platforms, for our projects platform support is
+ not really relevant as long as we support at least Windows since that is
+ the native desktop environment for the Kinect.
+ Xbox One is of course also considered native for the Kinect, however in
+ order to develop for that console there is a set of official requirements
+ that needs to be fulfilled so we decided not to.
+ We still support two platforms however, which are both desktop platforms,
+ one for DirectX and one for OpenGL.
+ The OpenGL platform can in theory be executed on Linux and OS X, although
+ this is untested, however without functional Kinect drivers the game would
+ not work properly.
+\end_layout
+
+\begin_layout Standard
+MonoGame handles multiple platform support by providing separate individual
+ assemblies for each platform, we have organized this in Visual Studio by
+ dividing the Game Core Module into three projects, one shared project and
+ two launcher projects.
+ A shared project in Visual Studio is essentially just a collection of code
+ files, nothing more, and this is where we store all of our Game Core code.
+ The launcher projects will then reference the shared project, import assemblies
+ to solve references that might be needed by the code in the shared project,
+ and provide a launcher file that makes sure the game actually start.
+ The launcher project is also where it would be suitable to write platform
+ specific code, but as we have worked mostly on Windows with DirectX there
+ never came an occasion where we had to do that, it is still nice to know
+ that we had the option if we needed it.
+\end_layout
+
+\begin_layout Standard
+There is no communication that runs directly between the other modules,
+ everything is handled through the game core module.
+ Each module is represented by a single class each.
+ This is done to ensure that any future projects building upon this framework
+ can easily reuse or replace modules as they see fit, without breaking any
+ functionality contained in other modules.
+\end_layout
+
+\begin_layout Standard
+Game logic is handled through our WordPlayWrapper, which has events that
+ fires when something important happens in the game, such as getting a correct
+ answer.
+ These events are then used within the Game class to update the GUI or other
+ functionality that is not accessible from the game logic module itself.
+ WordPlayWrapper is a wrapper class which is intended to encapsulate much
+ of the work with initializing the game logic module, as well as providing
+ an easier way to access the information in the game logic module that is
+ relevant for our game core module.
+\end_layout
+
+\begin_layout Standard
+The InputHandler takes care of anything related to input, including motion
+ control.
+ Gesture controls via the motion control module is handled similarly, whenever
+ a gesture is registered an event is fired and the Game class can use the
+ passed information to notify other modules, such as the game logic module.
+ This class is created to keep all of the input methods gathered, while
+ also avoiding having functionality for this in the Game class itself, as
+ well as easing the potential work involved with adding new input methods
+ in the future.
+ Motion control within the InputHandler is taken care of by our MotionController
+ class.
+ This works towards objects that implements our IMotionController interface,
+ which are provided through the MotionControllerFactory class.
+ Currently there is only one class that implements this interface, namely
+ the Kinectv2.
+ This is the class that controls communication with the Kinect sensor.
+ To implement another sensor type, it is necessary to create a similar class
+ which also implements the IMotionController interface, and supply this
+ to the MotionController via the MotionControllerFactory.
+\end_layout
+
+\begin_layout Standard
+The user interface module is accessed through our EmptyKeysWrapper class,
+ which fills a purpose similar to the WordPlayWrapper, namely allowing Game
+ access to the different GUI components while abstracting some of the actual
+ implementation.
+ This class is aimed to provide wrapper functionality specifically for the
+ Empty Keys Framework, if any developer wanted to use a different user interface
+ framework they would have to make a new class that extends the IUserInterface
+ and provide their own wrapper functionality.
+ The User Interface Module would also need to be replaced since it is essentiall
+y a set Empty Keys specific code.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
