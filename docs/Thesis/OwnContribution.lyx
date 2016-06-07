@@ -605,6 +605,51 @@ All that is needed to start using this module is installing the NuGet package.
 MonoGame
 \end_layout
 
+\begin_layout Standard
+In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Engines-and-Frameworks"
+
+\end_inset
+
+ Engines and Frameworks we have reviewed several possible candidates with
+ the favorites being Xenko and MonoGame.
+ Ultimately we ended up deciding on MonoGame, primarily because it feels
+ like the safest framework to use in the interest of building software that
+ can be reused in the future.
+ One factor that is not previously mentioned is that the project members
+ were already familiar with Microsoft XNA, which is almost identical with
+ MonoGame from a coder’s perspective.
+ The Xenko engine was mentioned as another interesting candidate, but given
+ the previously mentioned reasons, and the fact that our game concept is
+ not complex enough to warrant the introduction of an engine, MonoGame was
+ the more reasonable choice.
+\end_layout
+
+\begin_layout Standard
+Using MonoGame for our project can be best described as “smooth sailing”,
+ there has been no apparent bugs or difficulties, aside from one where using
+ OpenGL in Windows would refuse to toggle Full Screen mode, but this did
+ not affect us much as all team members were using Windows and could switch
+ to DirectX.
+ Almost every tutorial or code sample for XNA are directly applicable to
+ MonoGame, so there is plenty material to find that helped us develop using
+ MonoGame.
+ One minor difference is the tool in the SDK provided to organize and build
+ assets (graphics, audio, shaders, etc.), in XNA this was a tool within Visual
+ Studio, in MonoGame it is provided as a stand alone application.
+ From our experiences with it we would say MonoGame is a robust framework
+ that we can recommend to anyone with programming knowledge interested in
+ making simple games.
+\end_layout
+
+\begin_layout Standard
+MonoGame is implemented into our project as a NuGet package, however installing
+ the SDK is still needed as the Content Builder is required to build the
+ project.
+\end_layout
+
 \begin_layout Subsubsection
 Empty Keys UI
 \end_layout
