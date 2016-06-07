@@ -194,47 +194,57 @@ The thesis is structured according to our process in the project.
  work.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 
 \series bold
 Introduction
-\series default
-: Covers the context of the project, our motivation for working on this
- project, and the goals this project hopes to achieve.
 \end_layout
 
 \begin_layout Standard
+Covers the context of the project, our motivation for working on this project,
+ and the goals this project hopes to achieve.
+\end_layout
+
+\begin_layout Subsubsection
 
 \series bold
-Research:
-\series default
- The findings from our literature study covering the subjects Motion Capture
+Research
+\end_layout
+
+\begin_layout Standard
+The findings from our literature study covering the subjects Motion Capture
  Technology, Game Development Technology, Serious Games, Designing an Engaging
  Game, and Related Work.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 
 \series bold
-Own Contribution:
-\series default
- Presents our work on the prototype, our framework, and our experiment.
+Own Contribution
 \end_layout
 
 \begin_layout Standard
+Presents our work on the prototype, our framework, and our experiment.
+\end_layout
+
+\begin_layout Subsubsection
 
 \series bold
-Conclusion:
-\series default
- A summary of the project and our recommendations for future work.
+Conclusion
 \end_layout
 
 \begin_layout Standard
+A summary of the project and our recommendations for future work.
+\end_layout
+
+\begin_layout Subsubsection
 
 \series bold
-Appendices:
-\series default
- Contains our subsidiary documents that did not fit into our regular sections
+Appendices
+\end_layout
+
+\begin_layout Standard
+Contains our subsidiary documents that did not fit into our regular sections
  due to size or relevance.
 \end_layout
 
