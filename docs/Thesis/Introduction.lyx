@@ -263,7 +263,26 @@ Methodology
 \begin_layout Standard
 In this chapter we will present the methods we will use during this project.
  Starting with our goals and research questions, and how we reached them,
- using the Goal Question Metric approach.
+ using the 
+\series bold
+G
+\series default
+oal 
+\series bold
+Q
+\series default
+uestion 
+\series bold
+M
+\series default
+etric (GQM) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GQM"
+
+\end_inset
+
+ approach.
  We then go through our process and the different approaches we have used
  to gather data and any potential practical issues that may arise.
 \end_layout
@@ -276,17 +295,10 @@ Goals and Research Questions
 This section details the questions we want to answer with this project,
  and the method of which we have used to refine them into a more quantifiable
  form.
- The questions search to identify the usefulness of educational games, and
+ The questions aim to identify the usefulness of educational games, and
  the impact of using less traditional input methods, as well as the social
  aspect.
- We have used the Goal Question Metric
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GQM"
-
-\end_inset
-
- to reach these questions.
+ We have used the GQMMetric to reach these questions.
 \end_layout
 
 \begin_layout Subsubsection
@@ -294,19 +306,7 @@ Goal Question Metric
 \end_layout
 
 \begin_layout Standard
-The 
-\series bold
-G
-\series default
-oal 
-\series bold
-Q
-\series default
-uestion 
-\series bold
-M
-\series default
-etric (GQM) approach is focused on defining useful questions with measurable
+The GQM approach is focused on defining useful questions with measurable
  metrics.
  To achieve this GQM works in a top-down fashion resulting in a measurement
  model with three levels.
@@ -1689,7 +1689,7 @@ A literature study is one of the most used methods for any research, reviewing
  The topics of our literature study are:
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Motion Capture Technology
@@ -1699,7 +1699,7 @@ Motion Capture Technology
  this is the one we had available during our project.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Engines and Frameworks
@@ -1711,7 +1711,7 @@ Engines and Frameworks
  us.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Serious Games
@@ -1720,7 +1720,7 @@ Serious Games
  of the more common subgenres, and examples.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Designing an Engaging Game
@@ -1731,7 +1731,7 @@ Designing an Engaging Game
  an oversight will often harm the enjoyment of the game.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
 Related Work
