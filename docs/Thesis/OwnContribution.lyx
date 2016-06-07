@@ -1222,6 +1222,25 @@ name "sub:Game-Logic-Module"
 
 \end_layout
 
+\begin_layout Standard
+Here we have gathered the functions pertaining the game itself.
+ The module consists of a single class for this particular game implementation.
+ This class handles everything related to the game logic itself, such as
+ loading tasks from files, the current score, the number of players in the
+ game, and also keeps track of how the current task is progressing.
+\end_layout
+
+\begin_layout Standard
+While the module itself is small, mostly due to the fact that the game concept
+ we have implemented is simple, this only shows the strengths of our other
+ modules.
+ This small class was everything we needed to get a working game that is
+ controlled with the Kinect.
+ And while more advanced game concepts would surely need larger implementations,
+ this shows that it is definitely possible to develop a new game on top
+ of our framework in a relatively short amount of time.
+\end_layout
+
 \begin_layout Subsubsection
 Game Core Module
 \begin_inset CommandInset label
