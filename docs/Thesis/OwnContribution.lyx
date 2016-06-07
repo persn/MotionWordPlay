@@ -529,8 +529,23 @@ Engines and Frameworks
 \begin_layout Standard
 Here we will explain our choices in regards to the frameworks and engines
  we have decided to use for this project.
- We will cover which factors we felt as the most crucial, and about our
- experience with using them.
+ We will cover which factors we felt were most crucial, and our experience
+ with using them.
+\end_layout
+
+\begin_layout Standard
+Note that we will mention NuGet 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NuGet"
+
+\end_inset
+
+ packages several times in this section, NuGet is a standardized way of
+ importing frameworks into a .NET/Mono source code project and is supported
+ by most major IDEs that are designed for these kind of projects, Visual
+ Studio, Xamarin Studio, and MonoDevelop will automatically download the
+ NuGet packages pre-build.
 \end_layout
 
 \begin_layout Subsubsection
