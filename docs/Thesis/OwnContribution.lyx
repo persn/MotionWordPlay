@@ -587,8 +587,8 @@ reference "sub:The-Kinect-for"
 
 \end_inset
 
-: The Kinect for Windows SDK 2.0, which greatly simplifies the amount of
- work required to create gestures that can be used in the system.
+ The Kinect for Windows SDK 2.0, which greatly simplifies the amount of work
+ required to create gestures that can be used in the system.
  
 \end_layout
 
@@ -747,7 +747,7 @@ reference "sec:Class-Diagrams"
 
 \end_inset
 
-: Class Diagrams.
+ Class Diagrams.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2589,14 +2589,14 @@ reference "sec:Questionnaire"
 
 \end_inset
 
-: Questionnaire, and the full set of results in Appendix 
+ Questionnaire, and the full set of results in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Questionnaire-Results"
 
 \end_inset
 
-: Questionnaire Results.
+ Questionnaire Results.
  We had a group of nine participants, with six girls and three boys, all
  third graders.
  Considering the small number of participants we did not distinguish between
