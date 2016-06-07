@@ -652,6 +652,13 @@ MonoGame is implemented into our project as a NuGet package, however installing
 
 \begin_layout Subsubsection
 Empty Keys UI
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Empty-Keys-UI"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1278,6 +1285,105 @@ name "sub:User-Interface-Module"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Our user interface module is based upon .xaml schemas that in turn gets generated
+ into C# classes.
+ The GUI is designed as an view in a .xaml schema, with view model classes
+ for the element types where we have data bindings.
+\end_layout
+
+\begin_layout Standard
+An overview of how this looks in our game is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Class-Diagram-for-1"
+
+\end_inset
+
+.
+ We have a view which represents the GUI as a whole, and view models for
+ the PuzzleFraction and TextBlock custom elements which has bindable data.
+ TextBlock in this case is a simple textbox with a data binding for the
+ text itself, while PuzzleFraction is an extended version which also allows
+ modifying the positioning.
+ The bindings in these custom elements allow us to modify the GUI during
+ runtime, like changing the visibility, text, or the element positions.
+ This is how we manage to get the text boxes containing our sentence fragments
+ to follow the player silhouettes during play.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/MotionWordPlay.UserInterface.csproj - Simple.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Class Diagram for the User Interface Module
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Class-Diagram-for-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The User Interface Module uses the Empty Keys framework which as previously
+ mentioned in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Empty-Keys-UI"
+
+\end_inset
+
+ Empty Keys UI supports MonoGame, FNA, and Xenko, it achieves this by providing
+ separate assemblies for each of the alternatives.
+ We have explicitly used the assembly for MonoGame in this module, however
+ since it is entirely separate from any MonoGame implementation (this is
+ handled in the Game Core Module, section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Core-Module"
+
+\end_inset
+
+ Game Core Module) it can be easily converted to FNA or Xenko by replacing
+ the assembly.
+ The assembly is implemented as a NuGet package which makes the conversion
+ even easier assuming the IDE used by future developers has convenient NuGet
+ support.
 \end_layout
 
 \begin_layout Subsubsection
