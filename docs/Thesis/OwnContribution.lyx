@@ -654,6 +654,75 @@ MonoGame is implemented into our project as a NuGet package, however installing
 Empty Keys UI
 \end_layout
 
+\begin_layout Standard
+On top of MonoGame we also needed a framework for creating a user interface,
+ as this is not included in the MonoGame package.
+ For the sake of building reusable software we wanted a framework that was
+ feature complete, while also being actively maintained and updated.
+ As far as we could tell Empty Keys was the only framework that filled those
+ criterias.
+ Empty Keys is a UI framework compatible with .xaml forms popularized by
+ Microsoft WPF, this also means that by choosing this framework we are given
+ the added bonus of being able to design our UI using the .xaml designer
+ provided in Visual Studio.
+ Empty Keys is compatible with MonoGame, Xenko and FNA, which is another
+ good thing as it means we could with minimal effort replace MonoGame with
+ Xenko or FNA.
+\end_layout
+
+\begin_layout Standard
+An alternative to using Empty Keys would have been to create our own UI
+ using sprites and drawings in MonoGame, which we consider a reasonable
+ alternative in our case, as the UI required for our prototype was very
+ simple.
+ We decided however, that this was best left as a last resort if we could
+ not find any frameworks that simplified creating user interfaces.
+\end_layout
+
+\begin_layout Standard
+Unfortunately we had some issues figuring out how to implement Empty Keys
+ into our application.
+ Documentation or tutorials for Empty Keys is sparse, there is a sample
+ project available however it is not very evident on how you are supposed
+ to set up a project using Empty Keys.
+ We spent too much time trying to tackle this obstacle, but once it was
+ set up and functional development resumed, our productivity increased greatly
+ as it was easy to further develop and extend the user interface.
+\end_layout
+
+\begin_layout Standard
+There were primarily two things we were struggling with:
+\end_layout
+
+\begin_layout Enumerate
+As it turns out, for Empty Keys to work the developers needs to attach a
+ pre-build step with the “Empty Keys Generator“ to their project.
+ The generator takes the .xaml files and generates source code files from
+ them, which will be used in the actual build.
+ We had failed to notice this, much due to the lack of documentation, and
+ spent a long time trying to understand why the user interface in the game
+ did not reflect what we were seeing in the designer.
+\end_layout
+
+\begin_layout Enumerate
+Not everything from WPF is supported.
+ Certain parameters are missing completely, User Controls, which is how
+ WPF splits a user view into separate smaller view components did not seem
+ to be at all functional.
+\end_layout
+
+\begin_layout Standard
+Overall we had a great time working with Empty Keys, it is just a shame
+ that the tutorials and documentation leave something to be desired, for
+ someone already familiar with frameworks using .xaml technology like WPF
+ and Xamarin Forms, Empty Keys is a great framework once it is properly
+ set up.
+\end_layout
+
+\begin_layout Standard
+Empty Keys is included in our project as a NuGet package.
+\end_layout
+
 \begin_layout Subsection
 Architecture and Implementation
 \end_layout
