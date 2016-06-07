@@ -1418,7 +1418,7 @@ The differences between a game framework and an engine is not clearly defined,
  have to follow the rigid “recipe” set from an engine and its editor.
  For C#, Unity is the most popular game engine, and Microsoft XNA is the
  most popular framework.
- All engines and frameworks listed in section 
+ All engines and frameworks listed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Unity"
@@ -1432,7 +1432,7 @@ reference "sub:CocosSharp"
 
 \end_inset
 
- uses some variant of the “Game Loop”, which is described in section 
+ uses some variant of the “Game Loop”, which is described in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:The-Game-Loop"

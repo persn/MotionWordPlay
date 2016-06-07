@@ -775,7 +775,7 @@ reference "fig:Visual-Studio-Project"
 \end_inset
 
 .
- Detailed descriptions of each module can be found in section 
+ Detailed descriptions of each module can be found in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Motion-Control-Module"
@@ -885,7 +885,7 @@ The
 Motion Control Module
 \series default
  is a framework for handling motion controller hardware, more details in
- section 
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Motion-Control-Module"
@@ -906,7 +906,7 @@ The
 User Interface Module
 \series default
  contains the UI, this is put in a separate project to make the UI more
- independent, more details in section 
+ independent, more details in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:User-Interface-Module"
@@ -926,7 +926,7 @@ The
 \series bold
 Game Logic Module
 \series default
- contains all the logic for our word play game, more details in section
+ contains all the logic for our word play game, more details in Section
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -949,7 +949,7 @@ Game Core Module
 \series default
  is the implementation module, it imports all other modules, encapsulates
  them and add game specific functionality like graphics, more details in
- section 
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Game-Core-Module"
@@ -1361,7 +1361,7 @@ name "fig:Class-Diagram-for-1"
 
 \begin_layout Standard
 The User Interface Module uses the Empty Keys framework which as previously
- mentioned in section 
+ mentioned in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Empty-Keys-UI"
@@ -1372,7 +1372,7 @@ reference "sub:Empty-Keys-UI"
  separate assemblies for each of the alternatives.
  We have explicitly used the assembly for MonoGame in this module, however
  since it is entirely separate from any MonoGame implementation (this is
- handled in the Game Core Module, section 
+ handled in the Game Core Module, Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Game-Core-Module"
@@ -1446,7 +1446,7 @@ reference "sub:The-Game-Loop"
 
 \end_inset
 
-: Game Development Technology, is implemented in the Game class which extends
+ Game Development Technology, is implemented in the Game class which extends
  the Game template class from MonoGame.
 \end_layout
 
@@ -1809,7 +1809,7 @@ Original Gameplay
 \begin_layout Standard
 Gameplay is mainly built upon having the players move words between themselves
  to arrange them in the correct order.
- A sketch of how this might look is shown in figure 
+ A sketch of how this might look is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Game-concept-scetch"
@@ -2039,7 +2039,7 @@ reference "sub:Body-Tracking"
 
 \end_inset
 
-: Body Tracking.
+ Body Tracking.
  Remedying this would require us to develop our of system for skeleton tracking,
  a task that would be far too large of an undertaking for us to complete
  as a part of this project.
@@ -2066,7 +2066,7 @@ reference "sec:Framework"
 
 \end_inset
 
-: Framework covers the technical aspect of our implementation, this section
+ Framework covers the technical aspect of our implementation, this section
  will instead cover the game functionality and behaviour during our experiment.
  The prototype is simple, but does what we have outlined in our concept.
  Our main goals with this prototype is confirming the functionality of our
@@ -3454,7 +3454,7 @@ reference "sec:Designing-an-Engaging"
 
 \end_inset
 
-: Designing an Engaging Game.
+ Designing an Engaging Game.
  The research covered here lists some interesting facts about how to best
  design a game to keep the players interest.
  In particular it lists the need to provide the player with a continuous
@@ -3558,8 +3558,15 @@ ty, but also the included code samples targeting the same platform.
  Likewise if the project is focused in supporting several types of sensors,
  and running on any platform, OpenNI is likely to be the better choice.
  This is a major part of our motivation to develop our framework, as explained
- in Section XX: Framework, is to assist in the starting phase of a new project
- by providing a foundation to build upon.
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Framework"
+
+\end_inset
+
+Framework, is to assist in the starting phase of a new project by providing
+ a foundation to build upon.
 \end_layout
 
 \begin_layout Standard
