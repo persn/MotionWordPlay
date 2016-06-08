@@ -180,7 +180,7 @@ The installation file includes the driver for the Kinect sensor itself,
  We found the demo programs helpful for understanding the different sensor
  modes on the Kinect.
  The VS solutions was a big help for getting started with the project.
- Although the examples are based on Windows Presentation Foundation (WPF),
+ Although the C# examples are based on Windows Presentation Foundation (WPF),
  which we were not using, the general logic and approach were the same.
 \end_layout
 
@@ -299,8 +299,6 @@ reference "fig:Visual-Gesture-Builder-1"
  Once all the required gesture files have been created, a gdb file is generated
  by combining these, this file can then be used to recognise these gestures
  by another program.
- We found that for simple gestures it was enough with one clip of 5-10 seconds
- to generate a satisfactory result.
 \end_layout
 
 \begin_layout Standard
@@ -430,8 +428,7 @@ Tracking multiple people at once is fairly simple when using the Kinect
  If this happens the same body will get a new random id, this means that
  the id is not good enough identification by itself.
  In our case we decided to arrange the bodies according to their x-coordinate
- instead of relying on the assigned id, this means that we could also swap
- players mid-game if we wanted.
+ instead of relying on the assigned id.
 \end_layout
 
 \begin_layout Standard
@@ -497,11 +494,10 @@ Reusability
 \begin_layout Standard
 Reusability is defined as the reuse of existing assets, with varying degree
  of modification.
- A very simple example of reuse is adapting a function from an earlier project.
+ A simple example of reuse is adapting a function from an earlier project.
  Our solution file also contains two startup projects, enabling building
  both a DirectX and an OpenGL version.
- This should be easy to port over to also build versions for other operating
- systems such as Linux.
+ This should be easy to port over to other operating systems.
 \end_layout
 
 \begin_layout Subsubsection
@@ -606,7 +602,7 @@ MonoGame
 \end_layout
 
 \begin_layout Standard
-In section 
+In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Engines-and-Frameworks"
@@ -640,8 +636,8 @@ Using MonoGame for our project can be best described as “smooth sailing”,
  assets (graphics, audio, shaders, etc.), in XNA this was a tool within Visual
  Studio, in MonoGame it is provided as a stand alone application.
  From our experiences with it we would say MonoGame is a robust framework
- that we can recommend to anyone with programming knowledge interested in
- making simple games.
+ that we can recommend to anyone with programming knowledge who is interested
+ in making simple games.
 \end_layout
 
 \begin_layout Standard
@@ -662,12 +658,61 @@ name "sub:Empty-Keys-UI"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/EmptyKeysLogoTextSmall.png
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Empty Keys
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Empty-Keys-UI"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 On top of MonoGame we also needed a framework for creating a user interface,
  as this is not included in the MonoGame package.
  For the sake of building reusable software we wanted a framework that was
  feature complete, while also being actively maintained and updated.
- As far as we could tell Empty Keys was the only framework that filled those
- criterias.
+ As far as we could tell Empty Keys, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Empty-Keys-UI"
+
+\end_inset
+
+, was the only framework that filled those criterias.
  Empty Keys is a UI framework compatible with .xaml forms popularized by
  Microsoft WPF, this also means that by choosing this framework we are given
  the added bonus of being able to design our UI using the .xaml designer
@@ -727,7 +772,8 @@ Overall we had a great time working with Empty Keys, it is just a shame
 \end_layout
 
 \begin_layout Standard
-Empty Keys is included in our project as a NuGet package.
+Empty Keys is included in our project as a NuGet package, where the generator
+ is also included.
 \end_layout
 
 \begin_layout Subsection
@@ -755,8 +801,7 @@ Modules Overview
 \end_layout
 
 \begin_layout Standard
-The system is divided into 4 modules, each with their own roles and responsibili
-ties, a rough overview is presented in Figure 
+A rough overview of our System is presented in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Module-Overview"
@@ -764,6 +809,10 @@ reference "fig:Module-Overview"
 \end_inset
 
 .
+ It consists of four modules that we ourselves have created, namely Motion
+ Control, Game Core, Game Logic, and User Interface.
+ In addition to this we have implemented the third party frameworks MonoGame,
+ Empty Keys, and Kinect SDK.
  We have decided to give the modules generic names in this report for the
  sake of simplicity, so here we will give a brief presentation on what each
  module does and what would be their respective C# project counterparts
@@ -1134,7 +1183,7 @@ reference "fig:Code-extract-from-1"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -1456,7 +1505,7 @@ reference "sub:The-Game-Loop"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -1500,7 +1549,7 @@ name "fig:Class-Diagram-for-2"
 \end_layout
 
 \begin_layout Standard
-MonoGame supports various platforms, for our projects platform support is
+MonoGame supports various platforms, for our project platform support is
  not really relevant as long as we support at least Windows since that is
  the native desktop environment for the Kinect.
  Xbox One is of course also considered native for the Kinect, however in
@@ -1508,9 +1557,8 @@ MonoGame supports various platforms, for our projects platform support is
  that needs to be fulfilled so we decided not to.
  We still support two platforms however, which are both desktop platforms,
  one for DirectX and one for OpenGL.
- The OpenGL platform can in theory be executed on Linux and OS X, although
- this is untested, however without functional Kinect drivers the game would
- not work properly.
+ The OpenGL platform can in theory be executed on Linux and OS X, however
+ without functional Kinect drivers the game would not work properly.
 \end_layout
 
 \begin_layout Standard
@@ -1542,6 +1590,14 @@ There is no communication that runs directly between the other modules,
 Game logic is handled through our WordPlayWrapper, which has events that
  fires when something important happens in the game, such as getting a correct
  answer.
+ This cross-module communication is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Communication-between-Game"
+
+\end_inset
+
+.
  These events are then used within the Game class to update the GUI or other
  functionality that is not accessible from the game logic module itself.
  WordPlayWrapper is a wrapper class which is intended to encapsulate much
@@ -1551,8 +1607,60 @@ Game logic is handled through our WordPlayWrapper, which has events that
 \end_layout
 
 \begin_layout Standard
-The InputHandler takes care of anything related to input, including motion
- control.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Game - WordplayGame Communication.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Communication between Game and WordPlayGame
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Communication-between-Game"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The InputHandler, as illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Communication-between-Game-and-motion"
+
+\end_inset
+
+, takes care of anything related to input, including motion control.
  Gesture controls via the motion control module is handled similarly, whenever
  a gesture is registered an event is fired and the Game class can use the
  passed information to notify other modules, such as the game logic module.
@@ -1573,16 +1681,115 @@ The InputHandler takes care of anything related to input, including motion
 \end_layout
 
 \begin_layout Standard
-The user interface module is accessed through our EmptyKeysWrapper class,
- which fills a purpose similar to the WordPlayWrapper, namely allowing Game
- access to the different GUI components while abstracting some of the actual
- implementation.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Game - MotionController Communication.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Communication between Game and MotionController
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Communication-between-Game-and-motion"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The user interface module is accessed through our EmptyKeysWrapper class
+ (shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Communication-between-Game-and-UI"
+
+\end_inset
+
+), which fills a purpose similar to the WordPlayWrapper, namely allowing
+ Game access to the different GUI components while abstracting some of the
+ actual implementation.
  This class is aimed to provide wrapper functionality specifically for the
  Empty Keys Framework, if any developer wanted to use a different user interface
  framework they would have to make a new class that extends the IUserInterface
  and provide their own wrapper functionality.
  The User Interface Module would also need to be replaced since it is essentiall
 y a set Empty Keys specific code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/Communication Game - UI.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Communication between Game and User Interface
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Communication-between-Game-and-UI"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2375,7 +2582,7 @@ Experiment Context
 This section will describe the practicalities of our experiment, such as
  the research group, our participants, location, as well as our results
  from the questionnaire and observations.
- The experiment was performed on Monday 30.05.2016.
+ The experiment was performed on Monday 30.05.2016 at Eberg SFO.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2383,16 +2590,24 @@ Research Group
 \end_layout
 
 \begin_layout Standard
-Per Olav Flaten & Henrik Reitan: Handled the main parts of the experiment,
- setting up the equipment, sorting out the technical difficulties, and explainin
-g the game as well as the questionnaire to the participants.
+
+\series bold
+Per Olav Flaten & Henrik Reitan:
+\series default
+ Handled the main parts of the experiment, setting up the equipment, sorting
+ out the technical difficulties, and explaining the game as well as the
+ questionnaire to the participants.
  We took turns monitoring the game while the students played, giving the
  other more room to make observations.
 \end_layout
 
 \begin_layout Standard
-Alf Inge Wang: Our supervisor on this project, he tipped us about contacting
- Eberg SFO to see if they had opportunity to help with the experiment.
+
+\series bold
+Alf Inge Wang:
+\series default
+ Our supervisor on this project, he tipped us about contacting Eberg SFO
+ to see if they had opportunity to help with the experiment.
  He also helped the students fill out the questionnaire, aided us with observati
 ons, and even jumped in to play the game when one of the students have to
  go before they finished playing.
@@ -2408,8 +2623,6 @@ We were lucky enough to get a group of third graders in the after school
  This fit perfectly with our intended audience.
  However, since this was an after school programme, we were not able to
  get a lot of students.
- The test group numbered 9 people, this is not ideal, but we did get some
- decent reactions on our game which is what we were looking for.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2432,9 +2645,9 @@ reference "fig:Eberg-SFO"
  because the students were outside this time of day.
  Thanks to this we could do the experiment without any neighbouring activities
  impacting our work.
- We set up chairs for the participants to sit on, this was easier than trying
- to make six eight-year-olds stand in place for more than a couple seconds.
- 
+ We had some issues getting the participants to maintain their positions
+ due to their energy levels, this was remedied by placing them on chairs
+ instead of standing.
 \end_layout
 
 \begin_layout Standard
@@ -2492,7 +2705,7 @@ Experiment Procedure
 \begin_layout Standard
 Once we had our equipment set up, and chairs in place, we started having
  technical issues.
- We will discuss the actual issues in section 
+ We discuss the actual issues in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Technical-Issues"
@@ -2506,10 +2719,8 @@ reference "sub:Technical-Issues"
  we had no knowledge about who was in what group, and because we had to
  delay the first group this caused some mix ups and minor confusion between
  the groups.
- Kids at this age are apparently obsessed with things being done in order,
- this lead to some amount of yelling and arguments between the students
- when they thought someone had gotten several turns, or skipped ahead in
- line.
+ This delay sparked some conflicts among the students, as they believed
+ that some of the other groups had skipped their turn.
 \end_layout
 
 \begin_layout Standard
@@ -3162,16 +3373,16 @@ Once we got everything set up and our technical issues sorted out, we started
  As mentioned before, getting the players to understand the game was easy
  enough.
  Having them stand in one place so they avoided overlapping their silhouettes,
- and thus making the Kinect struggle, was nigh impossible.
- This was much due to the fact that they found it very interesting to see
- how their silhouettes interacted.
+ and thus making the Kinect struggle, was nearly impossible.
+ This was much due to the fact that they found it interesting to see how
+ their silhouettes interacted.
  Especially the fact that if you got close enough they merged into one color,
  and when separated again one player would get a new color.
  After a bit of struggle getting them started with the actual game instead
  of just playing with the silhouettes, we ended up setting down chairs with
  a suitable distance in between so we had the players situated as ideal
  as possible for the body tracking.
- Everyone was also noticeably calmer when sitting down compared to when
+ Everyone was also noticeably calmer when sitting down, compared to when
  they were jumping around and running in between each other to see what
  would happen to the silhouettes.
 \end_layout
@@ -3292,8 +3503,8 @@ RQ 1.1:
 \series bold
 RQ 1.2:
 \series default
- Does a cooperative game increase the amount of discussion / cooperation
- between people in a classroom compared to traditional teaching?
+ Does a cooperative game increase the amount of discussion/cooperation between
+ people in a classroom compared to traditional teaching?
 \end_layout
 
 \begin_layout Itemize
