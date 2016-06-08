@@ -122,8 +122,8 @@ Since our project entails using motion capture as the primary input method,
  have markerless optical tracking, such as the Microsoft Kinect, which comprises
  a normal color camera, and infrared depth tracking.
  The markerless versions are more aimed at the consumer market so far, with
- the tracking being less precise than the marker based systems, but also
- at a fraction of the cost.
+ the tracking being less precise than the marker based systems, but they
+ also cost significantly less.
 \end_layout
 
 \begin_layout Subsection
@@ -146,9 +146,9 @@ reference "fig:Microsoft-Kinect-v2"
 \end_inset
 
  is Microsoft’s version of motion tracking for the home consoles, an answer
- to Nintendo's Wii Remote, and Sony's PlayStation Move/Camera.
- Initially sold for the Xbox 360, there are now versions for the Xbox One
- as well as PC.
+ to Nintendo's Wii Remote, and Sony's PlayStation Move.
+ Initially sold for the Xbox 360, there are now improved versions for the
+ Xbox One as well as PC.
  Microsoft have also released a software development kit that allows developers
  to write applications that utilize the Kinect.
  The initial version for the Xbox 360 was fairly well received, but not
@@ -190,7 +190,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Microsoft Kinect v2 Sensor
+Microsoft Kinect v1 Sensor
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Microsoft-Kinect-v2"
@@ -238,7 +238,7 @@ reference "tab:Kinect-Hardware-Specification"
  allowing a lot more data to be transferred, this made it possible to equip
  the v2 with a 1080p resolution camera while keeping the framerate at 30.
  Additionally the increased data rate has increased the number of fully
- trackable skeletons to 6 up from 2 on the v1, as well as 26 instead of
+ trackable skeletons to 6, up from 2 on the v1, as well as 26 instead of
  20 joints per skeleton.
  The v2 can also display a video stream from the infrared camera, which
  the v1 is unable to.
@@ -686,7 +686,7 @@ reference "tab:Kinect-SDK-Comparison"
  The SDK includes several examples and test applications that can be used
  to troubleshoot the Kinect itself or help in development of new applications.
  The main drawback of the official SDK is that it is proprietary, and no
- way to look at the actual source code for the drivers, it also only functions
+ way to look at the actual source code for the drivers, it also only works
  on Windows.
  To use the Kinect on other operating system it requires the use of third
  party drivers.
@@ -792,7 +792,7 @@ Microsoft
 \begin_inset Text
 
 \begin_layout Plain Layout
-Third-party
+Open Source
 \end_layout
 
 \end_inset
@@ -1524,7 +1524,7 @@ reference "sub:Unity"
  PC, Consoles, Mobile and even platforms that are not common like Smart
  TV’s.
  It has been used to make games such as Ori and the Blind Forest, Endless
- Legend, Dungeon of the Endless, Satellite Reign, HearthStone, Cities Skylines,
+ Legend, Dungeon of the Endless, Satellite Reign, Hearthstone, Cities Skylines,
  and many more.
  It uses a custom made edition of Mono to achieve support for all the platforms.
  This custom edition is based off of the rules and conventions of .NET 2.0,
@@ -2060,7 +2060,7 @@ Much of the reason for the failing of these games was that they usually
  and over.
  Games that went in a different direction, by promoting creative thinking
  and unusual problems became popular, one such game was The Incredible Machine
- or TIM.
+ (TIM).
  This type of game have not found their way into classrooms in the same
  degree as the ones from the early 80’, much due to the fact that they do
  not fit any particular curriculum.
@@ -2243,11 +2243,11 @@ name "fig:The-Oregon-Trail"
 \end_layout
 
 \begin_layout Subsubsection
-The Incredible Machine(TIM)
+The Incredible Machine (TIM)
 \end_layout
 
 \begin_layout Standard
-The Incredible Machine(TIM), Figure 
+TIM, Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:The-Incredible-Machine"
@@ -2327,8 +2327,8 @@ reference "fig:America's-Army"
  Despite being what could be called a PR stunt, the game was well received
  with great review scores and several awards.
  Much of this reception is credited to the realistic portrayal of soldiering,
- including basic training and not just the gamified fighting that most similar
- games portray.
+ including basic training, instead just the gamified fighting that most
+ similar games portray.
  It also includes an optional medical training, which has been credited
  to saving lives in at least two situations, where players used the knowledge
  from the game in actual emergencies.
@@ -2390,10 +2390,16 @@ reference "fig:X-Plane"
 
 , is a “Simulation” title, more specifically a flight simulator that aims
  to deliver a realistic flying experience.
- It is FAA approved and is used for pilot training[ref], advertising such
- features as Artificially Controlled Air Traffic Controller, an extensive
- amount of airports from real life, a wide range of aircrafts available,
- training on autopilot and other things.
+ It is FAA approved and is used for pilot training 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "X-PlaneCertified"
+
+\end_inset
+
+, advertising such features as Artificially Controlled Air Traffic Controller,
+ an extensive amount of airports from real life, a wide range of aircrafts
+ available, training on autopilot and other things.
 \end_layout
 
 \begin_layout Standard
@@ -2658,7 +2664,7 @@ To avoid players dismissing the game too soon, it should require little
 \end_layout
 
 \begin_layout Standard
-Lastly, the game controls are a very important aspect.
+Lastly, the game controls are a very important.
  The player needs to feel that he is in control of his character and/or
  units, and be able to issue commands effectively.
  To attain a large enough level of control for the player it is important
@@ -2937,8 +2943,8 @@ key "KinectRecycle"
  This project had a focus on how to best create a game that is fun, while
  still keeping the learning aspect.
  There is a multiplayer aspect in this game as well, with both cooperative
- and competitive moduses, although due to the older version of kinect it
- is limited to two players.
+ and competitive modes, although due to the older version of kinect it is
+ limited to two players.
  The results show an interesting trend in that the multiplayer mode is largely
  preferred over single player, by over 90
 \begin_inset Formula $\%$
